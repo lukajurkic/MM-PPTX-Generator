@@ -39,3 +39,4 @@ jobs:
 
       - name: Run song indexing & production build
         run: npm run build
+

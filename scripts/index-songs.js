@@ -9,6 +9,17 @@ const metadataOptionsFile = path.join(outputDir, 'metadata-options.json');
 // Ensure output directory exists
 if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir, { recursive: true });
+} else {
+  // Clean up any stale individual song files from assets/songs (only compiled index.json and metadata-options.json are needed)
+  const existingAssetFiles = fs.readdirSync(outputDir);
+  for (const assetFile of existingAssetFiles) {
+    if (assetFile !== 'index.json' && assetFile !== 'metadata-options.json') {
+      const fullPath = path.join(outputDir, assetFile);
+      if (fs.statSync(fullPath).isFile()) {
+        fs.unlinkSync(fullPath);
+      }
+    }
+  }
 }
 
 if (!fs.existsSync(songsDir)) {
@@ -77,10 +88,6 @@ for (const file of jsonFiles) {
     const firstStanzaLines = stanzas[0].split('\n').map(l => l.trim()).filter(Boolean);
     const preview = firstStanzaLines.slice(0, 2).join(' / ');
 
-    // Copy file to assets
-    const targetAssetFile = path.join(outputDir, file);
-    fs.copyFileSync(filePath, targetAssetFile);
-
     totalSlides += stanzas.length;
 
     songs.push({
@@ -122,9 +129,6 @@ for (const file of txtFiles) {
 
   const firstStanzaLines = stanzas[0].split('\n').map(l => l.trim()).filter(Boolean);
   const preview = firstStanzaLines.slice(0, 2).join(' / ');
-
-  const targetAssetFile = path.join(outputDir, file);
-  fs.copyFileSync(filePath, targetAssetFile);
 
   totalSlides += stanzas.length;
 
