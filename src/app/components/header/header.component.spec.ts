@@ -47,9 +47,11 @@ describe('HeaderComponent', () => {
       id: 'test-song',
       title: 'Test Song',
       slug: 'test-song',
-      fileName: 'Test Song.txt',
+      fileName: 'Test Song.json',
       stanzaCount: 2,
       preview: 'Preview',
+      categories: ['Slavljenje'],
+      massSections: ['Ulazna'],
       stanzas: ['Stanza 1', 'Stanza 2']
     });
 

@@ -26,6 +26,14 @@ export interface Translations {
   addBtn: string;
   addedBtn: (count: number) => string;
   lyricPreviewHint: string;
+  categoriesLabel: string;
+  massSectionsLabel: string;
+  filterByCategory: string;
+  filterByMassSection: string;
+  filterAllCategories: string;
+  filterAllMassSections: string;
+  clearFiltersBtn: string;
+  activeFiltersLabel: (count: number) => string;
 
   // Playlist Queue (Right Panel)
   queueTitle: string;
@@ -55,6 +63,12 @@ export interface Translations {
   fieldLyrics: string;
   fieldLyricsHint: string;
   fieldLyricsPlaceholder: string;
+  fieldCategory: string;
+  fieldCategoryPlaceholder: string;
+  fieldCategoryHint: string;
+  fieldMassSection: string;
+  fieldMassSectionPlaceholder: string;
+  fieldMassSectionHint: string;
   fieldSubmitterName: string;
   fieldSubmitterNamePlaceholder: string;
   fieldSubmitterEmail: string;
@@ -105,6 +119,14 @@ const TRANSLATIONS_HR: Translations = {
   addBtn: 'Dodaj',
   addedBtn: (count: number) => `Dodano (${count})`,
   lyricPreviewHint: 'Pregled stihova',
+  categoriesLabel: 'Kategorije',
+  massSectionsLabel: 'Dijelovi mise',
+  filterByCategory: 'Filtriraj po kategoriji',
+  filterByMassSection: 'Filtriraj po dijelu mise',
+  filterAllCategories: 'Sve kategorije',
+  filterAllMassSections: 'Svi dijelovi mise',
+  clearFiltersBtn: 'Poništi filtere',
+  activeFiltersLabel: (count: number) => `${count} aktivnih filtera`,
 
   // Playlist Queue
   queueTitle: 'Lista za prezentaciju',
@@ -134,6 +156,12 @@ const TRANSLATIONS_HR: Translations = {
   fieldLyrics: 'Stihovi',
   fieldLyricsHint: 'Odvojite strofe praznim retkom za podjelu na slajdove',
   fieldLyricsPlaceholder: 'Unesite ili zalijepite stihove ovdje...\n\nSvaku strofu i refren odvojite jednim praznim redom za izradu zasebnih slajdova.',
+  fieldCategory: 'Kategorija',
+  fieldCategoryPlaceholder: 'Odaberite ili upišite kategoriju (npr. Slavljenje, Zahvala...)',
+  fieldCategoryHint: 'Odaberite s popisa ili upišite vlastitu kategoriju',
+  fieldMassSection: 'Dio mise',
+  fieldMassSectionPlaceholder: 'Odaberite ili upišite dio mise (npr. Ulazna, Pričesna...)',
+  fieldMassSectionHint: 'Odaberite s popisa ili upišite vlastiti dio mise',
   fieldSubmitterName: 'Vaše ime',
   fieldSubmitterNamePlaceholder: 'npr., Ivan Horvat',
   fieldSubmitterEmail: 'Vaša e-pošta',
@@ -173,6 +201,14 @@ const TRANSLATIONS_EN: Translations = {
   addBtn: 'Add',
   addedBtn: (count: number) => `Added (${count})`,
   lyricPreviewHint: 'Lyric preview',
+  categoriesLabel: 'Categories',
+  massSectionsLabel: 'Mass Sections',
+  filterByCategory: 'Filter by Category',
+  filterByMassSection: 'Filter by Mass Section',
+  filterAllCategories: 'All Categories',
+  filterAllMassSections: 'All Mass Sections',
+  clearFiltersBtn: 'Clear Filters',
+  activeFiltersLabel: (count: number) => `${count} active filters`,
 
   // Playlist Queue
   queueTitle: 'Presentation Playlist',
@@ -202,6 +238,12 @@ const TRANSLATIONS_EN: Translations = {
   fieldLyrics: 'Lyrics',
   fieldLyricsHint: 'Separate stanzas by empty lines for slides',
   fieldLyricsPlaceholder: 'Enter or paste lyrics here...\n\nSeparate each verse and chorus with a blank line to divide into presentation slides.',
+  fieldCategory: 'Category',
+  fieldCategoryPlaceholder: 'Select or type category (e.g. Praise & Worship, Thanksgiving...)',
+  fieldCategoryHint: 'Select from preset list or type a custom category',
+  fieldMassSection: 'Mass Section',
+  fieldMassSectionPlaceholder: 'Select or type mass section (e.g. Entrance, Communion...)',
+  fieldMassSectionHint: 'Select from preset list or type a custom mass section',
   fieldSubmitterName: 'Your Name',
   fieldSubmitterNamePlaceholder: 'e.g., John Doe',
   fieldSubmitterEmail: 'Your Email',
@@ -269,3 +311,4 @@ export class TranslationService {
     return 'hr';
   }
 }
+

@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RequestSongService } from '../../services/request-song.service';
 import { TranslationService } from '../../services/translation.service';
 import { SongRequestPayload } from '../../models/song-request.model';
+import { PRESET_CATEGORIES, PRESET_MASS_SECTIONS } from '../../constants/song-metadata.constants';
 
 @Component({
   selector: 'app-request-song-modal',
@@ -89,6 +90,53 @@ import { SongRequestPayload } from '../../models/song-request.model';
               required
               [disabled]="isSubmitting()"
             />
+          </div>
+
+          <!-- Metadata: Category & Mass Section (Optional presets or custom) -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="category" class="form-label">
+                {{ t().fieldCategory }} <span class="optional">{{ t().optionalMark }}</span>
+              </label>
+              <input
+                id="category"
+                type="text"
+                name="category"
+                list="preset-categories-list"
+                class="form-input"
+                [(ngModel)]="form.category"
+                [placeholder]="t().fieldCategoryPlaceholder"
+                [disabled]="isSubmitting()"
+              />
+              <datalist id="preset-categories-list">
+                @for (cat of presetCategories; track cat) {
+                  <option [value]="cat"></option>
+                }
+              </datalist>
+              <span class="hint-subtext">{{ t().fieldCategoryHint }}</span>
+            </div>
+
+            <div class="form-group">
+              <label for="mass-section" class="form-label">
+                {{ t().fieldMassSection }} <span class="optional">{{ t().optionalMark }}</span>
+              </label>
+              <input
+                id="mass-section"
+                type="text"
+                name="massSection"
+                list="preset-sections-list"
+                class="form-input"
+                [(ngModel)]="form.massSection"
+                [placeholder]="t().fieldMassSectionPlaceholder"
+                [disabled]="isSubmitting()"
+              />
+              <datalist id="preset-sections-list">
+                @for (sec of presetMassSections; track sec) {
+                  <option [value]="sec"></option>
+                }
+              </datalist>
+              <span class="hint-subtext">{{ t().fieldMassSectionHint }}</span>
+            </div>
           </div>
 
           <!-- Lyrics (Required, Multiline) -->
@@ -376,6 +424,12 @@ import { SongRequestPayload } from '../../models/song-request.model';
       to { transform: rotate(360deg); }
     }
 
+    .hint-subtext {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
     @media (max-width: 600px) {
       .form-row {
         grid-template-columns: 1fr;
@@ -396,8 +450,13 @@ export class RequestSongModalComponent {
   readonly errorMessage = signal<string | null>(null);
   readonly successMessage = signal<string | null>(null);
 
+  readonly presetCategories = PRESET_CATEGORIES;
+  readonly presetMassSections = PRESET_MASS_SECTIONS;
+
   form: SongRequestPayload = {
     title: '',
+    category: '',
+    massSection: '',
     lyrics: '',
     submitterName: '',
     submitterEmail: '',
@@ -439,6 +498,8 @@ export class RequestSongModalComponent {
       // Reset form after successful submission
       this.form = {
         title: '',
+        category: '',
+        massSection: '',
         lyrics: '',
         submitterName: '',
         submitterEmail: '',

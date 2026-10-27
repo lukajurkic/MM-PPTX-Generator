@@ -1,4 +1,4 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SongService } from '../../services/song.service';
@@ -11,7 +11,7 @@ import { Song } from '../../models/song.model';
   imports: [CommonModule, FormsModule],
   template: `
     <div class="catalog-card">
-      <!-- Catalog Header & Search Controls -->
+      <!-- Catalog Header & Search / Filter Controls -->
       <div class="catalog-header">
         <div class="title-row">
           <h2 class="catalog-title">{{ t().catalogTitle }}</h2>
@@ -50,6 +50,146 @@ import { Song } from '../../models/song.model';
             </button>
           }
         </div>
+
+        <!-- Metadata Filter Toolbar -->
+        <div class="filter-toolbar">
+          <div class="filter-dropdown-group">
+            <!-- Category Filter Trigger -->
+            <button
+              type="button"
+              class="filter-trigger-btn"
+              [class.active]="selectedCategories().length > 0"
+              (click)="toggleCategoryPanel()"
+              [title]="t().filterByCategory"
+            >
+              <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 6h16M7 12h10M10 18h4"/>
+              </svg>
+              <span>{{ t().categoriesLabel }}</span>
+              @if (selectedCategories().length > 0) {
+                <span class="filter-badge">{{ selectedCategories().length }}</span>
+              }
+              <svg class="chevron-icon" [class.rotated]="isCategoryOpen()" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </button>
+
+            <!-- Mass Section Filter Trigger -->
+            <button
+              type="button"
+              class="filter-trigger-btn"
+              [class.active]="selectedMassSections().length > 0"
+              (click)="toggleMassSectionPanel()"
+              [title]="t().filterByMassSection"
+            >
+              <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2v20M2 12h20"/>
+              </svg>
+              <span>{{ t().massSectionsLabel }}</span>
+              @if (selectedMassSections().length > 0) {
+                <span class="filter-badge">{{ selectedMassSections().length }}</span>
+              }
+              <svg class="chevron-icon" [class.rotated]="isMassSectionOpen()" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Clear All Active Filters Button -->
+          @if (activeFilterCount() > 0) {
+            <button
+              type="button"
+              class="clear-filters-btn"
+              (click)="onClearAllFilters()"
+              [title]="t().clearFiltersBtn"
+            >
+              <svg class="btn-clear-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M18 6 6 18M6 6l12 12"/>
+              </svg>
+              <span>{{ t().clearFiltersBtn }}</span>
+            </button>
+          }
+        </div>
+
+        <!-- Collapsible Category Selection Popover/Chips -->
+        @if (isCategoryOpen()) {
+          <div class="filter-panel fade-in">
+            <div class="filter-panel-header">
+              <span class="panel-title">{{ t().filterByCategory }}</span>
+              @if (selectedCategories().length > 0) {
+                <button type="button" class="panel-reset-btn" (click)="onClearCategoryFilters()">
+                  {{ t().clearFiltersBtn }}
+                </button>
+              }
+            </div>
+            <div class="chips-container">
+              @for (category of allCategories(); track category) {
+                <button
+                  type="button"
+                  class="filter-chip"
+                  [class.selected]="isCategorySelected(category)"
+                  (click)="onToggleCategory(category)"
+                >
+                  <span class="chip-text">{{ category }}</span>
+                  @if (isCategorySelected(category)) {
+                    <svg class="chip-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                      <path d="M20 6 9 17l-5-5"/>
+                    </svg>
+                  }
+                </button>
+              }
+            </div>
+          </div>
+        }
+
+        <!-- Collapsible Mass Section Selection Popover/Chips -->
+        @if (isMassSectionOpen()) {
+          <div class="filter-panel fade-in">
+            <div class="filter-panel-header">
+              <span class="panel-title">{{ t().filterByMassSection }}</span>
+              @if (selectedMassSections().length > 0) {
+                <button type="button" class="panel-reset-btn" (click)="onClearMassSectionFilters()">
+                  {{ t().clearFiltersBtn }}
+                </button>
+              }
+            </div>
+            <div class="chips-container">
+              @for (section of allMassSections(); track section) {
+                <button
+                  type="button"
+                  class="filter-chip section-chip"
+                  [class.selected]="isMassSectionSelected(section)"
+                  (click)="onToggleMassSection(section)"
+                >
+                  <span class="chip-text">{{ section }}</span>
+                  @if (isMassSectionSelected(section)) {
+                    <svg class="chip-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                      <path d="M20 6 9 17l-5-5"/>
+                    </svg>
+                  }
+                </button>
+              }
+            </div>
+          </div>
+        }
+
+        <!-- Active Filter Badges Bar -->
+        @if (selectedCategories().length > 0 || selectedMassSections().length > 0) {
+          <div class="active-chips-strip">
+            @for (cat of selectedCategories(); track cat) {
+              <span class="active-tag tag-category" (click)="onToggleCategory(cat)" [title]="'Ukloni filter: ' + cat">
+                {{ cat }}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+              </span>
+            }
+            @for (sec of selectedMassSections(); track sec) {
+              <span class="active-tag tag-section" (click)="onToggleMassSection(sec)" [title]="'Ukloni filter: ' + sec">
+                {{ sec }}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+              </span>
+            }
+          </div>
+        }
       </div>
 
       <!-- Scrollable Song List -->
@@ -68,10 +208,10 @@ import { Song } from '../../models/song.model';
               </svg>
             </div>
             <h3>{{ t().noSongsFoundTitle }}</h3>
-            @if (searchQuery()) {
-              <p>{{ t().noSongsFoundDesc(searchQuery()) }}</p>
-              <button type="button" class="btn btn-secondary btn-sm" (click)="onClearSearch()">
-                {{ t().clearSearchBtn }}
+            @if (searchQuery() || selectedCategories().length > 0 || selectedMassSections().length > 0) {
+              <p>{{ t().noSongsFoundDesc(searchQuery() || activeFiltersSummary()) }}</p>
+              <button type="button" class="btn btn-secondary btn-sm" (click)="onClearAllFilters()">
+                {{ t().clearFiltersBtn }}
               </button>
             } @else {
               <p>{{ t().catalogEmptyDesc }}</p>
@@ -87,6 +227,32 @@ import { Song } from '../../models/song.model';
                     {{ t().slidesCount(song.stanzaCount) }}
                   </span>
                 </div>
+
+                <!-- Metadata Tags (Mass Section & Category) -->
+                @if ((song.massSections && song.massSections.length > 0) || (song.categories && song.categories.length > 0)) {
+                  <div class="song-tags-row">
+                    @for (sec of song.massSections; track sec) {
+                      <span
+                        class="tag-badge badge-mass-section"
+                        [class.active-filter]="isMassSectionSelected(sec)"
+                        (click)="onToggleMassSection(sec)"
+                        [title]="'Filtriraj po dijelu mise: ' + sec"
+                      >
+                        {{ sec }}
+                      </span>
+                    }
+                    @for (cat of song.categories; track cat) {
+                      <span
+                        class="tag-badge badge-category"
+                        [class.active-filter]="isCategorySelected(cat)"
+                        (click)="onToggleCategory(cat)"
+                        [title]="'Filtriraj po kategoriji: ' + cat"
+                      >
+                        {{ cat }}
+                      </span>
+                    }
+                  </div>
+                }
 
                 @if (song.preview) {
                   <p class="song-preview" [title]="t().lyricPreviewHint">{{ song.preview }}</p>
@@ -136,12 +302,12 @@ import { Song } from '../../models/song.model';
     }
 
     .catalog-header {
-      padding: 18px 20px 14px;
+      padding: 16px 18px 12px;
       border-bottom: 1px solid var(--border-subtle);
       background-color: var(--bg-surface);
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
     }
 
     .title-row {
@@ -187,7 +353,8 @@ import { Song } from '../../models/song.model';
       padding-right: 36px;
       background-color: var(--bg-input);
       border-color: var(--border-default);
-      height: 40px;
+      height: 38px;
+      font-size: 13px;
     }
 
     .clear-search-btn {
@@ -212,6 +379,228 @@ import { Song } from '../../models/song.model';
       color: var(--text-primary);
     }
 
+    /* Filter Toolbar */
+    .filter-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-dropdown-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-trigger-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--bg-app);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      color: var(--text-secondary);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 5px 9px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .filter-trigger-btn:hover {
+      background: var(--bg-surface-elevated);
+      color: var(--text-primary);
+      border-color: var(--border-default);
+    }
+
+    .filter-trigger-btn.active {
+      background: rgba(99, 102, 241, 0.15);
+      border-color: var(--accent-primary);
+      color: #c7d2fe;
+    }
+
+    .filter-icon {
+      width: 13px;
+      height: 13px;
+      opacity: 0.85;
+    }
+
+    .chevron-icon {
+      width: 12px;
+      height: 12px;
+      transition: transform 0.2s ease;
+    }
+
+    .chevron-icon.rotated {
+      transform: rotate(180deg);
+    }
+
+    .filter-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--accent-primary);
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 700;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+    }
+
+    .clear-filters-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: none;
+      border: none;
+      color: var(--accent-danger);
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 4px 6px;
+      border-radius: var(--radius-sm);
+      transition: background 0.15s ease;
+    }
+
+    .clear-filters-btn:hover {
+      background: var(--accent-danger-light);
+    }
+
+    .btn-clear-svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    /* Collapsible Filter Panel */
+    .filter-panel {
+      background: var(--bg-app);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-md);
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 2px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .filter-panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .panel-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    .panel-reset-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 11px;
+      cursor: pointer;
+    }
+
+    .panel-reset-btn:hover {
+      color: var(--text-primary);
+    }
+
+    .chips-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      max-height: 150px;
+      overflow-y: auto;
+    }
+
+    .filter-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-full);
+      padding: 4px 10px;
+      font-size: 11px;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .filter-chip:hover {
+      border-color: var(--border-default);
+      color: var(--text-primary);
+      background: #1e293b;
+    }
+
+    .filter-chip.selected {
+      background: var(--accent-primary);
+      color: #ffffff;
+      border-color: var(--accent-primary);
+      font-weight: 600;
+    }
+
+    .section-chip.selected {
+      background: #0284c7; /* Cyan / Sky for Mass section distinction */
+      border-color: #0284c7;
+    }
+
+    .chip-check {
+      width: 10px;
+      height: 10px;
+    }
+
+    /* Active Chips Strip */
+    .active-chips-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      padding-top: 2px;
+    }
+
+    .active-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: opacity 0.15s ease;
+    }
+
+    .active-tag:hover {
+      opacity: 0.8;
+    }
+
+    .active-tag svg {
+      width: 11px;
+      height: 11px;
+    }
+
+    .active-tag.tag-category {
+      background-color: rgba(99, 102, 241, 0.2);
+      border: 1px solid rgba(99, 102, 241, 0.5);
+      color: #c7d2fe;
+    }
+
+    .active-tag.tag-section {
+      background-color: rgba(2, 132, 199, 0.2);
+      border: 1px solid rgba(2, 132, 199, 0.5);
+      color: #bae6fd;
+    }
+
+    /* Song Catalog List */
     .catalog-list {
       flex: 1;
       overflow-y: auto;
@@ -265,6 +654,52 @@ import { Song } from '../../models/song.model';
     .stanza-badge {
       font-size: 11px;
       padding: 1px 7px;
+    }
+
+    /* Metadata Tag Row on Song Card */
+    .song-tags-row {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      flex-wrap: wrap;
+      margin-top: 2px;
+      margin-bottom: 2px;
+    }
+
+    .tag-badge {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 1px 6px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+
+    .badge-mass-section {
+      background-color: rgba(2, 132, 199, 0.15);
+      color: #7dd3fc;
+      border: 1px solid rgba(2, 132, 199, 0.3);
+    }
+
+    .badge-mass-section:hover,
+    .badge-mass-section.active-filter {
+      background-color: #0284c7;
+      color: #ffffff;
+      border-color: #0284c7;
+    }
+
+    .badge-category {
+      background-color: rgba(99, 102, 241, 0.15);
+      color: #c7d2fe;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+    }
+
+    .badge-category:hover,
+    .badge-category.active-filter {
+      background-color: var(--accent-primary);
+      color: #ffffff;
+      border-color: var(--accent-primary);
     }
 
     .song-preview {
@@ -370,12 +805,66 @@ export class SongCatalogComponent {
   readonly searchQuery = this.songService.searchQuery;
   readonly isLoading = this.songService.isLoading;
 
+  // Metadata filter state
+  readonly allCategories = this.songService.allCategories;
+  readonly allMassSections = this.songService.allMassSections;
+  readonly selectedCategories = this.songService.selectedCategories;
+  readonly selectedMassSections = this.songService.selectedMassSections;
+  readonly activeFilterCount = this.songService.activeFilterCount;
+
+  readonly isCategoryOpen = signal<boolean>(false);
+  readonly isMassSectionOpen = signal<boolean>(false);
+
+  toggleCategoryPanel(): void {
+    this.isCategoryOpen.update(v => !v);
+    if (this.isCategoryOpen()) {
+      this.isMassSectionOpen.set(false);
+    }
+  }
+
+  toggleMassSectionPanel(): void {
+    this.isMassSectionOpen.update(v => !v);
+    if (this.isMassSectionOpen()) {
+      this.isCategoryOpen.set(false);
+    }
+  }
+
   onSearchChange(query: string): void {
     this.songService.setSearchQuery(query);
   }
 
   onClearSearch(): void {
     this.songService.clearSearchQuery();
+  }
+
+  onToggleCategory(category: string): void {
+    this.songService.toggleCategoryFilter(category);
+  }
+
+  onToggleMassSection(section: string): void {
+    this.songService.toggleMassSectionFilter(section);
+  }
+
+  isCategorySelected(category: string): boolean {
+    return this.songService.isCategorySelected(category);
+  }
+
+  isMassSectionSelected(section: string): boolean {
+    return this.songService.isMassSectionSelected(section);
+  }
+
+  onClearCategoryFilters(): void {
+    this.songService.clearCategoryFilters();
+  }
+
+  onClearMassSectionFilters(): void {
+    this.songService.clearMassSectionFilters();
+  }
+
+  onClearAllFilters(): void {
+    this.songService.clearAllFilters();
+    this.isCategoryOpen.set(false);
+    this.isMassSectionOpen.set(false);
   }
 
   onAddSong(song: Song): void {
@@ -389,5 +878,15 @@ export class SongCatalogComponent {
   getSongOccurrence(songId: string): number {
     return this.songService.getSongOccurrenceCount(songId);
   }
-}
 
+  activeFiltersSummary(): string {
+    const parts: string[] = [];
+    if (this.selectedCategories().length > 0) {
+      parts.push(this.selectedCategories().join(', '));
+    }
+    if (this.selectedMassSections().length > 0) {
+      parts.push(this.selectedMassSections().join(', '));
+    }
+    return parts.join(' | ');
+  }
+}

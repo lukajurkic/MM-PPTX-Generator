@@ -12,9 +12,11 @@ describe('SongService', () => {
       id: 'amazing-grace',
       title: 'Amazing Grace',
       slug: 'amazing-grace',
-      fileName: 'Amazing Grace.txt',
+      fileName: 'Amazing Grace.json',
       stanzaCount: 4,
       preview: 'Amazing grace how sweet the sound',
+      categories: ['Slavljenje', 'Zahvala'],
+      massSections: ['Ulazna'],
       stanzas: [
         'Amazing grace how sweet the sound\nThat saved a wretch like me',
         'I once was lost, but now I am found\nWas blind, but now I see'
@@ -24,9 +26,11 @@ describe('SongService', () => {
       id: 'how-great-thou-art',
       title: 'How Great Thou Art',
       slug: 'how-great-thou-art',
-      fileName: 'How Great Thou Art.txt',
+      fileName: 'How Great Thou Art.json',
       stanzaCount: 4,
       preview: 'O Lord, my God, when I in awesome wonder',
+      categories: ['Meditativne'],
+      massSections: ['Pričesna', 'Klanjanje'],
       stanzas: [
         'O Lord, my God, when I in awesome wonder\nConsider all the worlds Thy Hands have made'
       ]
@@ -126,6 +130,54 @@ describe('SongService', () => {
 
     service.clearPlaylist();
     expect(service.playlistCount()).toBe(0);
+  });
+
+  it('should filter songs by selected category using OR logic', () => {
+    service.loadSongs().subscribe();
+    httpMock.expectOne('assets/songs/index.json').flush(mockSongs);
+
+    service.toggleCategoryFilter('Meditativne');
+    expect(service.filteredSongs().length).toBe(1);
+    expect(service.filteredSongs()[0].id).toBe('how-great-thou-art');
+
+    // Add another category (OR logic)
+    service.toggleCategoryFilter('Slavljenje');
+    expect(service.filteredSongs().length).toBe(2);
+
+    // Toggle off Meditativne
+    service.toggleCategoryFilter('Meditativne');
+    expect(service.filteredSongs().length).toBe(1);
+    expect(service.filteredSongs()[0].id).toBe('amazing-grace');
+  });
+
+  it('should filter songs by selected mass section using OR logic', () => {
+    service.loadSongs().subscribe();
+    httpMock.expectOne('assets/songs/index.json').flush(mockSongs);
+
+    service.toggleMassSectionFilter('Klanjanje');
+    expect(service.filteredSongs().length).toBe(1);
+    expect(service.filteredSongs()[0].id).toBe('how-great-thou-art');
+
+    service.clearMassSectionFilters();
+    expect(service.filteredSongs().length).toBe(2);
+  });
+
+  it('should clear all filters', () => {
+    service.loadSongs().subscribe();
+    httpMock.expectOne('assets/songs/index.json').flush(mockSongs);
+
+    service.setSearchQuery('grace');
+    service.toggleCategoryFilter('Slavljenje');
+    service.toggleMassSectionFilter('Ulazna');
+
+    expect(service.activeFilterCount()).toBe(3);
+
+    service.clearAllFilters();
+    expect(service.activeFilterCount()).toBe(0);
+    expect(service.searchQuery()).toBe('');
+    expect(service.selectedCategories().length).toBe(0);
+    expect(service.selectedMassSections().length).toBe(0);
+    expect(service.filteredSongs().length).toBe(2);
   });
 });
 

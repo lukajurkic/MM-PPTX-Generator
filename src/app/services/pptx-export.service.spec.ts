@@ -12,9 +12,11 @@ describe('PptxExportService', () => {
         id: 'amazing-grace',
         title: 'Amazing Grace',
         slug: 'amazing-grace',
-        fileName: 'Amazing Grace.txt',
+        fileName: 'Amazing Grace.json',
         stanzaCount: 2,
         preview: 'Amazing grace how sweet the sound',
+        categories: ['Slavljenje'],
+        massSections: ['Ulazna'],
         stanzas: [
           'Amazing grace how sweet the sound\nThat saved a wretch like me',
           'I once was lost, but now I am found\nWas blind, but now I see'
@@ -27,9 +29,11 @@ describe('PptxExportService', () => {
         id: 'how-great-thou-art',
         title: 'How Great Thou Art',
         slug: 'how-great-thou-art',
-        fileName: 'How Great Thou Art.txt',
+        fileName: 'How Great Thou Art.json',
         stanzaCount: 1,
         preview: 'O Lord, my God, when I in awesome wonder',
+        categories: ['Zahvala'],
+        massSections: ['Pričesna'],
         stanzas: [
           'O Lord, my God, when I in awesome wonder\nConsider all the worlds Thy Hands have made'
         ]

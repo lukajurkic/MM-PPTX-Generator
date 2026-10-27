@@ -15,9 +15,11 @@ describe('PlaylistQueueComponent', () => {
     id: 'amazing-grace',
     title: 'Amazing Grace',
     slug: 'amazing-grace',
-    fileName: 'Amazing Grace.txt',
+    fileName: 'Amazing Grace.json',
     stanzaCount: 4,
     preview: 'Amazing grace how sweet the sound',
+    categories: ['Slavljenje'],
+    massSections: ['Ulazna'],
     stanzas: ['S1', 'S2', 'S3', 'S4']
   };
 
@@ -25,9 +27,11 @@ describe('PlaylistQueueComponent', () => {
     id: 'how-great-thou-art',
     title: 'How Great Thou Art',
     slug: 'how-great-thou-art',
-    fileName: 'How Great Thou Art.txt',
+    fileName: 'How Great Thou Art.json',
     stanzaCount: 4,
     preview: 'O Lord, my God',
+    categories: ['Zahvala'],
+    massSections: ['Pričesna'],
     stanzas: ['S1', 'S2', 'S3', 'S4']
   };
 

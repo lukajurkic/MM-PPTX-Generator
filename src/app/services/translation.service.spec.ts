@@ -24,6 +24,8 @@ describe('TranslationService', () => {
     expect(service.t().appTitle).toBe('PPTX Izrađivač Pjesama');
     expect(service.t().catalogTitle).toBe('Katalog pjesama');
     expect(service.t().queueTitle).toBe('Lista za prezentaciju');
+    expect(service.t().categoriesLabel).toBe('Kategorije');
+    expect(service.t().massSectionsLabel).toBe('Dijelovi mise');
   });
 
   it('should format Croatian plurals correctly for songs count', () => {
@@ -57,3 +59,4 @@ describe('TranslationService', () => {
     expect(localStorage.getItem('pptx_maker_lang')).toBe('en');
   });
 });
+
