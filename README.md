@@ -1,27 +1,70 @@
-# MyUiApp
+# PPTX Lyrics Presentation Web Maker
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+A web application deployed on **GitHub Pages** that allows users to select songs from a lyric repository and generate a formatted PowerPoint (`.pptx`) presentation ready for church, worship, karaoke, or event projection. Also provides a song request form that forwards new song requests to the maintainer via email.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 📐 System Architecture & Design Specification
 
-## Code scaffolding
+### 1. Song Storage & Slide Parsing
+* **Location:** Dedicated `songs/` directory in the repository.
+* **Format:** Plain text (`.txt`) files where the filename is the song title (e.g., `Amazing Grace.txt`).
+* **Slide Splitting:** Stanzas are separated by empty/blank lines. Each stanza becomes an individual slide.
+* **Song Manifest:** A pre-build indexing script (`scripts/index-songs.js`) automatically scans `songs/`, parses the stanzas, and generates `src/assets/songs/index.json` so the client-side app can instantly search and load songs.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### 2. PowerPoint (`.pptx`) Settings
+* **Generation Engine:** In-browser client-side generator via `pptxgenjs` (no server needed, 100% static GitHub Pages compatible).
+* **Aspect Ratio:** 16:9 Widescreen.
+* **Background:** Solid Black (`#000000`).
+* **Typography:** Verdana font, bold, **ALL CAPS**, White (`#FFFFFF`), with auto-fit sizing (36–44pt).
+* **Alignment:** Centered both vertically and horizontally.
+* **Flow:** Direct lyrics only (stanzas), with a clean black blank slide between distinct songs.
+* **File Naming:** Date-based filename generated on download (e.g., `YYYY-MM-DD.pptx` based on the date the presentation is created).
 
-## Build
+### 3. User Interface (UI/UX)
+* **Theme:** Sleek, modern slate/dark UI matching the presentation aesthetic.
+* **Two-Panel Layout:**
+  * **Left Panel:** Catalog of all available songs with instant search and filter, showing stanza counts and a quick-add button.
+  * **Right Panel:** Selected playlist queue displaying song order, reorder buttons (Move Up / Move Down), remove button, and a prominent **"Generate & Download Presentation"** button.
+* **Request Song Modal:** Accessible from the top navigation bar.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 4. "Request New Song" Email Service
+* **Mechanism:** Free static form service (Web3Forms / Formspree) requiring zero server backend.
+* **Form Fields:**
+  * Song Title *(required)*
+  * Lyrics *(required, multiline)*
+  * Submitter Name / Email *(optional)*
+  * Notes / Comments *(optional)*
+* **Config:** Configurable access key in app config, with clear inline instructions on how to set it to your email address.
 
-## Running unit tests
+### 5. GitHub Pages & CI/CD
+* **Static SPA Configuration:** Configured for client-side single-page app deployment on GitHub Pages.
+* **GitHub Actions Workflow:** `.github/workflows/deploy.yml` that runs on every push:
+  1. Scans `songs/` and generates the song manifest.
+  2. Builds the Angular production bundle with proper base href.
+  3. Automatically deploys to GitHub Pages.
+  *(Adding a new song in the future is as simple as dropping a `.txt` file into `songs/` and pushing to GitHub!)*
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
+## 🚀 Development & Workflow
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Prerequisites
+- Node.js (v18+)
+- npm
 
-## Further help
+### Local Development
+```bash
+# Install dependencies
+npm install
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# Run song indexing script and start development server
+npm run prebuild
+npm start
+```
+Navigate to `http://localhost:4200/`.
+
+### Adding Songs Manually
+1. Add a new `.txt` file into the `songs/` folder (e.g., `songs/How Great Thou Art.txt`).
+2. Separate stanzas by empty lines.
+3. Commit and push to GitHub — GitHub Actions will automatically index the song, re-build, and deploy the updated app to GitHub Pages.
