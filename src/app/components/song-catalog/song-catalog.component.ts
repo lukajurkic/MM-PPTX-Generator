@@ -220,7 +220,16 @@ import { Song } from '../../models/song.model';
         } @else {
           @for (song of filteredSongs(); track song.id) {
             <div class="song-item fade-in" role="listitem">
-              <div class="song-info">
+              <div
+                class="song-info clickable"
+                (click)="onOpenLyrics(song)"
+                tabindex="0"
+                role="button"
+                (keydown.enter)="onOpenLyrics(song)"
+                (keydown.space)="onOpenLyrics(song); $event.preventDefault()"
+                [title]="t().clickToViewLyricsHint"
+                [attr.aria-label]="t().clickToViewLyricsHint + ': ' + song.title"
+              >
                 <div class="song-header">
                   <h3 class="song-title">{{ song.title }}</h3>
                   <span class="badge badge-primary stanza-badge">
@@ -235,7 +244,7 @@ import { Song } from '../../models/song.model';
                       <span
                         class="tag-badge badge-mass-section"
                         [class.active-filter]="isMassSectionSelected(sec)"
-                        (click)="onToggleMassSection(sec)"
+                        (click)="onToggleMassSection(sec); $event.stopPropagation()"
                         [title]="'Filtriraj po dijelu mise: ' + sec"
                       >
                         {{ sec }}
@@ -245,7 +254,7 @@ import { Song } from '../../models/song.model';
                       <span
                         class="tag-badge badge-category"
                         [class.active-filter]="isCategorySelected(cat)"
-                        (click)="onToggleCategory(cat)"
+                        (click)="onToggleCategory(cat); $event.stopPropagation()"
                         [title]="'Filtriraj po kategoriji: ' + cat"
                       >
                         {{ cat }}
@@ -266,7 +275,7 @@ import { Song } from '../../models/song.model';
                   [class.btn-primary]="!isSongInPlaylist(song.id)"
                   [class.btn-secondary]="isSongInPlaylist(song.id)"
                   [class.in-playlist]="isSongInPlaylist(song.id)"
-                  (click)="onAddSong(song)"
+                  (click)="onAddSong(song); $event.stopPropagation()"
                   [attr.aria-label]="t().addBtn + ' ' + song.title"
                 >
                   @if (isSongInPlaylist(song.id)) {
@@ -635,6 +644,21 @@ import { Song } from '../../models/song.model';
       gap: 4px;
     }
 
+    .song-info.clickable {
+      cursor: pointer;
+      border-radius: var(--radius-sm);
+      outline: none;
+      transition: opacity 0.15s ease;
+    }
+
+    .song-info.clickable:hover .song-title {
+      color: var(--accent-primary);
+    }
+
+    .song-info.clickable:focus-visible {
+      box-shadow: 0 0 0 2px var(--accent-primary);
+    }
+
     .song-header {
       display: flex;
       align-items: center;
@@ -869,6 +893,10 @@ export class SongCatalogComponent {
 
   onAddSong(song: Song): void {
     this.songService.addToPlaylist(song);
+  }
+
+  onOpenLyrics(song: Song): void {
+    this.songService.openLyrics(song);
   }
 
   isSongInPlaylist(songId: string): boolean {

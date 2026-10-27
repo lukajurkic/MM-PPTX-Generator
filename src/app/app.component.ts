@@ -4,6 +4,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { SongCatalogComponent } from './components/song-catalog/song-catalog.component';
 import { PlaylistQueueComponent } from './components/playlist-queue/playlist-queue.component';
 import { RequestSongModalComponent } from './components/request-song-modal/request-song-modal.component';
+import { SongLyricsModalComponent } from './components/song-lyrics-modal/song-lyrics-modal.component';
 import { SongService } from './services/song.service';
 
 @Component({
@@ -14,7 +15,8 @@ import { SongService } from './services/song.service';
     HeaderComponent,
     SongCatalogComponent,
     PlaylistQueueComponent,
-    RequestSongModalComponent
+    RequestSongModalComponent,
+    SongLyricsModalComponent
   ],
   template: `
     <div class="app-layout">
@@ -41,6 +43,11 @@ import { SongService } from './services/song.service';
       <!-- Song Request Modal Dialog (Task 4.4) -->
       @if (isRequestModalOpen()) {
         <app-request-song-modal (close)="onRequestModalClose()"></app-request-song-modal>
+      }
+
+      <!-- Song Lyrics Preview Modal Dialog (Task 6.7) -->
+      @if (activeLyricsSong(); as song) {
+        <app-song-lyrics-modal [song]="song" (close)="onCloseLyrics()"></app-song-lyrics-modal>
       }
     </div>
   `,
@@ -98,6 +105,7 @@ export class AppComponent implements OnInit {
   private readonly songService = inject(SongService);
 
   readonly isRequestModalOpen = signal<boolean>(false);
+  readonly activeLyricsSong = this.songService.activeLyricsSong;
 
   ngOnInit(): void {
     // Automatically load songs on app startup
@@ -110,5 +118,9 @@ export class AppComponent implements OnInit {
 
   onRequestModalClose(): void {
     this.isRequestModalOpen.set(false);
+  }
+
+  onCloseLyrics(): void {
+    this.songService.closeLyrics();
   }
 }

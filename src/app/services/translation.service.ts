@@ -84,6 +84,16 @@ export interface Translations {
   requestFailedAlertTitle: string;
   requestTitleRequiredError: string;
   requestLyricsRequiredError: string;
+
+  // Song Lyrics Modal
+  lyricsModalTitle: string;
+  stanzaLabel: (index: number) => string;
+  copyLyricsBtn: string;
+  lyricsCopiedNotice: string;
+  closeBtn: string;
+  clickToViewLyricsHint: string;
+  addToPlaylistBtn: string;
+  addedToPlaylistBtn: (count: number) => string;
 }
 
 const TRANSLATIONS_HR: Translations = {
@@ -176,7 +186,17 @@ const TRANSLATIONS_HR: Translations = {
   requestSentAlertTitle: 'Zahtjev poslan!',
   requestFailedAlertTitle: 'Neuspješno slanje',
   requestTitleRequiredError: 'Naslov pjesme je obavezan.',
-  requestLyricsRequiredError: 'Stihovi pjesme su obavezni.'
+  requestLyricsRequiredError: 'Stihovi pjesme su obavezni.',
+
+  // Song Lyrics Modal
+  lyricsModalTitle: 'Pregled stihova',
+  stanzaLabel: (index: number) => `Strofa ${index}`,
+  copyLyricsBtn: 'Kopiraj stihove',
+  lyricsCopiedNotice: 'Stihovi kopirani u međuspremnik!',
+  closeBtn: 'Zatvori',
+  clickToViewLyricsHint: 'Kliknite za pregled cjelovitih stihova',
+  addToPlaylistBtn: 'Dodaj u listu',
+  addedToPlaylistBtn: (count: number) => `Dodano u listu (${count})`
 };
 
 const TRANSLATIONS_EN: Translations = {
@@ -258,7 +278,17 @@ const TRANSLATIONS_EN: Translations = {
   requestSentAlertTitle: 'Request Sent!',
   requestFailedAlertTitle: 'Submission Failed',
   requestTitleRequiredError: 'Song title is required.',
-  requestLyricsRequiredError: 'Song lyrics are required.'
+  requestLyricsRequiredError: 'Song lyrics are required.',
+
+  // Song Lyrics Modal
+  lyricsModalTitle: 'Song Lyrics Preview',
+  stanzaLabel: (index: number) => `Stanza ${index}`,
+  copyLyricsBtn: 'Copy Lyrics',
+  lyricsCopiedNotice: 'Lyrics copied to clipboard!',
+  closeBtn: 'Close',
+  clickToViewLyricsHint: 'Click to view full lyrics',
+  addToPlaylistBtn: 'Add to presentation',
+  addedToPlaylistBtn: (count: number) => `In presentation (${count})`
 };
 
 @Injectable({

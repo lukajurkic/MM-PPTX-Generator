@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SongService } from '../../services/song.service';
 import { PptxExportService } from '../../services/pptx-export.service';
 import { TranslationService } from '../../services/translation.service';
+import { Song } from '../../models/song.model';
 
 @Component({
   selector: 'app-playlist-queue',
@@ -81,7 +82,16 @@ import { TranslationService } from '../../services/translation.service';
                 </div>
 
                 <!-- Song Details -->
-                <div class="item-details">
+                <div
+                  class="item-details clickable"
+                  (click)="onOpenLyrics(item.song)"
+                  tabindex="0"
+                  role="button"
+                  (keydown.enter)="onOpenLyrics(item.song)"
+                  (keydown.space)="onOpenLyrics(item.song); $event.preventDefault()"
+                  [title]="t().clickToViewLyricsHint"
+                  [attr.aria-label]="t().clickToViewLyricsHint + ': ' + item.song.title"
+                >
                   <h4 class="item-title">{{ item.song.title }}</h4>
                   <div class="item-meta">
                     <span class="meta-tag">{{ t().slidesCount(item.song.stanzaCount) }}</span>
@@ -98,7 +108,7 @@ import { TranslationService } from '../../services/translation.service';
                       type="button"
                       class="btn-icon-action"
                       [disabled]="isFirst"
-                      (click)="onMoveUp(i)"
+                      (click)="onMoveUp(i); $event.stopPropagation()"
                       [title]="t().moveUpTooltip"
                       [attr.aria-label]="t().moveUpTooltip"
                     >
@@ -110,7 +120,7 @@ import { TranslationService } from '../../services/translation.service';
                       type="button"
                       class="btn-icon-action"
                       [disabled]="isLast"
-                      (click)="onMoveDown(i)"
+                      (click)="onMoveDown(i); $event.stopPropagation()"
                       [title]="t().moveDownTooltip"
                       [attr.aria-label]="t().moveDownTooltip"
                     >
@@ -123,7 +133,7 @@ import { TranslationService } from '../../services/translation.service';
                   <button
                     type="button"
                     class="btn-icon-action delete-action"
-                    (click)="onRemoveItem(item.playlistId)"
+                    (click)="onRemoveItem(item.playlistId); $event.stopPropagation()"
                     [title]="t().removeTooltip"
                     [attr.aria-label]="t().removeTooltip + ': ' + item.song.title"
                   >
@@ -378,6 +388,21 @@ import { TranslationService } from '../../services/translation.service';
       gap: 3px;
     }
 
+    .item-details.clickable {
+      cursor: pointer;
+      border-radius: var(--radius-sm);
+      outline: none;
+      transition: opacity 0.15s ease;
+    }
+
+    .item-details.clickable:hover .item-title {
+      color: var(--accent-primary);
+    }
+
+    .item-details.clickable:focus-visible {
+      box-shadow: 0 0 0 2px var(--accent-primary);
+    }
+
     .item-title {
       font-size: 0.95rem;
       font-weight: 600;
@@ -566,6 +591,10 @@ export class PlaylistQueueComponent {
 
   onClearPlaylist(): void {
     this.songService.clearPlaylist();
+  }
+
+  onOpenLyrics(song: Song): void {
+    this.songService.openLyrics(song);
   }
 
   async onGeneratePresentation(): Promise<void> {

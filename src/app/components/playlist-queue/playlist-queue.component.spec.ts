@@ -105,5 +105,18 @@ describe('PlaylistQueueComponent', () => {
     expect(component.feedbackType()).toBe('success');
     expect(component.feedbackMessage()).toContain('2026-10-27.pptx');
   });
+
+  it('should open lyrics modal when item details is clicked in queue', () => {
+    songService.addToPlaylist(sampleSong1);
+    fixture.detectChanges();
+
+    spyOn(songService, 'openLyrics');
+    const compiled = fixture.nativeElement as HTMLElement;
+    const itemDetails = compiled.querySelector('.item-details.clickable') as HTMLElement;
+    expect(itemDetails).toBeTruthy();
+
+    itemDetails.click();
+    expect(songService.openLyrics).toHaveBeenCalledWith(sampleSong1);
+  });
 });
 

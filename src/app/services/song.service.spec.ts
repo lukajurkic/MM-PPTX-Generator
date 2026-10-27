@@ -179,5 +179,15 @@ describe('SongService', () => {
     expect(service.selectedMassSections().length).toBe(0);
     expect(service.filteredSongs().length).toBe(2);
   });
+
+  it('should manage active lyrics modal state with openLyrics and closeLyrics', () => {
+    expect(service.activeLyricsSong()).toBeNull();
+
+    service.openLyrics(mockSongs[0]);
+    expect(service.activeLyricsSong()).toEqual(mockSongs[0]);
+
+    service.closeLyrics();
+    expect(service.activeLyricsSong()).toBeNull();
+  });
 });
 

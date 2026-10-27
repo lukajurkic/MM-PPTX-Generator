@@ -19,6 +19,7 @@ export class SongService {
   readonly isLoading = signal<boolean>(false);
   readonly errorMessage = signal<string | null>(null);
   readonly playlist = signal<PlaylistItem[]>([]);
+  readonly activeLyricsSong = signal<Song | null>(null);
 
   // Public readonly accessors
   readonly songs = this.songsSignal.asReadonly();
@@ -299,6 +300,20 @@ export class SongService {
    */
   clearPlaylist(): void {
     this.playlist.set([]);
+  }
+
+  /**
+   * Open the lyrics modal for a specific song
+   */
+  openLyrics(song: Song): void {
+    this.activeLyricsSong.set(song);
+  }
+
+  /**
+   * Close the active lyrics modal
+   */
+  closeLyrics(): void {
+    this.activeLyricsSong.set(null);
   }
 
   /**

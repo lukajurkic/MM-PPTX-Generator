@@ -132,5 +132,15 @@ describe('SongCatalogComponent', () => {
     expect(songService.selectedCategories().length).toBe(0);
     expect(songService.selectedMassSections().length).toBe(0);
   });
+
+  it('should open lyrics modal when song card is clicked', () => {
+    spyOn(songService, 'openLyrics');
+    const compiled = fixture.nativeElement as HTMLElement;
+    const songInfo = compiled.querySelector('.song-info.clickable') as HTMLElement;
+    expect(songInfo).toBeTruthy();
+
+    songInfo.click();
+    expect(songService.openLyrics).toHaveBeenCalledWith(sampleSongs[0]);
+  });
 });
 
