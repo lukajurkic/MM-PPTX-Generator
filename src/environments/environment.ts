@@ -1,11 +1,10 @@
 export const environment = {
   production: false,
+  recipientEmail: 'lukajurkic1@gmail.com',
   /**
-   * Web3Forms Access Key:
-   * 1. Go to https://web3forms.com
-   * 2. Enter your email to get a free access key instantly
-   * 3. Paste your key below
+   * FormSubmit token for lukajurkic1@gmail.com
+   * FormSubmit securely forwards submissions directly to your email without exposing the naked address.
    */
-  web3FormsAccessKey: 'YOUR_ACCESS_KEY_HERE',
-  formEndpoint: 'https://api.web3forms.com/submit'
+  formEndpoint: 'https://formsubmit.co/ajax/550c51647c3bd9a6e4fb2a6b61a391c1',
+  web3FormsAccessKey: ''
 };

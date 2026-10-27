@@ -6,11 +6,12 @@ import { SongRequestPayload, SongRequestResponse } from '../models/song-request.
   providedIn: 'root'
 })
 export class RequestSongService {
-  private readonly endpoint = environment.formEndpoint || 'https://api.web3forms.com/submit';
+  private readonly endpoint = environment.formEndpoint || 'https://formsubmit.co/ajax/lukajurkic1@gmail.com';
   private readonly accessKey = environment.web3FormsAccessKey;
+  private readonly recipientEmail = environment.recipientEmail || 'lukajurkic1@gmail.com';
 
   /**
-   * Submit a song request using Web3Forms or Formspree via browser fetch
+   * Submit a song request via browser fetch to forward to the maintainer's email
    */
   async submitSongRequest(payload: SongRequestPayload): Promise<SongRequestResponse> {
     const title = payload.title?.trim();
@@ -23,27 +24,39 @@ export class RequestSongService {
       throw new Error('Song lyrics are required.');
     }
 
-    // Check if access key is still the default placeholder
-    if (!this.accessKey || this.accessKey === 'YOUR_ACCESS_KEY_HERE') {
-      console.warn(
-        '[RequestSongService] Web3Forms access key is not set. Set web3FormsAccessKey in src/environments/environment.ts to receive emails.'
-      );
-    }
+    const isFormSubmit = this.endpoint.includes('formsubmit.co');
+    let body: Record<string, any>;
 
-    const body: Record<string, any> = {
-      access_key: this.accessKey,
-      subject: `New Song Request: ${title}`,
-      from_name: payload.submitterName?.trim() || 'Lyrics Presentation App',
-      song_title: title,
-      lyrics: lyrics,
-      submitter_name: payload.submitterName?.trim() || 'Anonymous',
-      submitter_email: payload.submitterEmail?.trim() || 'Not provided',
-      notes: payload.notes?.trim() || 'No additional notes',
-      submitted_at: new Date().toISOString()
-    };
-
-    if (payload.submitterEmail?.trim()) {
-      body['replyto'] = payload.submitterEmail.trim();
+    if (isFormSubmit) {
+      body = {
+        _subject: `New Song Request: ${title}`,
+        _template: 'table',
+        _captcha: 'false',
+        'Song Title': title,
+        'Lyrics': lyrics,
+        'Submitter Name': payload.submitterName?.trim() || 'Anonymous',
+        'Submitter Email': payload.submitterEmail?.trim() || 'Not provided',
+        'Notes': payload.notes?.trim() || 'No additional notes',
+        'Submitted At': new Date().toLocaleString()
+      };
+      if (payload.submitterEmail?.trim()) {
+        body['_replyto'] = payload.submitterEmail.trim();
+      }
+    } else {
+      body = {
+        access_key: this.accessKey,
+        subject: `New Song Request: ${title}`,
+        from_name: payload.submitterName?.trim() || 'Lyrics Presentation App',
+        song_title: title,
+        lyrics: lyrics,
+        submitter_name: payload.submitterName?.trim() || 'Anonymous',
+        submitter_email: payload.submitterEmail?.trim() || 'Not provided',
+        notes: payload.notes?.trim() || 'No additional notes',
+        submitted_at: new Date().toISOString()
+      };
+      if (payload.submitterEmail?.trim()) {
+        body['replyto'] = payload.submitterEmail.trim();
+      }
     }
 
     try {
@@ -58,10 +71,10 @@ export class RequestSongService {
 
       const data = await response.json().catch(() => ({}));
 
-      if (response.ok && (data.success !== false)) {
+      if (response.ok && (data.success !== false && data.success !== 'false')) {
         return {
           success: true,
-          message: 'Song request submitted successfully! It will be reviewed and added to the repository.'
+          message: `Your song request has been sent to ${this.recipientEmail}! It will be reviewed and added to the repository.`
         };
       } else {
         const errorMsg = data.message || `Submission failed with status: ${response.status}`;
@@ -73,16 +86,10 @@ export class RequestSongService {
     }
   }
 
-  /**
-   * Get the current configured access key
-   */
-  getAccessKey(): string {
-    return this.accessKey;
+  getRecipientEmail(): string {
+    return this.recipientEmail;
   }
 
-  /**
-   * Get the current submission endpoint
-   */
   getEndpoint(): string {
     return this.endpoint;
   }
