@@ -23,7 +23,7 @@ describe('RequestSongModalComponent', () => {
   it('should create the modal and render destination email', () => {
     expect(component).toBeTruthy();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.modal-title')?.textContent).toContain('Request a New Song');
+    expect(compiled.querySelector('.modal-title')?.textContent).toContain('Zatraži novu pjesmu');
     expect(compiled.querySelector('.modal-subtitle')?.textContent).toContain('lukajurkic1@gmail.com');
   });
 

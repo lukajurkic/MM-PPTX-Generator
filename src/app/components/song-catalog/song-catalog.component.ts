@@ -2,6 +2,7 @@ import { Component, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SongService } from '../../services/song.service';
+import { TranslationService } from '../../services/translation.service';
 import { Song } from '../../models/song.model';
 
 @Component({
@@ -13,9 +14,9 @@ import { Song } from '../../models/song.model';
       <!-- Catalog Header & Search Controls -->
       <div class="catalog-header">
         <div class="title-row">
-          <h2 class="catalog-title">Song Catalog</h2>
+          <h2 class="catalog-title">{{ t().catalogTitle }}</h2>
           <span class="live-counter">
-            {{ filteredSongs().length }} of {{ totalSongs().length }}
+            {{ t().showingSongsCounter(filteredSongs().length, totalSongs().length) }}
           </span>
         </div>
 
@@ -29,10 +30,10 @@ import { Song } from '../../models/song.model';
           <input
             type="text"
             class="form-input search-input"
-            placeholder="Search by title or lyrics..."
+            [placeholder]="t().searchPlaceholder"
             [ngModel]="searchQuery()"
             (ngModelChange)="onSearchChange($event)"
-            aria-label="Search songs by title or lyrics"
+            [attr.aria-label]="t().searchPlaceholder"
           />
 
           @if (searchQuery()) {
@@ -40,8 +41,8 @@ import { Song } from '../../models/song.model';
               type="button"
               class="clear-search-btn"
               (click)="onClearSearch()"
-              aria-label="Clear search input"
-              title="Clear search"
+              [attr.aria-label]="t().clearSearch"
+              [title]="t().clearSearch"
             >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <path d="M18 6 6 18M6 6l12 12"/>
@@ -56,7 +57,7 @@ import { Song } from '../../models/song.model';
         @if (isLoading()) {
           <div class="status-state">
             <div class="spinner"></div>
-            <p>Loading song repository...</p>
+            <p>{{ t().loadingCatalog }}</p>
           </div>
         } @else if (filteredSongs().length === 0) {
           <div class="status-state empty-state">
@@ -66,14 +67,14 @@ import { Song } from '../../models/song.model';
                 <path d="m21 21-4.3-4.3"/>
               </svg>
             </div>
-            <h3>No songs found</h3>
+            <h3>{{ t().noSongsFoundTitle }}</h3>
             @if (searchQuery()) {
-              <p>No results match "{{ searchQuery() }}"</p>
+              <p>{{ t().noSongsFoundDesc(searchQuery()) }}</p>
               <button type="button" class="btn btn-secondary btn-sm" (click)="onClearSearch()">
-                Clear Search
+                {{ t().clearSearchBtn }}
               </button>
             } @else {
-              <p>The song repository is currently empty.</p>
+              <p>{{ t().catalogEmptyDesc }}</p>
             }
           </div>
         } @else {
@@ -83,12 +84,12 @@ import { Song } from '../../models/song.model';
                 <div class="song-header">
                   <h3 class="song-title">{{ song.title }}</h3>
                   <span class="badge badge-primary stanza-badge">
-                    {{ song.stanzaCount }} {{ song.stanzaCount === 1 ? 'Slide' : 'Slides' }}
+                    {{ t().slidesCount(song.stanzaCount) }}
                   </span>
                 </div>
 
                 @if (song.preview) {
-                  <p class="song-preview" title="Lyric preview">{{ song.preview }}</p>
+                  <p class="song-preview" [title]="t().lyricPreviewHint">{{ song.preview }}</p>
                 }
               </div>
 
@@ -100,18 +101,18 @@ import { Song } from '../../models/song.model';
                   [class.btn-secondary]="isSongInPlaylist(song.id)"
                   [class.in-playlist]="isSongInPlaylist(song.id)"
                   (click)="onAddSong(song)"
-                  [attr.aria-label]="'Add ' + song.title + ' to presentation queue'"
+                  [attr.aria-label]="t().addBtn + ' ' + song.title"
                 >
                   @if (isSongInPlaylist(song.id)) {
                     <svg class="btn-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                       <path d="M20 6 9 17l-5-5"/>
                     </svg>
-                    <span>Added ({{ getSongOccurrence(song.id) }})</span>
+                    <span>{{ t().addedBtn(getSongOccurrence(song.id)) }}</span>
                   } @else {
                     <svg class="btn-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                       <path d="M12 5v14M5 12h14"/>
                     </svg>
-                    <span>Add</span>
+                    <span>{{ t().addBtn }}</span>
                   }
                 </button>
               </div>
@@ -361,7 +362,9 @@ import { Song } from '../../models/song.model';
 })
 export class SongCatalogComponent {
   private readonly songService = inject(SongService);
+  readonly i18n = inject(TranslationService);
 
+  readonly t = this.i18n.t;
   readonly totalSongs = this.songService.songs;
   readonly filteredSongs = this.songService.filteredSongs;
   readonly searchQuery = this.songService.searchQuery;

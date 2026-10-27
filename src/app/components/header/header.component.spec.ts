@@ -24,8 +24,19 @@ describe('HeaderComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render the application title', () => {
+  it('should render the application title in Croatian by default', () => {
     const compiled = fixture.nativeElement as HTMLElement;
+    const titleEl = compiled.querySelector('.brand-title');
+    expect(titleEl?.textContent).toContain('PPTX Izrađivač Pjesama');
+  });
+
+  it('should toggle language between HR and EN', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    const langBtns = compiled.querySelectorAll('.lang-btn');
+    const enBtn = langBtns[1] as HTMLButtonElement;
+    enBtn.click();
+    fixture.detectChanges();
+
     const titleEl = compiled.querySelector('.brand-title');
     expect(titleEl?.textContent).toContain('PPTX Lyrics Maker');
   });

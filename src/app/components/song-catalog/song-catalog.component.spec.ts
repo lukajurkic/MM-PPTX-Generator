@@ -51,7 +51,7 @@ describe('SongCatalogComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     const items = compiled.querySelectorAll('.song-item');
     expect(items.length).toBe(2);
-    expect(compiled.querySelector('.live-counter')?.textContent).toContain('2 of 2');
+    expect(compiled.querySelector('.live-counter')?.textContent).toContain('2 od 2');
   });
 
   it('should filter songs when typing into search input', () => {
@@ -82,13 +82,13 @@ describe('SongCatalogComponent', () => {
   it('should add song to playlist and update button state when add button clicked', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     const firstAddBtn = compiled.querySelector('.add-btn') as HTMLButtonElement;
-    expect(firstAddBtn.textContent).toContain('Add');
+    expect(firstAddBtn.textContent).toContain('Dodaj');
 
     firstAddBtn.click();
     fixture.detectChanges();
 
     expect(songService.playlistCount()).toBe(1);
-    expect(firstAddBtn.textContent).toContain('Added (1)');
+    expect(firstAddBtn.textContent).toContain('Dodano (1)');
     expect(firstAddBtn.classList.contains('in-playlist')).toBeTrue();
   });
 });

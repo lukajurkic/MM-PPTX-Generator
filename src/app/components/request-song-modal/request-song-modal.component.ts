@@ -2,6 +2,7 @@ import { Component, EventEmitter, HostListener, Output, inject, signal } from '@
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RequestSongService } from '../../services/request-song.service';
+import { TranslationService } from '../../services/translation.service';
 import { SongRequestPayload } from '../../models/song-request.model';
 
 @Component({
@@ -20,9 +21,9 @@ import { SongRequestPayload } from '../../models/song-request.model';
         <!-- Modal Header -->
         <div class="modal-header">
           <div class="header-titles">
-            <h2 id="modal-title" class="modal-title">Request a New Song</h2>
+            <h2 id="modal-title" class="modal-title">{{ t().modalTitle }}</h2>
             <p class="modal-subtitle">
-              Submit song details to send a request to <strong>{{ recipientEmail }}</strong>.
+              {{ t().modalSubtitle(recipientEmail) }} <strong>{{ recipientEmail }}</strong>.
             </p>
           </div>
 
@@ -30,8 +31,8 @@ import { SongRequestPayload } from '../../models/song-request.model';
             type="button"
             class="close-button"
             (click)="onClose()"
-            aria-label="Close dialog"
-            title="Close (ESC)"
+            [attr.aria-label]="t().modalCloseTooltip"
+            [title]="t().modalCloseTooltip"
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
               <path d="M18 6 6 18M6 6l12 12"/>
@@ -48,7 +49,7 @@ import { SongRequestPayload } from '../../models/song-request.model';
               </svg>
             </div>
             <div class="alert-content">
-              <strong>Request Sent!</strong>
+              <strong>{{ t().requestSentAlertTitle }}</strong>
               <p>{{ successMessage() }}</p>
             </div>
           </div>
@@ -65,7 +66,7 @@ import { SongRequestPayload } from '../../models/song-request.model';
               </svg>
             </div>
             <div class="alert-content">
-              <strong>Submission Failed</strong>
+              <strong>{{ t().requestFailedAlertTitle }}</strong>
               <p>{{ errorMessage() }}</p>
             </div>
           </div>
@@ -76,7 +77,7 @@ import { SongRequestPayload } from '../../models/song-request.model';
           <!-- Song Title (Required) -->
           <div class="form-group">
             <label for="song-title" class="form-label">
-              Song Title <span class="required" title="Required field">*</span>
+              {{ t().fieldSongTitle }} <span class="required" title="Required">*</span>
             </label>
             <input
               id="song-title"
@@ -84,7 +85,7 @@ import { SongRequestPayload } from '../../models/song-request.model';
               name="title"
               class="form-input"
               [(ngModel)]="form.title"
-              placeholder="e.g., Blessed Be Your Name"
+              [placeholder]="t().fieldSongTitlePlaceholder"
               required
               [disabled]="isSubmitting()"
             />
@@ -94,16 +95,16 @@ import { SongRequestPayload } from '../../models/song-request.model';
           <div class="form-group">
             <div class="label-row">
               <label for="song-lyrics" class="form-label">
-                Lyrics <span class="required" title="Required field">*</span>
+                {{ t().fieldLyrics }} <span class="required" title="Required">*</span>
               </label>
-              <span class="hint-text">Separate stanzas by empty lines for slides</span>
+              <span class="hint-text">{{ t().fieldLyricsHint }}</span>
             </div>
             <textarea
               id="song-lyrics"
               name="lyrics"
               class="form-textarea lyrics-textarea"
               [(ngModel)]="form.lyrics"
-              placeholder="Enter or paste lyrics here...&#10;&#10;Separate each verse and chorus with a blank line to divide into presentation slides."
+              [placeholder]="t().fieldLyricsPlaceholder"
               rows="6"
               required
               [disabled]="isSubmitting()"
@@ -114,7 +115,7 @@ import { SongRequestPayload } from '../../models/song-request.model';
           <div class="form-row">
             <div class="form-group">
               <label for="submitter-name" class="form-label">
-                Your Name <span class="optional">(optional)</span>
+                {{ t().fieldSubmitterName }} <span class="optional">{{ t().optionalMark }}</span>
               </label>
               <input
                 id="submitter-name"
@@ -122,14 +123,14 @@ import { SongRequestPayload } from '../../models/song-request.model';
                 name="submitterName"
                 class="form-input"
                 [(ngModel)]="form.submitterName"
-                placeholder="e.g., John Doe"
+                [placeholder]="t().fieldSubmitterNamePlaceholder"
                 [disabled]="isSubmitting()"
               />
             </div>
 
             <div class="form-group">
               <label for="submitter-email" class="form-label">
-                Your Email <span class="optional">(optional)</span>
+                {{ t().fieldSubmitterEmail }} <span class="optional">{{ t().optionalMark }}</span>
               </label>
               <input
                 id="submitter-email"
@@ -137,7 +138,7 @@ import { SongRequestPayload } from '../../models/song-request.model';
                 name="submitterEmail"
                 class="form-input"
                 [(ngModel)]="form.submitterEmail"
-                placeholder="e.g., name@example.com"
+                [placeholder]="t().fieldSubmitterEmailPlaceholder"
                 [disabled]="isSubmitting()"
               />
             </div>
@@ -146,7 +147,7 @@ import { SongRequestPayload } from '../../models/song-request.model';
           <!-- Additional Notes (Optional) -->
           <div class="form-group">
             <label for="notes" class="form-label">
-              Notes or Author Info <span class="optional">(optional)</span>
+              {{ t().fieldNotes }} <span class="optional">{{ t().optionalMark }}</span>
             </label>
             <input
               id="notes"
@@ -154,7 +155,7 @@ import { SongRequestPayload } from '../../models/song-request.model';
               name="notes"
               class="form-input"
               [(ngModel)]="form.notes"
-              placeholder="e.g., Christian praise hymn, artist/key info"
+              [placeholder]="t().fieldNotesPlaceholder"
               [disabled]="isSubmitting()"
             />
           </div>
@@ -167,7 +168,7 @@ import { SongRequestPayload } from '../../models/song-request.model';
               (click)="onClose()"
               [disabled]="isSubmitting()"
             >
-              Cancel
+              {{ t().cancelBtn }}
             </button>
 
             <button
@@ -177,13 +178,13 @@ import { SongRequestPayload } from '../../models/song-request.model';
             >
               @if (isSubmitting()) {
                 <div class="button-spinner"></div>
-                <span>Sending Request...</span>
+                <span>{{ t().sendingRequestBtn }}</span>
               } @else {
                 <svg class="btn-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <line x1="22" y1="2" x2="11" y2="13"/>
                   <polygon points="22 2 15 22 11 13 2 9 22 2"/>
                 </svg>
-                <span>Send Song Request</span>
+                <span>{{ t().sendRequestBtn }}</span>
               }
             </button>
           </div>
@@ -385,9 +386,11 @@ import { SongRequestPayload } from '../../models/song-request.model';
 })
 export class RequestSongModalComponent {
   private readonly requestService = inject(RequestSongService);
+  readonly i18n = inject(TranslationService);
 
   @Output() close = new EventEmitter<void>();
 
+  readonly t = this.i18n.t;
   readonly recipientEmail = this.requestService.getRecipientEmail();
   readonly isSubmitting = signal<boolean>(false);
   readonly errorMessage = signal<string | null>(null);
@@ -449,7 +452,7 @@ export class RequestSongModalComponent {
         }
       }, 3000);
     } catch (err: any) {
-      this.errorMessage.set(err.message || 'Submission failed. Please try again.');
+      this.errorMessage.set(err.message || this.t().requestFailedAlertTitle);
     } finally {
       this.isSubmitting.set(false);
     }
