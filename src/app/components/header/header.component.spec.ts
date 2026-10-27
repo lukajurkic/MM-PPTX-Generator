@@ -59,3 +59,4 @@ describe('HeaderComponent', () => {
     expect(component.openRequestModal.emit).toHaveBeenCalled();
   });
 });
+
