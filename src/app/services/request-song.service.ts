@@ -31,6 +31,7 @@ export class RequestSongService {
       body = {
         _subject: `New Song Request: ${title}`,
         _template: 'table',
+        _captcha: 'false',
         'Song Title': title,
         'Lyrics': lyrics,
         'Submitter Name': payload.submitterName?.trim() || 'Anonymous',

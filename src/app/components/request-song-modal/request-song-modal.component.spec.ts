@@ -94,3 +94,4 @@ describe('RequestSongModalComponent', () => {
     expect(component.close.emit).toHaveBeenCalledTimes(2);
   });
 });
+
