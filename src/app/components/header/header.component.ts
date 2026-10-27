@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Output, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SongService } from '../../services/song.service';
+import { Language, TranslationService } from '../../services/translation.service';
+import { APP_VERSION } from '../../../environments/version';
 
 @Component({
   selector: 'app-header',
@@ -20,33 +22,61 @@ import { SongService } from '../../services/song.service';
             </svg>
           </div>
           <div class="brand-text">
-            <h1 class="brand-title">PPTX Lyrics Maker</h1>
-            <p class="brand-subtitle">Widescreen Presentation Generator</p>
+            <div class="brand-title-row">
+              <h1 class="brand-title">{{ t().appTitle }}</h1>
+              <span class="version-badge" [title]="'Verzija ' + appVersion">v{{ appVersion }}</span>
+            </div>
+            <p class="brand-subtitle">{{ t().appSubtitle }}</p>
           </div>
         </div>
 
         <!-- Meta Badge & Actions -->
         <div class="actions-section">
-          <div class="badge badge-primary song-count-badge" title="Total songs indexed in repository">
+          <!-- Dual Language Switcher Toggle (Croatian default / English) -->
+          <div class="lang-switcher" [title]="t().langToggleTitle">
+            <button
+              type="button"
+              class="lang-btn"
+              [class.active]="i18n.isCroatian()"
+              (click)="onSetLanguage('hr')"
+              aria-label="Hrvatski jezik"
+            >
+              HR
+            </button>
+            <span class="lang-separator">|</span>
+            <button
+              type="button"
+              class="lang-btn"
+              [class.active]="i18n.isEnglish()"
+              (click)="onSetLanguage('en')"
+              aria-label="English language"
+            >
+              EN
+            </button>
+          </div>
+
+          <!-- Total Songs Badge -->
+          <div class="badge badge-primary song-count-badge" [title]="t().songsAvailable(songCount())">
             <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M9 18V5l12-2v13"/>
               <circle cx="6" cy="18" r="3"/>
               <circle cx="18" cy="16" r="3"/>
             </svg>
-            <span>{{ songCount() }} {{ songCount() === 1 ? 'Song' : 'Songs' }} Available</span>
+            <span>{{ t().songsAvailable(songCount()) }}</span>
           </div>
 
+          <!-- Request New Song Button -->
           <button
             type="button"
             class="btn btn-primary request-btn"
             (click)="onRequestNewSong()"
-            aria-label="Request a new song to be added"
+            [attr.aria-label]="t().requestNewSongBtn"
           >
             <svg class="btn-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
               <path d="M12 5v14"/>
               <path d="M5 12h14"/>
             </svg>
-            <span>Request New Song</span>
+            <span>{{ t().requestNewSongBtn }}</span>
           </button>
         </div>
       </div>
@@ -83,8 +113,8 @@ import { SongService } from '../../services/song.service';
       width: 44px;
       height: 44px;
       border-radius: var(--radius-md);
-      background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2));
-      border: 1px solid rgba(99, 102, 241, 0.4);
+      background: linear-gradient(135deg, rgba(7, 77, 151, 0.35), rgba(14, 116, 217, 0.2));
+      border: 1px solid rgba(7, 77, 151, 0.55);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -94,12 +124,32 @@ import { SongService } from '../../services/song.service';
     .brand-icon {
       width: 24px;
       height: 24px;
-      color: #a5b4fc;
+      color: #93c5fd;
     }
 
     .brand-text {
       display: flex;
       flex-direction: column;
+    }
+
+    .brand-title-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .version-badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background-color: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-subtle);
+      padding: 1px 7px;
+      border-radius: 9999px;
+      letter-spacing: 0.03em;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      line-height: 1.4;
+      user-select: none;
     }
 
     .brand-title {
@@ -121,6 +171,43 @@ import { SongService } from '../../services/song.service';
       display: flex;
       align-items: center;
       gap: 12px;
+    }
+
+    .lang-switcher {
+      display: inline-flex;
+      align-items: center;
+      background-color: var(--bg-surface-elevated);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-full);
+      padding: 3px 6px;
+      gap: 4px;
+    }
+
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .lang-btn:hover {
+      color: var(--text-primary);
+    }
+
+    .lang-btn.active {
+      background-color: var(--accent-primary);
+      color: #ffffff;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    }
+
+    .lang-separator {
+      color: var(--border-default);
+      font-size: 10px;
     }
 
     .song-count-badge {
@@ -169,14 +256,22 @@ import { SongService } from '../../services/song.service';
 })
 export class HeaderComponent {
   private readonly songService = inject(SongService);
+  readonly i18n = inject(TranslationService);
+  readonly appVersion = APP_VERSION;
 
   @Output() openRequestModal = new EventEmitter<void>();
 
+  // Translation bundle
+  readonly t = this.i18n.t;
+
   // Reactive song count
   readonly songCount = computed(() => this.songService.songs().length);
+
+  onSetLanguage(lang: Language): void {
+    this.i18n.setLanguage(lang);
+  }
 
   onRequestNewSong(): void {
     this.openRequestModal.emit();
   }
 }
-

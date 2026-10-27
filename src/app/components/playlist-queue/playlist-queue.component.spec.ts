@@ -15,9 +15,11 @@ describe('PlaylistQueueComponent', () => {
     id: 'amazing-grace',
     title: 'Amazing Grace',
     slug: 'amazing-grace',
-    fileName: 'Amazing Grace.txt',
+    fileName: 'Amazing Grace.json',
     stanzaCount: 4,
     preview: 'Amazing grace how sweet the sound',
+    categories: ['Slavljenje'],
+    massSections: ['Ulazna'],
     stanzas: ['S1', 'S2', 'S3', 'S4']
   };
 
@@ -25,9 +27,11 @@ describe('PlaylistQueueComponent', () => {
     id: 'how-great-thou-art',
     title: 'How Great Thou Art',
     slug: 'how-great-thou-art',
-    fileName: 'How Great Thou Art.txt',
+    fileName: 'How Great Thou Art.json',
     stanzaCount: 4,
     preview: 'O Lord, my God',
+    categories: ['Zahvala'],
+    massSections: ['Pričesna'],
     stanzas: ['S1', 'S2', 'S3', 'S4']
   };
 
@@ -67,9 +71,9 @@ describe('PlaylistQueueComponent', () => {
     expect(items[0].querySelector('.order-badge')?.textContent?.trim()).toBe('1');
     expect(items[1].querySelector('.order-badge')?.textContent?.trim()).toBe('2');
 
-    // Summary calculation: 4 + 4 lyrics + 1 blank slide between them = 9 total slides
+    // Summary calculation: 4 + 4 lyrics + 3 blank slides (before, between, after) = 11 total slides
     expect(component.lyricSlidesCount()).toBe(8);
-    expect(component.totalEstimatedSlides()).toBe(9);
+    expect(component.totalEstimatedSlides()).toBe(11);
     expect(compiled.querySelector('.export-button')?.hasAttribute('disabled')).toBeFalse();
   });
 
@@ -100,6 +104,19 @@ describe('PlaylistQueueComponent', () => {
     expect(pptxService.downloadPresentation).toHaveBeenCalled();
     expect(component.feedbackType()).toBe('success');
     expect(component.feedbackMessage()).toContain('2026-10-27.pptx');
+  });
+
+  it('should open lyrics modal when item details is clicked in queue', () => {
+    songService.addToPlaylist(sampleSong1);
+    fixture.detectChanges();
+
+    spyOn(songService, 'openLyrics');
+    const compiled = fixture.nativeElement as HTMLElement;
+    const itemDetails = compiled.querySelector('.item-details.clickable') as HTMLElement;
+    expect(itemDetails).toBeTruthy();
+
+    itemDetails.click();
+    expect(songService.openLyrics).toHaveBeenCalledWith(sampleSong1);
   });
 });
 

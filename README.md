@@ -1,70 +1,134 @@
-# PPTX Lyrics Presentation Web Maker
+# PPTX Lyrics Presentation Web Maker (PPTX Izrađivač Pjesama)
 
-A web application deployed on **GitHub Pages** that allows users to select songs from a lyric repository and generate a formatted PowerPoint (`.pptx`) presentation ready for church, worship, karaoke, or event projection. Also provides a song request form that forwards new song requests to the maintainer via email.
+[![Build & Deploy](https://github.com/ljurkic1/MM-PPTX-Generator/actions/workflows/deploy.yml/badge.svg)](https://github.com/ljurkic1/MM-PPTX-Generator/actions/workflows/deploy.yml)
+[![PR Validation](https://github.com/ljurkic1/MM-PPTX-Generator/actions/workflows/pr-check.yml/badge.svg)](https://github.com/ljurkic1/MM-PPTX-Generator/actions/workflows/pr-check.yml)
+[![Angular 17](https://img.shields.io/badge/Angular-17.3-DD0031.svg?logo=angular)](https://angular.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.4-3178C6.svg?logo=typescript)](https://www.typescriptlang.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
----
+A modern, responsive web application for choral groups, worship teams, church communities, and event organizers. Allows users to browse a repository of songs with category and liturgical mass-section filtering, preview lyrics, order a playlist, and generate ready-to-project **PowerPoint (`.pptx`) presentations directly in the browser**.
 
-## 📐 System Architecture & Design Specification
-
-### 1. Song Storage & Slide Parsing
-* **Location:** Dedicated `songs/` directory in the repository.
-* **Format:** Plain text (`.txt`) files where the filename is the song title (e.g., `Amazing Grace.txt`).
-* **Slide Splitting:** Stanzas are separated by empty/blank lines. Each stanza becomes an individual slide.
-* **Song Manifest:** A pre-build indexing script (`scripts/index-songs.js`) automatically scans `songs/`, parses the stanzas, and generates `src/assets/songs/index.json` so the client-side app can instantly search and load songs.
-
-### 2. PowerPoint (`.pptx`) Settings
-* **Generation Engine:** In-browser client-side generator via `pptxgenjs` (no server needed, 100% static GitHub Pages compatible).
-* **Aspect Ratio:** 16:9 Widescreen.
-* **Background:** Solid Black (`#000000`).
-* **Typography:** Verdana font, bold, **ALL CAPS**, White (`#FFFFFF`), with auto-fit sizing (36–44pt).
-* **Alignment:** Centered both vertically and horizontally.
-* **Flow:** Direct lyrics only (stanzas), with a clean black blank slide between distinct songs.
-* **File Naming:** Date-based filename generated on download (e.g., `YYYY-MM-DD.pptx` based on the date the presentation is created).
-
-### 3. User Interface (UI/UX)
-* **Theme:** Sleek, modern slate/dark UI matching the presentation aesthetic.
-* **Two-Panel Layout:**
-  * **Left Panel:** Catalog of all available songs with instant search and filter, showing stanza counts and a quick-add button.
-  * **Right Panel:** Selected playlist queue displaying song order, reorder buttons (Move Up / Move Down), remove button, and a prominent **"Generate & Download Presentation"** button.
-* **Request Song Modal:** Accessible from the top navigation bar.
-
-### 4. "Request New Song" Email Service
-* **Mechanism:** Free static form service (Web3Forms / Formspree) requiring zero server backend.
-* **Form Fields:**
-  * Song Title *(required)*
-  * Lyrics *(required, multiline)*
-  * Submitter Name / Email *(optional)*
-  * Notes / Comments *(optional)*
-* **Config:** Configurable access key in app config, with clear inline instructions on how to set it to your email address.
-
-### 5. GitHub Pages & CI/CD
-* **Static SPA Configuration:** Configured for client-side single-page app deployment on GitHub Pages.
-* **GitHub Actions Workflow:** `.github/workflows/deploy.yml` that runs on every push:
-  1. Scans `songs/` and generates the song manifest.
-  2. Builds the Angular production bundle with proper base href.
-  3. Automatically deploys to GitHub Pages.
-  *(Adding a new song in the future is as simple as dropping a `.txt` file into `songs/` and pushing to GitHub!)*
+🌐 **Live Demo:** [https://ljurkic1.github.io/MM-PPTX-Generator/](https://ljurkic1.github.io/MM-PPTX-Generator/)
 
 ---
 
-## 🚀 Development & Workflow
+## ✨ Key Features
+
+- **🎨 Professional Presentation Styling (`pptxgenjs`):**
+  - **16:9 Widescreen Layout** with solid black background (`#000000`).
+  - **Typography:** Bold centered white lyrics in **Verdana** font with auto-fit sizing (32–44pt).
+  - **SKAC Logo Watermark:** Semi-transparent white logo positioned in the bottom-right corner of each lyric slide.
+  - **Rotated Side Title:** Song title subtly displayed on the right edge, rotated 270° counter-clockwise and vertically centered.
+  - **Seamless Transitions:** Solid black blank slide before the first song, between distinct songs, and after the last song.
+  - **Date-based Export:** Automatically names downloaded presentations as `YYYY-MM-DD.pptx`.
+
+- **🔍 Two-Panel Interactive Workspace:**
+  - **Left Panel (Song Catalog):** Real-time text search (by title or lyrics), live song counters, and multi-filter dropdown chips for **Categories** (e.g. *Slavljenje*, *Zahvala*, *Klanjanje*) and **Mass Sections** (*Ulazna*, *Pričesna*, *Završna*, etc.).
+  - **Right Panel (Presentation Queue):** Reorder songs via Move Up / Move Down buttons, remove items, clear playlist, and view live slide metrics (lyric slides vs. total estimated slides).
+
+- **📜 Full Song Lyrics Preview Modal:**
+  - Click on any song card in the catalog or in the playlist queue to open an accessible modal dialog.
+  - View all stanzas neatly numbered (*Strofa 1*, *Strofa 2*, ...).
+  - One-click **"Copy Lyrics"** to clipboard with visual feedback.
+  - Quick **"Add to presentation"** button directly from the modal.
+
+- **🌐 Dual-Language Support (HR / EN):**
+  - Primary default language: **Croatian (Hrvatski)**.
+  - Secondary language: **English**.
+  - Persistent language preference saved in `localStorage`.
+
+- **✉️ Song Request System:**
+  - Accessible modal dialog allowing users to submit new songs with validation for title and lyrics, optional submitter info, and notes.
+  - Email notification forwarded directly to the maintainer via static form endpoint.
+
+- **🚀 100% Client-Side & Zero-Server:**
+  - Runs entirely in the browser; works on GitHub Pages without any backend server.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework:** Angular 17.3 (Standalone Components, Signals, `inject()`)
+- **Presentation Engine:** `pptxgenjs` v4.0.1
+- **Icons & Styling:** Native SVG icons, responsive CSS variables, modern dark aesthetic
+- **Testing:** Karma + Jasmine with headless Chrome/Firefox test runners (57 unit tests)
+- **CI/CD:** GitHub Actions (Automated PR validation, GitHub Pages deployment, SemVer auto-tagging & Releases)
+
+---
+
+## 🚀 Quick Start & Development
 
 ### Prerequisites
-- Node.js (v18+)
-- npm
+- [Node.js](https://nodejs.org/) v20+
+- npm v10+
 
-### Local Development
+### Installation & Local Run
 ```bash
-# Install dependencies
-npm install
+# 1. Clone the repository
+git clone https://github.com/ljurkic1/MM-PPTX-Generator.git
+cd pptx_web_maker
 
-# Run song indexing script and start development server
-npm run prebuild
+# 2. Install dependencies
+npm ci
+
+# 3. Start local development server (automatically runs prebuild indexing)
 npm start
 ```
-Navigate to `http://localhost:4200/`.
+Open [http://localhost:4200/](http://localhost:4200/) in your browser.
 
-### Adding Songs Manually
-1. Add a new `.txt` file into the `songs/` folder (e.g., `songs/How Great Thou Art.txt`).
-2. Separate stanzas by empty lines.
-3. Commit and push to GitHub — GitHub Actions will automatically index the song, re-build, and deploy the updated app to GitHub Pages.
+---
+
+## 🧪 Available Scripts
+
+| Command | Description |
+|---|---|
+| `npm start` | Runs prebuild indexing and launches local dev server at `http://localhost:4200` |
+| `npm run build` | Compiles production bundle to `dist/my-ui-app` with GitHub Pages base href |
+| `npm run prebuild` | Executes `scripts/index-songs.js` to compile `songs/*.json` into `index.json` |
+| `npm test` | Runs all 57 unit tests in single-run headless mode |
+| `npm run test:watch` | Runs unit tests in watch mode for development |
+
+---
+
+## 📂 Song Library Management
+
+Songs are stored as individual `.json` files in the top-level **`songs/`** directory (the single source of truth):
+
+```text
+songs/
+├── 10,000 Reasons.json
+├── Amazing Grace.json
+├── How Great Thou Art.json
+└── Way Maker.json
+```
+
+### Adding a New Song
+Create a `.json` file in `songs/` (e.g. `songs/Divan Si.json`):
+
+```json
+{
+  "title": "Divan Si",
+  "categories": ["Slavljenje", "Zahvala"],
+  "massSections": ["Ulazna"],
+  "stanzas": [
+    "Divan si, Gospodine moj,\nNeka zemlja pjeva Tebi u glas.",
+    "Tvoja ljubav obnavlja sve,\nKralj si nad svim kraljevima."
+  ]
+}
+```
+
+Running `npm run prebuild` (or `npm start` / `npm run build`) automatically compiles this into `src/assets/songs/index.json`.
+
+---
+
+## 📖 Additional Documentation
+
+For detailed guides, please refer to:
+- 📘 **[PROJECT_GUIDE.md](file:///home/ljurkic/Downloads/pptx%20maker%20v3/pptx_web_maker/PROJECT_GUIDE.md)**: Architecture deep-dive, file map, data flow diagram, and AI assistant onboarding.
+- 📋 **[CONTRIBUTING.md](file:///home/ljurkic/Downloads/pptx%20maker%20v3/pptx_web_maker/CONTRIBUTING.md)**: Working rules, commit message format (`feat #<issue> :: <action>`), testing checklist, and PR guidelines.
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](file:///home/ljurkic/Downloads/pptx%20maker%20v3/pptx_web_maker/LICENSE).

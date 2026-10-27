@@ -2,6 +2,8 @@ import { Component, computed, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SongService } from '../../services/song.service';
 import { PptxExportService } from '../../services/pptx-export.service';
+import { TranslationService } from '../../services/translation.service';
+import { Song } from '../../models/song.model';
 
 @Component({
   selector: 'app-playlist-queue',
@@ -13,9 +15,9 @@ import { PptxExportService } from '../../services/pptx-export.service';
       <div class="queue-header">
         <div class="header-main-row">
           <div class="title-with-badge">
-            <h2 class="queue-title">Presentation Playlist</h2>
+            <h2 class="queue-title">{{ t().queueTitle }}</h2>
             <span class="badge badge-primary queue-badge">
-              {{ playlist().length }} {{ playlist().length === 1 ? 'Song' : 'Songs' }}
+              {{ playlist().length }}
             </span>
           </div>
 
@@ -24,10 +26,10 @@ import { PptxExportService } from '../../services/pptx-export.service';
               type="button"
               class="clear-all-btn"
               (click)="onClearPlaylist()"
-              title="Clear entire playlist"
-              aria-label="Clear all songs from presentation queue"
+              [title]="t().clearAllBtn"
+              [attr.aria-label]="t().clearAllBtn"
             >
-              Clear All
+              {{ t().clearAllBtn }}
             </button>
           }
         </div>
@@ -36,17 +38,17 @@ import { PptxExportService } from '../../services/pptx-export.service';
         @if (playlist().length > 0) {
           <div class="summary-bar fade-in">
             <div class="summary-metric">
-              <span class="metric-label">Selected Songs</span>
+              <span class="metric-label">{{ t().selectedSongsMetric }}</span>
               <span class="metric-value">{{ playlist().length }}</span>
             </div>
             <div class="metric-divider"></div>
             <div class="summary-metric">
-              <span class="metric-label">Lyric Slides</span>
+              <span class="metric-label">{{ t().lyricSlidesMetric }}</span>
               <span class="metric-value">{{ lyricSlidesCount() }}</span>
             </div>
             <div class="metric-divider"></div>
             <div class="summary-metric">
-              <span class="metric-label">Est. Total Slides</span>
+              <span class="metric-label">{{ t().estTotalSlidesMetric }}</span>
               <span class="metric-value highlight">{{ totalEstimatedSlides() }}</span>
             </div>
           </div>
@@ -64,9 +66,9 @@ import { PptxExportService } from '../../services/pptx-export.service';
                 <path d="M7 21h10M12 18v3"/>
               </svg>
             </div>
-            <h3 class="empty-title">Presentation Queue is Empty</h3>
+            <h3 class="empty-title">{{ t().emptyQueueTitle }}</h3>
             <p class="empty-desc">
-              Select songs from the catalog on the left by clicking <strong>"+ Add"</strong> to build your PowerPoint slide deck.
+              {{ t().emptyQueueDesc }}
             </p>
           </div>
         } @else {
@@ -75,17 +77,26 @@ import { PptxExportService } from '../../services/pptx-export.service';
             @for (item of playlist(); track item.playlistId; let i = $index; let isFirst = $first; let isLast = $last) {
               <div class="queue-item fade-in" role="listitem">
                 <!-- Order Number Badge -->
-                <div class="order-badge" title="Slide order #{{ i + 1 }}">
+                <div class="order-badge" title="#{{ i + 1 }}">
                   {{ i + 1 }}
                 </div>
 
                 <!-- Song Details -->
-                <div class="item-details">
+                <div
+                  class="item-details clickable"
+                  (click)="onOpenLyrics(item.song)"
+                  tabindex="0"
+                  role="button"
+                  (keydown.enter)="onOpenLyrics(item.song)"
+                  (keydown.space)="onOpenLyrics(item.song); $event.preventDefault()"
+                  [title]="t().clickToViewLyricsHint"
+                  [attr.aria-label]="t().clickToViewLyricsHint + ': ' + item.song.title"
+                >
                   <h4 class="item-title">{{ item.song.title }}</h4>
                   <div class="item-meta">
-                    <span class="meta-tag">{{ item.song.stanzaCount }} Slides</span>
+                    <span class="meta-tag">{{ t().slidesCount(item.song.stanzaCount) }}</span>
                     @if (!isLast) {
-                      <span class="transition-tag">+ 1 Blank Transition</span>
+                      <span class="transition-tag">{{ t().blankTransitionTag }}</span>
                     }
                   </div>
                 </div>
@@ -97,9 +108,9 @@ import { PptxExportService } from '../../services/pptx-export.service';
                       type="button"
                       class="btn-icon-action"
                       [disabled]="isFirst"
-                      (click)="onMoveUp(i)"
-                      title="Move Up in presentation order"
-                      aria-label="Move song up"
+                      (click)="onMoveUp(i); $event.stopPropagation()"
+                      [title]="t().moveUpTooltip"
+                      [attr.aria-label]="t().moveUpTooltip"
                     >
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                         <path d="m18 15-6-6-6 6"/>
@@ -109,9 +120,9 @@ import { PptxExportService } from '../../services/pptx-export.service';
                       type="button"
                       class="btn-icon-action"
                       [disabled]="isLast"
-                      (click)="onMoveDown(i)"
-                      title="Move Down in presentation order"
-                      aria-label="Move song down"
+                      (click)="onMoveDown(i); $event.stopPropagation()"
+                      [title]="t().moveDownTooltip"
+                      [attr.aria-label]="t().moveDownTooltip"
                     >
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                         <path d="m6 9 6 6 6-6"/>
@@ -122,9 +133,9 @@ import { PptxExportService } from '../../services/pptx-export.service';
                   <button
                     type="button"
                     class="btn-icon-action delete-action"
-                    (click)="onRemoveItem(item.playlistId)"
-                    title="Remove from playlist"
-                    [attr.aria-label]="'Remove ' + item.song.title + ' from playlist'"
+                    (click)="onRemoveItem(item.playlistId); $event.stopPropagation()"
+                    [title]="t().removeTooltip"
+                    [attr.aria-label]="t().removeTooltip + ': ' + item.song.title"
                   >
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <path d="M3 6h18M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2M10 11v6M14 11v6"/>
@@ -155,23 +166,23 @@ import { PptxExportService } from '../../services/pptx-export.service';
           class="btn btn-success export-button"
           [disabled]="playlist().length === 0 || isGenerating()"
           (click)="onGeneratePresentation()"
-          aria-label="Generate and download PowerPoint presentation"
+          [attr.aria-label]="t().exportPresentationBtn"
         >
           @if (isGenerating()) {
             <div class="button-spinner"></div>
-            <span>Generating PowerPoint Presentation...</span>
+            <span>{{ t().generatingPresentationBtn }}</span>
           } @else {
             <svg class="btn-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
               <polyline points="7 10 12 15 17 10"/>
               <line x1="12" x2="12" y1="15" y2="3"/>
             </svg>
-            <span>Generate & Download Presentation (.pptx)</span>
+            <span>{{ t().exportPresentationBtn }}</span>
           }
         </button>
 
         <p class="settings-hint">
-          16:9 Widescreen • Solid Black Background • White Bold Verdana
+          {{ t().presentationSettingsHint }}
         </p>
       </div>
     </div>
@@ -377,6 +388,21 @@ import { PptxExportService } from '../../services/pptx-export.service';
       gap: 3px;
     }
 
+    .item-details.clickable {
+      cursor: pointer;
+      border-radius: var(--radius-sm);
+      outline: none;
+      transition: opacity 0.15s ease;
+    }
+
+    .item-details.clickable:hover .item-title {
+      color: var(--accent-primary);
+    }
+
+    .item-details.clickable:focus-visible {
+      box-shadow: 0 0 0 2px var(--accent-primary);
+    }
+
     .item-title {
       font-size: 0.95rem;
       font-weight: 600;
@@ -530,7 +556,9 @@ import { PptxExportService } from '../../services/pptx-export.service';
 export class PlaylistQueueComponent {
   private readonly songService = inject(SongService);
   private readonly pptxService = inject(PptxExportService);
+  readonly i18n = inject(TranslationService);
 
+  readonly t = this.i18n.t;
   readonly playlist = this.songService.playlist;
   readonly isGenerating = signal<boolean>(false);
   readonly feedbackMessage = signal<string | null>(null);
@@ -541,11 +569,11 @@ export class PlaylistQueueComponent {
     return this.playlist().reduce((sum, item) => sum + item.song.stanzaCount, 0);
   });
 
-  // Computed total slides count: Lyric slides + blank slide between distinct songs
+  // Computed total slides count: Lyric slides + blank slide before first song, between songs, and after last song
   readonly totalEstimatedSlides = computed(() => {
     const items = this.playlist();
     if (items.length === 0) return 0;
-    const blankSlides = Math.max(0, items.length - 1);
+    const blankSlides = items.length + 1;
     return this.lyricSlidesCount() + blankSlides;
   });
 
@@ -565,6 +593,10 @@ export class PlaylistQueueComponent {
     this.songService.clearPlaylist();
   }
 
+  onOpenLyrics(song: Song): void {
+    this.songService.openLyrics(song);
+  }
+
   async onGeneratePresentation(): Promise<void> {
     const items = this.playlist();
     if (items.length === 0) return;
@@ -575,7 +607,7 @@ export class PlaylistQueueComponent {
     try {
       const filename = await this.pptxService.downloadPresentation(items);
       this.feedbackType.set('success');
-      this.feedbackMessage.set(`Successfully generated "${filename}"!`);
+      this.feedbackMessage.set(this.t().exportSuccessMsg(filename));
 
       // Clear feedback after 4 seconds
       setTimeout(() => {
@@ -584,7 +616,7 @@ export class PlaylistQueueComponent {
     } catch (err: any) {
       console.error('[PlaylistQueueComponent] Error generating presentation:', err);
       this.feedbackType.set('error');
-      this.feedbackMessage.set(err.message || 'Failed to generate PowerPoint file.');
+      this.feedbackMessage.set(err.message || this.t().exportErrorGeneric);
     } finally {
       this.isGenerating.set(false);
     }

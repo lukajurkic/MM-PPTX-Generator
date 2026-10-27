@@ -12,17 +12,17 @@
   
   --border-subtle: #1e293b;
   --border-default: #334155;
-  --border-focus: #6366f1;
+  --border-focus: #074d97;
 
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
   --text-inverse: #090d16;
 
-  /* Accent Colors */
-  --accent-primary: #6366f1;
-  --accent-primary-hover: #4f46e5;
-  --accent-primary-light: rgba(99, 102, 241, 0.15);
+  /* Accent Colors - SKAC Osijek Blue (#074d97) */
+  --accent-primary: #074d97;
+  --accent-primary-hover: #095db8;
+  --accent-primary-light: rgba(7, 77, 151, 0.16);
 
   --accent-success: #10b981;
   --accent-success-hover: #059669;
@@ -45,7 +45,7 @@
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.5);
-  --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.25);
+  --shadow-glow: 0 0 20px rgba(7, 77, 151, 0.35);
 }
 
 /* CSS Reset & Base */
@@ -193,8 +193,8 @@ p {
 
 .badge-primary {
   background-color: var(--accent-primary-light);
-  border-color: rgba(99, 102, 241, 0.3);
-  color: #a5b4fc;
+  border-color: rgba(7, 77, 151, 0.4);
+  color: #93c5fd;
 }
 
 .badge-success {
@@ -242,7 +242,7 @@ p {
 .form-input:focus, .form-textarea:focus {
   outline: none;
   border-color: var(--border-focus);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+  box-shadow: 0 0 0 3px rgba(7, 77, 151, 0.25);
 }
 
 .form-input::placeholder, .form-textarea::placeholder {

@@ -3,9 +3,17 @@
     "id": "10-000-reasons",
     "title": "10,000 Reasons",
     "slug": "10-000-reasons",
-    "fileName": "10,000 Reasons.txt",
+    "fileName": "10,000 Reasons.json",
     "stanzaCount": 4,
     "preview": "Bless the Lord, O my soul / O my soul, worship His holy name",
+    "categories": [
+      "Slavljenje",
+      "Zahvala"
+    ],
+    "massSections": [
+      "Ulazna",
+      "Završna"
+    ],
     "stanzas": [
       "Bless the Lord, O my soul\nO my soul, worship His holy name\nSing like never before, O my soul\nI'll worship Your holy name",
       "The sun comes up, it's a new day dawning\nIt's time to sing Your song again\nWhatever may pass, and whatever lies before me\nLet me be singing when the evening comes",
@@ -17,9 +25,17 @@
     "id": "amazing-grace",
     "title": "Amazing Grace",
     "slug": "amazing-grace",
-    "fileName": "Amazing Grace.txt",
+    "fileName": "Amazing Grace.json",
     "stanzaCount": 4,
     "preview": "Amazing grace how sweet the sound / That saved a wretch like me",
+    "categories": [
+      "Slavljenje",
+      "Zahvala"
+    ],
+    "massSections": [
+      "Ulazna",
+      "Pričesna"
+    ],
     "stanzas": [
       "Amazing grace how sweet the sound\nThat saved a wretch like me\nI once was lost, but now I'm found\nWas blind, but now I see",
       "'Twas grace that taught my heart to fear\nAnd grace my fears relieved\nHow precious did that grace appear\nThe hour I first believed",
@@ -31,9 +47,16 @@
     "id": "how-great-thou-art",
     "title": "How Great Thou Art",
     "slug": "how-great-thou-art",
-    "fileName": "How Great Thou Art.txt",
+    "fileName": "How Great Thou Art.json",
     "stanzaCount": 4,
     "preview": "O Lord, my God, when I in awesome wonder / Consider all the worlds Thy Hands have made",
+    "categories": [
+      "Slavljenje"
+    ],
+    "massSections": [
+      "Ulazna",
+      "Zahvalna"
+    ],
     "stanzas": [
       "O Lord, my God, when I in awesome wonder\nConsider all the worlds Thy Hands have made\nI see the stars, I hear the rolling thunder\nThy power throughout the universe displayed",
       "Then sings my soul, my Saviour God, to Thee\nHow great Thou art, how great Thou art\nThen sings my soul, my Saviour God, to Thee\nHow great Thou art, how great Thou art",
@@ -45,9 +68,17 @@
     "id": "way-maker",
     "title": "Way Maker",
     "slug": "way-maker",
-    "fileName": "Way Maker.txt",
+    "fileName": "Way Maker.json",
     "stanzaCount": 4,
     "preview": "You are here, moving in our midst / I worship You, I worship You",
+    "categories": [
+      "Slavljenje",
+      "Meditativne"
+    ],
+    "massSections": [
+      "Pričesna",
+      "Klanjanje"
+    ],
     "stanzas": [
       "You are here, moving in our midst\nI worship You, I worship You\nYou are here, working in this place\nI worship You, I worship You",
       "You are Way Maker, Miracle Worker, Promise Keeper\nLight in the darkness, my God, that is who You are\nYou are Way Maker, Miracle Worker, Promise Keeper\nLight in the darkness, my God, that is who You are",

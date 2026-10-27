@@ -5,6 +5,8 @@ export interface Song {
   fileName: string;
   stanzaCount: number;
   preview: string;
+  categories: string[];
+  massSections: string[];
   stanzas: string[];
 }
 
@@ -12,4 +14,3 @@ export interface PlaylistItem {
   playlistId: string;
   song: Song;
 }
-

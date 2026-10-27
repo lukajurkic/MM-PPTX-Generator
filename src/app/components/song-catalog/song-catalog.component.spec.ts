@@ -15,18 +15,22 @@ describe('SongCatalogComponent', () => {
       id: 'amazing-grace',
       title: 'Amazing Grace',
       slug: 'amazing-grace',
-      fileName: 'Amazing Grace.txt',
+      fileName: 'Amazing Grace.json',
       stanzaCount: 4,
       preview: 'Amazing grace how sweet the sound',
+      categories: ['Slavljenje', 'Zahvala'],
+      massSections: ['Ulazna'],
       stanzas: ['Stanza 1', 'Stanza 2', 'Stanza 3', 'Stanza 4']
     },
     {
       id: 'how-great-thou-art',
       title: 'How Great Thou Art',
       slug: 'how-great-thou-art',
-      fileName: 'How Great Thou Art.txt',
+      fileName: 'How Great Thou Art.json',
       stanzaCount: 4,
       preview: 'O Lord, my God, when I in awesome wonder',
+      categories: ['Meditativne'],
+      massSections: ['Pričesna'],
       stanzas: ['Stanza 1', 'Stanza 2', 'Stanza 3', 'Stanza 4']
     }
   ];
@@ -51,7 +55,7 @@ describe('SongCatalogComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     const items = compiled.querySelectorAll('.song-item');
     expect(items.length).toBe(2);
-    expect(compiled.querySelector('.live-counter')?.textContent).toContain('2 of 2');
+    expect(compiled.querySelector('.live-counter')?.textContent).toContain('2 od 2');
   });
 
   it('should filter songs when typing into search input', () => {
@@ -82,14 +86,61 @@ describe('SongCatalogComponent', () => {
   it('should add song to playlist and update button state when add button clicked', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     const firstAddBtn = compiled.querySelector('.add-btn') as HTMLButtonElement;
-    expect(firstAddBtn.textContent).toContain('Add');
+    expect(firstAddBtn.textContent).toContain('Dodaj');
 
     firstAddBtn.click();
     fixture.detectChanges();
 
     expect(songService.playlistCount()).toBe(1);
-    expect(firstAddBtn.textContent).toContain('Added (1)');
+    expect(firstAddBtn.textContent).toContain('Dodano (1)');
     expect(firstAddBtn.classList.contains('in-playlist')).toBeTrue();
+  });
+
+  it('should filter songs by category', () => {
+    component.onToggleCategory('Meditativne');
+    fixture.detectChanges();
+
+    const compiled = fixture.nativeElement as HTMLElement;
+    const items = compiled.querySelectorAll('.song-item');
+    expect(items.length).toBe(1);
+    expect(compiled.querySelector('.song-title')?.textContent).toContain('How Great Thou Art');
+  });
+
+  it('should filter songs by mass section', () => {
+    component.onToggleMassSection('Ulazna');
+    fixture.detectChanges();
+
+    const compiled = fixture.nativeElement as HTMLElement;
+    const items = compiled.querySelectorAll('.song-item');
+    expect(items.length).toBe(1);
+    expect(compiled.querySelector('.song-title')?.textContent).toContain('Amazing Grace');
+  });
+
+  it('should clear all active filters when onClearAllFilters is called', () => {
+    component.onToggleCategory('Slavljenje');
+    component.onToggleMassSection('Ulazna');
+    component.onSearchChange('grace');
+    fixture.detectChanges();
+
+    expect(songService.activeFilterCount()).toBe(3);
+
+    component.onClearAllFilters();
+    fixture.detectChanges();
+
+    expect(songService.activeFilterCount()).toBe(0);
+    expect(songService.searchQuery()).toBe('');
+    expect(songService.selectedCategories().length).toBe(0);
+    expect(songService.selectedMassSections().length).toBe(0);
+  });
+
+  it('should open lyrics modal when song card is clicked', () => {
+    spyOn(songService, 'openLyrics');
+    const compiled = fixture.nativeElement as HTMLElement;
+    const songInfo = compiled.querySelector('.song-info.clickable') as HTMLElement;
+    expect(songInfo).toBeTruthy();
+
+    songInfo.click();
+    expect(songService.openLyrics).toHaveBeenCalledWith(sampleSongs[0]);
   });
 });
 

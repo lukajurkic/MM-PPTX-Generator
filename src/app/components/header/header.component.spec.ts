@@ -9,6 +9,7 @@ describe('HeaderComponent', () => {
   let songService: SongService;
 
   beforeEach(async () => {
+    localStorage.clear();
     await TestBed.configureTestingModule({
       imports: [HeaderComponent, HttpClientTestingModule],
       providers: [SongService]
@@ -20,12 +21,27 @@ describe('HeaderComponent', () => {
     fixture.detectChanges();
   });
 
+  afterEach(() => {
+    localStorage.clear();
+  });
+
   it('should create the header component', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render the application title', () => {
+  it('should render the application title in Croatian by default', () => {
     const compiled = fixture.nativeElement as HTMLElement;
+    const titleEl = compiled.querySelector('.brand-title');
+    expect(titleEl?.textContent).toContain('PPTX Izrađivač Pjesama');
+  });
+
+  it('should toggle language between HR and EN', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    const langBtns = compiled.querySelectorAll('.lang-btn');
+    const enBtn = langBtns[1] as HTMLButtonElement;
+    enBtn.click();
+    fixture.detectChanges();
+
     const titleEl = compiled.querySelector('.brand-title');
     expect(titleEl?.textContent).toContain('PPTX Lyrics Maker');
   });
@@ -36,9 +52,11 @@ describe('HeaderComponent', () => {
       id: 'test-song',
       title: 'Test Song',
       slug: 'test-song',
-      fileName: 'Test Song.txt',
+      fileName: 'Test Song.json',
       stanzaCount: 2,
       preview: 'Preview',
+      categories: ['Slavljenje'],
+      massSections: ['Ulazna'],
       stanzas: ['Stanza 1', 'Stanza 2']
     });
 
@@ -46,6 +64,13 @@ describe('HeaderComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     const badgeEl = compiled.querySelector('.song-count-badge');
     expect(badgeEl).toBeTruthy();
+  });
+
+  it('should render the application version badge', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    const versionBadge = compiled.querySelector('.version-badge');
+    expect(versionBadge).toBeTruthy();
+    expect(versionBadge?.textContent).toMatch(/^v\d+\.\d+\.\d+/);
   });
 
   it('should emit openRequestModal event when the request button is clicked', () => {
