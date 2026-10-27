@@ -92,3 +92,4 @@ describe('SongCatalogComponent', () => {
     expect(firstAddBtn.classList.contains('in-playlist')).toBeTrue();
   });
 });
+

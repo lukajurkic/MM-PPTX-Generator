@@ -1,0 +1,104 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { PlaylistQueueComponent } from './playlist-queue.component';
+import { SongService } from '../../services/song.service';
+import { PptxExportService } from '../../services/pptx-export.service';
+import { Song } from '../../models/song.model';
+
+describe('PlaylistQueueComponent', () => {
+  let component: PlaylistQueueComponent;
+  let fixture: ComponentFixture<PlaylistQueueComponent>;
+  let songService: SongService;
+  let pptxService: PptxExportService;
+
+  const sampleSong1: Song = {
+    id: 'amazing-grace',
+    title: 'Amazing Grace',
+    slug: 'amazing-grace',
+    fileName: 'Amazing Grace.txt',
+    stanzaCount: 4,
+    preview: 'Amazing grace how sweet the sound',
+    stanzas: ['S1', 'S2', 'S3', 'S4']
+  };
+
+  const sampleSong2: Song = {
+    id: 'how-great-thou-art',
+    title: 'How Great Thou Art',
+    slug: 'how-great-thou-art',
+    fileName: 'How Great Thou Art.txt',
+    stanzaCount: 4,
+    preview: 'O Lord, my God',
+    stanzas: ['S1', 'S2', 'S3', 'S4']
+  };
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [PlaylistQueueComponent, HttpClientTestingModule],
+      providers: [SongService, PptxExportService]
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(PlaylistQueueComponent);
+    component = fixture.componentInstance;
+    songService = TestBed.inject(SongService);
+    pptxService = TestBed.inject(PptxExportService);
+    songService.clearPlaylist();
+    fixture.detectChanges();
+  });
+
+  it('should render empty state when playlist is empty', () => {
+    expect(component).toBeTruthy();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('.empty-queue-state')).toBeTruthy();
+    expect(compiled.querySelector('.export-button')?.hasAttribute('disabled')).toBeTrue();
+  });
+
+  it('should render items, summary metrics, and enable export button when songs are added', () => {
+    songService.addToPlaylist(sampleSong1);
+    songService.addToPlaylist(sampleSong2);
+    fixture.detectChanges();
+
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('.empty-queue-state')).toBeFalsy();
+
+    const items = compiled.querySelectorAll('.queue-item');
+    expect(items.length).toBe(2);
+
+    // Number badges
+    expect(items[0].querySelector('.order-badge')?.textContent?.trim()).toBe('1');
+    expect(items[1].querySelector('.order-badge')?.textContent?.trim()).toBe('2');
+
+    // Summary calculation: 4 + 4 lyrics + 1 blank slide between them = 9 total slides
+    expect(component.lyricSlidesCount()).toBe(8);
+    expect(component.totalEstimatedSlides()).toBe(9);
+    expect(compiled.querySelector('.export-button')?.hasAttribute('disabled')).toBeFalse();
+  });
+
+  it('should invoke reordering methods when up/down buttons clicked', () => {
+    spyOn(songService, 'moveSongUp');
+    spyOn(songService, 'moveSongDown');
+
+    songService.addToPlaylist(sampleSong1);
+    songService.addToPlaylist(sampleSong2);
+    fixture.detectChanges();
+
+    component.onMoveUp(1);
+    expect(songService.moveSongUp).toHaveBeenCalledWith(1);
+
+    component.onMoveDown(0);
+    expect(songService.moveSongDown).toHaveBeenCalledWith(0);
+  });
+
+  it('should call downloadPresentation and display success feedback', async () => {
+    songService.addToPlaylist(sampleSong1);
+    fixture.detectChanges();
+
+    spyOn(pptxService, 'downloadPresentation').and.returnValue(Promise.resolve('2026-10-27.pptx'));
+
+    await component.onGeneratePresentation();
+    fixture.detectChanges();
+
+    expect(pptxService.downloadPresentation).toHaveBeenCalled();
+    expect(component.feedbackType()).toBe('success');
+    expect(component.feedbackMessage()).toContain('2026-10-27.pptx');
+  });
+});

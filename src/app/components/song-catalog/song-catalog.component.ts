@@ -387,3 +387,4 @@ export class SongCatalogComponent {
     return this.songService.getSongOccurrenceCount(songId);
   }
 }
+
