@@ -1,0 +1,58 @@
+[
+  {
+    "id": "10-000-reasons",
+    "title": "10,000 Reasons",
+    "slug": "10-000-reasons",
+    "fileName": "10,000 Reasons.txt",
+    "stanzaCount": 4,
+    "preview": "Bless the Lord, O my soul / O my soul, worship His holy name",
+    "stanzas": [
+      "Bless the Lord, O my soul\nO my soul, worship His holy name\nSing like never before, O my soul\nI'll worship Your holy name",
+      "The sun comes up, it's a new day dawning\nIt's time to sing Your song again\nWhatever may pass, and whatever lies before me\nLet me be singing when the evening comes",
+      "You're rich in love, and You're slow to anger\nYour name is great, and Your heart is kind\nFor all Your goodness I will keep on singing\nTen thousand reasons for my heart to find",
+      "And on that day when my strength is failing\nThe end draws near and my time has come\nStill my soul will sing Your praise unending\nTen thousand years and then forevermore"
+    ]
+  },
+  {
+    "id": "amazing-grace",
+    "title": "Amazing Grace",
+    "slug": "amazing-grace",
+    "fileName": "Amazing Grace.txt",
+    "stanzaCount": 4,
+    "preview": "Amazing grace how sweet the sound / That saved a wretch like me",
+    "stanzas": [
+      "Amazing grace how sweet the sound\nThat saved a wretch like me\nI once was lost, but now I'm found\nWas blind, but now I see",
+      "'Twas grace that taught my heart to fear\nAnd grace my fears relieved\nHow precious did that grace appear\nThe hour I first believed",
+      "Through many dangers, toils, and snares\nI have already come\n'Tis grace hath brought me safe thus far\nAnd grace will lead me home",
+      "When we've been there ten thousand years\nBright shining as the sun\nWe've no less days to sing God's praise\nThan when we'd first begun"
+    ]
+  },
+  {
+    "id": "how-great-thou-art",
+    "title": "How Great Thou Art",
+    "slug": "how-great-thou-art",
+    "fileName": "How Great Thou Art.txt",
+    "stanzaCount": 4,
+    "preview": "O Lord, my God, when I in awesome wonder / Consider all the worlds Thy Hands have made",
+    "stanzas": [
+      "O Lord, my God, when I in awesome wonder\nConsider all the worlds Thy Hands have made\nI see the stars, I hear the rolling thunder\nThy power throughout the universe displayed",
+      "Then sings my soul, my Saviour God, to Thee\nHow great Thou art, how great Thou art\nThen sings my soul, my Saviour God, to Thee\nHow great Thou art, how great Thou art",
+      "And when I think of God, His Son not sparing\nSent Him to die, I scarce can take it in\nThat on the Cross, my burden gladly bearing\nHe bled and died to take away my sin",
+      "When Christ shall come with shout of acclamation\nAnd take me home, what joy shall fill my heart\nThen I shall bow with humble adoration\nAnd then proclaim: \"My God, how great Thou art!\""
+    ]
+  },
+  {
+    "id": "way-maker",
+    "title": "Way Maker",
+    "slug": "way-maker",
+    "fileName": "Way Maker.txt",
+    "stanzaCount": 4,
+    "preview": "You are here, moving in our midst / I worship You, I worship You",
+    "stanzas": [
+      "You are here, moving in our midst\nI worship You, I worship You\nYou are here, working in this place\nI worship You, I worship You",
+      "You are Way Maker, Miracle Worker, Promise Keeper\nLight in the darkness, my God, that is who You are\nYou are Way Maker, Miracle Worker, Promise Keeper\nLight in the darkness, my God, that is who You are",
+      "You are here, touching every heart\nI worship You, I worship You\nYou are here, healing every heart\nI worship You, I worship You",
+      "Even when I don't see it, You're working\nEven when I don't feel it, You're working\nYou never stop, You never stop working\nYou never stop, You never stop working"
+    ]
+  }
+]
