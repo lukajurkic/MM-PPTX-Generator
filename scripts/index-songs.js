@@ -76,3 +76,4 @@ songs.sort((a, b) => a.title.localeCompare(b.title, undefined, { sensitivity: 'b
 fs.writeFileSync(outputFile, JSON.stringify(songs, null, 2), 'utf-8');
 
 console.log(`[index-songs] Successfully indexed ${songs.length} song(s) (${totalSlides} total slides) into ${path.relative(process.cwd(), outputFile)}`);
+

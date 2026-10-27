@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "prestart": "node scripts/index-songs.js",
     "start": "ng serve",
+    "prebuild": "node scripts/index-songs.js",
     "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development"
   },
