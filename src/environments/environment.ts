@@ -1,11 +1,11 @@
 export const environment = {
   production: false,
+  recipientEmail: 'lukajurkic1@gmail.com',
   /**
-   * Web3Forms Access Key:
-   * 1. Go to https://web3forms.com
-   * 2. Enter your email to get a free access key instantly
-   * 3. Paste your key below
+   * Endpoint configured to forward song requests directly to lukajurkic1@gmail.com
+   * FormSubmit.co delivers directly to your inbox without requiring server infrastructure.
+   * Alternatively, you can use Web3Forms (https://api.web3forms.com/submit) with an access key.
    */
-  web3FormsAccessKey: 'YOUR_ACCESS_KEY_HERE',
-  formEndpoint: 'https://api.web3forms.com/submit'
+  formEndpoint: 'https://formsubmit.co/ajax/lukajurkic1@gmail.com',
+  web3FormsAccessKey: ''
 };

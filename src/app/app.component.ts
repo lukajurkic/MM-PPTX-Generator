@@ -3,12 +3,19 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { SongCatalogComponent } from './components/song-catalog/song-catalog.component';
 import { PlaylistQueueComponent } from './components/playlist-queue/playlist-queue.component';
+import { RequestSongModalComponent } from './components/request-song-modal/request-song-modal.component';
 import { SongService } from './services/song.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, SongCatalogComponent, PlaylistQueueComponent],
+  imports: [
+    CommonModule,
+    HeaderComponent,
+    SongCatalogComponent,
+    PlaylistQueueComponent,
+    RequestSongModalComponent
+  ],
   template: `
     <div class="app-layout">
       <!-- Responsive Header -->
@@ -30,6 +37,11 @@ import { SongService } from './services/song.service';
           </div>
         </div>
       </main>
+
+      <!-- Song Request Modal Dialog (Task 4.4) -->
+      @if (isRequestModalOpen()) {
+        <app-request-song-modal (close)="onRequestModalClose()"></app-request-song-modal>
+      }
     </div>
   `,
   styles: [`
@@ -85,7 +97,7 @@ import { SongService } from './services/song.service';
 export class AppComponent implements OnInit {
   private readonly songService = inject(SongService);
 
-  isRequestModalOpen = signal(false);
+  readonly isRequestModalOpen = signal<boolean>(false);
 
   ngOnInit(): void {
     // Automatically load songs on app startup
@@ -94,5 +106,9 @@ export class AppComponent implements OnInit {
 
   onRequestModalOpen(): void {
     this.isRequestModalOpen.set(true);
+  }
+
+  onRequestModalClose(): void {
+    this.isRequestModalOpen.set(false);
   }
 }
