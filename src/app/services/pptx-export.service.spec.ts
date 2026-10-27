@@ -72,14 +72,33 @@ describe('PptxExportService', () => {
     expect(service.calculateOptimalFontSize(longerStanza)).toBe(36);
   });
 
-  it('should build presentation with 16:9 layout and blank transition slides', () => {
+  it('should build presentation with 16:9 layout, SKAC logo, rotated side title, and blank transition slides', () => {
     const pres = service.buildPresentation(mockPlaylist);
     expect(pres).toBeTruthy();
     expect(pres.layout).toBe('LAYOUT_16x9');
 
     // 2 stanzas from song 1 + 1 blank slide + 1 stanza from song 2 = 4 total slides
-    // In pptxgenjs, pres.slides contains all slides
-    expect((pres as any).slides.length).toBe(4);
+    const slides = (pres as any).slides;
+    expect(slides.length).toBe(4);
+
+    // Slide 1 (Lyric slide): Should contain lyric text, rotated side title, and SKAC logo (3 objects)
+    expect(slides[0]._slideObjects.length).toBe(3);
+
+    // Slide 3 (Blank transition slide between songs): Should contain 0 objects (solid black)
+    expect(slides[2]._slideObjects.length).toBe(0);
+
+    // Slide 4 (Lyric slide from song 2): Should contain lyric text, rotated side title, and SKAC logo
+    expect(slides[3]._slideObjects.length).toBe(3);
+  });
+
+  it('should respect includeLogo and includeSideTitle options when set to false', () => {
+    const pres = service.buildPresentation(mockPlaylist, {
+      includeLogo: false,
+      includeSideTitle: false
+    });
+    const slides = (pres as any).slides;
+    // Lyric slide with only the lyric text (1 object)
+    expect(slides[0]._slideObjects.length).toBe(1);
   });
 
   it('should throw an error if attempting to export an empty playlist', async () => {
