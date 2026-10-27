@@ -55,7 +55,7 @@ import { APP_VERSION } from '../environments/version';
       <footer class="app-footer">
         <div class="footer-container">
           <p class="footer-text">
-            <span>SKAC Palma • PPTX Lyrics Presentation Web Maker</span>
+            <span>SKAC Osijek • PPTX Lyrics Presentation Web Maker</span>
             <span class="footer-dot">•</span>
             <span class="footer-version">v{{ appVersion }}</span>
           </p>

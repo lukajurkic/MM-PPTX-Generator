@@ -426,9 +426,9 @@ import { Song } from '../../models/song.model';
     }
 
     .filter-trigger-btn.active {
-      background: rgba(99, 102, 241, 0.15);
+      background: rgba(7, 77, 151, 0.2);
       border-color: var(--accent-primary);
-      color: #c7d2fe;
+      color: #bfdbfe;
     }
 
     .filter-icon {
@@ -598,9 +598,9 @@ import { Song } from '../../models/song.model';
     }
 
     .active-tag.tag-category {
-      background-color: rgba(99, 102, 241, 0.2);
-      border: 1px solid rgba(99, 102, 241, 0.5);
-      color: #c7d2fe;
+      background-color: rgba(7, 77, 151, 0.25);
+      border: 1px solid rgba(7, 77, 151, 0.55);
+      color: #bfdbfe;
     }
 
     .active-tag.tag-section {
@@ -714,9 +714,9 @@ import { Song } from '../../models/song.model';
     }
 
     .badge-category {
-      background-color: rgba(99, 102, 241, 0.15);
-      color: #c7d2fe;
-      border: 1px solid rgba(99, 102, 241, 0.3);
+      background-color: rgba(7, 77, 151, 0.2);
+      color: #bfdbfe;
+      border: 1px solid rgba(7, 77, 151, 0.4);
     }
 
     .badge-category:hover,
@@ -747,9 +747,9 @@ import { Song } from '../../models/song.model';
     }
 
     .add-btn.in-playlist {
-      background-color: rgba(99, 102, 241, 0.15);
-      border-color: rgba(99, 102, 241, 0.4);
-      color: #c7d2fe;
+      background-color: rgba(7, 77, 151, 0.2);
+      border-color: rgba(7, 77, 151, 0.45);
+      color: #bfdbfe;
     }
 
     .add-btn.in-playlist:hover {

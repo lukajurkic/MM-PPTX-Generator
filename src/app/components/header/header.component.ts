@@ -113,8 +113,8 @@ import { APP_VERSION } from '../../../environments/version';
       width: 44px;
       height: 44px;
       border-radius: var(--radius-md);
-      background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2));
-      border: 1px solid rgba(99, 102, 241, 0.4);
+      background: linear-gradient(135deg, rgba(7, 77, 151, 0.35), rgba(14, 116, 217, 0.2));
+      border: 1px solid rgba(7, 77, 151, 0.55);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -124,7 +124,7 @@ import { APP_VERSION } from '../../../environments/version';
     .brand-icon {
       width: 24px;
       height: 24px;
-      color: #a5b4fc;
+      color: #93c5fd;
     }
 
     .brand-text {

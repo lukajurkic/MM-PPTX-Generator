@@ -51,3 +51,4 @@ export const APP_VERSION = '${version}';
 
 fs.writeFileSync(targetFile, content, 'utf-8');
 console.log(`[generate-version] Generated version file with version v${version}`);
+

@@ -26,8 +26,9 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     const footerEl = compiled.querySelector('.app-footer');
     expect(footerEl).toBeTruthy();
-    expect(footerEl?.textContent).toContain('SKAC Palma');
+    expect(footerEl?.textContent).toContain('SKAC Osijek');
     const versionEl = compiled.querySelector('.footer-version');
     expect(versionEl?.textContent).toMatch(/^v\d+\.\d+\.\d+/);
   });
 });
+

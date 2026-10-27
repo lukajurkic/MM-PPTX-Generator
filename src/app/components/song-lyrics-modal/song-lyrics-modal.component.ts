@@ -223,9 +223,9 @@ import { TranslationService } from '../../services/translation.service';
     }
 
     .badge-category {
-      background: rgba(168, 85, 247, 0.14);
-      color: #c084fc;
-      border: 1px solid rgba(168, 85, 247, 0.3);
+      background: rgba(7, 77, 151, 0.2);
+      color: #93c5fd;
+      border: 1px solid rgba(7, 77, 151, 0.45);
     }
 
     .close-button {
