@@ -34,3 +34,4 @@ export const PRESET_CATEGORIES = [
 
 export type PresetMassSection = (typeof PRESET_MASS_SECTIONS)[number];
 export type PresetCategory = (typeof PRESET_CATEGORIES)[number];
+

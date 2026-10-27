@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostListener, Output, inject, signal } from '@angular/core';
+import { Component, EventEmitter, HostListener, OnDestroy, Output, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RequestSongService } from '../../services/request-song.service';
@@ -110,7 +110,7 @@ import { PRESET_CATEGORIES, PRESET_MASS_SECTIONS } from '../../constants/song-me
               />
               <datalist id="preset-categories-list">
                 @for (cat of presetCategories; track cat) {
-                  <option [value]="cat"></option>
+                  <option [attr.value]="cat">{{ cat }}</option>
                 }
               </datalist>
               <span class="hint-subtext">{{ t().fieldCategoryHint }}</span>
@@ -132,7 +132,7 @@ import { PRESET_CATEGORIES, PRESET_MASS_SECTIONS } from '../../constants/song-me
               />
               <datalist id="preset-sections-list">
                 @for (sec of presetMassSections; track sec) {
-                  <option [value]="sec"></option>
+                  <option [attr.value]="sec">{{ sec }}</option>
                 }
               </datalist>
               <span class="hint-subtext">{{ t().fieldMassSectionHint }}</span>
@@ -438,7 +438,7 @@ import { PRESET_CATEGORIES, PRESET_MASS_SECTIONS } from '../../constants/song-me
     }
   `]
 })
-export class RequestSongModalComponent {
+export class RequestSongModalComponent implements OnDestroy {
   private readonly requestService = inject(RequestSongService);
   readonly i18n = inject(TranslationService);
 
@@ -452,6 +452,7 @@ export class RequestSongModalComponent {
 
   readonly presetCategories = PRESET_CATEGORIES;
   readonly presetMassSections = PRESET_MASS_SECTIONS;
+  private autoCloseTimer?: ReturnType<typeof setTimeout>;
 
   form: SongRequestPayload = {
     title: '',
@@ -463,7 +464,13 @@ export class RequestSongModalComponent {
     notes: ''
   };
 
-  @HostListener('document:keydown.escape', ['$event'])
+  ngOnDestroy(): void {
+    if (this.autoCloseTimer) {
+      clearTimeout(this.autoCloseTimer);
+    }
+  }
+
+  @HostListener('document:keydown.escape')
   handleEscapeKey(): void {
     if (!this.isSubmitting()) {
       this.onClose();
@@ -481,6 +488,10 @@ export class RequestSongModalComponent {
   }
 
   onClose(): void {
+    if (this.autoCloseTimer) {
+      clearTimeout(this.autoCloseTimer);
+      this.autoCloseTimer = undefined;
+    }
     this.close.emit();
   }
 
@@ -507,7 +518,7 @@ export class RequestSongModalComponent {
       };
 
       // Auto close dialog after 3 seconds on success
-      setTimeout(() => {
+      this.autoCloseTimer = setTimeout(() => {
         if (this.successMessage()) {
           this.onClose();
         }

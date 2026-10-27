@@ -55,11 +55,11 @@ describe('RequestSongService', () => {
     });
 
     expect(res.success).toBeTrue();
-    expect(capturedUrl).toContain('api.web3forms.com');
-    expect(capturedBody.song_title).toBe('Amazing Grace');
-    expect(capturedBody.lyrics).toBe('Amazing grace how sweet the sound');
-    expect(capturedBody.submitter_name).toBe('John');
-    expect(capturedBody.submitter_email).toBe('john@example.com');
+    expect(capturedUrl).toContain('formsubmit.co');
+    expect(capturedBody['Song Title']).toBe('Amazing Grace');
+    expect(capturedBody['Lyrics']).toBe('Amazing grace how sweet the sound');
+    expect(capturedBody['Submitter Name']).toBe('John');
+    expect(capturedBody['Submitter Email']).toBe('john@example.com');
   });
 
   it('should throw error when endpoint returns failure status', async () => {

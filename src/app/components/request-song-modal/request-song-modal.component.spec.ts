@@ -9,6 +9,7 @@ describe('RequestSongModalComponent', () => {
   let requestService: RequestSongService;
 
   beforeEach(async () => {
+    localStorage.clear();
     await TestBed.configureTestingModule({
       imports: [RequestSongModalComponent, FormsModule],
       providers: [RequestSongService]
@@ -18,6 +19,10 @@ describe('RequestSongModalComponent', () => {
     component = fixture.componentInstance;
     requestService = TestBed.inject(RequestSongService);
     fixture.detectChanges();
+  });
+
+  afterEach(() => {
+    localStorage.clear();
   });
 
   it('should create the modal and render destination email', () => {
