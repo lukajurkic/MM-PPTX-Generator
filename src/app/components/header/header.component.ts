@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output, computed, inject } from '@angular/core
 import { CommonModule } from '@angular/common';
 import { SongService } from '../../services/song.service';
 import { Language, TranslationService } from '../../services/translation.service';
+import { APP_VERSION } from '../../../environments/version';
 
 @Component({
   selector: 'app-header',
@@ -21,7 +22,10 @@ import { Language, TranslationService } from '../../services/translation.service
             </svg>
           </div>
           <div class="brand-text">
-            <h1 class="brand-title">{{ t().appTitle }}</h1>
+            <div class="brand-title-row">
+              <h1 class="brand-title">{{ t().appTitle }}</h1>
+              <span class="version-badge" [title]="'Verzija ' + appVersion">v{{ appVersion }}</span>
+            </div>
             <p class="brand-subtitle">{{ t().appSubtitle }}</p>
           </div>
         </div>
@@ -126,6 +130,26 @@ import { Language, TranslationService } from '../../services/translation.service
     .brand-text {
       display: flex;
       flex-direction: column;
+    }
+
+    .brand-title-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .version-badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background-color: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-subtle);
+      padding: 1px 7px;
+      border-radius: 9999px;
+      letter-spacing: 0.03em;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      line-height: 1.4;
+      user-select: none;
     }
 
     .brand-title {
@@ -233,6 +257,7 @@ import { Language, TranslationService } from '../../services/translation.service
 export class HeaderComponent {
   private readonly songService = inject(SongService);
   readonly i18n = inject(TranslationService);
+  readonly appVersion = APP_VERSION;
 
   @Output() openRequestModal = new EventEmitter<void>();
 

@@ -192,4 +192,9 @@ When building presentations in `PptxExportService.buildPresentation(playlist)`:
   - Executes: `npm ci` $\rightarrow$ `npx tsc --noEmit` $\rightarrow$ `npm test` $\rightarrow$ `npm run build`.
 - **Deploy & Release Workflow (`.github/workflows/deploy.yml`):**
   - Triggered on push to `main` and `master`.
-  - Executes build, deploy to GitHub Pages, calculates next SemVer tag (`vX.Y.Z`), pushes tag, and publishes GitHub Release with release notes.
+  - Determines release version prior to build:
+    - Inspects git tags and commit history.
+    - Searches full commit message (both title and description/body) for `#major` (bumps major) or `#minor` (bumps minor); defaults to patch bump (+1).
+    - Injects calculated version as `APP_VERSION` environment variable into `scripts/generate-version.js` to create `src/environments/version.ts`.
+  - Builds and deploys static bundle with version embedded into header (`.version-badge`) and footer (`.app-footer`).
+  - Tags the commit and publishes GitHub Release with auto-generated release notes.

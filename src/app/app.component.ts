@@ -6,6 +6,7 @@ import { PlaylistQueueComponent } from './components/playlist-queue/playlist-que
 import { RequestSongModalComponent } from './components/request-song-modal/request-song-modal.component';
 import { SongLyricsModalComponent } from './components/song-lyrics-modal/song-lyrics-modal.component';
 import { SongService } from './services/song.service';
+import { APP_VERSION } from '../environments/version';
 
 @Component({
   selector: 'app-root',
@@ -49,6 +50,17 @@ import { SongService } from './services/song.service';
       @if (activeLyricsSong(); as song) {
         <app-song-lyrics-modal [song]="song" (close)="onCloseLyrics()"></app-song-lyrics-modal>
       }
+
+      <!-- Application Footer with Version -->
+      <footer class="app-footer">
+        <div class="footer-container">
+          <p class="footer-text">
+            <span>SKAC Palma • PPTX Lyrics Presentation Web Maker</span>
+            <span class="footer-dot">•</span>
+            <span class="footer-version">v{{ appVersion }}</span>
+          </p>
+        </div>
+      </footer>
     </div>
   `,
   styles: [`
@@ -99,10 +111,43 @@ import { SongService } from './services/song.service';
         gap: 16px;
       }
     }
+
+    .app-footer {
+      border-top: 1px solid var(--border-subtle);
+      background-color: var(--bg-surface);
+      padding: 14px 24px;
+      margin-top: auto;
+    }
+
+    .footer-container {
+      max-width: 1440px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .footer-text {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0;
+    }
+
+    .footer-dot {
+      opacity: 0.4;
+    }
+
+    .footer-version {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
   `]
 })
 export class AppComponent implements OnInit {
   private readonly songService = inject(SongService);
+  readonly appVersion = APP_VERSION;
 
   readonly isRequestModalOpen = signal<boolean>(false);
   readonly activeLyricsSong = this.songService.activeLyricsSong;

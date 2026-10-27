@@ -66,6 +66,13 @@ describe('HeaderComponent', () => {
     expect(badgeEl).toBeTruthy();
   });
 
+  it('should render the application version badge', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    const versionBadge = compiled.querySelector('.version-badge');
+    expect(versionBadge).toBeTruthy();
+    expect(versionBadge?.textContent).toMatch(/^v\d+\.\d+\.\d+/);
+  });
+
   it('should emit openRequestModal event when the request button is clicked', () => {
     spyOn(component.openRequestModal, 'emit');
 

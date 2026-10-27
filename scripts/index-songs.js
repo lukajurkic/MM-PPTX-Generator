@@ -1,6 +1,13 @@
 const fs = require('fs');
 const path = require('path');
 
+// Ensure version.ts is generated before indexing or building
+try {
+  require('./generate-version');
+} catch (e) {
+  // If generate-version fails or is already run, continue
+}
+
 const songsDir = path.join(__dirname, '..', 'songs');
 const outputDir = path.join(__dirname, '..', 'src', 'assets', 'songs');
 const outputFile = path.join(outputDir, 'index.json');

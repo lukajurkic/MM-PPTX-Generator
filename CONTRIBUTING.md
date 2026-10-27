@@ -126,8 +126,10 @@ npm run build
 
 - When code is merged into `main` via PR:
   1. GitHub Actions runs `.github/workflows/deploy.yml`.
-  2. Deploys the application bundle to **GitHub Pages**.
-  3. Increments the SemVer version tag (`vX.Y.Z`).
-     - Standard: increments `patch` (`v1.0.1` $\rightarrow$ `v1.0.2`).
-     - In commit message: include `#minor` for minor bump or `#major` for major bump.
-  4. Automatically publishes a **GitHub Release** with generated release notes.
+  2. Resolves the next SemVer version tag (`vX.Y.Z`):
+     - **Default:** increments `patch` (`v1.0.0` $\rightarrow$ `v1.0.1`).
+     - **Minor bump:** include `#minor` in the PR title **or description** (`v1.0.1` $\rightarrow$ `v1.1.0`).
+     - **Major bump:** include `#major` in the PR title **or description** (`v1.0.1` $\rightarrow$ `v2.0.0`).
+  3. Injects the resolved version into the application build (`src/environments/version.ts`) so the active version is displayed in the header badge (`.version-badge`) and footer (`.app-footer`).
+  4. Deploys the static bundle to **GitHub Pages**.
+  5. Automatically creates the git tag and publishes a **GitHub Release** with generated release notes.

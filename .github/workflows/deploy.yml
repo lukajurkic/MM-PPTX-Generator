@@ -22,6 +22,8 @@ jobs:
   build:
     name: Build, Test & Index Songs
     runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.calc_version.outputs.tag }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -36,6 +38,53 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Determine Release Version
+        id: calc_version
+        run: |
+          # Fetch all remote tags
+          git fetch --tags
+
+          # Check if current commit is already tagged
+          EXISTING_TAG=$(git describe --exact-match --tags HEAD 2>/dev/null || true)
+          if [ -n "$EXISTING_TAG" ]; then
+            echo "Current commit already has tag: $EXISTING_TAG"
+            NEXT_TAG="$EXISTING_TAG"
+          else
+            # Find highest existing SemVer tag matching v*.*.*
+            LATEST_TAG=$(git tag -l "v[0-9]*.[0-9]*.[0-9]*" --sort=-v:refname | head -n 1)
+
+            if [ -z "$LATEST_TAG" ]; then
+              NEXT_TAG="v1.0.0"
+            else
+              VERSION="${LATEST_TAG#v}"
+              MAJOR=$(echo "$VERSION" | cut -d. -f1)
+              MINOR=$(echo "$VERSION" | cut -d. -f2)
+              PATCH=$(echo "$VERSION" | cut -d. -f3)
+
+              # Inspect full commit message (both subject/title and body/description)
+              COMMIT_MSG=$(git log -1 --pretty=%B)
+              EVENT_MSG="${{ github.event.head_commit.message }}"
+              SEARCH_TEXT="${COMMIT_MSG} ${EVENT_MSG}"
+
+              if echo "$SEARCH_TEXT" | grep -iqE "(#major|\[major\]|bump:\s*major)"; then
+                MAJOR=$((MAJOR + 1))
+                MINOR=0
+                PATCH=0
+              elif echo "$SEARCH_TEXT" | grep -iqE "(#minor|\[minor\]|bump:\s*minor)"; then
+                MINOR=$((MINOR + 1))
+                PATCH=0
+              else
+                PATCH=$((PATCH + 1))
+              fi
+
+              NEXT_TAG="v${MAJOR}.${MINOR}.${PATCH}"
+            fi
+          fi
+
+          echo "Determined version: $NEXT_TAG"
+          echo "tag=$NEXT_TAG" >> $GITHUB_OUTPUT
+          echo "APP_VERSION=$NEXT_TAG" >> $GITHUB_ENV
 
       - name: Verify TypeScript compilation
         run: npx tsc --noEmit
@@ -79,54 +128,29 @@ jobs:
       - name: Create Version Tag & GitHub Release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_TAG: ${{ needs.build.outputs.tag }}
         run: |
-          # Fetch all remote tags
           git fetch --tags
 
-          # Check if current commit is already tagged
-          if git describe --exact-match --tags HEAD 2>/dev/null; then
-            echo "Current commit is already tagged. Skipping duplicate release creation."
+          TAG_TO_RELEASE="${RELEASE_TAG:-v1.0.0}"
+
+          # Check if this tag already exists in git
+          if git rev-parse "$TAG_TO_RELEASE" >/dev/null 2>&1; then
+            echo "Tag $TAG_TO_RELEASE already exists. Skipping duplicate tag/release creation."
             exit 0
           fi
 
-          # Find highest existing SemVer tag matching v*.*.*
-          LATEST_TAG=$(git tag -l "v[0-9]*.[0-9]*.[0-9]*" --sort=-v:refname | head -n 1)
-
-          if [ -z "$LATEST_TAG" ]; then
-            NEXT_TAG="v1.0.0"
-          else
-            VERSION="${LATEST_TAG#v}"
-            MAJOR=$(echo "$VERSION" | cut -d. -f1)
-            MINOR=$(echo "$VERSION" | cut -d. -f2)
-            PATCH=$(echo "$VERSION" | cut -d. -f3)
-
-            # Check if commit message requests major or minor bump, default to patch
-            COMMIT_MSG=$(git log -1 --pretty=%B)
-            if echo "$COMMIT_MSG" | grep -iq "#major"; then
-              MAJOR=$((MAJOR + 1))
-              MINOR=0
-              PATCH=0
-            elif echo "$COMMIT_MSG" | grep -iq "#minor"; then
-              MINOR=$((MINOR + 1))
-              PATCH=0
-            else
-              PATCH=$((PATCH + 1))
-            fi
-
-            NEXT_TAG="v${MAJOR}.${MINOR}.${PATCH}"
-          fi
-
-          echo "Publishing release version: $NEXT_TAG"
+          echo "Publishing release version: $TAG_TO_RELEASE"
 
           # Configure git user identity for tagging
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
           # Tag the release commit and push to remote
-          git tag -a "$NEXT_TAG" -m "Release $NEXT_TAG"
-          git push origin "$NEXT_TAG"
+          git tag -a "$TAG_TO_RELEASE" -m "Release $TAG_TO_RELEASE"
+          git push origin "$TAG_TO_RELEASE"
 
           # Create official GitHub Release with auto-generated release notes
-          gh release create "$NEXT_TAG" \
-            --title "Release $NEXT_TAG" \
+          gh release create "$TAG_TO_RELEASE" \
+            --title "Release $TAG_TO_RELEASE" \
             --generate-notes
