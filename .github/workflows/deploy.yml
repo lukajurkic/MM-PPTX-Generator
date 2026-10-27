@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy & Release to GitHub Pages
 
 on:
   push:
@@ -7,9 +7,9 @@ on:
       - master
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+# Permissions for GitHub Pages deployment and GitHub Releases / Tag creation
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -20,11 +20,13 @@ concurrency:
 
 jobs:
   build:
-    name: Build & Index Songs
+    name: Build, Test & Index Songs
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -34,6 +36,12 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Verify TypeScript compilation
+        run: npx tsc --noEmit
+
+      - name: Run unit test suite
+        run: npm test -- --browsers=ChromeHeadlessCI
 
       - name: Run song indexing & production build
         run: npm run build
@@ -57,3 +65,68 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  release:
+    name: Create Tag & GitHub Release
+    runs-on: ubuntu-latest
+    needs: [build, deploy]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Create Version Tag & GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Fetch all remote tags
+          git fetch --tags
+
+          # Check if current commit is already tagged
+          if git describe --exact-match --tags HEAD 2>/dev/null; then
+            echo "Current commit is already tagged. Skipping duplicate release creation."
+            exit 0
+          fi
+
+          # Find highest existing SemVer tag matching v*.*.*
+          LATEST_TAG=$(git tag -l "v[0-9]*.[0-9]*.[0-9]*" --sort=-v:refname | head -n 1)
+
+          if [ -z "$LATEST_TAG" ]; then
+            NEXT_TAG="v1.0.0"
+          else
+            VERSION="${LATEST_TAG#v}"
+            MAJOR=$(echo "$VERSION" | cut -d. -f1)
+            MINOR=$(echo "$VERSION" | cut -d. -f2)
+            PATCH=$(echo "$VERSION" | cut -d. -f3)
+
+            # Check if commit message requests major or minor bump, default to patch
+            COMMIT_MSG=$(git log -1 --pretty=%B)
+            if echo "$COMMIT_MSG" | grep -iq "#major"; then
+              MAJOR=$((MAJOR + 1))
+              MINOR=0
+              PATCH=0
+            elif echo "$COMMIT_MSG" | grep -iq "#minor"; then
+              MINOR=$((MINOR + 1))
+              PATCH=0
+            else
+              PATCH=$((PATCH + 1))
+            fi
+
+            NEXT_TAG="v${MAJOR}.${MINOR}.${PATCH}"
+          fi
+
+          echo "Publishing release version: $NEXT_TAG"
+
+          # Configure git user identity for tagging
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Tag the release commit and push to remote
+          git tag -a "$NEXT_TAG" -m "Release $NEXT_TAG"
+          git push origin "$NEXT_TAG"
+
+          # Create official GitHub Release with auto-generated release notes
+          gh release create "$NEXT_TAG" \
+            --title "Release $NEXT_TAG" \
+            --generate-notes

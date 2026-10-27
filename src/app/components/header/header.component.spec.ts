@@ -9,6 +9,7 @@ describe('HeaderComponent', () => {
   let songService: SongService;
 
   beforeEach(async () => {
+    localStorage.clear();
     await TestBed.configureTestingModule({
       imports: [HeaderComponent, HttpClientTestingModule],
       providers: [SongService]
@@ -18,6 +19,10 @@ describe('HeaderComponent', () => {
     component = fixture.componentInstance;
     songService = TestBed.inject(SongService);
     fixture.detectChanges();
+  });
+
+  afterEach(() => {
+    localStorage.clear();
   });
 
   it('should create the header component', () => {

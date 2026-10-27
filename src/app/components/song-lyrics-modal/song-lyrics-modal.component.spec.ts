@@ -95,3 +95,4 @@ describe('SongLyricsModalComponent', () => {
     expect(component.copied()).toBeTrue();
   });
 });
+
