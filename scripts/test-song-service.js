@@ -81,3 +81,4 @@ console.assert(playlist.length === 0, 'Clear playlist passed');
 console.log('  ✓ Clear playlist passed');
 
 console.log('🎉 All Song Service & State Management tests passed successfully!');
+
