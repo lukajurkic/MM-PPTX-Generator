@@ -71,9 +71,9 @@ describe('PlaylistQueueComponent', () => {
     expect(items[0].querySelector('.order-badge')?.textContent?.trim()).toBe('1');
     expect(items[1].querySelector('.order-badge')?.textContent?.trim()).toBe('2');
 
-    // Summary calculation: 4 + 4 lyrics + 1 blank slide between them = 9 total slides
+    // Summary calculation: 4 + 4 lyrics + 3 blank slides (before, between, after) = 11 total slides
     expect(component.lyricSlidesCount()).toBe(8);
-    expect(component.totalEstimatedSlides()).toBe(9);
+    expect(component.totalEstimatedSlides()).toBe(11);
     expect(compiled.querySelector('.export-button')?.hasAttribute('disabled')).toBeFalse();
   });
 

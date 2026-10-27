@@ -544,11 +544,11 @@ export class PlaylistQueueComponent {
     return this.playlist().reduce((sum, item) => sum + item.song.stanzaCount, 0);
   });
 
-  // Computed total slides count: Lyric slides + blank slide between distinct songs
+  // Computed total slides count: Lyric slides + blank slide before first song, between songs, and after last song
   readonly totalEstimatedSlides = computed(() => {
     const items = this.playlist();
     if (items.length === 0) return 0;
-    const blankSlides = Math.max(0, items.length - 1);
+    const blankSlides = items.length + 1;
     return this.lyricSlidesCount() + blankSlides;
   });
 

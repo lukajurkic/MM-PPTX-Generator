@@ -77,18 +77,27 @@ describe('PptxExportService', () => {
     expect(pres).toBeTruthy();
     expect(pres.layout).toBe('LAYOUT_16x9');
 
-    // 2 stanzas from song 1 + 1 blank slide + 1 stanza from song 2 = 4 total slides
+    // 1 leading blank slide + 2 stanzas from song 1 + 1 blank slide + 1 stanza from song 2 + 1 trailing blank slide = 6 total slides
     const slides = (pres as any).slides;
-    expect(slides.length).toBe(4);
+    expect(slides.length).toBe(6);
 
-    // Slide 1 (Lyric slide): Should contain lyric text, rotated side title, and SKAC logo (3 objects)
-    expect(slides[0]._slideObjects.length).toBe(3);
+    // Slide 1 (Leading blank slide before first song): Should contain 0 objects (solid black)
+    expect(slides[0]._slideObjects.length).toBe(0);
 
-    // Slide 3 (Blank transition slide between songs): Should contain 0 objects (solid black)
-    expect(slides[2]._slideObjects.length).toBe(0);
+    // Slide 2 (Lyric slide for Song 1, Stanza 1): Should contain lyric text, rotated side title, and SKAC logo (3 objects)
+    expect(slides[1]._slideObjects.length).toBe(3);
 
-    // Slide 4 (Lyric slide from song 2): Should contain lyric text, rotated side title, and SKAC logo
-    expect(slides[3]._slideObjects.length).toBe(3);
+    // Slide 3 (Lyric slide for Song 1, Stanza 2): Should contain lyric text, rotated side title, and SKAC logo (3 objects)
+    expect(slides[2]._slideObjects.length).toBe(3);
+
+    // Slide 4 (Blank transition slide between songs): Should contain 0 objects (solid black)
+    expect(slides[3]._slideObjects.length).toBe(0);
+
+    // Slide 5 (Lyric slide from song 2): Should contain lyric text, rotated side title, and SKAC logo (3 objects)
+    expect(slides[4]._slideObjects.length).toBe(3);
+
+    // Slide 6 (Trailing blank slide after last song): Should contain 0 objects (solid black)
+    expect(slides[5]._slideObjects.length).toBe(0);
   });
 
   it('should respect includeLogo and includeSideTitle options when set to false', () => {
@@ -97,8 +106,22 @@ describe('PptxExportService', () => {
       includeSideTitle: false
     });
     const slides = (pres as any).slides;
-    // Lyric slide with only the lyric text (1 object)
-    expect(slides[0]._slideObjects.length).toBe(1);
+    // Slide 1 is leading blank slide (0 objects)
+    expect(slides[0]._slideObjects.length).toBe(0);
+    // Slide 2 is lyric slide with only the lyric text (1 object)
+    expect(slides[1]._slideObjects.length).toBe(1);
+  });
+
+  it('should omit blank slides when includeBlankSlides is false', () => {
+    const pres = service.buildPresentation(mockPlaylist, {
+      includeBlankSlides: false
+    });
+    const slides = (pres as any).slides;
+    // 2 stanzas from song 1 + 1 stanza from song 2 = 3 lyric slides (no leading, between, or trailing blanks)
+    expect(slides.length).toBe(3);
+    expect(slides[0]._slideObjects.length).toBe(3);
+    expect(slides[1]._slideObjects.length).toBe(3);
+    expect(slides[2]._slideObjects.length).toBe(3);
   });
 
   it('should throw an error if attempting to export an empty playlist', async () => {
