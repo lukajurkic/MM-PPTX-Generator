@@ -102,6 +102,9 @@ fix #<issue_number> :: <concise description in lowercase>
 4. **Component Styling:**
    - Prefer component-scoped CSS via the `styles: [...]` property.
    - Use CSS variables defined in [`src/styles.css`](file:///home/ljurkic/Downloads/pptx%20maker%20v3/pptx_web_maker/src/styles.css) (e.g., `var(--bg-surface)`, `var(--accent-primary)`, `var(--radius-md)`).
+5. **Presentation Preferences & Defaults:**
+   - Default preferences live in [`src/app/constants/presentation-settings.constant.ts`](file:///home/ljurkic/Downloads/pptx%20maker%20v3/pptx_web_maker/src/app/constants/presentation-settings.constant.ts).
+   - Any new setting must have a typed default value, be sanitized in `SettingsService.sanitizeSettings()`, and be localized in both Croatian and English.
 
 ---
 

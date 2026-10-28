@@ -50,6 +50,8 @@ export interface Translations {
   exportPresentationBtn: string;
   generatingPresentationBtn: string;
   presentationSettingsHint: string;
+  settingsDefaultStatus: string;
+  settingsCustomStatus: string;
   exportSuccessMsg: (filename: string) => string;
   exportErrorEmpty: string;
   exportErrorGeneric: string;
@@ -94,6 +96,41 @@ export interface Translations {
   clickToViewLyricsHint: string;
   addToPlaylistBtn: string;
   addedToPlaylistBtn: (count: number) => string;
+
+  // Settings Drawer (Task 10)
+  settingsBtn: string;
+  settingsTitle: string;
+  settingsSubtitle: string;
+  aspectRatioSection: string;
+  aspectRatio169Label: string;
+  aspectRatio43Label: string;
+  blankSlidesSection: string;
+  blankSlideBetweenSongsLabel: string;
+  blankSlideStartEndLabel: string;
+  typographySection: string;
+  fontFamilyLabel: string;
+  textStyleLabel: string;
+  boldLabel: string;
+  italicLabel: string;
+  boldTooltip: string;
+  italicTooltip: string;
+  fontSizeLabel: string;
+  autoFontSizeLabel: string;
+  customFontSizeLabel: string;
+  textColorLabel: string;
+  backgroundColorLabel: string;
+  sideTitleSection: string;
+  showSideTitleLabel: string;
+  sideTitleFontLabel: string;
+  sideTitleSizeLabel: string;
+  sideTitleOffsetLabel: string;
+  logoSection: string;
+  showLogoLabel: string;
+  logoSizeLabel: string;
+  logoTransparencyLabel: string;
+  resetSettingsBtn: string;
+  closeSettingsBtn: string;
+  previewSection: string;
 }
 
 const TRANSLATIONS_HR: Translations = {
@@ -153,6 +190,8 @@ const TRANSLATIONS_HR: Translations = {
   exportPresentationBtn: 'Generiraj i preuzmi prezentaciju (.pptx)',
   generatingPresentationBtn: 'Generiranje prezentacije u tijeku...',
   presentationSettingsHint: '16:9 Široki zaslon • Crna pozadina • Bijeli podebljani Verdana font',
+  settingsDefaultStatus: 'Primijenjene su zadane postavke prezentacije',
+  settingsCustomStatus: 'Aktivne su prilagođene postavke prezentacije',
   exportSuccessMsg: (filename: string) => `Prezentacija "${filename}" uspješno preuzeta!`,
   exportErrorEmpty: 'Lista je prazna. Odaberite barem jednu pjesmu.',
   exportErrorGeneric: 'Neuspjelo generiranje PowerPoint prezentacije.',
@@ -196,7 +235,42 @@ const TRANSLATIONS_HR: Translations = {
   closeBtn: 'Zatvori',
   clickToViewLyricsHint: 'Kliknite za pregled cjelovitih stihova',
   addToPlaylistBtn: 'Dodaj u listu',
-  addedToPlaylistBtn: (count: number) => `Dodano u listu (${count})`
+  addedToPlaylistBtn: (count: number) => `Dodano u listu (${count})`,
+
+  // Settings Drawer
+  settingsBtn: 'Postavke prezentacije',
+  settingsTitle: 'Postavke prezentacije',
+  settingsSubtitle: 'Prilagodite omjer stranica, fontove, boje i logotip slajdova',
+  aspectRatioSection: 'Format & Omjer slike',
+  aspectRatio169Label: '16:9 Široki zaslon',
+  aspectRatio43Label: '4:3 Standardni projektor',
+  blankSlidesSection: 'Prijelazni slajdovi',
+  blankSlideBetweenSongsLabel: 'Prazan crni slajd između različitih pjesama',
+  blankSlideStartEndLabel: 'Uvodni i završni prazan crni slajd',
+  typographySection: 'Glavni tekst pjesme & Boje',
+  fontFamilyLabel: 'Vrsta fonta',
+  textStyleLabel: 'Stil teksta',
+  boldLabel: 'Podebljano (Bold)',
+  italicLabel: 'Kurziv (Italic)',
+  boldTooltip: 'Uključi / isključi podebljani tekst',
+  italicTooltip: 'Uključi / isključi kurziv',
+  fontSizeLabel: 'Veličina fonta',
+  autoFontSizeLabel: 'Automatsko prilagođavanje (32–44pt)',
+  customFontSizeLabel: 'Fiksna veličina fonta',
+  textColorLabel: 'Boja teksta',
+  backgroundColorLabel: 'Boja pozadine slajda',
+  sideTitleSection: 'Bočni naslov pjesme',
+  showSideTitleLabel: 'Prikaži vertikalni naslov uz desni rub slajda',
+  sideTitleFontLabel: 'Font bočnog naslova',
+  sideTitleSizeLabel: 'Veličina fonta bočnog naslova',
+  sideTitleOffsetLabel: 'Vodoravni odmak od ruba',
+  logoSection: 'SKAC logotip u kutu',
+  showLogoLabel: 'Prikaži SKAC logotip u donjem desnom kutu',
+  logoSizeLabel: 'Veličina logotipa',
+  logoTransparencyLabel: 'Prozirnost logotipa',
+  resetSettingsBtn: 'Vrati na zadano',
+  closeSettingsBtn: 'Zatvori',
+  previewSection: 'Pregled izgleda slajda'
 };
 
 const TRANSLATIONS_EN: Translations = {
@@ -245,6 +319,8 @@ const TRANSLATIONS_EN: Translations = {
   exportPresentationBtn: 'Generate & Download Presentation (.pptx)',
   generatingPresentationBtn: 'Generating PowerPoint Presentation...',
   presentationSettingsHint: '16:9 Widescreen • Solid Black Background • White Bold Verdana',
+  settingsDefaultStatus: 'Default presentation settings applied',
+  settingsCustomStatus: 'Custom presentation settings active',
   exportSuccessMsg: (filename: string) => `Successfully generated "${filename}"!`,
   exportErrorEmpty: 'Playlist is empty. Please select at least one song.',
   exportErrorGeneric: 'Failed to generate PowerPoint file.',
@@ -288,7 +364,42 @@ const TRANSLATIONS_EN: Translations = {
   closeBtn: 'Close',
   clickToViewLyricsHint: 'Click to view full lyrics',
   addToPlaylistBtn: 'Add to presentation',
-  addedToPlaylistBtn: (count: number) => `In presentation (${count})`
+  addedToPlaylistBtn: (count: number) => `In presentation (${count})`,
+
+  // Settings Drawer
+  settingsBtn: 'Presentation Settings',
+  settingsTitle: 'Presentation Settings',
+  settingsSubtitle: 'Customize aspect ratio, typography, colors, and watermark',
+  aspectRatioSection: 'Format & Aspect Ratio',
+  aspectRatio169Label: '16:9 Widescreen',
+  aspectRatio43Label: '4:3 Standard Projector',
+  blankSlidesSection: 'Slide Transitions',
+  blankSlideBetweenSongsLabel: 'Blank black slide between distinct songs',
+  blankSlideStartEndLabel: 'Intro and outro blank black slides',
+  typographySection: 'Lyrics Typography & Colors',
+  fontFamilyLabel: 'Font Family',
+  textStyleLabel: 'Text Style',
+  boldLabel: 'Bold',
+  italicLabel: 'Italic',
+  boldTooltip: 'Toggle bold text',
+  italicTooltip: 'Toggle italic text',
+  fontSizeLabel: 'Font Size',
+  autoFontSizeLabel: 'Auto-fit sizing (32–44pt)',
+  customFontSizeLabel: 'Fixed font size',
+  textColorLabel: 'Text Color',
+  backgroundColorLabel: 'Slide Background Color',
+  sideTitleSection: 'Side Song Title',
+  showSideTitleLabel: 'Show vertical song title along right edge',
+  sideTitleFontLabel: 'Side Title Font',
+  sideTitleSizeLabel: 'Side Title Font Size',
+  sideTitleOffsetLabel: 'Horizontal offset from edge',
+  logoSection: 'Corner SKAC Watermark',
+  showLogoLabel: 'Show SKAC logo in bottom-right corner',
+  logoSizeLabel: 'Logo Size',
+  logoTransparencyLabel: 'Logo Transparency',
+  resetSettingsBtn: 'Reset to Defaults',
+  closeSettingsBtn: 'Close',
+  previewSection: 'Live Slide Preview'
 };
 
 @Injectable({

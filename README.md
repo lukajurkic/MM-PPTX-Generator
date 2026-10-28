@@ -24,7 +24,18 @@ A modern, responsive web application for choral groups, worship teams, church co
 
 - **🔍 Two-Panel Interactive Workspace:**
   - **Left Panel (Song Catalog):** Real-time text search (by title or lyrics), live song counters, and multi-filter dropdown chips for **Categories** (e.g. *Slavljenje*, *Zahvala*, *Klanjanje*) and **Mass Sections** (*Ulazna*, *Pričesna*, *Završna*, etc.).
-  - **Right Panel (Presentation Queue):** Reorder songs via Move Up / Move Down buttons, remove items, clear playlist, and view live slide metrics (lyric slides vs. total estimated slides).
+  - **Right Panel (Presentation Queue):** Reorder songs via Move Up / Move Down buttons, remove items, clear playlist, view live slide metrics (lyric slides vs. total estimated slides), and check active presentation preferences via a dynamic status indicator (confirming default settings or custom settings with 1-click access to the settings drawer).
+
+- **⚙️ Presentation Preferences / Settings Drawer:**
+  - Accessible via the **Settings (Postavke)** button in the header.
+  - **Aspect Ratio:** Toggle between **16:9 Widescreen** (default) and **4:3 Standard** (for older church projectors).
+  - **Slide Transitions:** Independent checkboxes for blank slides between songs and intro/outro blank slides.
+  - **Typography & Fonts:** Choose from standard cross-platform fonts (*Verdana*, *Arial*, *Calibri*, *Trebuchet MS*, *Tahoma*, *Georgia*, *Times New Roman*), toggle smart auto-fit (32–44pt) or set a fixed font size slider (32–48pt).
+  - **Colors:** Native color pickers and preset chips for slide background and text colors.
+  - **Side Title Options:** Toggle on/off, font family, font size (8–18pt), and horizontal offset from right edge in centimeters (0.0–3.0 cm).
+  - **SKAC Logo Watermark:** Toggle on/off, size scaling slider (50%–180%), and transparency slider (0%–90%).
+  - **Live Preview:** Interactive mini slide preview stage demonstrating layout, colors, typography, side title, and logo in real-time.
+  - **Persistent Storage & Repository Defaults:** All choices persist across sessions via `localStorage` with a 1-click **"Reset to Defaults"** action backed by repository defaults in `presentation-settings.constant.ts`.
 
 - **📜 Full Song Lyrics Preview Modal:**
   - Click on any song card in the catalog or in the playlist queue to open an accessible modal dialog.
@@ -51,7 +62,7 @@ A modern, responsive web application for choral groups, worship teams, church co
 - **Framework:** Angular 17.3 (Standalone Components, Signals, `inject()`)
 - **Presentation Engine:** `pptxgenjs` v4.0.1
 - **Icons & Styling:** Native SVG icons, responsive CSS variables, modern dark aesthetic
-- **Testing:** Karma + Jasmine with headless Chrome/Firefox test runners (57 unit tests)
+- **Testing:** Karma + Jasmine with headless Chrome/Firefox test runners (77 unit tests)
 - **CI/CD:** GitHub Actions (Automated PR validation, GitHub Pages deployment, SemVer auto-tagging & Releases)
 
 ---

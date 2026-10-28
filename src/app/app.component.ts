@@ -5,6 +5,7 @@ import { SongCatalogComponent } from './components/song-catalog/song-catalog.com
 import { PlaylistQueueComponent } from './components/playlist-queue/playlist-queue.component';
 import { RequestSongModalComponent } from './components/request-song-modal/request-song-modal.component';
 import { SongLyricsModalComponent } from './components/song-lyrics-modal/song-lyrics-modal.component';
+import { SettingsDrawerComponent } from './components/settings-drawer/settings-drawer.component';
 import { SongService } from './services/song.service';
 import { APP_VERSION } from '../environments/version';
 
@@ -17,12 +18,16 @@ import { APP_VERSION } from '../environments/version';
     SongCatalogComponent,
     PlaylistQueueComponent,
     RequestSongModalComponent,
-    SongLyricsModalComponent
+    SongLyricsModalComponent,
+    SettingsDrawerComponent
   ],
   template: `
     <div class="app-layout">
       <!-- Responsive Header -->
-      <app-header (openRequestModal)="onRequestModalOpen()"></app-header>
+      <app-header
+        (openRequestModal)="onRequestModalOpen()"
+        (openSettings)="onSettingsOpen()"
+      ></app-header>
 
       <!-- Main Application Two-Panel Workspace -->
       <main class="main-content">
@@ -35,7 +40,7 @@ import { APP_VERSION } from '../environments/version';
 
             <!-- Right Panel: Playlist Presentation Queue (Task 4.3) -->
             <section class="panel-section" aria-label="Presentation Playlist Queue">
-              <app-playlist-queue></app-playlist-queue>
+              <app-playlist-queue (openSettings)="onSettingsOpen()"></app-playlist-queue>
             </section>
           </div>
         </div>
@@ -49,6 +54,11 @@ import { APP_VERSION } from '../environments/version';
       <!-- Song Lyrics Preview Modal Dialog (Task 6.7) -->
       @if (activeLyricsSong(); as song) {
         <app-song-lyrics-modal [song]="song" (close)="onCloseLyrics()"></app-song-lyrics-modal>
+      }
+
+      <!-- Presentation Settings Drawer (Task 10) -->
+      @if (isSettingsDrawerOpen()) {
+        <app-settings-drawer (close)="onSettingsClose()"></app-settings-drawer>
       }
 
       <!-- Application Footer with Version -->
@@ -150,6 +160,7 @@ export class AppComponent implements OnInit {
   readonly appVersion = APP_VERSION;
 
   readonly isRequestModalOpen = signal<boolean>(false);
+  readonly isSettingsDrawerOpen = signal<boolean>(false);
   readonly activeLyricsSong = this.songService.activeLyricsSong;
 
   ngOnInit(): void {
@@ -163,6 +174,14 @@ export class AppComponent implements OnInit {
 
   onRequestModalClose(): void {
     this.isRequestModalOpen.set(false);
+  }
+
+  onSettingsOpen(): void {
+    this.isSettingsDrawerOpen.set(true);
+  }
+
+  onSettingsClose(): void {
+    this.isSettingsDrawerOpen.set(false);
   }
 
   onCloseLyrics(): void {
