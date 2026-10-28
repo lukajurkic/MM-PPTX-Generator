@@ -117,7 +117,8 @@ export class PptxExportService {
           fontFace: lyricsFontFace,
           fontSize,
           color: textColor,
-          bold: true,
+          bold: settings.bold ?? true,
+          italic: settings.italic ?? false,
           align: 'center',
           valign: 'middle',
           breakLine: true

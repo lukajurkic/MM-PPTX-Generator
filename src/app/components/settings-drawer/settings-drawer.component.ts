@@ -65,6 +65,8 @@ import { SKAC_LOGO_BASE64 } from '../../constants/skac-logo.constant';
                 class="preview-lyrics"
                 [style.font-family]="settings().fontFamily"
                 [style.color]="settings().textColor"
+                [style.font-weight]="settings().bold ? 'bold' : 'normal'"
+                [style.font-style]="settings().italic ? 'italic' : 'normal'"
               >
                 ISUS MOJ LJUBI ME
               </div>
@@ -168,6 +170,36 @@ import { SKAC_LOGO_BASE64 } from '../../constants/skac-logo.constant';
                   <option [value]="font" [style.font-family]="font">{{ font }}</option>
                 }
               </select>
+            </div>
+
+            <!-- Text Formatting (Bold / Italic) -->
+            <div class="control-block">
+              <label class="control-label">{{ t().textStyleLabel }}</label>
+              <div class="style-toggle-group">
+                <button
+                  type="button"
+                  class="style-toggle-btn"
+                  [class.active]="settings().bold"
+                  (click)="onToggleBold()"
+                  [attr.aria-pressed]="settings().bold"
+                  [title]="t().boldTooltip"
+                >
+                  <span class="btn-letter bold-letter" aria-hidden="true">B</span>
+                  <span>{{ t().boldLabel }}</span>
+                </button>
+
+                <button
+                  type="button"
+                  class="style-toggle-btn"
+                  [class.active]="settings().italic"
+                  (click)="onToggleItalic()"
+                  [attr.aria-pressed]="settings().italic"
+                  [title]="t().italicTooltip"
+                >
+                  <span class="btn-letter italic-letter" aria-hidden="true">I</span>
+                  <span>{{ t().italicLabel }}</span>
+                </button>
+              </div>
             </div>
 
             <!-- Font Size & Auto-fit -->
@@ -827,6 +859,72 @@ import { SKAC_LOGO_BASE64 } from '../../constants/skac-logo.constant';
       border-color: var(--accent-primary);
     }
 
+    /* Style Toggle Group (Bold & Italic) */
+    .style-toggle-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .style-toggle-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 12px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+
+    .style-toggle-btn:hover {
+      border-color: var(--border-default);
+      background: var(--bg-surface-elevated);
+      color: var(--text-primary);
+    }
+
+    .style-toggle-btn.active {
+      background: rgba(7, 77, 151, 0.2);
+      border-color: var(--accent-primary);
+      color: #bfdbfe;
+      box-shadow: 0 0 10px rgba(7, 77, 151, 0.25);
+    }
+
+    .btn-letter {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      font-size: 13px;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .style-toggle-btn.active .btn-letter {
+      background: var(--accent-primary);
+      border-color: var(--accent-primary);
+      color: #ffffff;
+    }
+
+    .bold-letter {
+      font-weight: 800;
+    }
+
+    .italic-letter {
+      font-weight: 600;
+      font-style: italic;
+      font-family: Georgia, serif;
+    }
+
     .auto-toggle-row {
       display: flex;
       align-items: center;
@@ -1006,6 +1104,14 @@ export class SettingsDrawerComponent {
 
   onSetFontFamily(font: string): void {
     this.settingsService.updateSettings({ fontFamily: font });
+  }
+
+  onToggleBold(): void {
+    this.settingsService.updateSettings({ bold: !this.settings().bold });
+  }
+
+  onToggleItalic(): void {
+    this.settingsService.updateSettings({ italic: !this.settings().italic });
   }
 
   onToggleAutoFontSize(event: Event): void {

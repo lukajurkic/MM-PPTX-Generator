@@ -55,6 +55,23 @@ describe('SettingsDrawerComponent', () => {
     expect(s.backgroundColor).toBe('#074d97');
   });
 
+  it('should toggle bold and italic text styles', () => {
+    expect(settingsService.settings().bold).toBeTrue();
+    expect(settingsService.settings().italic).toBeFalse();
+
+    component.onToggleBold();
+    expect(settingsService.settings().bold).toBeFalse();
+
+    component.onToggleItalic();
+    expect(settingsService.settings().italic).toBeTrue();
+
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    const previewLyrics = compiled.querySelector('.preview-lyrics') as HTMLElement;
+    expect(previewLyrics.style.fontWeight).toBe('normal');
+    expect(previewLyrics.style.fontStyle).toBe('italic');
+  });
+
   it('should update side title font size and horizontal offset', () => {
     component.onSetSideTitleFontSize(14);
     component.onSetSideTitleOffset(1.5);

@@ -25,7 +25,9 @@ describe('SettingsService', () => {
       aspectRatio: '4x3',
       textColor: '#fcd34d',
       backgroundColor: '#074d97',
-      showLogo: false
+      showLogo: false,
+      bold: false,
+      italic: true
     });
 
     const current = service.settings();
@@ -33,12 +35,16 @@ describe('SettingsService', () => {
     expect(current.textColor).toBe('#fcd34d');
     expect(current.backgroundColor).toBe('#074d97');
     expect(current.showLogo).toBe(false);
+    expect(current.bold).toBe(false);
+    expect(current.italic).toBe(true);
 
     // Verify localStorage persistence
     const stored = JSON.parse(localStorage.getItem(SETTINGS_STORAGE_KEY) || '{}');
     expect(stored.aspectRatio).toBe('4x3');
     expect(stored.textColor).toBe('#fcd34d');
     expect(stored.showLogo).toBe(false);
+    expect(stored.bold).toBe(false);
+    expect(stored.italic).toBe(true);
   });
 
   it('should sanitize out-of-range numeric settings', () => {
@@ -86,6 +92,18 @@ describe('SettingsService', () => {
     expect(service.isDefault()).toBeTrue();
 
     service.updateSettings({ showLogo: false });
+    expect(service.isDefault()).toBeFalse();
+
+    service.resetToDefaults();
+    expect(service.isDefault()).toBeTrue();
+
+    service.updateSettings({ bold: false });
+    expect(service.isDefault()).toBeFalse();
+
+    service.resetToDefaults();
+    expect(service.isDefault()).toBeTrue();
+
+    service.updateSettings({ italic: true });
     expect(service.isDefault()).toBeFalse();
 
     service.resetToDefaults();

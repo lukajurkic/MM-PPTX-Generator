@@ -54,6 +54,12 @@ export interface PresentationSettings {
   /** Main lyrics font family */
   fontFamily: SupportedFont | string;
 
+  /** Whether lyrics text is bold */
+  bold: boolean;
+
+  /** Whether lyrics text is italic */
+  italic: boolean;
+
   /** Fixed lyrics font size in points (32pt to 48pt) when autoFontSize is false */
   fontSizeOverride: number;
 
@@ -96,6 +102,8 @@ export const DEFAULT_PRESENTATION_SETTINGS: Readonly<PresentationSettings> = {
   blankSlideBetweenSongs: true,
   blankSlideStartEnd: true,
   fontFamily: 'Verdana',
+  bold: true,
+  italic: false,
   fontSizeOverride: 40,
   autoFontSize: true,
   textColor: '#ffffff',
@@ -123,6 +131,12 @@ export function arePresentationSettingsDefault(settings: PresentationSettings): 
     return false;
   }
   if (settings.fontFamily !== DEFAULT_PRESENTATION_SETTINGS.fontFamily) {
+    return false;
+  }
+  if (settings.bold !== DEFAULT_PRESENTATION_SETTINGS.bold) {
+    return false;
+  }
+  if (settings.italic !== DEFAULT_PRESENTATION_SETTINGS.italic) {
     return false;
   }
   if (settings.autoFontSize !== DEFAULT_PRESENTATION_SETTINGS.autoFontSize) {

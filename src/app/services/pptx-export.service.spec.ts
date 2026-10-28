@@ -131,6 +131,8 @@ describe('PptxExportService', () => {
         blankSlideBetweenSongs: false,
         blankSlideStartEnd: false,
         fontFamily: 'Arial',
+        bold: false,
+        italic: true,
         fontSizeOverride: 42,
         autoFontSize: false,
         textColor: '#fcd34d',

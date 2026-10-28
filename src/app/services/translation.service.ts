@@ -109,6 +109,11 @@ export interface Translations {
   blankSlideStartEndLabel: string;
   typographySection: string;
   fontFamilyLabel: string;
+  textStyleLabel: string;
+  boldLabel: string;
+  italicLabel: string;
+  boldTooltip: string;
+  italicTooltip: string;
   fontSizeLabel: string;
   autoFontSizeLabel: string;
   customFontSizeLabel: string;
@@ -244,6 +249,11 @@ const TRANSLATIONS_HR: Translations = {
   blankSlideStartEndLabel: 'Uvodni i završni prazan crni slajd',
   typographySection: 'Glavni tekst pjesme & Boje',
   fontFamilyLabel: 'Vrsta fonta',
+  textStyleLabel: 'Stil teksta',
+  boldLabel: 'Podebljano (Bold)',
+  italicLabel: 'Kurziv (Italic)',
+  boldTooltip: 'Uključi / isključi podebljani tekst',
+  italicTooltip: 'Uključi / isključi kurziv',
   fontSizeLabel: 'Veličina fonta',
   autoFontSizeLabel: 'Automatsko prilagođavanje (32–44pt)',
   customFontSizeLabel: 'Fiksna veličina fonta',
@@ -368,6 +378,11 @@ const TRANSLATIONS_EN: Translations = {
   blankSlideStartEndLabel: 'Intro and outro blank black slides',
   typographySection: 'Lyrics Typography & Colors',
   fontFamilyLabel: 'Font Family',
+  textStyleLabel: 'Text Style',
+  boldLabel: 'Bold',
+  italicLabel: 'Italic',
+  boldTooltip: 'Toggle bold text',
+  italicTooltip: 'Toggle italic text',
   fontSizeLabel: 'Font Size',
   autoFontSizeLabel: 'Auto-fit sizing (32–44pt)',
   customFontSizeLabel: 'Fixed font size',

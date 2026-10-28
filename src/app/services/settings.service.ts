@@ -97,6 +97,14 @@ export class SettingsService {
       s.aspectRatio = '16x9';
     }
 
+    // Text bold & italic
+    if (typeof s.bold !== 'boolean') {
+      s.bold = true;
+    }
+    if (typeof s.italic !== 'boolean') {
+      s.italic = false;
+    }
+
     // Font size override (32pt to 48pt)
     if (typeof s.fontSizeOverride !== 'number' || isNaN(s.fontSizeOverride)) {
       s.fontSizeOverride = 40;
