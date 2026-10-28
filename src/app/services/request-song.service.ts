@@ -25,6 +25,14 @@ export class RequestSongService {
     }
 
     const isFormSubmit = this.endpoint.includes('formsubmit.co');
+    const categoriesFormatted = payload.categories && payload.categories.length > 0
+      ? payload.categories.join(', ')
+      : (payload.category?.trim() || 'Not specified');
+
+    const massSectionsFormatted = payload.massSections && payload.massSections.length > 0
+      ? payload.massSections.join(', ')
+      : (payload.massSection?.trim() || 'Not specified');
+
     let body: Record<string, any>;
 
     if (isFormSubmit) {
@@ -33,8 +41,8 @@ export class RequestSongService {
         _template: 'table',
         _captcha: 'false',
         'Song Title': title,
-        'Category': payload.category?.trim() || 'Not specified',
-        'Mass Section': payload.massSection?.trim() || 'Not specified',
+        'Category': categoriesFormatted,
+        'Mass Section': massSectionsFormatted,
         'Lyrics': lyrics,
         'Submitter Name': payload.submitterName?.trim() || 'Anonymous',
         'Submitter Email': payload.submitterEmail?.trim() || 'Not provided',
@@ -50,8 +58,8 @@ export class RequestSongService {
         subject: `New Song Request: ${title}`,
         from_name: payload.submitterName?.trim() || 'Lyrics Presentation App',
         song_title: title,
-        category: payload.category?.trim() || 'Not specified',
-        mass_section: payload.massSection?.trim() || 'Not specified',
+        category: categoriesFormatted,
+        mass_section: massSectionsFormatted,
         lyrics: lyrics,
         submitter_name: payload.submitterName?.trim() || 'Anonymous',
         submitter_email: payload.submitterEmail?.trim() || 'Not provided',
