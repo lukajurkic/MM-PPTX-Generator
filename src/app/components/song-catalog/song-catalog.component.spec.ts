@@ -142,5 +142,52 @@ describe('SongCatalogComponent', () => {
     songInfo.click();
     expect(songService.openLyrics).toHaveBeenCalledWith(sampleSongs[0]);
   });
+
+  describe('Empty Song option', () => {
+    it('should render empty song item in catalog list by default', () => {
+      const compiled = fixture.nativeElement as HTMLElement;
+      const emptyItem = compiled.querySelector('.empty-song-item');
+      expect(emptyItem).toBeTruthy();
+      expect(emptyItem?.textContent).toContain('Prazna pjesma');
+      expect(emptyItem?.textContent).toContain('Crni slajd');
+    });
+
+    it('should open empty song modal when empty song item or add button is clicked', () => {
+      expect(component.isEmptySongModalOpen()).toBeFalse();
+
+      component.onOpenEmptySongModal();
+      fixture.detectChanges();
+
+      expect(component.isEmptySongModalOpen()).toBeTrue();
+      const compiled = fixture.nativeElement as HTMLElement;
+      expect(compiled.querySelector('app-empty-song-modal')).toBeTruthy();
+    });
+
+    it('should call songService.addEmptySong and close modal when confirmed', () => {
+      spyOn(songService, 'addEmptySong');
+      component.isEmptySongModalOpen.set(true);
+
+      component.onConfirmEmptySong({ title: 'Moja tiha pjesma', slideCount: 5 });
+
+      expect(songService.addEmptySong).toHaveBeenCalledWith('Moja tiha pjesma', 5);
+      expect(component.isEmptySongModalOpen()).toBeFalse();
+    });
+
+    it('should show empty song option when search query matches prazna or empty', () => {
+      component.onSearchChange('prazna');
+      expect(component.shouldShowEmptySongItem()).toBeTrue();
+
+      component.onSearchChange('empty');
+      expect(component.shouldShowEmptySongItem()).toBeTrue();
+
+      component.onSearchChange('something-completely-unrelated');
+      expect(component.shouldShowEmptySongItem()).toBeFalse();
+    });
+
+    it('should hide empty song option when mass section filter is active', () => {
+      component.onToggleMassSection('Ulazna');
+      expect(component.shouldShowEmptySongItem()).toBeFalse();
+    });
+  });
 });
 

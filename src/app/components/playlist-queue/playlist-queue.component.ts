@@ -95,6 +95,9 @@ import { Song } from '../../models/song.model';
                 >
                   <h4 class="item-title">{{ item.song.title }}</h4>
                   <div class="item-meta">
+                    @if (item.song.isEmptySong) {
+                      <span class="meta-tag empty-song-tag">{{ t().emptySongBadge }}</span>
+                    }
                     <span class="meta-tag">{{ t().slidesCount(item.song.stanzaCount) }}</span>
                     @if (!isLast && settings().blankSlideBetweenSongs) {
                       <span class="transition-tag">{{ t().blankTransitionTag }}</span>
@@ -456,6 +459,16 @@ import { Song } from '../../models/song.model';
 
     .meta-tag {
       color: var(--text-secondary);
+    }
+
+    .empty-song-tag {
+      background-color: rgba(7, 77, 151, 0.25);
+      color: #93c5fd;
+      border: 1px solid rgba(7, 77, 151, 0.4);
+      border-radius: var(--radius-sm);
+      padding: 1px 6px;
+      font-size: 11px;
+      font-weight: 600;
     }
 
     .transition-tag {

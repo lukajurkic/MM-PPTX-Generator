@@ -97,6 +97,22 @@ export interface Translations {
   addToPlaylistBtn: string;
   addedToPlaylistBtn: (count: number) => string;
 
+  // Empty Song (Task 23)
+  emptySongTitle: string;
+  emptySongBadge: string;
+  emptySongDesc: string;
+  emptySongItemHint: string;
+  addEmptySongBtn: string;
+  emptySongModalTitle: string;
+  emptySongModalSubtitle: string;
+  emptySongNameLabel: string;
+  emptySongNamePlaceholder: string;
+  emptySongSlideCountLabel: string;
+  emptySongConfirmBtn: string;
+  emptySongCancelBtn: string;
+  emptySongLyricsNoticeTitle: string;
+  emptySongLyricsNoticeDesc: (count: number) => string;
+
   // Settings Drawer (Task 10)
   settingsBtn: string;
   settingsTitle: string;
@@ -237,6 +253,23 @@ const TRANSLATIONS_HR: Translations = {
   addToPlaylistBtn: 'Dodaj u listu',
   addedToPlaylistBtn: (count: number) => `Dodano u listu (${count})`,
 
+  // Empty Song (Task 23)
+  emptySongTitle: 'Prazna pjesma',
+  emptySongBadge: 'Crni slajd',
+  emptySongDesc: 'Crni slajdovi s bočnim naslovom i logotipom (npr. instrumental ili molitva)',
+  emptySongItemHint: 'Klikni za unos naziva i broja praznih slajdova',
+  addEmptySongBtn: 'Dodaj praznu pjesmu',
+  emptySongModalTitle: 'Dodaj praznu pjesmu',
+  emptySongModalSubtitle: 'Stvara odabrani broj crnih slajdova s bočnim naslovom pjesme i SKAC logotipom u kutu.',
+  emptySongNameLabel: 'Naziv pjesme / cjeline',
+  emptySongNamePlaceholder: 'npr. Prazna pjesma, Klanjanje, Instrumental...',
+  emptySongSlideCountLabel: 'Broj praznih slajdova',
+  emptySongConfirmBtn: 'Dodaj u prezentaciju',
+  emptySongCancelBtn: 'Odustani',
+  emptySongLyricsNoticeTitle: 'Prazna pjesma (nema teksta)',
+  emptySongLyricsNoticeDesc: (count: number) =>
+    `Ova stavka sadrži ${count} ${count === 1 ? 'crni slajd' : 'crna slajda'} s bočnim naslovom i SKAC logotipom, bez teksta stihova.`,
+
   // Settings Drawer
   settingsBtn: 'Postavke prezentacije',
   settingsTitle: 'Postavke prezentacije',
@@ -365,6 +398,23 @@ const TRANSLATIONS_EN: Translations = {
   clickToViewLyricsHint: 'Click to view full lyrics',
   addToPlaylistBtn: 'Add to presentation',
   addedToPlaylistBtn: (count: number) => `In presentation (${count})`,
+
+  // Empty Song (Task 23)
+  emptySongTitle: 'Empty Song',
+  emptySongBadge: 'Blank Slide',
+  emptySongDesc: 'Black slides with side title and corner logo (e.g. for instrumental or prayer)',
+  emptySongItemHint: 'Click to enter title and number of blank slides',
+  addEmptySongBtn: 'Add Empty Song',
+  emptySongModalTitle: 'Add Empty Song',
+  emptySongModalSubtitle: 'Creates the selected number of black slides with rotated side title and SKAC corner logo.',
+  emptySongNameLabel: 'Song / Section Title',
+  emptySongNamePlaceholder: 'e.g. Empty Song, Reflection, Instrumental...',
+  emptySongSlideCountLabel: 'Number of Blank Slides',
+  emptySongConfirmBtn: 'Add to Presentation',
+  emptySongCancelBtn: 'Cancel',
+  emptySongLyricsNoticeTitle: 'Empty Song (No Lyric Text)',
+  emptySongLyricsNoticeDesc: (count: number) =>
+    `This item contains ${count} blank ${count === 1 ? 'slide' : 'slides'} with rotated side title and SKAC logo, without lyric text.`,
 
   // Settings Drawer
   settingsBtn: 'Presentation Settings',

@@ -192,6 +192,86 @@ describe('PptxExportService', () => {
     expect(slides[2]._slideObjects[0].options.fontSize).toBe(36);
   });
 
+  it('should export empty song with black slides, side title and logo, but no lyric text', () => {
+    const emptySongPlaylist: PlaylistItem[] = [
+      {
+        playlistId: 'empty-1',
+        song: {
+          id: 'empty-song-1',
+          title: 'Klanjanje i meditacija',
+          slug: 'empty-song',
+          fileName: '',
+          stanzaCount: 3,
+          preview: '',
+          categories: ['Prazna pjesma'],
+          massSections: [],
+          stanzas: ['', '', ''],
+          isEmptySong: true
+        }
+      }
+    ];
+
+    // Build without blank lead/trail/transitions to inspect only the empty song slides
+    const pres = service.buildPresentation(emptySongPlaylist, {
+      includeBlankSlides: false,
+      includeBlankSlideBetweenSongs: false,
+      includeSideTitle: true,
+      includeLogo: true
+    });
+
+    const slides = (pres as any).slides;
+    expect(slides.length).toBe(3);
+
+    slides.forEach((slide: any) => {
+      // Background is set to black
+      expect(slide.background).toEqual({ color: '000000' });
+
+      // There should be exactly 2 objects: rotated side title + SKAC logo (no middle lyric text)
+      expect(slide._slideObjects.length).toBe(2);
+
+      // Verify side title text object
+      const titleObj = slide._slideObjects.find((obj: any) => obj._type === 'text' || obj.text);
+      expect(titleObj).toBeTruthy();
+      const extractedText = Array.isArray(titleObj.text) ? titleObj.text[0].text : titleObj.text;
+      expect(extractedText).toBe('KLANJANJE I MEDITACIJA');
+      const rotate = titleObj.options?.rotate ?? titleObj.text?.[0]?.options?.rotate;
+      expect(rotate).toBe(270);
+
+      // Verify SKAC corner logo image object
+      const imgObj = slide._slideObjects.find((obj: any) => obj._type === 'image' || obj.image);
+      expect(imgObj).toBeTruthy();
+    });
+  });
+
+  it('should ignore empty stanzas in calculateUniformAutoFontSize', () => {
+    const emptyPlaylist: PlaylistItem[] = [
+      {
+        playlistId: 'empty-1',
+        song: {
+          id: 'empty-song-1',
+          title: 'Prazna pjesma',
+          slug: 'empty-song',
+          fileName: '',
+          stanzaCount: 2,
+          preview: '',
+          categories: [],
+          massSections: [],
+          stanzas: ['', ''],
+          isEmptySong: true
+        }
+      }
+    ];
+
+    // Defaults to 40 when all stanzas are empty
+    expect(service.calculateUniformAutoFontSize(emptyPlaylist)).toBe(40);
+
+    // When mixed with a regular song, uniform size matches the regular song
+    const mixedPlaylist = [...emptyPlaylist, ...mockPlaylist];
+    expect(service.calculateUniformAutoFontSize(mixedPlaylist)).toBe(
+      service.calculateUniformAutoFontSize(mockPlaylist)
+    );
+  });
+
   it('should throw an error if attempting to export an empty playlist', async () => {
     await expectAsync(service.downloadPresentation([])).toBeRejectedWithError(
       'Playlist is empty. Please select at least one song.'

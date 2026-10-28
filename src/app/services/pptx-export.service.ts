@@ -109,23 +109,24 @@ export class PptxExportService {
         const slide = pres.addSlide();
         slide.background = { color: bgColor };
 
-        // Main lyric typography
-        const allCapsText = stanza.toUpperCase();
-
-        slide.addText(allCapsText, {
-          x: '5%',
-          y: '5%',
-          w: '86%',
-          h: '90%',
-          fontFace: lyricsFontFace,
-          fontSize: effectiveFontSize,
-          color: textColor,
-          bold: settings.bold ?? false,
-          italic: settings.italic ?? false,
-          align: 'center',
-          valign: 'middle',
-          breakLine: true
-        });
+        // Main lyric typography (only if stanza has text)
+        const allCapsText = (stanza || '').toUpperCase();
+        if (allCapsText.trim()) {
+          slide.addText(allCapsText, {
+            x: '5%',
+            y: '5%',
+            w: '86%',
+            h: '90%',
+            fontFace: lyricsFontFace,
+            fontSize: effectiveFontSize,
+            color: textColor,
+            bold: settings.bold ?? false,
+            italic: settings.italic ?? false,
+            align: 'center',
+            valign: 'middle',
+            breakLine: true
+          });
+        }
 
         // Rotated side song title on the right edge
         if (settings.showSideTitle && song.title) {
@@ -221,11 +222,11 @@ export class PptxExportService {
    * fits cleanly, and applies that uniform font size to the whole presentation.
    */
   calculateUniformAutoFontSize(playlist: PlaylistItem[]): number {
-    const allStanzas = playlist.flatMap(item => item.song.stanzas);
-    if (allStanzas.length === 0) {
+    const nonBlankStanzas = playlist.flatMap(item => item.song.stanzas).filter(s => s && s.trim().length > 0);
+    if (nonBlankStanzas.length === 0) {
       return 40;
     }
-    return Math.min(...allStanzas.map(s => this.calculateOptimalFontSize(s)));
+    return Math.min(...nonBlankStanzas.map(s => this.calculateOptimalFontSize(s)));
   }
 
   /**
