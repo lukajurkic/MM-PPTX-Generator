@@ -68,9 +68,14 @@ export interface Translations {
   fieldCategory: string;
   fieldCategoryPlaceholder: string;
   fieldCategoryHint: string;
+  fieldCategoryCustomPlaceholder: string;
   fieldMassSection: string;
   fieldMassSectionPlaceholder: string;
   fieldMassSectionHint: string;
+  fieldMassSectionCustomPlaceholder: string;
+  selectCategoriesPlaceholder: string;
+  selectMassSectionsPlaceholder: string;
+  selectedCountLabel: string;
   fieldSubmitterName: string;
   fieldSubmitterNamePlaceholder: string;
   fieldSubmitterEmail: string;
@@ -223,12 +228,17 @@ const TRANSLATIONS_HR: Translations = {
   fieldLyrics: 'Stihovi',
   fieldLyricsHint: 'Odvojite strofe praznim retkom za podjelu na slajdove',
   fieldLyricsPlaceholder: 'Unesite ili zalijepite stihove ovdje...\n\nSvaku strofu i refren odvojite jednim praznim redom za izradu zasebnih slajdova.',
-  fieldCategory: 'Kategorija',
+  fieldCategory: 'Kategorije',
   fieldCategoryPlaceholder: 'Odaberite ili upišite kategoriju (npr. Slavljenje, Zahvala...)',
-  fieldCategoryHint: 'Odaberite s popisa ili upišite vlastitu kategoriju',
-  fieldMassSection: 'Dio mise',
+  fieldCategoryHint: 'Odaberite s popisa ili dodajte vlastitu kategoriju',
+  fieldCategoryCustomPlaceholder: 'Upišite novu kategoriju...',
+  fieldMassSection: 'Dijelovi mise',
   fieldMassSectionPlaceholder: 'Odaberite ili upišite dio mise (npr. Ulazna, Pričesna...)',
-  fieldMassSectionHint: 'Odaberite s popisa ili upišite vlastiti dio mise',
+  fieldMassSectionHint: 'Odaberite s popisa ili dodajte vlastiti dio mise',
+  fieldMassSectionCustomPlaceholder: 'Upišite novi dio mise...',
+  selectCategoriesPlaceholder: 'Odaberite kategorije...',
+  selectMassSectionsPlaceholder: 'Odaberite dijelove mise...',
+  selectedCountLabel: 'odabrano',
   fieldSubmitterName: 'Vaše ime',
   fieldSubmitterNamePlaceholder: 'npr., Ivan Horvat',
   fieldSubmitterEmail: 'Vaša e-pošta',
@@ -371,12 +381,17 @@ const TRANSLATIONS_EN: Translations = {
   fieldLyrics: 'Lyrics',
   fieldLyricsHint: 'Separate stanzas by empty lines for slides',
   fieldLyricsPlaceholder: 'Enter or paste lyrics here...\n\nSeparate each verse and chorus with a blank line to divide into presentation slides.',
-  fieldCategory: 'Category',
+  fieldCategory: 'Categories',
   fieldCategoryPlaceholder: 'Select or type category (e.g. Praise & Worship, Thanksgiving...)',
-  fieldCategoryHint: 'Select from preset list or type a custom category',
-  fieldMassSection: 'Mass Section',
+  fieldCategoryHint: 'Select from preset list or add custom categories',
+  fieldCategoryCustomPlaceholder: 'Type new category...',
+  fieldMassSection: 'Mass Sections',
   fieldMassSectionPlaceholder: 'Select or type mass section (e.g. Entrance, Communion...)',
-  fieldMassSectionHint: 'Select from preset list or type a custom mass section',
+  fieldMassSectionHint: 'Select from preset list or add custom mass sections',
+  fieldMassSectionCustomPlaceholder: 'Type new mass section...',
+  selectCategoriesPlaceholder: 'Select categories...',
+  selectMassSectionsPlaceholder: 'Select mass sections...',
+  selectedCountLabel: 'selected',
   fieldSubmitterName: 'Your Name',
   fieldSubmitterNamePlaceholder: 'e.g., John Doe',
   fieldSubmitterEmail: 'Your Email',
