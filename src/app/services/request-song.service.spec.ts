@@ -62,6 +62,29 @@ describe('RequestSongService', () => {
     expect(capturedBody['Submitter Email']).toBe('john@example.com');
   });
 
+  it('should format arrays of categories and mass sections joined with comma', async () => {
+    let capturedBody: any = null;
+
+    window.fetch = jasmine.createSpy('fetch').and.callFake((url: any, init: any) => {
+      capturedBody = JSON.parse(init.body);
+      return Promise.resolve(new Response(JSON.stringify({ success: true }), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' }
+      }));
+    });
+
+    const res = await service.submitSongRequest({
+      title: 'Amazing Grace',
+      lyrics: 'Amazing grace how sweet the sound',
+      categories: ['Slavljenje', 'Zahvala'],
+      massSections: ['Pričesna', 'Klanjanje']
+    });
+
+    expect(res.success).toBeTrue();
+    expect(capturedBody['Category']).toBe('Slavljenje, Zahvala');
+    expect(capturedBody['Mass Section']).toBe('Pričesna, Klanjanje');
+  });
+
   it('should throw error when endpoint returns failure status', async () => {
     window.fetch = jasmine.createSpy('fetch').and.callFake(() => {
       return Promise.resolve(new Response(JSON.stringify({ success: false, message: 'Invalid access key' }), {

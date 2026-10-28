@@ -1,0 +1,100 @@
+name: "🎵 Predloži novu pjesmu (Song Request)"
+description: "Predložite novu pjesmu za uvrštavanje u repertoar i prezentacije."
+title: "[Pjesma]: "
+labels: ["song-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Hvala vam na prijedlogu pjesme!
+        Ispunite obrazac u nastavku. Nakon slanja, **GitHub Action će automatski pripremiti Pull Request** koji administrator može pregledati i odobriti jednim dodirom na mobitelu!
+
+  - type: input
+    id: title
+    attributes:
+      label: "Naziv pjesme (Song Title)"
+      description: "Točan naziv pjesme (npr. Milost / Amazing Grace)"
+      placeholder: "npr. Milost"
+    validations:
+      required: true
+
+  - type: textarea
+    id: lyrics
+    attributes:
+      label: "Tekst pjesme / Stihovi (Lyrics)"
+      description: "Unesite tekst pjesme. VAŽNO: Odvojite svaku strofu / slajd jednim praznim retkom (dvostruki Enter)."
+      placeholder: |
+        O milost, kako divan dar
+        što spasi grešnika
+
+        Ja bijah slijep, al sada znam
+        i gledam svjetlost sja
+    validations:
+      required: true
+
+  - type: dropdown
+    id: mass_sections
+    attributes:
+      label: "Dio mise (Mass Section)"
+      description: "Odaberite jedan ili više dijelova mise (ako je primjenjivo)."
+      multiple: true
+      options:
+        - "Ulazna"
+        - "Gospodine smiluj se"
+        - "Slava"
+        - "Otpjevni psalam"
+        - "Aleluja"
+        - "Prinosna"
+        - "Svet"
+        - "Jaganjče Božji"
+        - "Pričesna"
+        - "Zahvalna"
+        - "Završna"
+        - "Klanjanje"
+
+  - type: input
+    id: custom_mass_sections
+    attributes:
+      label: "Drugi dio mise (Other / Custom Mass Section)"
+      description: "Ako dio mise nije u padajućem izborniku iznad, upišite ga ovdje (odvojite zarezom)."
+      placeholder: "npr. Pričesna / Klanjanje"
+
+  - type: dropdown
+    id: categories
+    attributes:
+      label: "Kategorije pjesme (Categories)"
+      description: "Odaberite jednu ili više kategorija."
+      multiple: true
+      options:
+        - "Slavljenje"
+        - "Zahvala"
+        - "Meditativne"
+        - "Došašće"
+        - "Božićne"
+        - "Korizmene"
+        - "Uskrsne"
+        - "Marijanske"
+        - "Duhu Svetom"
+        - "Međugorska misa"
+        - "Marijina misa"
+        - "Fides"
+        - "Misa sv. Andrije"
+        - "Misa fra Ivan Matić"
+        - "Prigodne"
+        - "Mladi"
+        - "Opće"
+
+  - type: input
+    id: custom_categories
+    attributes:
+      label: "Druge kategorije (Other / Custom Categories)"
+      description: "Ako kategorija nije u padajućem izborniku iznad, upišite je ovdje (odvojite zarezom)."
+      placeholder: "npr. Taize, Mladi"
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: "Dodatne napomene (Notes / Submitter)"
+      description: "Ime predlagatelja, YouTube poveznica, tonalitet ili posebne upute."
+      placeholder: "Predložio/la: ..."
+

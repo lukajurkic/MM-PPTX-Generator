@@ -4,11 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { SongService } from '../../services/song.service';
 import { TranslationService } from '../../services/translation.service';
 import { Song } from '../../models/song.model';
+import { EmptySongModalComponent } from '../empty-song-modal/empty-song-modal.component';
 
 @Component({
   selector: 'app-song-catalog',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, EmptySongModalComponent],
   template: `
     <div class="catalog-card">
       <!-- Catalog Header & Search / Filter Controls -->
@@ -199,26 +200,82 @@ import { Song } from '../../models/song.model';
             <div class="spinner"></div>
             <p>{{ t().loadingCatalog }}</p>
           </div>
-        } @else if (filteredSongs().length === 0) {
-          <div class="status-state empty-state">
-            <div class="empty-icon-wrap">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <circle cx="11" cy="11" r="8"/>
-                <path d="m21 21-4.3-4.3"/>
-              </svg>
-            </div>
-            <h3>{{ t().noSongsFoundTitle }}</h3>
-            @if (searchQuery() || selectedCategories().length > 0 || selectedMassSections().length > 0) {
-              <p>{{ t().noSongsFoundDesc(searchQuery() || activeFiltersSummary()) }}</p>
-              <button type="button" class="btn btn-secondary btn-sm" (click)="onClearAllFilters()">
-                {{ t().clearFiltersBtn }}
-              </button>
-            } @else {
-              <p>{{ t().catalogEmptyDesc }}</p>
-            }
-          </div>
         } @else {
-          @for (song of filteredSongs(); track song.id) {
+          <!-- Empty Song Option (Prazna pjesma) -->
+          @if (shouldShowEmptySongItem()) {
+            <div class="empty-song-item fade-in" role="listitem">
+              <div
+                class="empty-song-info clickable"
+                (click)="onOpenEmptySongModal()"
+                tabindex="0"
+                role="button"
+                (keydown.enter)="onOpenEmptySongModal()"
+                (keydown.space)="onOpenEmptySongModal(); $event.preventDefault()"
+                [title]="t().emptySongItemHint"
+                [attr.aria-label]="t().emptySongTitle + ': ' + t().emptySongItemHint"
+              >
+                <div class="song-header">
+                  <div class="empty-title-row">
+                    <span class="empty-song-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect width="18" height="14" x="3" y="5" rx="2"/>
+                        <path d="M7 15h4"/>
+                      </svg>
+                    </span>
+                    <h3 class="song-title">{{ t().emptySongTitle }}</h3>
+                  </div>
+                  <span class="badge badge-accent empty-badge">
+                    {{ t().emptySongBadge }}
+                  </span>
+                </div>
+
+                <div class="song-tags-row">
+                  <span class="tag-badge badge-empty">
+                    {{ t().emptySongBadge }}
+                  </span>
+                </div>
+
+                <p class="song-preview empty-preview">
+                  {{ t().emptySongDesc }}
+                </p>
+              </div>
+
+              <div class="song-actions">
+                <button
+                  type="button"
+                  class="btn btn-primary empty-add-btn"
+                  (click)="onOpenEmptySongModal(); $event.stopPropagation()"
+                  [attr.aria-label]="t().addEmptySongBtn"
+                >
+                  <svg class="btn-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M12 5v14M5 12h14"/>
+                  </svg>
+                  <span>{{ t().addBtn }}</span>
+                </button>
+              </div>
+            </div>
+          }
+
+          @if (filteredSongs().length === 0 && !shouldShowEmptySongItem()) {
+            <div class="status-state empty-state">
+              <div class="empty-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <circle cx="11" cy="11" r="8"/>
+                  <path d="m21 21-4.3-4.3"/>
+                </svg>
+              </div>
+              <h3>{{ t().noSongsFoundTitle }}</h3>
+              @if (searchQuery() || selectedCategories().length > 0 || selectedMassSections().length > 0) {
+                <p>{{ t().noSongsFoundDesc(searchQuery() || activeFiltersSummary()) }}</p>
+                <button type="button" class="btn btn-secondary btn-sm" (click)="onClearAllFilters()">
+                  {{ t().clearFiltersBtn }}
+                </button>
+              } @else {
+                <p>{{ t().catalogEmptyDesc }}</p>
+              }
+            </div>
+          } @else {
+            @for (song of filteredSongs(); track song.id) {
             <div class="song-item fade-in" role="listitem">
               <div
                 class="song-info clickable"
@@ -294,10 +351,27 @@ import { Song } from '../../models/song.model';
             </div>
           }
         }
+      }
       </div>
     </div>
+
+    @if (isEmptySongModalOpen()) {
+      <app-empty-song-modal
+        (confirm)="onConfirmEmptySong($event)"
+        (close)="onCloseEmptySongModal()"
+      />
+    }
   `,
   styles: [`
+    :host {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      width: 100%;
+      min-width: 0;
+      height: 100%;
+    }
+
     .catalog-card {
       background-color: var(--bg-surface);
       border: 1px solid var(--border-subtle);
@@ -308,6 +382,8 @@ import { Song } from '../../models/song.model';
       min-height: 520px;
       overflow: hidden;
       box-shadow: var(--shadow-md);
+      width: 100%;
+      min-width: 0;
     }
 
     .catalog-header {
@@ -636,7 +712,8 @@ import { Song } from '../../models/song.model';
       background-color: #0d1424;
     }
 
-    .song-info {
+    .song-info,
+    .empty-song-info {
       flex: 1;
       min-width: 0;
       display: flex;
@@ -644,18 +721,21 @@ import { Song } from '../../models/song.model';
       gap: 4px;
     }
 
-    .song-info.clickable {
+    .song-info.clickable,
+    .empty-song-info.clickable {
       cursor: pointer;
       border-radius: var(--radius-sm);
       outline: none;
       transition: opacity 0.15s ease;
     }
 
-    .song-info.clickable:hover .song-title {
+    .song-info.clickable:hover .song-title,
+    .empty-song-info.clickable:hover .song-title {
       color: var(--accent-primary);
     }
 
-    .song-info.clickable:focus-visible {
+    .song-info.clickable:focus-visible,
+    .empty-song-info.clickable:focus-visible {
       box-shadow: 0 0 0 2px var(--accent-primary);
     }
 
@@ -726,6 +806,67 @@ import { Song } from '../../models/song.model';
       border-color: var(--accent-primary);
     }
 
+    /* Empty Song Item Styles */
+    .empty-song-item {
+      border: 1px dashed rgba(7, 77, 151, 0.45);
+      background: linear-gradient(135deg, rgba(7, 77, 151, 0.08) 0%, rgba(2, 132, 199, 0.04) 100%);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      transition: all 0.15s ease;
+    }
+
+    .empty-song-item:hover {
+      border-color: var(--accent-primary);
+      background: linear-gradient(135deg, rgba(7, 77, 151, 0.14) 0%, rgba(2, 132, 199, 0.08) 100%);
+    }
+
+    .empty-title-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .empty-song-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: var(--radius-sm);
+      background: rgba(7, 77, 151, 0.25);
+      color: #93c5fd;
+      flex-shrink: 0;
+    }
+
+    .empty-song-icon svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .empty-badge {
+      background-color: rgba(7, 77, 151, 0.25);
+      color: #93c5fd;
+      border: 1px solid rgba(7, 77, 151, 0.4);
+      font-size: 11px;
+      padding: 1px 7px;
+    }
+
+    .badge-empty {
+      background-color: rgba(147, 197, 253, 0.12);
+      color: #bfdbfe;
+      border: 1px solid rgba(147, 197, 253, 0.25);
+      cursor: default;
+    }
+
+    .empty-preview {
+      font-style: normal;
+      color: var(--text-secondary);
+    }
+
     .song-preview {
       font-size: 12px;
       color: var(--text-muted);
@@ -739,7 +880,8 @@ import { Song } from '../../models/song.model';
       flex-shrink: 0;
     }
 
-    .add-btn {
+    .add-btn,
+    .empty-add-btn {
       padding: 6px 12px;
       font-size: 12px;
       border-radius: var(--radius-sm);
@@ -838,6 +980,53 @@ export class SongCatalogComponent {
 
   readonly isCategoryOpen = signal<boolean>(false);
   readonly isMassSectionOpen = signal<boolean>(false);
+  readonly isEmptySongModalOpen = signal<boolean>(false);
+
+  readonly shouldShowEmptySongItem = computed(() => {
+    // If mass sections filter is active, empty song has no mass section
+    if (this.selectedMassSections().length > 0) {
+      return false;
+    }
+    // If category filter is active, empty song only matches if "Prazna pjesma" is included
+    const cats = this.selectedCategories();
+    if (cats.length > 0 && !cats.includes('Prazna pjesma')) {
+      return false;
+    }
+    const q = this.normalizeText(this.searchQuery());
+    if (!q) return true;
+    return (
+      'prazna pjesma'.includes(q) ||
+      'empty song'.includes(q) ||
+      'prazna'.includes(q) ||
+      'empty'.includes(q) ||
+      'blank'.includes(q) ||
+      'crni'.includes(q) ||
+      'slajd'.includes(q) ||
+      'slide'.includes(q) ||
+      'pjesma'.includes(q)
+    );
+  });
+
+  onOpenEmptySongModal(): void {
+    this.isEmptySongModalOpen.set(true);
+  }
+
+  onCloseEmptySongModal(): void {
+    this.isEmptySongModalOpen.set(false);
+  }
+
+  onConfirmEmptySong(event: { title: string; slideCount: number }): void {
+    this.songService.addEmptySong(event.title, event.slideCount);
+    this.isEmptySongModalOpen.set(false);
+  }
+
+  private normalizeText(text: string): string {
+    return (text || '')
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .trim();
+  }
 
   toggleCategoryPanel(): void {
     this.isCategoryOpen.update(v => !v);

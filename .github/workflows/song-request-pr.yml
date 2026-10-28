@@ -1,0 +1,79 @@
+name: Song Request to Pull Request
+
+on:
+  issues:
+    types: [opened, labeled]
+
+concurrency:
+  group: song-request-${{ github.event.issue.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  create-song-pr:
+    name: Create Song PR from Issue
+    runs-on: ubuntu-latest
+
+    # Only run for song request issues that don't already have a PR created
+    if: >
+      !contains(github.event.issue.labels.*.name, 'pr-created') &&
+      (
+        contains(github.event.issue.labels.*.name, 'song-request') ||
+        startsWith(github.event.issue.title, '[Song Request]') ||
+        startsWith(github.event.issue.title, '[Pjesma]')
+      )
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Process Song Request & Generate JSON
+        id: process_song
+        env:
+          GITHUB_EVENT_PATH: ${{ env.GITHUB_EVENT_PATH }}
+        run: node scripts/process-song-request.js
+
+      - name: Create Pull Request
+        id: cpr
+        if: steps.process_song.outputs.success == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "feat #13 :: add song ${{ steps.process_song.outputs.song_title }}"
+          branch: ${{ steps.process_song.outputs.branch_name }}
+          delete-branch: true
+          title: ${{ steps.process_song.outputs.pr_title }}
+          body: ${{ steps.process_song.outputs.pr_body }}
+          labels: |
+            song-request
+            automated-pr
+
+      - name: Comment on Issue with PR link
+        if: steps.process_song.outputs.success == 'true' && steps.cpr.outputs.pull-request-number != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          PR_NUMBER: ${{ steps.cpr.outputs.pull-request-number }}
+          PR_URL: ${{ steps.cpr.outputs.pull-request-url }}
+        run: |
+          gh issue comment "$ISSUE_NUMBER" --body "🎉 Automatski je pripremljen Pull Request za ovu pjesmu: [#$PR_NUMBER]($PR_URL)
+
+          Možete ga pregledati i spojiti jednim dodirom u mobilnoj aplikaciji GitHub!"
+          gh issue edit "$ISSUE_NUMBER" --add-label "pr-created"
+

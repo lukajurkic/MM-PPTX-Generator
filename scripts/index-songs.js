@@ -12,15 +12,18 @@ const songsDir = path.join(__dirname, '..', 'songs');
 const outputDir = path.join(__dirname, '..', 'src', 'assets', 'songs');
 const outputFile = path.join(outputDir, 'index.json');
 const metadataOptionsFile = path.join(outputDir, 'metadata-options.json');
+const categoriesFile = path.join(outputDir, 'categories.json');
+const massSectionsFile = path.join(outputDir, 'mass-sections.json');
 
 // Ensure output directory exists
 if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir, { recursive: true });
 } else {
-  // Clean up any stale individual song files from assets/songs (only compiled index.json and metadata-options.json are needed)
+  // Clean up any stale individual song files from assets/songs
+  const allowedFiles = new Set(['index.json', 'metadata-options.json', 'categories.json', 'mass-sections.json']);
   const existingAssetFiles = fs.readdirSync(outputDir);
   for (const assetFile of existingAssetFiles) {
-    if (assetFile !== 'index.json' && assetFile !== 'metadata-options.json') {
+    if (!allowedFiles.has(assetFile)) {
       const fullPath = path.join(outputDir, assetFile);
       if (fs.statSync(fullPath).isFile()) {
         fs.unlinkSync(fullPath);
@@ -43,6 +46,21 @@ const songs = [];
 let totalSlides = 0;
 const uniqueCategories = new Set();
 const uniqueMassSections = new Set();
+
+// Seed from existing metadata-options.json so unassigned preset options are preserved
+if (fs.existsSync(metadataOptionsFile)) {
+  try {
+    const existingMeta = JSON.parse(fs.readFileSync(metadataOptionsFile, 'utf-8'));
+    if (Array.isArray(existingMeta.categories)) {
+      existingMeta.categories.forEach(c => c && uniqueCategories.add(String(c).trim()));
+    }
+    if (Array.isArray(existingMeta.massSections)) {
+      existingMeta.massSections.forEach(m => m && uniqueMassSections.add(String(m).trim()));
+    }
+  } catch (e) {
+    // ignore parse error on seeding
+  }
+}
 
 // Process JSON song files (primary format)
 for (const file of jsonFiles) {
@@ -158,11 +176,17 @@ songs.sort((a, b) => a.title.localeCompare(b.title, undefined, { sensitivity: 'b
 // Write output JSON
 fs.writeFileSync(outputFile, JSON.stringify(songs, null, 2), 'utf-8');
 
-// Also write metadata options summary for easy consumption
+// Sort alphabetically with Croatian locale sensitivity
+const sortedCategories = Array.from(uniqueCategories).sort((a, b) => a.localeCompare(b, 'hr'));
+const sortedMassSections = Array.from(uniqueMassSections).sort((a, b) => a.localeCompare(b, 'hr'));
+
+// Also write metadata options summary for easy consumption in static JSON files
 const metadataSummary = {
-  categories: Array.from(uniqueCategories).sort(),
-  massSections: Array.from(uniqueMassSections).sort()
+  categories: sortedCategories,
+  massSections: sortedMassSections
 };
-fs.writeFileSync(metadataOptionsFile, JSON.stringify(metadataSummary, null, 2), 'utf-8');
+fs.writeFileSync(metadataOptionsFile, JSON.stringify(metadataSummary, null, 2) + '\n', 'utf-8');
+fs.writeFileSync(categoriesFile, JSON.stringify(sortedCategories, null, 2) + '\n', 'utf-8');
+fs.writeFileSync(massSectionsFile, JSON.stringify(sortedMassSections, null, 2) + '\n', 'utf-8');
 
 console.log(`[index-songs] Successfully indexed ${songs.length} song(s) (${totalSlides} total slides) into ${path.relative(process.cwd(), outputFile)}`);

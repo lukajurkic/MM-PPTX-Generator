@@ -124,6 +124,154 @@ describe('PptxExportService', () => {
     expect(slides[2]._slideObjects.length).toBe(3);
   });
 
+  it('should support custom presentation settings (4:3 layout, custom colors, fonts, and toggles)', () => {
+    const pres = service.buildPresentation(mockPlaylist, {
+      settings: {
+        aspectRatio: '4x3',
+        blankSlideBetweenSongs: false,
+        blankSlideStartEnd: false,
+        fontFamily: 'Arial',
+        bold: false,
+        italic: true,
+        fontSizeOverride: 42,
+        autoFontSize: false,
+        textColor: '#fcd34d',
+        backgroundColor: '#074d97',
+        showSideTitle: false,
+        sideTitleFontFamily: 'Calibri',
+        sideTitleFontSize: 14,
+        sideTitleHorizontalOffsetCm: 1.5,
+        showLogo: true,
+        logoScalePercent: 120,
+        logoTransparency: 50
+      }
+    });
+
+    expect(pres.layout).toBe('LAYOUT_4x3');
+    const slides = (pres as any).slides;
+    // Without blank slides: 2 stanzas + 1 stanza = 3 slides
+    expect(slides.length).toBe(3);
+    // Each slide has: lyric text + logo (side title is false) = 2 objects
+    expect(slides[0]._slideObjects.length).toBe(2);
+  });
+
+  it('should calculate uniform auto-fit font size based on the smallest required size across all stanzas', () => {
+    const uniformSize = service.calculateUniformAutoFontSize(mockPlaylist);
+    expect(uniformSize).toBeGreaterThanOrEqual(32);
+    expect(uniformSize).toBeLessThanOrEqual(44);
+
+    // If we add a long 6-line stanza, the uniform size across all songs should drop to 36
+    const playlistWithLongStanza: PlaylistItem[] = [
+      ...mockPlaylist,
+      {
+        playlistId: 'song-3',
+        song: {
+          id: 'song-3',
+          title: 'Long Song',
+          slug: 'long-song',
+          fileName: 'Long Song.json',
+          stanzaCount: 1,
+          preview: 'Line 1',
+          categories: [],
+          massSections: [],
+          stanzas: ['Line 1\nLine 2\nLine 3\nLine 4\nLine 5\nLine 6']
+        }
+      }
+    ];
+
+    const uniformWithLong = service.calculateUniformAutoFontSize(playlistWithLongStanza);
+    expect(uniformWithLong).toBe(36);
+
+    // Build presentation and verify that all slides receive the uniform font size 36
+    const pres = service.buildPresentation(playlistWithLongStanza);
+    const slides = (pres as any).slides;
+    expect(slides.length).toBe(8);
+    // slides[1] is Song 1 Stanza 1 (short stanza) - should also receive uniform size 36
+    expect(slides[1]._slideObjects[0].options.fontSize).toBe(36);
+    // slides[2] is Song 1 Stanza 2 - should also receive uniform size 36
+    expect(slides[2]._slideObjects[0].options.fontSize).toBe(36);
+  });
+
+  it('should export empty song with black slides, side title and logo, but no lyric text', () => {
+    const emptySongPlaylist: PlaylistItem[] = [
+      {
+        playlistId: 'empty-1',
+        song: {
+          id: 'empty-song-1',
+          title: 'Klanjanje i meditacija',
+          slug: 'empty-song',
+          fileName: '',
+          stanzaCount: 3,
+          preview: '',
+          categories: ['Prazna pjesma'],
+          massSections: [],
+          stanzas: ['', '', ''],
+          isEmptySong: true
+        }
+      }
+    ];
+
+    // Build without blank lead/trail/transitions to inspect only the empty song slides
+    const pres = service.buildPresentation(emptySongPlaylist, {
+      includeBlankSlides: false,
+      includeBlankSlideBetweenSongs: false,
+      includeSideTitle: true,
+      includeLogo: true
+    });
+
+    const slides = (pres as any).slides;
+    expect(slides.length).toBe(3);
+
+    slides.forEach((slide: any) => {
+      // Background is set to black
+      expect(slide.background).toEqual({ color: '000000' });
+
+      // There should be exactly 2 objects: rotated side title + SKAC logo (no middle lyric text)
+      expect(slide._slideObjects.length).toBe(2);
+
+      // Verify side title text object
+      const titleObj = slide._slideObjects.find((obj: any) => obj._type === 'text' || obj.text);
+      expect(titleObj).toBeTruthy();
+      const extractedText = Array.isArray(titleObj.text) ? titleObj.text[0].text : titleObj.text;
+      expect(extractedText).toBe('KLANJANJE I MEDITACIJA');
+      const rotate = titleObj.options?.rotate ?? titleObj.text?.[0]?.options?.rotate;
+      expect(rotate).toBe(270);
+
+      // Verify SKAC corner logo image object
+      const imgObj = slide._slideObjects.find((obj: any) => obj._type === 'image' || obj.image);
+      expect(imgObj).toBeTruthy();
+    });
+  });
+
+  it('should ignore empty stanzas in calculateUniformAutoFontSize', () => {
+    const emptyPlaylist: PlaylistItem[] = [
+      {
+        playlistId: 'empty-1',
+        song: {
+          id: 'empty-song-1',
+          title: 'Prazna pjesma',
+          slug: 'empty-song',
+          fileName: '',
+          stanzaCount: 2,
+          preview: '',
+          categories: [],
+          massSections: [],
+          stanzas: ['', ''],
+          isEmptySong: true
+        }
+      }
+    ];
+
+    // Defaults to 40 when all stanzas are empty
+    expect(service.calculateUniformAutoFontSize(emptyPlaylist)).toBe(40);
+
+    // When mixed with a regular song, uniform size matches the regular song
+    const mixedPlaylist = [...emptyPlaylist, ...mockPlaylist];
+    expect(service.calculateUniformAutoFontSize(mixedPlaylist)).toBe(
+      service.calculateUniformAutoFontSize(mockPlaylist)
+    );
+  });
+
   it('should throw an error if attempting to export an empty playlist', async () => {
     await expectAsync(service.downloadPresentation([])).toBeRejectedWithError(
       'Playlist is empty. Please select at least one song.'

@@ -50,6 +50,8 @@ export interface Translations {
   exportPresentationBtn: string;
   generatingPresentationBtn: string;
   presentationSettingsHint: string;
+  settingsDefaultStatus: string;
+  settingsCustomStatus: string;
   exportSuccessMsg: (filename: string) => string;
   exportErrorEmpty: string;
   exportErrorGeneric: string;
@@ -66,9 +68,14 @@ export interface Translations {
   fieldCategory: string;
   fieldCategoryPlaceholder: string;
   fieldCategoryHint: string;
+  fieldCategoryCustomPlaceholder: string;
   fieldMassSection: string;
   fieldMassSectionPlaceholder: string;
   fieldMassSectionHint: string;
+  fieldMassSectionCustomPlaceholder: string;
+  selectCategoriesPlaceholder: string;
+  selectMassSectionsPlaceholder: string;
+  selectedCountLabel: string;
   fieldSubmitterName: string;
   fieldSubmitterNamePlaceholder: string;
   fieldSubmitterEmail: string;
@@ -84,6 +91,8 @@ export interface Translations {
   requestFailedAlertTitle: string;
   requestTitleRequiredError: string;
   requestLyricsRequiredError: string;
+  submitViaGitHubHint: string;
+  submitViaGitHubLink: string;
 
   // Song Lyrics Modal
   lyricsModalTitle: string;
@@ -94,6 +103,57 @@ export interface Translations {
   clickToViewLyricsHint: string;
   addToPlaylistBtn: string;
   addedToPlaylistBtn: (count: number) => string;
+
+  // Empty Song (Task 23)
+  emptySongTitle: string;
+  emptySongBadge: string;
+  emptySongDesc: string;
+  emptySongItemHint: string;
+  addEmptySongBtn: string;
+  emptySongModalTitle: string;
+  emptySongModalSubtitle: string;
+  emptySongNameLabel: string;
+  emptySongNamePlaceholder: string;
+  emptySongSlideCountLabel: string;
+  emptySongConfirmBtn: string;
+  emptySongCancelBtn: string;
+  emptySongLyricsNoticeTitle: string;
+  emptySongLyricsNoticeDesc: (count: number) => string;
+
+  // Settings Drawer (Task 10)
+  settingsBtn: string;
+  settingsTitle: string;
+  settingsSubtitle: string;
+  aspectRatioSection: string;
+  aspectRatio169Label: string;
+  aspectRatio43Label: string;
+  blankSlidesSection: string;
+  blankSlideBetweenSongsLabel: string;
+  blankSlideStartEndLabel: string;
+  typographySection: string;
+  fontFamilyLabel: string;
+  textStyleLabel: string;
+  boldLabel: string;
+  italicLabel: string;
+  boldTooltip: string;
+  italicTooltip: string;
+  fontSizeLabel: string;
+  autoFontSizeLabel: string;
+  customFontSizeLabel: string;
+  textColorLabel: string;
+  backgroundColorLabel: string;
+  sideTitleSection: string;
+  showSideTitleLabel: string;
+  sideTitleFontLabel: string;
+  sideTitleSizeLabel: string;
+  sideTitleOffsetLabel: string;
+  logoSection: string;
+  showLogoLabel: string;
+  logoSizeLabel: string;
+  logoTransparencyLabel: string;
+  resetSettingsBtn: string;
+  closeSettingsBtn: string;
+  previewSection: string;
 }
 
 const TRANSLATIONS_HR: Translations = {
@@ -153,6 +213,8 @@ const TRANSLATIONS_HR: Translations = {
   exportPresentationBtn: 'Generiraj i preuzmi prezentaciju (.pptx)',
   generatingPresentationBtn: 'Generiranje prezentacije u tijeku...',
   presentationSettingsHint: '16:9 Široki zaslon • Crna pozadina • Bijeli podebljani Verdana font',
+  settingsDefaultStatus: 'Zadane postavke aktivne',
+  settingsCustomStatus: 'Prilagođene postavke aktivne',
   exportSuccessMsg: (filename: string) => `Prezentacija "${filename}" uspješno preuzeta!`,
   exportErrorEmpty: 'Lista je prazna. Odaberite barem jednu pjesmu.',
   exportErrorGeneric: 'Neuspjelo generiranje PowerPoint prezentacije.',
@@ -166,12 +228,17 @@ const TRANSLATIONS_HR: Translations = {
   fieldLyrics: 'Stihovi',
   fieldLyricsHint: 'Odvojite strofe praznim retkom za podjelu na slajdove',
   fieldLyricsPlaceholder: 'Unesite ili zalijepite stihove ovdje...\n\nSvaku strofu i refren odvojite jednim praznim redom za izradu zasebnih slajdova.',
-  fieldCategory: 'Kategorija',
+  fieldCategory: 'Kategorije',
   fieldCategoryPlaceholder: 'Odaberite ili upišite kategoriju (npr. Slavljenje, Zahvala...)',
-  fieldCategoryHint: 'Odaberite s popisa ili upišite vlastitu kategoriju',
-  fieldMassSection: 'Dio mise',
+  fieldCategoryHint: 'Odaberite s popisa ili dodajte vlastitu kategoriju',
+  fieldCategoryCustomPlaceholder: 'Upišite novu kategoriju...',
+  fieldMassSection: 'Dijelovi mise',
   fieldMassSectionPlaceholder: 'Odaberite ili upišite dio mise (npr. Ulazna, Pričesna...)',
-  fieldMassSectionHint: 'Odaberite s popisa ili upišite vlastiti dio mise',
+  fieldMassSectionHint: 'Odaberite s popisa ili dodajte vlastiti dio mise',
+  fieldMassSectionCustomPlaceholder: 'Upišite novi dio mise...',
+  selectCategoriesPlaceholder: 'Odaberite kategorije...',
+  selectMassSectionsPlaceholder: 'Odaberite dijelove mise...',
+  selectedCountLabel: 'odabrano',
   fieldSubmitterName: 'Vaše ime',
   fieldSubmitterNamePlaceholder: 'npr., Ivan Horvat',
   fieldSubmitterEmail: 'Vaša e-pošta',
@@ -187,6 +254,8 @@ const TRANSLATIONS_HR: Translations = {
   requestFailedAlertTitle: 'Neuspješno slanje',
   requestTitleRequiredError: 'Naslov pjesme je obavezan.',
   requestLyricsRequiredError: 'Stihovi pjesme su obavezni.',
+  submitViaGitHubHint: 'Imate GitHub račun?',
+  submitViaGitHubLink: 'Predložite putem GitHub Issue-a (automatski PR)',
 
   // Song Lyrics Modal
   lyricsModalTitle: 'Pregled stihova',
@@ -196,7 +265,59 @@ const TRANSLATIONS_HR: Translations = {
   closeBtn: 'Zatvori',
   clickToViewLyricsHint: 'Kliknite za pregled cjelovitih stihova',
   addToPlaylistBtn: 'Dodaj u listu',
-  addedToPlaylistBtn: (count: number) => `Dodano u listu (${count})`
+  addedToPlaylistBtn: (count: number) => `Dodano u listu (${count})`,
+
+  // Empty Song (Task 23)
+  emptySongTitle: 'Prazna pjesma',
+  emptySongBadge: 'Crni slajd',
+  emptySongDesc: 'Crni slajdovi s bočnim naslovom i logotipom (npr. instrumental ili molitva)',
+  emptySongItemHint: 'Klikni za unos naziva i broja praznih slajdova',
+  addEmptySongBtn: 'Dodaj praznu pjesmu',
+  emptySongModalTitle: 'Dodaj praznu pjesmu',
+  emptySongModalSubtitle: 'Stvara odabrani broj crnih slajdova s bočnim naslovom pjesme i SKAC logotipom u kutu.',
+  emptySongNameLabel: 'Naziv pjesme / cjeline',
+  emptySongNamePlaceholder: 'npr. Prazna pjesma, Klanjanje, Instrumental...',
+  emptySongSlideCountLabel: 'Broj praznih slajdova',
+  emptySongConfirmBtn: 'Dodaj u prezentaciju',
+  emptySongCancelBtn: 'Odustani',
+  emptySongLyricsNoticeTitle: 'Prazna pjesma (nema teksta)',
+  emptySongLyricsNoticeDesc: (count: number) =>
+    `Ova stavka sadrži ${count} ${count === 1 ? 'crni slajd' : 'crna slajda'} s bočnim naslovom i SKAC logotipom, bez teksta stihova.`,
+
+  // Settings Drawer
+  settingsBtn: 'Postavke prezentacije',
+  settingsTitle: 'Postavke prezentacije',
+  settingsSubtitle: 'Prilagodite omjer stranica, fontove, boje i logotip slajdova',
+  aspectRatioSection: 'Format & Omjer slike',
+  aspectRatio169Label: '16:9 Široki zaslon',
+  aspectRatio43Label: '4:3 Standardni projektor',
+  blankSlidesSection: 'Prijelazni slajdovi',
+  blankSlideBetweenSongsLabel: 'Prazan crni slajd između različitih pjesama',
+  blankSlideStartEndLabel: 'Uvodni i završni prazan crni slajd',
+  typographySection: 'Glavni tekst pjesme & Boje',
+  fontFamilyLabel: 'Vrsta fonta',
+  textStyleLabel: 'Stil teksta',
+  boldLabel: 'Podebljano (Bold)',
+  italicLabel: 'Kurziv (Italic)',
+  boldTooltip: 'Uključi / isključi podebljani tekst',
+  italicTooltip: 'Uključi / isključi kurziv',
+  fontSizeLabel: 'Veličina fonta',
+  autoFontSizeLabel: 'Automatsko prilagođavanje (32–44pt)',
+  customFontSizeLabel: 'Fiksna veličina fonta',
+  textColorLabel: 'Boja teksta',
+  backgroundColorLabel: 'Boja pozadine slajda',
+  sideTitleSection: 'Bočni naslov pjesme',
+  showSideTitleLabel: 'Prikaži vertikalni naslov uz desni rub slajda',
+  sideTitleFontLabel: 'Font bočnog naslova',
+  sideTitleSizeLabel: 'Veličina fonta bočnog naslova',
+  sideTitleOffsetLabel: 'Vodoravni odmak od ruba',
+  logoSection: 'SKAC logotip u kutu',
+  showLogoLabel: 'Prikaži SKAC logotip u donjem desnom kutu',
+  logoSizeLabel: 'Veličina logotipa',
+  logoTransparencyLabel: 'Prozirnost logotipa',
+  resetSettingsBtn: 'Vrati na zadano',
+  closeSettingsBtn: 'Zatvori',
+  previewSection: 'Pregled izgleda slajda'
 };
 
 const TRANSLATIONS_EN: Translations = {
@@ -245,6 +366,8 @@ const TRANSLATIONS_EN: Translations = {
   exportPresentationBtn: 'Generate & Download Presentation (.pptx)',
   generatingPresentationBtn: 'Generating PowerPoint Presentation...',
   presentationSettingsHint: '16:9 Widescreen • Solid Black Background • White Bold Verdana',
+  settingsDefaultStatus: 'Default settings active',
+  settingsCustomStatus: 'Custom settings active',
   exportSuccessMsg: (filename: string) => `Successfully generated "${filename}"!`,
   exportErrorEmpty: 'Playlist is empty. Please select at least one song.',
   exportErrorGeneric: 'Failed to generate PowerPoint file.',
@@ -258,12 +381,17 @@ const TRANSLATIONS_EN: Translations = {
   fieldLyrics: 'Lyrics',
   fieldLyricsHint: 'Separate stanzas by empty lines for slides',
   fieldLyricsPlaceholder: 'Enter or paste lyrics here...\n\nSeparate each verse and chorus with a blank line to divide into presentation slides.',
-  fieldCategory: 'Category',
+  fieldCategory: 'Categories',
   fieldCategoryPlaceholder: 'Select or type category (e.g. Praise & Worship, Thanksgiving...)',
-  fieldCategoryHint: 'Select from preset list or type a custom category',
-  fieldMassSection: 'Mass Section',
+  fieldCategoryHint: 'Select from preset list or add custom categories',
+  fieldCategoryCustomPlaceholder: 'Type new category...',
+  fieldMassSection: 'Mass Sections',
   fieldMassSectionPlaceholder: 'Select or type mass section (e.g. Entrance, Communion...)',
-  fieldMassSectionHint: 'Select from preset list or type a custom mass section',
+  fieldMassSectionHint: 'Select from preset list or add custom mass sections',
+  fieldMassSectionCustomPlaceholder: 'Type new mass section...',
+  selectCategoriesPlaceholder: 'Select categories...',
+  selectMassSectionsPlaceholder: 'Select mass sections...',
+  selectedCountLabel: 'selected',
   fieldSubmitterName: 'Your Name',
   fieldSubmitterNamePlaceholder: 'e.g., John Doe',
   fieldSubmitterEmail: 'Your Email',
@@ -279,6 +407,8 @@ const TRANSLATIONS_EN: Translations = {
   requestFailedAlertTitle: 'Submission Failed',
   requestTitleRequiredError: 'Song title is required.',
   requestLyricsRequiredError: 'Song lyrics are required.',
+  submitViaGitHubHint: 'Have a GitHub account?',
+  submitViaGitHubLink: 'Submit via GitHub Issue (automated PR)',
 
   // Song Lyrics Modal
   lyricsModalTitle: 'Song Lyrics Preview',
@@ -288,7 +418,59 @@ const TRANSLATIONS_EN: Translations = {
   closeBtn: 'Close',
   clickToViewLyricsHint: 'Click to view full lyrics',
   addToPlaylistBtn: 'Add to presentation',
-  addedToPlaylistBtn: (count: number) => `In presentation (${count})`
+  addedToPlaylistBtn: (count: number) => `In presentation (${count})`,
+
+  // Empty Song (Task 23)
+  emptySongTitle: 'Empty Song',
+  emptySongBadge: 'Blank Slide',
+  emptySongDesc: 'Black slides with side title and corner logo (e.g. for instrumental or prayer)',
+  emptySongItemHint: 'Click to enter title and number of blank slides',
+  addEmptySongBtn: 'Add Empty Song',
+  emptySongModalTitle: 'Add Empty Song',
+  emptySongModalSubtitle: 'Creates the selected number of black slides with rotated side title and SKAC corner logo.',
+  emptySongNameLabel: 'Song / Section Title',
+  emptySongNamePlaceholder: 'e.g. Empty Song, Reflection, Instrumental...',
+  emptySongSlideCountLabel: 'Number of Blank Slides',
+  emptySongConfirmBtn: 'Add to Presentation',
+  emptySongCancelBtn: 'Cancel',
+  emptySongLyricsNoticeTitle: 'Empty Song (No Lyric Text)',
+  emptySongLyricsNoticeDesc: (count: number) =>
+    `This item contains ${count} blank ${count === 1 ? 'slide' : 'slides'} with rotated side title and SKAC logo, without lyric text.`,
+
+  // Settings Drawer
+  settingsBtn: 'Presentation Settings',
+  settingsTitle: 'Presentation Settings',
+  settingsSubtitle: 'Customize aspect ratio, typography, colors, and watermark',
+  aspectRatioSection: 'Format & Aspect Ratio',
+  aspectRatio169Label: '16:9 Widescreen',
+  aspectRatio43Label: '4:3 Standard Projector',
+  blankSlidesSection: 'Slide Transitions',
+  blankSlideBetweenSongsLabel: 'Blank black slide between distinct songs',
+  blankSlideStartEndLabel: 'Intro and outro blank black slides',
+  typographySection: 'Lyrics Typography & Colors',
+  fontFamilyLabel: 'Font Family',
+  textStyleLabel: 'Text Style',
+  boldLabel: 'Bold',
+  italicLabel: 'Italic',
+  boldTooltip: 'Toggle bold text',
+  italicTooltip: 'Toggle italic text',
+  fontSizeLabel: 'Font Size',
+  autoFontSizeLabel: 'Auto-fit sizing (32–44pt)',
+  customFontSizeLabel: 'Fixed font size',
+  textColorLabel: 'Text Color',
+  backgroundColorLabel: 'Slide Background Color',
+  sideTitleSection: 'Side Song Title',
+  showSideTitleLabel: 'Show vertical song title along right edge',
+  sideTitleFontLabel: 'Side Title Font',
+  sideTitleSizeLabel: 'Side Title Font Size',
+  sideTitleOffsetLabel: 'Horizontal offset from edge',
+  logoSection: 'Corner SKAC Watermark',
+  showLogoLabel: 'Show SKAC logo in bottom-right corner',
+  logoSizeLabel: 'Logo Size',
+  logoTransparencyLabel: 'Logo Transparency',
+  resetSettingsBtn: 'Reset to Defaults',
+  closeSettingsBtn: 'Close',
+  previewSection: 'Live Slide Preview'
 };
 
 @Injectable({

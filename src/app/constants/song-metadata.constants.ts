@@ -1,37 +1,11 @@
+import metadataOptions from '../../assets/songs/metadata-options.json';
+
 /**
- * Preset metadata choices for song classification.
- * Users can easily add or edit choices in these lists.
+ * Preset metadata choices for song classification loaded from static JSON metadata.
+ * Categories and mass sections are dynamically augmented as new songs are indexed.
  */
+export const PRESET_MASS_SECTIONS: readonly string[] = metadataOptions.massSections;
+export const PRESET_CATEGORIES: readonly string[] = metadataOptions.categories;
 
-export const PRESET_MASS_SECTIONS = [
-  'Ulazna',
-  'Gospodine smiluj se',
-  'Slava',
-  'Otpjevni psalam',
-  'Aleluja',
-  'Prinosna',
-  'Svet',
-  'Jaganjče Božji',
-  'Pričesna',
-  'Zahvalna',
-  'Završna',
-  'Klanjanje'
-] as const;
-
-export const PRESET_CATEGORIES = [
-  'Slavljenje',
-  'Zahvala',
-  'Meditativne',
-  'Došašće',
-  'Božićne',
-  'Korizmene',
-  'Uskrsne',
-  'Marijanske',
-  'Duhu Svetom',
-  'Mladi',
-  'Opće'
-] as const;
-
-export type PresetMassSection = (typeof PRESET_MASS_SECTIONS)[number];
-export type PresetCategory = (typeof PRESET_CATEGORIES)[number];
-
+export type PresetMassSection = string;
+export type PresetCategory = string;

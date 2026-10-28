@@ -189,5 +189,39 @@ describe('SongService', () => {
     service.closeLyrics();
     expect(service.activeLyricsSong()).toBeNull();
   });
+
+  describe('addEmptySong', () => {
+    it('should create and add an empty song with default title and 1 slide', () => {
+      const item = service.addEmptySong('');
+      expect(item).toBeTruthy();
+      expect(item.song.title).toBe('Prazna pjesma');
+      expect(item.song.stanzaCount).toBe(1);
+      expect(item.song.stanzas.length).toBe(1);
+      expect(item.song.stanzas[0]).toBe('');
+      expect(item.song.isEmptySong).toBeTrue();
+      expect(service.playlistCount()).toBe(1);
+      expect(service.totalPlaylistSlides()).toBe(1);
+    });
+
+    it('should create and add an empty song with custom title and multiple slides', () => {
+      const item = service.addEmptySong('Meditacija / Klanjanje', 3);
+      expect(item.song.title).toBe('Meditacija / Klanjanje');
+      expect(item.song.stanzaCount).toBe(3);
+      expect(item.song.stanzas.length).toBe(3);
+      expect(item.song.stanzas).toEqual(['', '', '']);
+      expect(item.song.isEmptySong).toBeTrue();
+      expect(service.playlistCount()).toBe(1);
+      expect(service.totalPlaylistSlides()).toBe(3);
+    });
+
+    it('should clamp slideCount between 1 and 50', () => {
+      const itemLow = service.addEmptySong('Test Low', 0);
+      expect(itemLow.song.stanzaCount).toBe(1);
+
+      const itemHigh = service.addEmptySong('Test High', 100);
+      expect(itemHigh.song.stanzaCount).toBe(50);
+      expect(itemHigh.song.stanzas.length).toBe(50);
+    });
+  });
 });
 

@@ -94,5 +94,27 @@ describe('SongLyricsModalComponent', () => {
     );
     expect(component.copied()).toBeTrue();
   });
+
+  it('should render empty song notice and hide copy lyrics button when song is empty', () => {
+    component.song = {
+      id: 'empty-song-1',
+      title: 'Prazna pjesma',
+      slug: 'empty-song',
+      fileName: '',
+      stanzaCount: 3,
+      preview: '',
+      categories: ['Prazna pjesma'],
+      massSections: [],
+      stanzas: ['', '', ''],
+      isEmptySong: true
+    };
+    fixture.detectChanges();
+
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('.empty-song-notice')).toBeTruthy();
+    expect(compiled.querySelector('.notice-title')?.textContent).toContain('Prazna pjesma');
+    expect(compiled.querySelector('.copy-btn')).toBeFalsy();
+    expect(compiled.querySelectorAll('.stanza-card').length).toBe(0);
+  });
 });
 

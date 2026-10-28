@@ -83,5 +83,16 @@ describe('HeaderComponent', () => {
     button.click();
     expect(component.openRequestModal.emit).toHaveBeenCalled();
   });
+
+  it('should emit openSettings event when the settings button is clicked', () => {
+    spyOn(component.openSettings, 'emit');
+
+    const compiled = fixture.nativeElement as HTMLElement;
+    const button = compiled.querySelector('.settings-btn') as HTMLButtonElement;
+    expect(button).toBeTruthy();
+
+    button.click();
+    expect(component.openSettings.emit).toHaveBeenCalled();
+  });
 });
 

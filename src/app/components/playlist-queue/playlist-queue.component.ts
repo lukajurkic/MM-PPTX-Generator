@@ -1,7 +1,8 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, EventEmitter, inject, Output, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SongService } from '../../services/song.service';
 import { PptxExportService } from '../../services/pptx-export.service';
+import { SettingsService } from '../../services/settings.service';
 import { TranslationService } from '../../services/translation.service';
 import { Song } from '../../models/song.model';
 
@@ -94,8 +95,11 @@ import { Song } from '../../models/song.model';
                 >
                   <h4 class="item-title">{{ item.song.title }}</h4>
                   <div class="item-meta">
+                    @if (item.song.isEmptySong) {
+                      <span class="meta-tag empty-song-tag">{{ t().emptySongBadge }}</span>
+                    }
                     <span class="meta-tag">{{ t().slidesCount(item.song.stanzaCount) }}</span>
-                    @if (!isLast) {
+                    @if (!isLast && settings().blankSlideBetweenSongs) {
                       <span class="transition-tag">{{ t().blankTransitionTag }}</span>
                     }
                   </div>
@@ -181,23 +185,57 @@ import { Song } from '../../models/song.model';
           }
         </button>
 
-        <p class="settings-hint">
-          {{ t().presentationSettingsHint }}
-        </p>
+        <!-- Presentation Settings Status Indicator (Task 10) -->
+        <button
+          type="button"
+          class="settings-status-btn"
+          [class.custom]="!isDefaultSettings()"
+          (click)="openSettings.emit()"
+          [attr.title]="t().settingsBtn"
+          [attr.aria-label]="!isDefaultSettings() ? t().settingsCustomStatus : t().settingsDefaultStatus"
+        >
+          @if (isDefaultSettings()) {
+            <span class="status-indicator default-indicator" aria-hidden="true">
+              <svg class="status-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </span>
+            <span class="status-text">{{ t().settingsDefaultStatus }}</span>
+          } @else {
+            <span class="status-indicator custom-indicator" aria-hidden="true">
+              <span class="custom-dot"></span>
+            </span>
+            <span class="status-text">{{ t().settingsCustomStatus }}</span>
+          }
+          <svg class="status-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </button>
       </div>
     </div>
   `,
   styles: [`
+    :host {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      min-width: 0;
+      height: auto;
+    }
+
     .queue-card {
       background-color: var(--bg-surface);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-lg);
       display: flex;
       flex-direction: column;
-      height: 100%;
-      min-height: 520px;
+      height: auto;
+      min-height: auto;
+      max-height: calc(100vh - 110px);
       overflow: hidden;
       box-shadow: var(--shadow-md);
+      width: 100%;
+      min-width: 0;
     }
 
     .queue-header {
@@ -291,7 +329,8 @@ import { Song } from '../../models/song.model';
     }
 
     .queue-body {
-      flex: 1;
+      flex: 1 1 auto;
+      min-height: 0;
       overflow-y: auto;
       padding: 14px 16px;
       display: flex;
@@ -299,20 +338,19 @@ import { Song } from '../../models/song.model';
     }
 
     .empty-queue-state {
-      flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 40px 20px;
+      padding: 24px 16px;
       text-align: center;
-      gap: 12px;
+      gap: 10px;
       color: var(--text-muted);
     }
 
     .empty-icon-wrap {
-      width: 56px;
-      height: 56px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       background: var(--bg-surface-elevated);
       border: 1px solid var(--border-default);
@@ -323,12 +361,12 @@ import { Song } from '../../models/song.model';
     }
 
     .empty-icon-wrap svg {
-      width: 28px;
-      height: 28px;
+      width: 24px;
+      height: 24px;
     }
 
     .empty-title {
-      font-size: 1.05rem;
+      font-size: 1rem;
       color: var(--text-secondary);
       font-weight: 600;
     }
@@ -336,7 +374,7 @@ import { Song } from '../../models/song.model';
     .empty-desc {
       font-size: 13px;
       max-width: 320px;
-      line-height: 1.5;
+      line-height: 1.45;
     }
 
     .empty-desc strong {
@@ -421,6 +459,16 @@ import { Song } from '../../models/song.model';
 
     .meta-tag {
       color: var(--text-secondary);
+    }
+
+    .empty-song-tag {
+      background-color: rgba(7, 77, 151, 0.25);
+      color: #93c5fd;
+      border: 1px solid rgba(7, 77, 151, 0.4);
+      border-radius: var(--radius-sm);
+      padding: 1px 6px;
+      font-size: 11px;
+      font-weight: 600;
     }
 
     .transition-tag {
@@ -520,23 +568,115 @@ import { Song } from '../../models/song.model';
 
     .export-button {
       width: 100%;
-      padding: 13px 20px;
-      font-size: 15px;
+      min-width: 0;
+      max-width: 100%;
+      padding: 13px 16px;
+      font-size: 14.5px;
       font-weight: 700;
       letter-spacing: -0.01em;
       box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      line-height: 1.3;
+    }
+
+    .export-button span {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      min-width: 0;
     }
 
     .btn-svg-icon {
       width: 18px;
       height: 18px;
+      flex-shrink: 0;
     }
 
-    .settings-hint {
+    .settings-status-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+      padding: 7px 12px;
+      border-radius: var(--radius-md);
+      font-size: 11.5px;
+      font-weight: 500;
+      background-color: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s ease;
       text-align: center;
-      font-size: 11px;
-      color: var(--text-muted);
-      letter-spacing: 0.02em;
+      overflow: hidden;
+    }
+
+    .settings-status-btn:hover {
+      background-color: rgba(255, 255, 255, 0.06);
+      border-color: var(--border-medium);
+      color: var(--text-primary);
+    }
+
+    .settings-status-btn.custom {
+      background-color: rgba(30, 64, 175, 0.12);
+      border-color: rgba(37, 99, 235, 0.35);
+      color: #93c5fd;
+    }
+
+    .settings-status-btn.custom:hover {
+      background-color: rgba(30, 64, 175, 0.2);
+      border-color: rgba(37, 99, 235, 0.55);
+      color: #bfdbfe;
+    }
+
+    .status-indicator {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .default-indicator .status-icon {
+      width: 13px;
+      height: 13px;
+      color: #10b981;
+    }
+
+    .custom-indicator .custom-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: #3b82f6;
+      box-shadow: 0 0 6px rgba(59, 130, 246, 0.8);
+    }
+
+    .status-text {
+      flex: 1;
+      text-align: center;
+      letter-spacing: 0.01em;
+      line-height: 1.3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      min-width: 0;
+    }
+
+    .status-chevron {
+      width: 13px;
+      height: 13px;
+      opacity: 0.45;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .settings-status-btn:hover .status-chevron {
+      opacity: 0.9;
+      transform: translateX(2px);
     }
 
     .button-spinner {
@@ -551,15 +691,26 @@ import { Song } from '../../models/song.model';
     @keyframes spin {
       to { transform: rotate(360deg); }
     }
+
+    @media (max-width: 900px) {
+      .queue-card {
+        max-height: none;
+      }
+    }
   `]
 })
 export class PlaylistQueueComponent {
+  @Output() openSettings = new EventEmitter<void>();
+
   private readonly songService = inject(SongService);
   private readonly pptxService = inject(PptxExportService);
+  private readonly settingsService = inject(SettingsService);
   readonly i18n = inject(TranslationService);
 
   readonly t = this.i18n.t;
   readonly playlist = this.songService.playlist;
+  readonly settings = this.settingsService.settings;
+  readonly isDefaultSettings = this.settingsService.isDefault;
   readonly isGenerating = signal<boolean>(false);
   readonly feedbackMessage = signal<string | null>(null);
   readonly feedbackType = signal<'success' | 'error'>('success');
@@ -569,11 +720,18 @@ export class PlaylistQueueComponent {
     return this.playlist().reduce((sum, item) => sum + item.song.stanzaCount, 0);
   });
 
-  // Computed total slides count: Lyric slides + blank slide before first song, between songs, and after last song
+  // Computed total slides count: Lyric slides + blank slide before first song, between songs, and after last song (respecting settings)
   readonly totalEstimatedSlides = computed(() => {
     const items = this.playlist();
     if (items.length === 0) return 0;
-    const blankSlides = items.length + 1;
+    const s = this.settings();
+    let blankSlides = 0;
+    if (s.blankSlideStartEnd) {
+      blankSlides += 2;
+    }
+    if (s.blankSlideBetweenSongs && items.length > 1) {
+      blankSlides += (items.length - 1);
+    }
     return this.lyricSlidesCount() + blankSlides;
   });
 
@@ -605,7 +763,9 @@ export class PlaylistQueueComponent {
     this.feedbackMessage.set(null);
 
     try {
-      const filename = await this.pptxService.downloadPresentation(items);
+      const filename = await this.pptxService.downloadPresentation(items, {
+        settings: this.settings()
+      });
       this.feedbackType.set('success');
       this.feedbackMessage.set(this.t().exportSuccessMsg(filename));
 

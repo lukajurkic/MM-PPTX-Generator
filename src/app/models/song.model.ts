@@ -8,6 +8,7 @@ export interface Song {
   categories: string[];
   massSections: string[];
   stanzas: string[];
+  isEmptySong?: boolean;
 }
 
 export interface PlaylistItem {
