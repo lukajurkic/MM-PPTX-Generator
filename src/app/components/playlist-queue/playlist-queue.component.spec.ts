@@ -175,6 +175,17 @@ describe('PlaylistQueueComponent', () => {
     statusBtn.click();
     expect(component.openSettings.emit).toHaveBeenCalled();
   });
+
+  it('should render empty song badge for empty songs in the queue', () => {
+    songService.addEmptySong('Klanjanje', 2);
+    fixture.detectChanges();
+
+    const compiled = fixture.nativeElement as HTMLElement;
+    const item = compiled.querySelector('.queue-item');
+    expect(item).toBeTruthy();
+    expect(item?.querySelector('.empty-song-tag')?.textContent).toContain('Crni slajd');
+    expect(item?.querySelector('.item-title')?.textContent).toContain('Klanjanje');
+  });
 });
 
 

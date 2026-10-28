@@ -243,6 +243,28 @@ export class SongService {
   }
 
   /**
+   * Creates and adds an empty song (black slides with rotated side title and SKAC corner logo)
+   * to the presentation playlist.
+   */
+  addEmptySong(title: string, slideCount: number = 1): PlaylistItem {
+    const count = Math.max(1, Math.min(50, Math.round(slideCount) || 1));
+    const cleanTitle = title?.trim() || 'Prazna pjesma';
+    const emptySong: Song = {
+      id: `empty-song-${Date.now()}-${++this.playlistCounter}`,
+      title: cleanTitle,
+      slug: 'empty-song',
+      fileName: '',
+      stanzaCount: count,
+      preview: '',
+      categories: ['Prazna pjesma'],
+      massSections: [],
+      stanzas: Array(count).fill(''),
+      isEmptySong: true
+    };
+    return this.addToPlaylist(emptySong);
+  }
+
+  /**
    * Remove a song from the playlist by playlistId
    */
   removeFromPlaylist(playlistId: string): void {
