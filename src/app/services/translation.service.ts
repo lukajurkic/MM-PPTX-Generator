@@ -86,6 +86,8 @@ export interface Translations {
   requestFailedAlertTitle: string;
   requestTitleRequiredError: string;
   requestLyricsRequiredError: string;
+  submitViaGitHubHint: string;
+  submitViaGitHubLink: string;
 
   // Song Lyrics Modal
   lyricsModalTitle: string;
@@ -242,6 +244,8 @@ const TRANSLATIONS_HR: Translations = {
   requestFailedAlertTitle: 'Neuspješno slanje',
   requestTitleRequiredError: 'Naslov pjesme je obavezan.',
   requestLyricsRequiredError: 'Stihovi pjesme su obavezni.',
+  submitViaGitHubHint: 'Imate GitHub račun?',
+  submitViaGitHubLink: 'Predložite putem GitHub Issue-a (automatski PR)',
 
   // Song Lyrics Modal
   lyricsModalTitle: 'Pregled stihova',
@@ -388,6 +392,8 @@ const TRANSLATIONS_EN: Translations = {
   requestFailedAlertTitle: 'Submission Failed',
   requestTitleRequiredError: 'Song title is required.',
   requestLyricsRequiredError: 'Song lyrics are required.',
+  submitViaGitHubHint: 'Have a GitHub account?',
+  submitViaGitHubLink: 'Submit via GitHub Issue (automated PR)',
 
   // Song Lyrics Modal
   lyricsModalTitle: 'Song Lyrics Preview',
