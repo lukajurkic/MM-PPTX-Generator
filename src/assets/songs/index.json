@@ -22,25 +22,6 @@
     ]
   },
   {
-    "id": "adoramus-te",
-    "title": "Adoramus Te",
-    "slug": "adoramus-te",
-    "fileName": "Adoramus Te.json",
-    "stanzaCount": 3,
-    "preview": "ADORAMUS TE, ADORAMUS TE, / DOMINE! 2X",
-    "categories": [
-      "Meditativne"
-    ],
-    "massSections": [
-      "Klanjanje"
-    ],
-    "stanzas": [
-      "ADORAMUS TE, ADORAMUS TE,\nDOMINE! 2X\n\nKLANJAMO TI SE, KLANJAMO TI\nSE, GOSPODE! 2X",
-      "ADORAMUS TE, ADORAMUS TE,\nDOMINE! 2X\n\nMI TE SLAVIMO, MI TE SLAVIMO,\nGOSPODE! 2X\n\nADORAMUS TE, ADORAMUS TE,\nDOMINE! 2X",
-      "SVET, SVET, SVET!\nSVET, SVET, SVET! X\n\nMI TE ČASTIMO, MI TE ČASTIMO,\nGOSPODE! 2X\n\nADORAMUS TE, ADORAMUS TE,\nDOMINE! 2X"
-    ]
-  },
-  {
     "id": "agnus-dei-me-ugorska-misa",
     "title": "Agnus Dei (Međugorska misa)",
     "slug": "agnus-dei-me-ugorska-misa",
@@ -209,28 +190,6 @@
     ],
     "stanzas": [
       "ALELUJA, ALELUJA,\nALELUJA, ALELUJA!"
-    ]
-  },
-  {
-    "id": "amazing-grace",
-    "title": "Amazing Grace",
-    "slug": "amazing-grace",
-    "fileName": "Amazing Grace.json",
-    "stanzaCount": 4,
-    "preview": "Amazing grace how sweet the sound / That saved a wretch like me",
-    "categories": [
-      "Slavljenje",
-      "Zahvala"
-    ],
-    "massSections": [
-      "Ulazna",
-      "Pričesna"
-    ],
-    "stanzas": [
-      "Amazing grace how sweet the sound\nThat saved a wretch like me\nI once was lost, but now I'm found\nWas blind, but now I see",
-      "'Twas grace that taught my heart to fear\nAnd grace my fears relieved\nHow precious did that grace appear\nThe hour I first believed",
-      "Through many dangers, toils, and snares\nI have already come\n'Tis grace hath brought me safe thus far\nAnd grace will lead me home",
-      "When we've been there ten thousand years\nBright shining as the sun\nWe've no less days to sing God's praise\nThan when we'd first begun"
     ]
   },
   {
@@ -899,27 +858,6 @@
       "GOSPODINE, SMILUJ SE NAMA! GOSPODINE, SMILUJ NAM SE!\n\nMI MOLIMO TEBE DA UĐEŠ U NAŠ ŽIVOT SAV. 2X",
       "O, KRISTE NAŠ, SMILUJ SE NAMA! O, KRISTE NAŠ, SMILUJ NAM SE!\n\nMI MOLIMO TEBE DA UĐEŠ\nU NAŠ ŽIVOT SAV. 2X",
       "GOSPODINE, SMILUJ SE NAMA! GOSPODINE, SMILUJ NAM SE!\n\nMI MOLIMO TEBE DA UĐEŠ U NAŠ ŽIVOT SAV. 2X"
-    ]
-  },
-  {
-    "id": "how-great-thou-art",
-    "title": "How Great Thou Art",
-    "slug": "how-great-thou-art",
-    "fileName": "How Great Thou Art.json",
-    "stanzaCount": 4,
-    "preview": "O Lord, my God, when I in awesome wonder / Consider all the worlds Thy Hands have made",
-    "categories": [
-      "Slavljenje"
-    ],
-    "massSections": [
-      "Ulazna",
-      "Zahvalna"
-    ],
-    "stanzas": [
-      "O Lord, my God, when I in awesome wonder\nConsider all the worlds Thy Hands have made\nI see the stars, I hear the rolling thunder\nThy power throughout the universe displayed",
-      "Then sings my soul, my Saviour God, to Thee\nHow great Thou art, how great Thou art\nThen sings my soul, my Saviour God, to Thee\nHow great Thou art, how great Thou art",
-      "And when I think of God, His Son not sparing\nSent Him to die, I scarce can take it in\nThat on the Cross, my burden gladly bearing\nHe bled and died to take away my sin",
-      "When Christ shall come with shout of acclamation\nAnd take me home, what joy shall fill my heart\nThen I shall bow with humble adoration\nAnd then proclaim: \"My God, how great Thou art!\""
     ]
   },
   {
@@ -2690,28 +2628,6 @@
       "PJEVAM, U VISINE PRUŽAM\nRUKE, PODIŽEM SVOJ GLAS DA\nČUJU SVI DA SI NAJVEĆI.\nPLEŠEM JER ME RADOST\nISPUNJAVA, SRCE VJERUJE I\nJEZIK PRIZNAJE, VOLIM TE!",
       "VOLIM TE, VOLIM TE, VOLIM TE,\nVOLIM TE! 3X",
       "PJEVAM, U VISINE PRUŽAM\nRUKE, PODIŽEM SVOJ GLAS DA\nČUJU SVI DA SI NAJVEĆI.\nPLEŠEM JER ME RADOST\nISPUNJAVA, SRCE VJERUJE I\nJEZIK PRIZNAJE, VOLIM TE!"
-    ]
-  },
-  {
-    "id": "way-maker",
-    "title": "Way Maker",
-    "slug": "way-maker",
-    "fileName": "Way Maker.json",
-    "stanzaCount": 4,
-    "preview": "You are here, moving in our midst / I worship You, I worship You",
-    "categories": [
-      "Slavljenje",
-      "Meditativne"
-    ],
-    "massSections": [
-      "Pričesna",
-      "Klanjanje"
-    ],
-    "stanzas": [
-      "You are here, moving in our midst\nI worship You, I worship You\nYou are here, working in this place\nI worship You, I worship You",
-      "You are Way Maker, Miracle Worker, Promise Keeper\nLight in the darkness, my God, that is who You are\nYou are Way Maker, Miracle Worker, Promise Keeper\nLight in the darkness, my God, that is who You are",
-      "You are here, touching every heart\nI worship You, I worship You\nYou are here, healing every heart\nI worship You, I worship You",
-      "Even when I don't see it, You're working\nEven when I don't feel it, You're working\nYou never stop, You never stop working\nYou never stop, You never stop working"
     ]
   },
   {
