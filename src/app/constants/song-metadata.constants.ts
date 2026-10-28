@@ -28,6 +28,12 @@ export const PRESET_CATEGORIES = [
   'Uskrsne',
   'Marijanske',
   'Duhu Svetom',
+  'Međugorska misa',
+  'Marijina misa',
+  'Fides',
+  'Misa sv. Andrije',
+  'Misa fra Ivan Matić',
+  'Prigodne',
   'Mladi',
   'Opće'
 ] as const;

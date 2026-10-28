@@ -44,11 +44,12 @@ pptx_web_maker/
 │       └── pr-check.yml          # PR gate: typecheck, 57 unit tests, production build
 ├── scripts/
 │   └── index-songs.js           # Build-time script: parses songs/*.json -> src/assets/songs/index.json
-├── songs/                       # SINGLE SOURCE OF TRUTH: individual song JSON files
+├── songs/                       # SINGLE SOURCE OF TRUTH: individual song JSON files (155 songs)
 │   ├── 10,000 Reasons.json
 │   ├── Amazing Grace.json
 │   ├── How Great Thou Art.json
-│   └── Way Maker.json
+│   ├── Way Maker.json
+│   └── ... (155 songs total)
 ├── src/
 │   ├── app/
 │   │   ├── components/

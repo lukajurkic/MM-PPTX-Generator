@@ -34,12 +34,12 @@ import { APP_VERSION } from '../environments/version';
         <div class="content-container">
           <div class="two-panel-grid">
             <!-- Left Panel: Song Catalog (Task 4.2) -->
-            <section class="panel-section" aria-label="Song Catalog">
+            <section class="panel-section catalog-section" aria-label="Song Catalog">
               <app-song-catalog></app-song-catalog>
             </section>
 
             <!-- Right Panel: Playlist Presentation Queue (Task 4.3) -->
-            <section class="panel-section" aria-label="Presentation Playlist Queue">
+            <section class="panel-section queue-section" aria-label="Presentation Playlist Queue">
               <app-playlist-queue (openSettings)="onSettingsOpen()"></app-playlist-queue>
             </section>
           </div>
@@ -98,17 +98,48 @@ import { APP_VERSION } from '../environments/version';
 
     .two-panel-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       gap: 24px;
       width: 100%;
       flex: 1;
+      min-width: 0;
+      align-items: start;
     }
 
     .panel-section {
-      height: 100%;
-      min-height: 520px;
       display: flex;
       flex-direction: column;
+      width: 100%;
+      min-width: 0;
+    }
+
+    .catalog-section {
+      height: 100%;
+      min-height: 520px;
+    }
+
+    .queue-section {
+      height: auto;
+      min-height: auto;
+      position: sticky;
+      top: 90px;
+    }
+
+    .panel-section app-song-catalog {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      width: 100%;
+      min-width: 0;
+      height: 100%;
+    }
+
+    .panel-section app-playlist-queue {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      min-width: 0;
+      height: auto;
     }
 
     @media (max-width: 900px) {
@@ -119,6 +150,10 @@ import { APP_VERSION } from '../environments/version';
       .two-panel-grid {
         grid-template-columns: 1fr;
         gap: 16px;
+      }
+
+      .queue-section {
+        position: static;
       }
     }
 

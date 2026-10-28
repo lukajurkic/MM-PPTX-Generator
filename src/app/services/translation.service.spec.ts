@@ -57,13 +57,13 @@ describe('TranslationService', () => {
   it('should have settings translations available in both languages', () => {
     expect(service.t().settingsBtn).toBe('Postavke prezentacije');
     expect(service.t().aspectRatio169Label).toBe('16:9 Široki zaslon');
-    expect(service.t().settingsDefaultStatus).toBe('Primijenjene su zadane postavke prezentacije');
-    expect(service.t().settingsCustomStatus).toBe('Aktivne su prilagođene postavke prezentacije');
+    expect(service.t().settingsDefaultStatus).toBe('Zadane postavke aktivne');
+    expect(service.t().settingsCustomStatus).toBe('Prilagođene postavke aktivne');
     service.setLanguage('en');
     expect(service.t().settingsBtn).toBe('Presentation Settings');
     expect(service.t().aspectRatio169Label).toBe('16:9 Widescreen');
-    expect(service.t().settingsDefaultStatus).toBe('Default presentation settings applied');
-    expect(service.t().settingsCustomStatus).toBe('Custom presentation settings active');
+    expect(service.t().settingsDefaultStatus).toBe('Default settings active');
+    expect(service.t().settingsCustomStatus).toBe('Custom settings active');
   });
 
   it('should persist selected language preference in localStorage', () => {

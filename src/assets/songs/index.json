@@ -1,89 +1,2723 @@
 [
   {
-    "id": "10-000-reasons",
-    "title": "10,000 Reasons",
-    "slug": "10-000-reasons",
-    "fileName": "10,000 Reasons.json",
-    "stanzaCount": 4,
-    "preview": "Bless the Lord, O my soul / O my soul, worship His holy name",
+    "id": "agnus-dei-me-ugorska-misa",
+    "title": "Agnus Dei (Međugorska misa)",
+    "slug": "agnus-dei-me-ugorska-misa",
+    "fileName": "Agnus Dei (Međugorska misa).json",
+    "stanzaCount": 1,
+    "preview": "AGNUS DEI QUI TOLLIS PECCATA / MUNDI MISERERE NOBIS,",
     "categories": [
-      "Slavljenje",
-      "Zahvala"
+      "Međugorska misa"
     ],
     "massSections": [
-      "Ulazna",
-      "Završna"
+      "Jaganjče Božji"
     ],
     "stanzas": [
-      "Bless the Lord, O my soul\nO my soul, worship His holy name\nSing like never before, O my soul\nI'll worship Your holy name",
-      "The sun comes up, it's a new day dawning\nIt's time to sing Your song again\nWhatever may pass, and whatever lies before me\nLet me be singing when the evening comes",
-      "You're rich in love, and You're slow to anger\nYour name is great, and Your heart is kind\nFor all Your goodness I will keep on singing\nTen thousand reasons for my heart to find",
-      "And on that day when my strength is failing\nThe end draws near and my time has come\nStill my soul will sing Your praise unending\nTen thousand years and then forevermore"
+      "AGNUS DEI QUI TOLLIS PECCATA\nMUNDI MISERERE NOBIS,\nMISERERE NOBIS. 2X\n\nAGNUS DEI QUI TOLLIS PECCATA\nMUNDI DONA NOBIS PACEM, DONA\nNOBIS PACEM, DONA NOBIS\nPACEM."
     ]
   },
   {
-    "id": "amazing-grace",
-    "title": "Amazing Grace",
-    "slug": "amazing-grace",
-    "fileName": "Amazing Grace.json",
-    "stanzaCount": 4,
-    "preview": "Amazing grace how sweet the sound / That saved a wretch like me",
-    "categories": [
-      "Slavljenje",
-      "Zahvala"
-    ],
+    "id": "agnus-dei-veseli",
+    "title": "Agnus Dei (veseli)",
+    "slug": "agnus-dei-veseli",
+    "fileName": "Agnus Dei (veseli).json",
+    "stanzaCount": 1,
+    "preview": "AGNUS DEI, QUI TOLLIS / PECCATA MUNDI, MISERERE",
+    "categories": [],
     "massSections": [
-      "Ulazna",
-      "Pričesna"
+      "Jaganjče Božji"
     ],
     "stanzas": [
-      "Amazing grace how sweet the sound\nThat saved a wretch like me\nI once was lost, but now I'm found\nWas blind, but now I see",
-      "'Twas grace that taught my heart to fear\nAnd grace my fears relieved\nHow precious did that grace appear\nThe hour I first believed",
-      "Through many dangers, toils, and snares\nI have already come\n'Tis grace hath brought me safe thus far\nAnd grace will lead me home",
-      "When we've been there ten thousand years\nBright shining as the sun\nWe've no less days to sing God's praise\nThan when we'd first begun"
+      "AGNUS DEI, QUI TOLLIS\nPECCATA MUNDI, MISERERE\nNOBIS, MISERERE NOBIS. 2X\n\nAGNUS DEI, QUI TOLLIS\nPECCATA MUNDI, DONA NOBIS\nPACEM, DONA NOBIS PACEM."
     ]
   },
   {
-    "id": "how-great-thou-art",
-    "title": "How Great Thou Art",
-    "slug": "how-great-thou-art",
-    "fileName": "How Great Thou Art.json",
-    "stanzaCount": 4,
-    "preview": "O Lord, my God, when I in awesome wonder / Consider all the worlds Thy Hands have made",
+    "id": "agnus-dei-2",
+    "title": "Agnus dei 2",
+    "slug": "agnus-dei-2",
+    "fileName": "Agnus dei 2.json",
+    "stanzaCount": 1,
+    "preview": "AGNUS DEI, QUI TOLLIS / PECCATA MUNDI, MISERERE",
+    "categories": [],
+    "massSections": [
+      "Jaganjče Božji"
+    ],
+    "stanzas": [
+      "AGNUS DEI, QUI TOLLIS\nPECCATA MUNDI, MISERERE\nNOBIS, MISERERE NOBIS. 2X\n\nAGNUS DEI, QUI TOLLIS\nPECCATA MUNDI, DONA NOBIS\nPACEM, DONA NOBIS PACEM."
+    ]
+  },
+  {
+    "id": "ako-se-gospodine",
+    "title": "Ako se, Gospodine",
+    "slug": "ako-se-gospodine",
+    "fileName": "Ako se, Gospodine.json",
+    "stanzaCount": 1,
+    "preview": "Ako se, Gospodine, / grijeha budeš spominjao,",
+    "categories": [],
+    "massSections": [
+      "Otpjevni psalam"
+    ],
+    "stanzas": [
+      "Ako se, Gospodine,\ngrijeha budeš spominjao,\nGospodine,\ntko će opstati?"
+    ]
+  },
+  {
+    "id": "ale-ale-ale-aleluja",
+    "title": "Ale Ale Ale Aleluja",
+    "slug": "ale-ale-ale-aleluja",
+    "fileName": "Ale Ale Ale Aleluja.json",
+    "stanzaCount": 1,
+    "preview": "ALE, ALE, ALE, ALELUJA, / ALE, ALE, ALE, ALELUJA!",
+    "categories": [],
+    "massSections": [
+      "Aleluja"
+    ],
+    "stanzas": [
+      "ALE, ALE, ALE, ALELUJA,\nALE, ALE, ALE, ALELUJA!\nALE, ALE, ALE, ALELUJA,\nALELUJA, ALELUJA!"
+    ]
+  },
+  {
+    "id": "aleluja-covjek-ne-zivi-od-kruha-samoga",
+    "title": "Aleluja - Čovjek ne živi od kruha samoga",
+    "slug": "aleluja-covjek-ne-zivi-od-kruha-samoga",
+    "fileName": "Aleluja - Čovjek ne živi od kruha samoga.json",
+    "stanzaCount": 1,
+    "preview": "ALELUJA, ALELU, ALELUJA, ALELUJA, ALELUJA. 2X / ČOVJEK NE ŽIVI OD KRUHA SAMOGA, VEĆ I OD SVAKE RIJEČI KOJA IZLAZI IZ USTA BOŽJIH, ALELUJA, ALELUJA.",
+    "categories": [],
+    "massSections": [
+      "Aleluja"
+    ],
+    "stanzas": [
+      "ALELUJA, ALELU, ALELUJA, ALELUJA, ALELUJA. 2X\n\nČOVJEK NE ŽIVI OD KRUHA SAMOGA, VEĆ I OD SVAKE RIJEČI KOJA IZLAZI IZ USTA BOŽJIH, ALELUJA, ALELUJA."
+    ]
+  },
+  {
+    "id": "aleluja-duh-poziva",
+    "title": "Aleluja - Duh poziva",
+    "slug": "aleluja-duh-poziva",
+    "fileName": "Aleluja - Duh poziva.json",
+    "stanzaCount": 1,
+    "preview": "ALELUJA, ALELUJA, ALELUJA, / DUH POZIVA!",
+    "categories": [],
+    "massSections": [
+      "Aleluja"
+    ],
+    "stanzas": [
+      "ALELUJA, ALELUJA, ALELUJA,\nDUH POZIVA!\n\nALELUJA, ALELUJA, ALELUJA,\nDUH POZIVA, DUH POZIVA!"
+    ]
+  },
+  {
+    "id": "aleluja-trazite-najprije-bozje-kraljevstvo",
+    "title": "Aleluja - Tražite najprije Božje Kraljevstvo",
+    "slug": "aleluja-trazite-najprije-bozje-kraljevstvo",
+    "fileName": "Aleluja - Tražite najprije Božje Kraljevstvo.json",
+    "stanzaCount": 1,
+    "preview": "ALELUJA, ALELU, ALELUJA, / ALELUJA, ALELUJA! 2X",
+    "categories": [],
+    "massSections": [
+      "Aleluja"
+    ],
+    "stanzas": [
+      "ALELUJA, ALELU, ALELUJA,\nALELUJA, ALELUJA! 2X\n\nTRAŽITE NAJPRIJE BOŽJE\nKRALJEVSTVO I PRAVDU NJEGOVU I\nSVE DRUGO BIT ĆE VAM\nNADODANO, ALELUJA, ALELUJA!"
+    ]
+  },
+  {
+    "id": "aleluja-marijina-misa",
+    "title": "Aleluja (Marijina misa)",
+    "slug": "aleluja-marijina-misa",
+    "fileName": "Aleluja (Marijina misa).json",
+    "stanzaCount": 1,
+    "preview": "ALELUJA! ALELU, ALELUJA! ALELU, / ALELUJA! ALELUJA!",
+    "categories": [
+      "Marijina misa"
+    ],
+    "massSections": [
+      "Aleluja"
+    ],
+    "stanzas": [
+      "ALELUJA! ALELU, ALELUJA! ALELU,\nALELUJA! ALELUJA!\n\nRIJEČI TVOJE, GOSPODINE,\nDUH SU I ŽIVOT;\nTI IMAŠ RIJEČI ŽIVOTA VJEČNOGA.\n\nALELUJA! ALELU, ALELUJA! ALELU,\nALELUJA! ALELUJA! ALELUJA!"
+    ]
+  },
+  {
+    "id": "aleluja-onom-koji-uskrsnu-nosimo-svima",
+    "title": "Aleluja Onom koji uskrsnu - Nosimo svima",
+    "slug": "aleluja-onom-koji-uskrsnu-nosimo-svima",
+    "fileName": "Aleluja Onom koji uskrsnu - Nosimo svima.json",
+    "stanzaCount": 3,
+    "preview": "ALELUJA, ALELUJA, / ONOM KOJI USKRSNU, ALELUJA, ALELUJA,",
+    "categories": [],
+    "massSections": [
+      "Aleluja"
+    ],
+    "stanzas": [
+      "ALELUJA, ALELUJA,\nONOM KOJI USKRSNU, ALELUJA, ALELUJA,\nSLAVA KRISTU ISUSU!",
+      "NOSIMO SVIMA RADOSNU VIJEST:\nISUS JE UMRO,\nUSKRSNUO!",
+      "ALELUJA, ALELUJA,\nONOM KOJI USKRSNU, ALELUJA, ALELUJA,\nSLAVA KRISTU ISUSU!"
+    ]
+  },
+  {
+    "id": "aleluja-x4",
+    "title": "Aleluja x4",
+    "slug": "aleluja-x4",
+    "fileName": "Aleluja x4.json",
+    "stanzaCount": 1,
+    "preview": "ALELUJA, ALELUJA, / ALELUJA, ALELUJA!",
+    "categories": [],
+    "massSections": [
+      "Aleluja"
+    ],
+    "stanzas": [
+      "ALELUJA, ALELUJA,\nALELUJA, ALELUJA!"
+    ]
+  },
+  {
+    "id": "amen-aleluja",
+    "title": "Amen, aleluja",
+    "slug": "amen-aleluja",
+    "fileName": "Amen, aleluja.json",
+    "stanzaCount": 1,
+    "preview": "AMEN, ALELUJA! / AMEN, ALELUJA!",
+    "categories": [],
+    "massSections": [
+      "Aleluja"
+    ],
+    "stanzas": [
+      "AMEN, ALELUJA!\nAMEN, ALELUJA!\nAMEN, ALELUJA!"
+    ]
+  },
+  {
+    "id": "an-elima-svojim-zapovijedi",
+    "title": "Anđelima svojim zapovijedi",
+    "slug": "an-elima-svojim-zapovijedi",
+    "fileName": "Anđelima svojim zapovijedi.json",
+    "stanzaCount": 1,
+    "preview": "Anđelima svojim zapovijedi / da te čuvaju na svim putima tvojim.",
+    "categories": [],
+    "massSections": [
+      "Otpjevni psalam"
+    ],
+    "stanzas": [
+      "Anđelima svojim zapovijedi\nda te čuvaju na svim putima tvojim."
+    ]
+  },
+  {
+    "id": "blago-covjeku-koji-se-boji-gospodina",
+    "title": "Blago čovjeku koji se boji Gospodina",
+    "slug": "blago-covjeku-koji-se-boji-gospodina",
+    "fileName": "Blago čovjeku koji se boji Gospodina.json",
+    "stanzaCount": 1,
+    "preview": "BLAGO ČOVJEKU KOJI SE BOJI / GOSPODINA!",
+    "categories": [],
+    "massSections": [
+      "Otpjevni psalam"
+    ],
+    "stanzas": [
+      "BLAGO ČOVJEKU KOJI SE BOJI\nGOSPODINA!"
+    ]
+  },
+  {
+    "id": "blago-narodu-koji-gospodin-odabra",
+    "title": "Blago narodu koji Gospodin odabra",
+    "slug": "blago-narodu-koji-gospodin-odabra",
+    "fileName": "Blago narodu koji Gospodin odabra.json",
+    "stanzaCount": 1,
+    "preview": "Blago narodu koji Gospodin / odabra sebi za baštinu!",
+    "categories": [],
+    "massSections": [
+      "Otpjevni psalam"
+    ],
+    "stanzas": [
+      "Blago narodu koji Gospodin\nodabra sebi za baštinu!"
+    ]
+  },
+  {
+    "id": "blagoslov",
+    "title": "Blagoslov",
+    "slug": "blagoslov",
+    "fileName": "Blagoslov.json",
+    "stanzaCount": 8,
+    "preview": "NEK’ TE GOSPOD BLAGOSLOVI, LICEM SVOJIM OBASJA / I NEK’ ČUVA TE.",
+    "categories": [
+      "Meditativne"
+    ],
+    "massSections": [
+      "Klanjanje"
+    ],
+    "stanzas": [
+      "NEK’ TE GOSPOD BLAGOSLOVI, LICEM SVOJIM OBASJA\nI NEK’ ČUVA TE.\nPOGLED SVOJ NEK’\nNA TE SVRATI I DA TI MIR. 2X\n\nAMEN. AMEN. AMEN. 2X",
+      "NEK’ TE GOSPOD BLAGOSLOVI, LICEM SVOJIM OBASJA\nI NEK’ ČUVA TE.\nPOGLED SVOJ NEK’\nNA TE SVRATI I DA TI MIR.",
+      "AMEN. AMEN. AMEN. 2X",
+      "AAA! AMEN. AMEN. AMEN.\n\nNEK’ TE MILOST BOŽJA PRATI I\nTVOJ DOM I TVOJU DJECU,\nKROZ SVA TVOJA POKOLJENJA I\nSVU DJECU TVOJE DJECE. X",
+      "NJEGOV DUH NEK’ IDE S TOBOM\nI PRED TOBOM I UZ TEBE, OKO\nTEBE I U TEBI, ON JE S TOBOM,\nON JE S TOBOM.",
+      "SVAKO JUTRO, SVAKU VEČER,\nKADA IDEŠ, KAD SE VRAĆAŠ,\nKADA PLAČEŠ I KAD KLIČEŠ,\nON TE LJUBI, ON TE LJUBI.\n\nON TE LJUBI! X",
+      "AMEN. AMEN. AMEN. 4X",
+      "NEK’ TE GOSPOD BLAGOSLOVI,\nLICEM SVOJIM OBASJA\nI NEK’ ČUVA TE.\nPOGLED SVOJ NEK’\nNA TE SVRATI I DA TI MIR."
+    ]
+  },
+  {
+    "id": "blazen-onaj-kome-je-zlocin-otpusten",
+    "title": "Blažen onaj kome je zločin otpušten",
+    "slug": "blazen-onaj-kome-je-zlocin-otpusten",
+    "fileName": "Blažen onaj kome je zločin otpušten.json",
+    "stanzaCount": 1,
+    "preview": "Blažen onaj kome je / zločin otpušten!",
+    "categories": [],
+    "massSections": [
+      "Otpjevni psalam"
+    ],
+    "stanzas": [
+      "Blažen onaj kome je\nzločin otpušten!"
+    ]
+  },
+  {
+    "id": "blize-tebi",
+    "title": "Bliže Tebi",
+    "slug": "blize-tebi",
+    "fileName": "Bliže Tebi.json",
+    "stanzaCount": 3,
+    "preview": "BLIŽE TEBI, TVOME / NARUČJU, BOŽE,",
     "categories": [
       "Slavljenje"
     ],
     "massSections": [
-      "Ulazna",
-      "Zahvalna"
+      "Ulazna"
     ],
     "stanzas": [
-      "O Lord, my God, when I in awesome wonder\nConsider all the worlds Thy Hands have made\nI see the stars, I hear the rolling thunder\nThy power throughout the universe displayed",
-      "Then sings my soul, my Saviour God, to Thee\nHow great Thou art, how great Thou art\nThen sings my soul, my Saviour God, to Thee\nHow great Thou art, how great Thou art",
-      "And when I think of God, His Son not sparing\nSent Him to die, I scarce can take it in\nThat on the Cross, my burden gladly bearing\nHe bled and died to take away my sin",
-      "When Christ shall come with shout of acclamation\nAnd take me home, what joy shall fill my heart\nThen I shall bow with humble adoration\nAnd then proclaim: \"My God, how great Thou art!\""
+      "BLIŽE TEBI, TVOME\nNARUČJU, BOŽE,\nPRIVUCI ME BLIŽE SVOM SRCU.",
+      "U TVOM DOMU ŽELIM BITI\nZAUVIJEK SVU LJEPOTU\nTVOJU GLEDATI.\nSVE DOK ŽIVIM, SVE DOK\nIMAM DAH ŽELIM SLAVITI\nSAMO TEBE.",
+      "U TVOM DOMU ŽELIM BITI\nZAUVIJEK SVU LJEPOTU\nTVOJU GLEDATI.\nSVE DOK ŽIVIM, SVE DOK\nIMAM DAH ŽELIM SLAVITI,\nTEBE LJUBITI, OBOŽAVATI\nSAMO TEBE, OČE MOJ."
     ]
   },
   {
-    "id": "way-maker",
-    "title": "Way Maker",
-    "slug": "way-maker",
-    "fileName": "Way Maker.json",
-    "stanzaCount": 4,
-    "preview": "You are here, moving in our midst / I worship You, I worship You",
+    "id": "blizu-je-gospodin-onima",
+    "title": "Blizu je Gospodin onima",
+    "slug": "blizu-je-gospodin-onima",
+    "fileName": "Blizu je Gospodin onima.json",
+    "stanzaCount": 1,
+    "preview": "Blizu je Gospodin onima / koji su skršena srca!",
+    "categories": [],
+    "massSections": [
+      "Otpjevni psalam"
+    ],
+    "stanzas": [
+      "Blizu je Gospodin onima\nkoji su skršena srca!"
+    ]
+  },
+  {
+    "id": "bog-mi-je-svjetlost-i-spasenje",
+    "title": "Bog mi je svjetlost i spasenje",
+    "slug": "bog-mi-je-svjetlost-i-spasenje",
+    "fileName": "Bog mi je svjetlost i spasenje.json",
+    "stanzaCount": 1,
+    "preview": "BOG MI JE SVJETLOST I / SPASENJE, KOGA DA SE BOJIM?",
+    "categories": [],
+    "massSections": [
+      "Otpjevni psalam"
+    ],
+    "stanzas": [
+      "BOG MI JE SVJETLOST I\nSPASENJE, KOGA DA SE BOJIM?\nON JE ŠTIT ŽIVOTA MOGA,\nPRED KIME DA STREPIM?"
+    ]
+  },
+  {
+    "id": "boze-cuvaj-hrvatsku",
+    "title": "Bože, čuvaj Hrvatsku",
+    "slug": "boze-cuvaj-hrvatsku",
+    "fileName": "Bože, čuvaj Hrvatsku.json",
+    "stanzaCount": 2,
+    "preview": "BOŽE, ČUVAJ HRVATSKU, MOJ / DRAGI DOM, LJUDE KOJI",
     "categories": [
-      "Slavljenje",
+      "Prigodne"
+    ],
+    "massSections": [],
+    "stanzas": [
+      "BOŽE, ČUVAJ HRVATSKU, MOJ\nDRAGI DOM, LJUDE KOJI\nBLAGUJU PRI OLTARU TVOM!\nNEK’ SE SLIJU MOLITVE SVE U\nJEDAN GLAS, ČUVAJ OVO SVETO\nTLE, BLAGOSLOVI NAS!",
+      "AKO TREBA, GOSPODE, EVO,\nPRIMI ZAVJET MOJ, UZMI ŽIVOT\nOD MENE PA GA PODAJ NJOJ.\nI U DOBRU I U ZLU BUDI S\nNAMA, BUDI S NJOM, BOŽE,\nČUVAJ HRVATSKU, MOJ DRAGI\nDOM! BOŽE, ČUVAJ HRVATSKU,\nMOJ DRAGI DOM!"
+    ]
+  },
+  {
+    "id": "cijeno-neprocjenjiva",
+    "title": "Cijeno neprocjenjiva",
+    "slug": "cijeno-neprocjenjiva",
+    "fileName": "Cijeno neprocjenjiva.json",
+    "stanzaCount": 6,
+    "preview": "O, TI CIJENO NEPROCJENJIVA, / VATRENA ČEŽNJO MOGA",
+    "categories": [
+      "Korizmene"
+    ],
+    "massSections": [],
+    "stanzas": [
+      "O, TI CIJENO NEPROCJENJIVA,\nVATRENA ČEŽNJO MOGA\nSPASENJA.\nŠTO U GRUDIMA SI OD LJUBAVI\nBUJALA, U SMIRAJ UŠLA KAD SI\nSE ZA NAS PROLILA.",
+      "O, TI CIJENO NEPROCJENJIVA,\nVATRENA ČEŽNJO MOGA\nSPASENJA.\nŠTO U GRUDIMA SI JAGANJČEVIM\nBUJALA, U SMIRAJ UŠLA KAD SI\nSE ZA NAS PROLILA.",
+      "KRISTE, TVOJA ŽEĐ JE\nNEUTAŽENA DOK I ZADNJA DUŠA\nBUDE LUTALA.\nTVOJE RANE SJAJE POPUT\nBISERA, U NJIMA JE LJUBAV\nOGNJENA.",
+      "DOK NA KRIŽU GORIŠ KAO\nBUKTINJA, ODSJAJ TVOJ\nMI SRCE ISPUNJA.\nLJUBAV KOJOM ZA ME GORIŠ TI\nI JA ŽELIM ZA SVOG BRATA\nGORJETI.",
+      "O, TI CIJENO NEPROCJENJIVA,\nVATRENA ČEŽNJO MOGA\nSPASENJA.\nŠTO U GRUDIMA SI OD LJUBAVI\nBUJALA, U SMIRAJ UŠLA KAD SI\nSE ZA NAS PROLILA.",
+      "O, TI CIJENO NEPROCJENJIVA,\nVATRENA ČEŽNJO MOGA\nSPASENJA.\nŠTO U GRUDIMA SI JAGANJČEVIM\nBUJALA, U SMIRAJ UŠLA KAD SI\nSE ZA NAS PROLILA."
+    ]
+  },
+  {
+    "id": "crveni-plast",
+    "title": "Crveni plašt",
+    "slug": "crveni-plast",
+    "fileName": "Crveni plašt.json",
+    "stanzaCount": 5,
+    "preview": "SAMO TEBI ĆU PJEVATI, / ISUSE MOJ,",
+    "categories": [
+      "Korizmene"
+    ],
+    "massSections": [],
+    "stanzas": [
+      "SAMO TEBI ĆU PJEVATI,\nISUSE MOJ,\nTEBI DUGUJEM ŽIVOT SVOJ!\nTI SMRTI ZAUSTAVLJAŠ\nSTUDENI DAH, S TOBOM SAM\nNIJE ME STRAH.",
+      "ZBOG MENE SI PROŠAO KROZ\nTAMNU NOĆ, DA JA MOGU\nDO SVJETLOSTI DOĆ’!\nU HALJINI BIJELOJ ČISTOJ K’O\nSNIJEG, SLOBODNA ZAUVIJEK.",
+      "ONE NOĆI SI NOSIO CRVENI\nPLAŠT, SVOJOM KRVLJU\nPOSVETIO NAS!\nJOŠ MASLINA GRANE SVIJAJU\nSE OD SILNE LJUBAVI TE.",
+      "SAMO ONA JE JAČA\nOD OTROVA ZLA,\nSAMO LJUBAV U GRUDIMA!\nŠTO JEDINA NIKADA NE UMIRE\nDO VJEČNOSTI RAZLILA SE.",
+      "SAMO TEBI ĆU PJEVATI,\nISUSE MOJ,\nTEBI DUGUJEM ŽIVOT SVOJ!\nTI SJAJI K’O ZVIJEZDA U\nDALEKU NOĆ, ČEKAJ NAS\nMI ĆEMO DOĆ’."
+    ]
+  },
+  {
+    "id": "cuvaj-me-boze",
+    "title": "Čuvaj me, Bože",
+    "slug": "cuvaj-me-boze",
+    "fileName": "Čuvaj me, Bože.json",
+    "stanzaCount": 1,
+    "preview": "ČUVAJ ME, BOŽE, JER SE TEBI / UTJEČEM!",
+    "categories": [],
+    "massSections": [
+      "Otpjevni psalam"
+    ],
+    "stanzas": [
+      "ČUVAJ ME, BOŽE, JER SE TEBI\nUTJEČEM!"
+    ]
+  },
+  {
+    "id": "da-te-samo-dotaknem",
+    "title": "Da Te samo dotaknem",
+    "slug": "da-te-samo-dotaknem",
+    "fileName": "Da Te samo dotaknem.json",
+    "stanzaCount": 6,
+    "preview": "SJEDIM DO TVOJIH NOGU / GLAVE POGNUTE.",
+    "categories": [
+      "Korizmene"
+    ],
+    "massSections": [],
+    "stanzas": [
+      "SJEDIM DO TVOJIH NOGU\nGLAVE POGNUTE.\nNE MOGU POGLED DIGNUTI, GLEDATI U TEBE.\nŠUTIM, SRCE TE ŽELI, MOJE USNE NE GOVORE.\nZNAŠ SVE MOJE MISLI,\nSVE MOJE MOLIVE.",
+      "DA TE SAMO DOTAKNEM I\nDODIRNEM TI HALJINE,\nMOJE SRCE BILO BI CIJELO,\nSVE RANE BI NESTALE.\nDA TE SAMO DOTAKNEM I\nDODIRNEM TI HALJINE,\nMOJE SRCE BILO BI CIJELO DA\nTE SAMO DOTAKNEM.",
+      "SJEDIM DO TVOJIH NOGU,\nPRUŽAM RUKE DRHTAVE.\nSUZE POLAKO KLIZE NIZ\nMOJE OBRAZE.",
+      "DA TE SAMO DOTAKNEM I\nDODIRNEM TI HALJINE,\nMOJE SRCE BILO BI CIJELO,\nSVE RANE BI NESTALE.\nDA TE SAMO DOTAKNEM I\nDODIRNEM TI HALJINE,\nMOJE SRCE BILO BI CIJELO DA\nTE SAMO DOTAKNEM.",
+      "PRUŽAŠ RUKE, DIŽEŠ MI LICE,\nTVOJE OČI MI GOVORE:\n„NE GLEDAJ SVOJE GRIJEHE,\nPOGLEDAJ U MENE!”",
+      "DA TE SAMO DOTAKNEM I\nDODIRNEM TI HALJINE,\nMOJE SRCE BILO BI CIJELO,\nSVE RANE BI NESTALE.\nDA TE SAMO DOTAKNEM I\nDODIRNEM TI HALJINE,\nMOJE SRCE BILO BI CIJELO DA\nTE SAMO DOTAKNEM."
+    ]
+  },
+  {
+    "id": "dajemo-ti-gospode",
+    "title": "Dajemo ti, Gospode",
+    "slug": "dajemo-ti-gospode",
+    "fileName": "Dajemo ti, Gospode.json",
+    "stanzaCount": 1,
+    "preview": "DAJEMO TI, GOSPODE, / KRUH I VINO.",
+    "categories": [],
+    "massSections": [
+      "Prinosna"
+    ],
+    "stanzas": [
+      "DAJEMO TI, GOSPODE,\nKRUH I VINO.\nI U NJIMA SEBE PRIKAZUJEMO.\n\nPRIMI, GOSPODE, OVE DAROVE\nNA ŽRTVENIKU SVOM! 2X"
+    ]
+  },
+  {
+    "id": "daruj-nam-mir",
+    "title": "Daruj nam mir",
+    "slug": "daruj-nam-mir",
+    "fileName": "Daruj nam mir.json",
+    "stanzaCount": 4,
+    "preview": "DARUJ NAM MIR, DARUJ NAM / MIR U NAŠIM SRCIMA,",
+    "categories": [],
+    "massSections": [
+      "Pričesna"
+    ],
+    "stanzas": [
+      "DARUJ NAM MIR, DARUJ NAM\nMIR U NAŠIM SRCIMA,\nISUSE! 2X\n\nOSTANI TU, GOSPODINE!\nOSTANI TU, GOSPODINE,\nI TVOJ MIR U NAMA I TVOJ MIR\nU NAMA.",
+      "DARUJ NAM VJERU, DARUJ NAM\nVJERU U NAŠIM SRCIMA,\nISUSE! 2X\n\nOSTANI TU, GOSPODINE!\nOSTANI TU, GOSPODINE,\nI TVOJ MIR U NAMA I TVOJ MIR\nU NAMA.",
+      "DARUJ NAM NADU, DARUJ NAM\nNADU U NAŠIM SRCIMA,\nISUSE! 2X\n\nOSTANI TU, GOSPODINE!\nOSTANI TU, GOSPODINE,\nI TVOJ MIR U NAMA I TVOJ MIR\nU NAMA.",
+      "DARUJ NAM LJUBAV, DARUJ NAM\nLJUBAV U NAŠIM SRCIMA,\nISUSE! 2X\n\nOSTANI TU, GOSPODINE!\nOSTANI TU, GOSPODINE,\nI TVOJ MIR U NAMA I TVOJ MIR\nU NAMA."
+    ]
+  },
+  {
+    "id": "divan-si",
+    "title": "Divan si",
+    "slug": "divan-si",
+    "fileName": "Divan si.json",
+    "stanzaCount": 6,
+    "preview": "EVO ME, ISPRED / VELIČANSTVA TVOG,",
+    "categories": [
       "Meditativne"
     ],
     "massSections": [
-      "Pričesna",
       "Klanjanje"
     ],
     "stanzas": [
-      "You are here, moving in our midst\nI worship You, I worship You\nYou are here, working in this place\nI worship You, I worship You",
-      "You are Way Maker, Miracle Worker, Promise Keeper\nLight in the darkness, my God, that is who You are\nYou are Way Maker, Miracle Worker, Promise Keeper\nLight in the darkness, my God, that is who You are",
-      "You are here, touching every heart\nI worship You, I worship You\nYou are here, healing every heart\nI worship You, I worship You",
-      "Even when I don't see it, You're working\nEven when I don't feel it, You're working\nYou never stop, You never stop working\nYou never stop, You never stop working"
+      "EVO ME, ISPRED\nVELIČANSTVA TVOG,\nTVOJA MILOST PREKRIVA ME.\nEVO ME, SVJESTAN SVOJE GRJEŠNOSTI,\nOPRAN KRVLJU JANJETA.",
+      "SHVAĆAM SAD DA MI TVOJA\nLJUBAV PRIPADA\nJER ZA ME UMRO SI,\nTO JE ŽRTVA NAJVEĆA.",
+      "DIVAN SI, DIVAN SI,\nTVOJA MILOST PRONAŠLA ME PRAZNIH RUKU ISPUNILA ME.\nDIVAN SI, DIVAN SI,\nNOVI ČOVJEK POSTAO SAM\nU BLIZINI TVOJE LJUBAVI.",
+      "EVO ME, PONIZAN I\nSPREMAN SAM\nOPROSTITI JER TI OPRAŠTAŠ.\nSTOJIM TU ZNAJUĆI DA ŽELIŠ ME,\nPOSVEĆEN SAM I OBNOVLJEN.",
+      "SHVAĆAM SAD DA MI TVOJA\nLJUBAV PRIPADA\nJER ZA ME UMRO SI,\nTO JE ŽRTVA NAJVEĆA.",
+      "DIVAN SI, DIVAN SI,\nTVOJA MILOST PRONAŠLA ME\nPRAZNIH RUKU ISPUNILA ME.\nDIVAN SI, DIVAN SI,\nNOVI ČOVJEK POSTAO SAM\nU BLIZINI TVOJE LJUBAVI."
+    ]
+  },
+  {
+    "id": "divnoj-dakle",
+    "title": "Divnoj dakle",
+    "slug": "divnoj-dakle",
+    "fileName": "Divnoj dakle.json",
+    "stanzaCount": 2,
+    "preview": "DIVNOJ DAKLE TAJNI OVOJ / KLANJAJMO SE SMJERNO MI,",
+    "categories": [
+      "Meditativne"
+    ],
+    "massSections": [
+      "Klanjanje"
+    ],
+    "stanzas": [
+      "DIVNOJ DAKLE TAJNI OVOJ\nKLANJAJMO SE SMJERNO MI,\nSTARI ZAKON ŽRTVO NOVOJ\nNEK’ SE SADA UKLONI,\nVJERA DUŠI ČOVJEKOVOJ NEK’\nSPOZNANJE DOPUNI.",
+      "BOGU OCU, BOGU SINU HVALA S\nPJESMOM RADOSNOM.\nSLAVIMO IM VELIČINU, ČASTIMO\nIH DUŠOM SVOM,\nK DUHU SVETOM NEK’ SE VINU\nGLASI S DIKOM JEDNAKOM.\nAMEN."
+    ]
+  },
+  {
+    "id": "djeluj-kroz-mene",
+    "title": "Djeluj kroz mene",
+    "slug": "djeluj-kroz-mene",
+    "fileName": "Djeluj kroz mene.json",
+    "stanzaCount": 4,
+    "preview": "IZNAD CIJELOG SVIJETA / SAMO TI SI BOG.",
+    "categories": [],
+    "massSections": [
+      "Završna"
+    ],
+    "stanzas": [
+      "IZNAD CIJELOG SVIJETA\nSAMO TI SI BOG.\nSUNCE, ZVIJEZDE, MORE\nTI SI STVORIO.\nMOJA ŽELJA JE,\nI TO MOLIM TE,\nDJELUJ KROZ MENE!",
+      "ZAVLADAJ TI\nMOJIM ŽELJAMA,\nBLAGOSLOVI ME\nU MOJIM DJELIMA.\nTI SI MOJ BOG\nI JA SLIJEDIM TE:\nDJELUJ KROZ MENE!",
+      "MOJE MISLI SVE\nI SVAKA RIJEČ\nNEKA BUDU SLIKA\nTVOJE LJUBAVI.\nSVAKI KORAK MOJ,\nDOĐI, SLIJEDI ME,\nDJELUJ KROZ MENE!",
+      "ZAVLADAJ TI\nMOJIM ŽELJAMA,\nBLAGOSLOVI ME\nU MOJIM DJELIMA.\nTI SI MOJ BOG\nI JA SLIJEDIM TE:\nDJELUJ KROZ MENE! 2x"
+    ]
+  },
+  {
+    "id": "dobrota-bozja",
+    "title": "Dobrota Božja",
+    "slug": "dobrota-bozja",
+    "fileName": "Dobrota Božja.json",
+    "stanzaCount": 5,
+    "preview": "JA VOLIM TE JER MILOSTIV SI I / VJERAN, U DANE SVE TVOJA",
+    "categories": [
+      "Meditativne"
+    ],
+    "massSections": [
+      "Klanjanje"
+    ],
+    "stanzas": [
+      "JA VOLIM TE JER MILOSTIV SI I\nVJERAN, U DANE SVE TVOJA\nRUKA ČUVA ME.\nSVE OD JUTRA PA DO TRENA\nKAD GLAVU POLEGNEM JA\nPJEVAT ĆU KAKO DOBAR JE BOG.",
+      "VOLIM TVOJ GLAS I KROZ VATRU\nKAD ME VODI, U TAMI SI BLIŽE\nNEGO ITKO DRUGI.\nSAD ZNAM TE KAO OCA K’O\nPRIJATELJA SVOG I SVJEDOK\nSAM KAKO DOBAR JE BOG.",
+      "MOJ ČITAV ŽIVOT TI SI VJERAN,\nMOJ ČITAV ŽIVOT TAKO SI DOBAR.\nSA SVAKIM DAHOM KOJEG\nUZMEM JA PJEVAT ĆU KAKO\nDOBAR JE BOG.",
+      "DOBROTA ME TVOJA TRAŽI I NE\nODUSTAJE, DOBROTA ME TVOJA\nTRAŽI I NE ODUSTAJE.\nŽIVOT POLAŽEM, SEBE\nPREDAJEM I TEBI DAJEM SVE.\nDOBROTA ME TVOJA TRAŽI I NE\nODUSTAJE.",
+      "MOJ ČITAV ŽIVOT TI SI VJERAN,\nMOJ ČITAV ŽIVOT TAKO SI DOBAR.\nSA SVAKIM DAHOM KOJEG\nUZMEM JA PJEVAT ĆU KAKO\nDOBAR JE BOG."
+    ]
+  },
+  {
+    "id": "do-i",
+    "title": "Dođi",
+    "slug": "do-i",
+    "fileName": "Dođi.json",
+    "stanzaCount": 5,
+    "preview": "DOĐI, DOĐI, DUŠE LJUBAVI, / PRIHVAĆAM TE,",
+    "categories": [
+      "Meditativne"
+    ],
+    "massSections": [
+      "Klanjanje"
+    ],
+    "stanzas": [
+      "DOĐI, DOĐI, DUŠE LJUBAVI,\nPRIHVAĆAM TE,\nLJUBI, LJUBI ME,\nNEK’ SE MILOST IZLIJE! 2X",
+      "DOĐI, DOĐI, DUŠE SVETOSTI, PRIHVAĆAM TE,\nVODI, VODI ME,\nNEK’ SE MILOST IZLIJE,\nNEK’ SE MUDROST IZLIJE,\nNEK’ SE JAKOST IZLIJE,\nNEK’ SE LJUBAV IZLIJE!",
+      "OČE MOJ, OD TEBE\nOBEĆANJE VJEČNO JE!\nOČE MOJ, OD TEBE\nOBEĆANJE OVDJE JE! 2X",
+      "HVALA TI, HVALA TI,\nDUŠE LJUBAVI, VJERUJEM TI,\nLJUBI, LJUBI ME,\nTVOJA MILOST U MENI JE!",
+      "HVALA TI, HVALA TI,\nDUŠE SVETOSTI, VJERUJEM TI,\nVODI, VODI ME,\nTVOJA MILOST U MENI JE,\nTVOJA MUDROST U MENI JE,\nTVOJA JAKOST U MENI JE,\nTVOJA LUBAV U MENI JE!"
+    ]
+  },
+  {
+    "id": "do-i-kruse-zivota",
+    "title": "Dođi, Kruše života",
+    "slug": "do-i-kruse-zivota",
+    "fileName": "Dođi, Kruše života.json",
+    "stanzaCount": 4,
+    "preview": "SVJETLO ISTINITO, RASVIJETLI / ME, OBRATI ME, U TEBI MI",
+    "categories": [],
+    "massSections": [
+      "Pričesna"
+    ],
+    "stanzas": [
+      "SVJETLO ISTINITO, RASVIJETLI\nME, OBRATI ME, U TEBI MI\nIMAMO ŽIVOT, A IMATI ŽIVOT TO\nJE GLEDATI TE.\nSVJETLO ISTINITO, POGLEDAJ\nME, OZDRAVI ME, U TEBI JE\nNOVO ROĐENJE, DOK PRIMAMO\nTEBE, BOŽE, PROSLAVI SE!",
+      "DOĐI, KRUŠE ŽIVOTA, TI\nSKRIVENA TAJNO, NASTANI SE U\nMENI, JA PJEVAM, JA PJEVAM JER\nDUŠA TE ŽELI,\nDOĐI, KRUŠE ŽIVOTA, TI\nSKRIVENA TAJNO, U MENI SE\nNASTANI, JA PJEVAM, JA PJEVAM\nJER DUŠA TE SLAVI!",
+      "DAJ NAM DA ČEZNEMO LJUBAV\nŠTO U TEBI JE, ŽIVI BOŽE,\nDAJ NAM DA ČEZNEMO LJUBAV\nŠTO U TEBI JE! 2X",
+      "DOĐI, KRUŠE ŽIVOTA, TI\nSKRIVENA TAJNO, NASTANI SE U\nMENI, JA PJEVAM, JA PJEVAM JER\nDUŠA TE ŽELI,\nDOĐI, KRUŠE ŽIVOTA, TI\nSKRIVENA TAJNO, U MENI SE\nNASTANI, JA PJEVAM, JA PJEVAM\nJER DUŠA TE SLAVI!"
+    ]
+  },
+  {
+    "id": "dovijeka-se-sjeca-svoga-saveza",
+    "title": "Dovijeka se sjeća svoga saveza",
+    "slug": "dovijeka-se-sjeca-svoga-saveza",
+    "fileName": "Dovijeka se sjeća svoga saveza.json",
+    "stanzaCount": 1,
+    "preview": "DOVIJEKA SE SJEĆA / SVOGA SAVEZA!",
+    "categories": [],
+    "massSections": [
+      "Otpjevni psalam"
+    ],
+    "stanzas": [
+      "DOVIJEKA SE SJEĆA\nSVOGA SAVEZA!"
+    ]
+  },
+  {
+    "id": "dragi-je-moj",
+    "title": "Dragi je moj",
+    "slug": "dragi-je-moj",
+    "fileName": "Dragi je moj.json",
+    "stanzaCount": 7,
+    "preview": "KIŠA JE PROŠLA I NESTALA, / ZIMA VEĆ JE MINULA.",
+    "categories": [],
+    "massSections": [
+      "Pričesna"
+    ],
+    "stanzas": [
+      "KIŠA JE PROŠLA I NESTALA,\nZIMA VEĆ JE MINULA.\nVINOGRAD U CVATU MIRIŠE,\nCVIJEĆE SE PO ZEMLJI\nPOKAZUJE.",
+      "DOK SLUŠAM GRLICE PJEV TI MI\nDOLAZIŠ, BRDA PRELIJEĆEŠ.\nTVOJ POGLED ME MILUJE,\nOSJEĆAM SAMO S TOBOM JA\nMOGU SVE.",
+      "DRAGI JE MOJ KAO SRNA,\nKAO JELENČE I KIŠA S NJIME\nNESTAJE.\nLJEPOTO MOJA ZOVE ME.",
+      "ZAHLADIT ĆE PONEKAD DAN I\nZVIJERI HTJETI NAŠ VINOGRAD,\nAL’ NIŠTA NEĆE PROTIV NAS JER J\nA TEBI, A TI MENI PRIPADAŠ.",
+      "DOK SLUŠAM GRLICE PJEV TI MI\nDOLAZIŠ, BRDA PRELIJEĆEŠ.\nTVOJ POGLED ME MILUJE,\nOSJEĆAM SAMO S TOBOM JA\nMOGU SVE.",
+      "DRAGI JE MOJ KAO SRNA,\nKAO JELENČE I KIŠA S NJIME\nNESTAJE.\nLJEPOTO MOJA ZOVE ME.",
+      "DRAGI JE MOJ KAO SRNA,\nKAO JELENČE I KIŠA\nS NJIME NESTAJE.\nLJEPOTO MOJA ZOVE ME.\nLJEPOTO MOJA ZOVE ME,\nZOVE ME."
+    ]
+  },
+  {
+    "id": "duse-sveti-dobrodosao",
+    "title": "Duše Sveti, dobrodošao",
+    "slug": "duse-sveti-dobrodosao",
+    "fileName": "Duše Sveti, dobrodošao.json",
+    "stanzaCount": 3,
+    "preview": "DUŠE SVETI, DOBRODOŠAO, / DUŠE SVETI, DOBRODOŠAO,",
+    "categories": [
+      "Slavljenje",
+      "Duhu Svetom"
+    ],
+    "massSections": [
+      "Ulazna"
+    ],
+    "stanzas": [
+      "DUŠE SVETI, DOBRODOŠAO,\nDUŠE SVETI, DOBRODOŠAO,\nU OVAJ HRAM, U OVAJ DOM,\nOVDJE NEK’ SVE\nBUDE PO TVOM,\nDUŠE SVETI, DOBRODOŠAO!",
+      "DUŠE SVETI, MI TE TREBAMO,\nDUŠE SVETI, MI TE TREBAMO,\nU OVE DANE, GODINE, ZA\nZADNJU ŽETVU SPREMLJENE,\nDUŠE SVETI, MI TE TREBAMO!",
+      "DUŠE SVETI, DUŠE SVETI, DUŠE SVETI,\nMI TE TREBAMO! 2X"
+    ]
+  },
+  {
+    "id": "evo-me-jer-ti-si-predivan-bog",
+    "title": "Evo me (jer Ti si predivan Bog)",
+    "slug": "evo-me-jer-ti-si-predivan-bog",
+    "fileName": "Evo me (jer Ti si predivan Bog).json",
+    "stanzaCount": 7,
+    "preview": "EVO ME JEDNOM JOŠ, TU KRAJ / TEBE BLIZU, DA, ČUJEŠ,",
+    "categories": [],
+    "massSections": [
+      "Pričesna"
+    ],
+    "stanzas": [
+      "EVO ME JEDNOM JOŠ, TU KRAJ\nTEBE BLIZU, DA, ČUJEŠ,\nJA ZNAM, SVAKU RIJEČ, MOJE\nMOLITVE BEZ OBZIRA KOLIKO\nDALEKO SAM.",
+      "TI SI VJERAN I UVIJEK,\nRIJEČIMA ISTINE\nNADU MI DAŠ.\nOSJEĆAM DODIR TVOJ, KOLIKO\nMI ZNAČIŠ TI NAJBOLJE ZNAŠ.",
+      "I NA TVOJIM RUKAMA, NA\nTVOJIM RUKAMA… \u000bJA ĆU OTVORITI SRCE I REĆI\nDA VOLIM TE JER DUŠI MOJOJ\nTOLIKO SI POTREBAN.\nJEDINO ŽELIM U TVOJOJ\nPRISUTNOSTI OSTATI ZAUVIJEK\nJER TI SI PREDIVAN BOG.",
+      "EVO ME JEDNOM JOŠ, TU KRAJ\nTEBE BLIZU, DA, ČUJEŠ,\nJA ZNAM, SVAKU RIJEČ, MOJE\nMOLITVE BEZ OBZIRA KOLIKO\nDALEKO SAM.",
+      "TI SI VJERAN I UVIJEK,\nRIJEČIMA ISTINE\nNADU MI DAŠ.\nOSJEĆAM DODIR TVOJ, KOLIKO\nMI ZNAČIŠ TI NAJBOLJE ZNAŠ.",
+      "I NA TVOJIM RUKAMA, NA\nTVOJIM RUKAMA… \u000bJA ĆU OTVORITI SRCE I REĆI\nDA VOLIM TE JER DUŠI MOJOJ\nTOLIKO SI POTREBAN.\nJEDINO ŽELIM U TVOJOJ\nPRISUTNOSTI OSTATI ZAUVIJEK\nJER TI SI PREDIVAN BOG.",
+      "JA ĆU OTVORITI SRCE I REĆI\nDA VOLIM TE JER DUŠI MOJOJ\nTOLIKO SI POTREBAN.\nJEDINO ŽELIM U TVOJOJ\nPRISUTNOSTI OSTATI ZAUVIJEK\nJER TI SI PREDIVAN BOG."
+    ]
+  },
+  {
+    "id": "evo-padam-na-koljena",
+    "title": "Evo padam na koljena",
+    "slug": "evo-padam-na-koljena",
+    "fileName": "Evo padam na koljena.json",
+    "stanzaCount": 3,
+    "preview": "EVO, PADAM NA KOLJENA, EVO, / PADAM NA KOLJENA.",
+    "categories": [
+      "Meditativne"
+    ],
+    "massSections": [
+      "Klanjanje"
+    ],
+    "stanzas": [
+      "EVO, PADAM NA KOLJENA, EVO,\nPADAM NA KOLJENA.\nTEBE TREBAM I DOZIVAM.\n\nEVO, PADAM NA KOLJENA, EVO,\nPADAM NA KOLJENA.\nTEBE TREBAM I DOZIVAM.\nEVO, PADAM NA KOLJENA.",
+      "TEBI PRIZNAJEM SVU SLAVU I\nVLAST, SVU SLAVU I VLAST,\nSVU SLAVU I VLAST I KAD BOLI\nJA TI PRIZNAJEM\nSVU SLAVU I VLAST, SVU SLAVU\nI VLAST, SVU SLAVU I VLAST,\nOČE.",
+      "UĐI DUBLJE, GOSPODE, UZMI\nVIŠE, GOSPODE!\n\n\nEVO, PADAM NA KOLJENA,\nEVO, PADAM NA KOLJENA."
+    ]
+  },
+  {
+    "id": "evo-ovdje-je-nesto-vise-od-jone",
+    "title": "Evo, ovdje je nešto više od Jone",
+    "slug": "evo-ovdje-je-nesto-vise-od-jone",
+    "fileName": "Evo, ovdje je nešto više od Jone.json",
+    "stanzaCount": 6,
+    "preview": "EVO, OVDJE JE NEŠTO / VIŠE OD JONE.",
+    "categories": [
+      "Meditativne"
+    ],
+    "massSections": [
+      "Klanjanje"
+    ],
+    "stanzas": [
+      "EVO, OVDJE JE NEŠTO\nVIŠE OD JONE.\nEVO, OVDJE JE NEŠTO\nVIŠE OD SALOMONA.\nEVO, OVDJE JE NEŠTO\nVIŠE OD JONE.\nEVO, OVDJE JE NEŠTO\nVIŠE OD HRAMA.",
+      "TU JE KRALJ KRALJEVA, GOSPODAR GOSPODARA. JANJE\nNEVINO BEZ MANE ROĐENO.\nDO GOLA SVUČENO, IZBIČEVANO,\nTRNJEM OKRUNJENO,\nKOPLJEM PROBODENO.",
+      "EVO, OVDJE JE NEŠTO\nVIŠE OD JONE.\nEVO, OVDJE JE NEŠTO\nVIŠE OD SALOMONA.\nEVO, OVDJE JE NEŠTO\nVIŠE OD JONE.\nEVO, OVDJE JE NEŠTO\nVIŠE OD HRAMA.",
+      "TU JE KRALJ KRALJEVA, GOSPODAR GOSPODARA. JANJE\nNEVINO BEZ MANE ROĐENO.\nDO GOLA SVUČENO, IZBIČEVANO,\nTRNJEM OKRUNJENO,\nKOPLJEM PROBODENO.",
+      "TU JE KRALJ NEBESKI U SVOJ\nSVOJOJ SLAVI.\nJANJE NEVINO BEZ MANE\nROĐENO. DO GOLA\nSVUČENO, IZBIČEVANO,\nTRNJEM OKRUNJENO,\nKOPLJEM PROBODENO.",
+      "EVO, OVDJE JE NEŠTO\nVIŠE OD JONE.\nEVO, OVDJE JE NEŠTO\nVIŠE OD SALOMONA.\nEVO, OVDJE JE NEŠTO\nVIŠE OD JONE.\nEVO, OVDJE JE NEŠTO\nVIŠE OD HRAMA."
+    ]
+  },
+  {
+    "id": "gledaj-on-te-gleda",
+    "title": "Gledaj On te gleda",
+    "slug": "gledaj-on-te-gleda",
+    "fileName": "Gledaj On te gleda.json",
+    "stanzaCount": 5,
+    "preview": "GLEDAJ ON TE GLEDA, / GLEDAJ ON TE GLEDA,",
+    "categories": [
+      "Meditativne"
+    ],
+    "massSections": [
+      "Klanjanje"
+    ],
+    "stanzas": [
+      "GLEDAJ ON TE GLEDA,\nGLEDAJ ON TE GLEDA,\nGLEDAJ ON TE GLEDA,\nGLEDAJ GA! X",
+      "UZA NJ OSTANI, GOVORI MU,\nMOLI GA, BUDI PONIZAN\nI PRIČAJ S NJIM. 2X",
+      "GLEDAJ ON TE GLEDA,\nGLEDAJ ON TE GLEDA,\nGLEDAJ ON TE GLEDA,\nGLEDAJ GA! X",
+      "UZA NJ OSTANI, GOVORI MU,\nMOLI GA, BUDI PONIZAN\nI PRIČAJ S NJIM. 2X",
+      "GLEDAJ ON TE GLEDA,\nGLEDAJ ON TE GLEDA,\nGLEDAJ ON TE GLEDA,\nGLEDAJ GA! X"
+    ]
+  },
+  {
+    "id": "golgota",
+    "title": "Golgota",
+    "slug": "golgota",
+    "fileName": "Golgota.json",
+    "stanzaCount": 4,
+    "preview": "GOLGOTO, GOLGOTO, GOLGOTO! / POD KRIŽEM TVOJIM SAM SAM,",
+    "categories": [
+      "Korizmene"
+    ],
+    "massSections": [],
+    "stanzas": [
+      "GOLGOTO, GOLGOTO, GOLGOTO!\nPOD KRIŽEM TVOJIM SAM SAM,\nDALEKO OD SVIJETA I ZLA.\nTU BLAŽIŠ MI BOL I OTKLANJAŠ\nTRAG DOK GLEDAM TE U\nSUZAMA.",
+      "NISU PRIBILI TE ČAVLI,\nNEGO MOJ GRIJEH!\nNISU RANILI TE LJUDI,\nNEGO MOJ GRIJEH!\nNIJE PROBILO TE KOPLJE,\nNEGO MOJ GRIJEH!\nIAKO DAVNO TO JE BILO,\nTI ZNAO SI ME. 2X",
+      "GOLGOTO, GOLGOTO, GOLGOTO!\nJA GLEDAM TE, KRISTE, MOJ\nSAN, SVA KRVAVA I RANJENA.\nTO LJUBAVI GLAD TE RAZAPELA\nDA BUDEM ZA TEBE SLOBODAN.",
+      "NISU PRIBILI TE ČAVLI,\nNEGO MOJ GRIJEH!\nNISU RANILI TE LJUDI,\nNEGO MOJ GRIJEH!\nNIJE PROBILO TE KOPLJE,\nNEGO MOJ GRIJEH!\nIAKO DAVNO TO JE BILO,\nTI ZNAO SI ME. 2X"
+    ]
+  },
+  {
+    "id": "gospod-je-prisutan",
+    "title": "Gospod je prisutan",
+    "slug": "gospod-je-prisutan",
+    "fileName": "Gospod je prisutan.json",
+    "stanzaCount": 7,
+    "preview": "DA TVOJA SVETA RIJEČ / MRTVE PODIŽE, JA VJERUJEM.",
+    "categories": [
+      "Slavljenje"
+    ],
+    "massSections": [],
+    "stanzas": [
+      "DA TVOJA SVETA RIJEČ\nMRTVE PODIŽE, JA VJERUJEM.\nDA TVOJA SVETA KRV\nBRIŠE GRIJEHE SVE, JA VJERUJEM\nI DA SI SA NAMA\nI OSTAT ĆEŠ U DANE SVE,\nDA LJUBIŠ NAROD SVOJ\nI RANE MU ISCJELJUJEŠ!",
+      "GOSPOD JE PRISUTAN, OOO\nSUŽNJE OSLOBAĐA, OOO!\n\nGOSPOD JE PRISUTAN,\nSUŽNJE OSLOBAĐA,\nSVE BOLI NAŠE ON\nNA SEBE UZIMA.",
+      "S NAMA JE!\nEMANUEL, EMANUEL!\nON ŽIVI!\nMOĆAN JE,\nOSLOBAĐA,\nISCJELJUJE! 2X",
+      "DA TVOJA SVETA RIJEČ\nMRTVE PODIŽE, JA VJERUJEM.\nDA TVOJA SVETA KRV\nBRIŠE GRIJEHE SVE, JA VJERUJEM\nI DA SI SA NAMA\nI OSTAT ĆEŠ U DANE SVE,\nDA LJUBIŠ NAROD SVOJ\nI RANE MU ISCJELJUJEŠ!",
+      "S NAMA JE!\nEMANUEL, EMANUEL!\nON ŽIVI!\nMOĆAN JE,\nOSLOBAĐA,\nISCJELJUJE! 2X",
+      "GOSPOD JE PRISUTAN, OOO\nSUŽNJE OSLOBAĐA, OOO!\n\nGOSPOD JE PRISUTAN,\nSUŽNJE OSLOBAĐA,\nSVE BOLI NAŠE ON\nNA SEBE UZIMA.",
+      "S NAMA JE!\nEMANUEL, EMANUEL!\nON ŽIVI!\nMOĆAN JE,\nOSLOBAĐA,\nISCJELJUJE! 2X"
+    ]
+  },
+  {
+    "id": "gospodin-u-nebu-postavi-prijestolje-svoje",
+    "title": "Gospodin u nebu postavi prijestolje svoje",
+    "slug": "gospodin-u-nebu-postavi-prijestolje-svoje",
+    "fileName": "Gospodin u nebu postavi prijestolje svoje.json",
+    "stanzaCount": 1,
+    "preview": "Gospodin u nebu postavi / prijestolje svoje. 2X",
+    "categories": [],
+    "massSections": [
+      "Otpjevni psalam"
+    ],
+    "stanzas": [
+      "Gospodin u nebu postavi\nprijestolje svoje. 2X"
+    ]
+  },
+  {
+    "id": "gospodine-hvala",
+    "title": "Gospodine, hvala",
+    "slug": "gospodine-hvala",
+    "fileName": "Gospodine, hvala.json",
+    "stanzaCount": 4,
+    "preview": "IZGUBLJENO PA NAĐENO, / POLOMLJENO PA SASTAVLJENO.",
+    "categories": [],
+    "massSections": [
+      "Završna"
+    ],
+    "stanzas": [
+      "IZGUBLJENO PA NAĐENO,\nPOLOMLJENO PA SASTAVLJENO.\nJEDNOM JE KRIŽ PORAZIO\nGRIJEH, JEDNOM JE RIJEČ\nUTAŽILA ŽEĐ.\nNAPUŠTAM SVIJET JER OVO JE\nMOJ SPAS, KAD ZAPJEVAM TVOJ\nČUJE SE GLAS.",
+      "GOSPODINE, HVALA,\nSVA TVOJA SLAVA JE U MOJIM PJESMAMA I JA KREĆEM IZNOVA.\nNA TRNOVITOJ STAZI,\nZNAM NETKO ME PAZI,\nTO SI TI, NAJVEĆI.",
+      "JEDNOM JE SIN, NA TREN OSTAVLJEN PRED OČIMA MAJČINIM, AL’ VJEROM ISPUNJENIM.\nSTAJALA JE DOK ZAMRO JE GLAS, ZNAJUĆI DA ŽRTVOM SPAŠAVA NAS.\nNAPUŠTAM SVIJET\nJER OVO JE MOJ SPAS,\nKAD ZAPJEVAM TVOJ ČUJE SE GLAS.",
+      "GOSPODINE, HVALA,\nSVA TVOJA SLAVA JE U MOJIM PJESMAMA I JA KREĆEM IZNOVA.\nNA TRNOVITOJ STAZI,\nZNAM NETKO ME PAZI,\nTO SI TI, NAJVEĆI. 2X"
+    ]
+  },
+  {
+    "id": "gospodine-smiluj-se-fides",
+    "title": "Gospodine, smiluj se (Fides)",
+    "slug": "gospodine-smiluj-se-fides",
+    "fileName": "Gospodine, smiluj se (Fides).json",
+    "stanzaCount": 1,
+    "preview": "GOSPODINE, SMILUJ SE! / GOSPODINE, SMILUJ SE! 2X",
+    "categories": [
+      "Fides"
+    ],
+    "massSections": [
+      "Gospodine smiluj se"
+    ],
+    "stanzas": [
+      "GOSPODINE, SMILUJ SE!\nGOSPODINE, SMILUJ SE! 2X\n\nKRISTE, SMILUJ SE!\nKRISTE, SMILUJ SE! 2X\n\nGOSPODINE, SMILUJ SE!\nGOSPODINE, SMILUJ SE! 2X"
+    ]
+  },
+  {
+    "id": "gospodine-smiluj-se-marijina-misa",
+    "title": "Gospodine, smiluj se (Marijina misa)",
+    "slug": "gospodine-smiluj-se-marijina-misa",
+    "fileName": "Gospodine, smiluj se (Marijina misa).json",
+    "stanzaCount": 1,
+    "preview": "GOSPODINE, SMILUJ SE, / GOSPODINE, SMILUJ SE!",
+    "categories": [
+      "Marijina misa"
+    ],
+    "massSections": [
+      "Gospodine smiluj se"
+    ],
+    "stanzas": [
+      "GOSPODINE, SMILUJ SE,\nGOSPODINE, SMILUJ SE!\n\nO, KRISTE, SMILUJ SE,\nO, KRISTE SMILUJ SE!\n\nGOSPODINE, SMILUJ SE,\nGOSPODINE, SMILUJ SE!"
+    ]
+  },
+  {
+    "id": "gospodine-smiluj-se-misa-fra-ivan-matic",
+    "title": "Gospodine, smiluj se (Misa fra Ivan Matić)",
+    "slug": "gospodine-smiluj-se-misa-fra-ivan-matic",
+    "fileName": "Gospodine, smiluj se (Misa fra Ivan Matić).json",
+    "stanzaCount": 1,
+    "preview": "GOSPODINE, SMILUJ SE, / GOSPODINE SMILUJ SE. 2X",
+    "categories": [
+      "Misa fra Ivan Matić"
+    ],
+    "massSections": [
+      "Gospodine smiluj se"
+    ],
+    "stanzas": [
+      "GOSPODINE, SMILUJ SE,\nGOSPODINE SMILUJ SE. 2X\n\nKRISTE, SMILUJ SE. 2X\nKRISTE, KRISTE, KRISTE,\nSMILUJ SE. 2X\n\nGOSPODINE, SMILUJ SE,\nGOSPODINE SMILUJ SE."
+    ]
+  },
+  {
+    "id": "gospodine-smiluj-se-nama",
+    "title": "Gospodine, smiluj se nama",
+    "slug": "gospodine-smiluj-se-nama",
+    "fileName": "Gospodine, smiluj se nama.json",
+    "stanzaCount": 3,
+    "preview": "GOSPODINE, SMILUJ SE NAMA! GOSPODINE, SMILUJ NAM SE! / MI MOLIMO TEBE DA UĐEŠ U NAŠ ŽIVOT SAV. 2X",
+    "categories": [],
+    "massSections": [
+      "Gospodine smiluj se"
+    ],
+    "stanzas": [
+      "GOSPODINE, SMILUJ SE NAMA! GOSPODINE, SMILUJ NAM SE!\n\nMI MOLIMO TEBE DA UĐEŠ U NAŠ ŽIVOT SAV. 2X",
+      "O, KRISTE NAŠ, SMILUJ SE NAMA! O, KRISTE NAŠ, SMILUJ NAM SE!\n\nMI MOLIMO TEBE DA UĐEŠ\nU NAŠ ŽIVOT SAV. 2X",
+      "GOSPODINE, SMILUJ SE NAMA! GOSPODINE, SMILUJ NAM SE!\n\nMI MOLIMO TEBE DA UĐEŠ U NAŠ ŽIVOT SAV. 2X"
+    ]
+  },
+  {
+    "id": "hvalit-cu-te-gospode",
+    "title": "Hvalit ću Te, Gospode",
+    "slug": "hvalit-cu-te-gospode",
+    "fileName": "Hvalit ću Te, Gospode.json",
+    "stanzaCount": 1,
+    "preview": "HVALIT ĆU TE, GOSPODE, MEĐU NARODIMA! / HVALIT ĆU TE, MEĐU PUCIMA PJEVAT ĆU TEBI JA!",
+    "categories": [],
+    "massSections": [
+      "Otpjevni psalam"
+    ],
+    "stanzas": [
+      "HVALIT ĆU TE, GOSPODE, MEĐU NARODIMA!\nHVALIT ĆU TE, MEĐU PUCIMA PJEVAT ĆU TEBI JA!\nHVALIT ĆU TE,\nMEĐU NARODIMA,\nHVALIT ĆU TE MEĐU PUCIMA!"
+    ]
+  },
+  {
+    "id": "hvalospjev-ljubavi",
+    "title": "Hvalospjev ljubavi",
+    "slug": "hvalospjev-ljubavi",
+    "fileName": "Hvalospjev ljubavi.json",
+    "stanzaCount": 5,
+    "preview": "KADA BIH SVE JEZIKE GOVORIO, / A LJUBAVI NE BIH IMAO,",
+    "categories": [],
+    "massSections": [],
+    "stanzas": [
+      "KADA BIH SVE JEZIKE GOVORIO,\nA LJUBAVI NE BIH IMAO,\nBIO BIH MJED ŠTO JEČI ILI\nCIMBAL KOJI ZVEČI,\nTEK PRAH I DIM BEZ LJUBAVI.",
+      "KADA BIH DAR PROROŠTVA\nIMAO I ZNAO\nTAJNE ZNANJA SVA,\nKADA BIH SNAGOM VJERE\nGORE PREMJEŠTAO,\nBEZ LJUBAVI JA NIŠTA SAM.",
+      "LJUBAV JE STRPLJIVA,\nLJUBAV JE DOBROSTIVA,\nONA NE ZAVIDI,\nNE HVASTA SE, NE OHOLI;\nNIJE NEPRISTOJNA, SVOJE NE\nTRAŽI, NIJE RAZDRAŽLJIVA,\nOPRAŠTA, ZLO ZABORAVLJA.",
+      "PROROŠTVA,\nONA ĆE IŠČEZNUTI,\nJEZICI, JEZICI ĆE UMUKNUTI.\nZNANJA, ONA ĆE NESTATI,\nSAMO LJUBAV NIKAD NEĆE\nPRESTATI.",
+      "LJUBAV JE STRPLJIVA,\nLJUBAV JE DOBROSTIVA,\nONA NE ZAVIDI,\nNE HVASTA SE, NE OHOLI;\nNIJE NEPRISTOJNA, SVOJE NE\nTRAŽI, NIJE RAZDRAŽLJIVA,\nOPRAŠTA, ZLO ZABORAVLJA."
+    ]
+  },
+  {
+    "id": "ime-ti-je-sveti",
+    "title": "Ime ti je sveti",
+    "slug": "ime-ti-je-sveti",
+    "fileName": "Ime ti je sveti.json",
+    "stanzaCount": 2,
+    "preview": "JA DOLAZIM PRED TVOJE LICE / JER ŽRTVA ČISTA PREDANA JE.",
+    "categories": [
+      "Meditativne"
+    ],
+    "massSections": [
+      "Klanjanje"
+    ],
+    "stanzas": [
+      "JA DOLAZIM PRED TVOJE LICE\nJER ŽRTVA ČISTA PREDANA JE.\nJA ULAZIM DA UVIJEK SLAVIM TO\nPRESVETO IME JAHVE. 2X\n\nBOŽE, SLAVIM TE, OBOŽAVAM TE!\nBOŽE, SLAVIM TE, OBOŽAVAM TE!",
+      "IME TI JE SVETI, SVETI BOG!\nIME TI JE SVETI, SVETI BOG!\n\n\nSVET JE GOSPOD BOG!"
+    ]
+  },
+  {
+    "id": "ispred-bijele-hostije",
+    "title": "Ispred bijele hostije",
+    "slug": "ispred-bijele-hostije",
+    "fileName": "Ispred bijele hostije.json",
+    "stanzaCount": 4,
+    "preview": "ŠUTIM POPUT GRLICE ZAKLONJEN U LJUBAV / ISPRED BIJELE HOSTIJE",
+    "categories": [
+      "Meditativne"
+    ],
+    "massSections": [
+      "Klanjanje"
+    ],
+    "stanzas": [
+      "ŠUTIM POPUT GRLICE ZAKLONJEN U LJUBAV\nISPRED BIJELE HOSTIJE\nI SLUŠAM KAKO MI GOVORI:",
+      "„KAD BI ZNAO KOLIKO TE\nLJUBIM NE BI GLEDAO SVOJE\nRANE I BOLI.\nGLEDAO MI SAMO MOJU LJUBAV\nKOJA BI TE LJEČILA.”",
+      "ŠUTIM POPUT GRLICE ZAKLONJEN U LJUBAV\nISPRED BIJELE HOSTIJE\nI SLUŠAM KAKO MI GOVORI:",
+      "„KAD BI ZNAO KOLIKO TE\nLJUBIM NE BI GLEDAO SVOJE\nRANE I BOLI.\nGLEDAO MI SAMO MOJU LJUBAV\nKOJA BI TE LJEČILA.”"
+    ]
+  },
+  {
+    "id": "isus-emanuel",
+    "title": "Isus - Emanuel",
+    "slug": "isus-emanuel",
+    "fileName": "Isus - Emanuel.json",
+    "stanzaCount": 2,
+    "preview": "ISUS, ISUS, ISUS, / ISUS, ISUS!",
+    "categories": [],
+    "massSections": [
+      "Pričesna"
+    ],
+    "stanzas": [
+      "ISUS, ISUS, ISUS,\nISUS, ISUS!\n\nEMANUEL, EMANUEL,\nISUS, ISUS, EMANUEL!",
+      "ISUS, ISUS, ISUS,\nISUS, ISUS!\n\nEMANUEL, EMANUEL,\nISUS, ISUS, EMANUEL!"
+    ]
+  },
+  {
+    "id": "isus-premjesta-planine",
+    "title": "Isus premješta planine",
+    "slug": "isus-premjesta-planine",
+    "fileName": "Isus premješta planine.json",
+    "stanzaCount": 6,
+    "preview": "SAMILOST SVIMA TREBA, / LJUBAV BEZ ZATAJENJA,",
+    "categories": [],
+    "massSections": [
+      "Pričesna"
+    ],
+    "stanzas": [
+      "SAMILOST SVIMA TREBA,\nLJUBAV BEZ ZATAJENJA,\nNEK MILOST SPUSTI SE.\nOPROST NAM SVIMA TREBA,\nDOBROTA SPASITELJA\nNADE NARODA.",
+      "ISUS PREMJEŠTA PLANINE,\nBOG IMA SPASENJA MOĆ,\nIMA SPASENJA MOĆ!\nZAUVIJEK TVORAC OTKUPLJENJA,\nISUS JE USKRSNUO,\nON JE POBIJEDIO GROB!",
+      "PRIMI ME KAKAV JESAM,\nSVE PROMAŠAJE MOJE\nI SVE STRAHOVE.\nŽIVOT SVOJ ĆU DATI,\nDA TE UVIJEK SLIJEDIM,\nJA SAD SE PREDAJEM!",
+      "ISUS PREMJEŠTA PLANINE,\nBOG IMA SPASENJA MOĆ,\nIMA SPASENJA MOĆ!\nZAUVIJEK TVORAC OTKUPLJENJA,\nISUS JE USKRSNUO,\nON JE POBIJEDIO GROB! 2X",
+      "TI NAM SVIJETLI\nNEKA VIDI SVIJET!\nPJEVAJ, SVE ZBOG SLAVE\nKRALJA USKRSLOG! 2X",
+      "ISUS PREMJEŠTA PLANINE,\nBOG IMA SPASENJA MOĆ,\nIMA SPASENJA MOĆ!\nZAUVIJEK TVORAC OTKUPLJENJA,\nISUS JE USKRSNUO,\nON JE POBIJEDIO GROB!"
+    ]
+  },
+  {
+    "id": "isus-najljepse-ime",
+    "title": "Isus, najljepše ime",
+    "slug": "isus-najljepse-ime",
+    "fileName": "Isus, najljepše ime.json",
+    "stanzaCount": 3,
+    "preview": "ISUS, NAJLJEPŠE IME, / SPASITELJ LJUDI,",
+    "categories": [
+      "Korizmene"
+    ],
+    "massSections": [],
+    "stanzas": [
+      "ISUS, NAJLJEPŠE IME,\nSPASITELJ LJUDI,\nNAŠ BRAT I GOSPODIN!\nEMANUEL, BOG JE S NAMA,\nJANJE BOŽJE, ŽIVA RIJEČ!",
+      "ISUS, RASPET NA KRIŽU,\nSPASITELJ LJUDI,\nZA NAS JE PREDAN!\nOTKUPITELJ,\nNEVIN ZA GREŠNE,\nDAO JE ŽIVOT LJUBEĆI SVE!",
+      "ISUS, OSTAVLJEN OD SVIH,\nPRIJATELJ VJERNI,\nNAŠ BRAT I GOSPODIN!\nEMANUEL, IZDAN I ZATAJEN,\nDAO JE ŽIVOT LJUBEĆI SVE!"
+    ]
+  },
+  {
+    "id": "isuse-znam-da-si-tu",
+    "title": "Isuse, znam da si tu",
+    "slug": "isuse-znam-da-si-tu",
+    "fileName": "Isuse, znam da si tu.json",
+    "stanzaCount": 2,
+    "preview": "KRUH NAM POSTAJE TIJELO, / PRETVARAŠ VINO U KRV.",
+    "categories": [],
+    "massSections": [
+      "Prinosna"
+    ],
+    "stanzas": [
+      "KRUH NAM POSTAJE TIJELO,\nPRETVARAŠ VINO U KRV.\n\nU SRCA ULIJEVAŠ LJUBAV SVOJU\nSVU, ISUSE, ZNAM DA SI TU. 2X",
+      "KRUH I VINO PRINOSIMO, BOŽE,\nI ŽIVOT TI DAJEMO S NJOM,\nSVETOM ŽRTVOM NA OLTARU\nTVOM VODIŠ SRCA\nU OČEV DOM. 2X"
+    ]
+  },
+  {
+    "id": "izlijeci-nasu-zemlju",
+    "title": "Izliječi našu zemlju",
+    "slug": "izlijeci-nasu-zemlju",
+    "fileName": "Izliječi našu zemlju.json",
+    "stanzaCount": 6,
+    "preview": "AKO ME NAROD MOJ POTRAŽI / U ZLU, POMOLI SE SRCEM",
+    "categories": [
+      "Prigodne"
+    ],
+    "massSections": [],
+    "stanzas": [
+      "AKO ME NAROD MOJ POTRAŽI\nU ZLU, POMOLI SE SRCEM\nSVIM.\nAKO SE OSTAVI SVIH PUTEVA\nZLIH, PREDA MNOM SE\nPONIZI.",
+      "S PRIJESTOLJA ĆU SVOGA\nSVRNUT POGLED SVOJ.\nIZLIJEČIT ĆU IM ZEMLJU OD\nGRIJEHA SVIH.",
+      "DOTAKNI NAS SVOJOM\nLJUBAVLJU, UZMI NAS I\nPODIGNI U NARUČJE. OPROSTI\nNAM SVE PRIJESTUPE NAŠE,\nOČE NAŠ, IZLIJEČI NAŠU\nZEMLJU SLOMLJENU.",
+      "MI TI SE KLANJAMO, U NEVOLJI\nSMO, SVIM SRCEM TE TRAŽIMO.\nMI SE ODRIČEMO SVIH PUTEVA\nZLIH, K’O JEDAN\nTE MOLIMO.",
+      "MILOST SVOJU IZLIJ, SVE NAM\nOPROSTI.\nČUVAJ NAŠU ZEMLJU,\nBLAGOSLOVI JE TI!",
+      "DOTAKNI NAS SVOJOM LJUBAVLJU,\nUZMI NAS I PODIGNI U NARUČJE.\nOPROSTI NAM SVE PRIJESTUPE\nNAŠE, OČE NAŠ.\n\nIZLIJEČI NAŠU ZEMLJU\nSLOMLJENU. 2X"
+    ]
+  },
+  {
+    "id": "ja-se-kajem",
+    "title": "Ja se kajem",
+    "slug": "ja-se-kajem",
+    "fileName": "Ja se kajem.json",
+    "stanzaCount": 3,
+    "preview": "JA SE KAJEM, BOŽE MILI, / OD SVAKOGA GRIJEHA",
+    "categories": [
+      "Korizmene"
+    ],
+    "massSections": [],
+    "stanzas": [
+      "JA SE KAJEM, BOŽE MILI,\nOD SVAKOGA GRIJEHA\nMOGA.\n\nMOJE SRCE GORKO CVILI\nJER UVRIJEDIH TEBE,\nBOGA. 2X",
+      "MILOSRĐE TVOJE VEĆE,\nNEGO MOJE SVE KRIVINE.\n\nTVOJA MILOST PUSTIT’\nNEĆE SKRUŠEN GREŠNIK\nDA POGINE. 2X",
+      "JA TE LJUBIM, DOBRI\nBOŽE, IZ DNA SRCA\nLJUBIM TEBE.\n\nŠTO MI VIŠE DUŠA MOŽE,\nVIŠE NEGO SAMOG SEBE.\n2X"
+    ]
+  },
+  {
+    "id": "jaganjce-bozji-marijina-misa",
+    "title": "Jaganjče Božji (Marijina misa)",
+    "slug": "jaganjce-bozji-marijina-misa",
+    "fileName": "Jaganjče Božji (Marijina misa).json",
+    "stanzaCount": 1,
+    "preview": "JAGANJČE BOŽJI KOJI / ODUZIMAŠ GRIJEHE SVIJETA,",
+    "categories": [
+      "Marijina misa"
+    ],
+    "massSections": [
+      "Jaganjče Božji"
+    ],
+    "stanzas": [
+      "JAGANJČE BOŽJI KOJI\nODUZIMAŠ GRIJEHE SVIJETA,\nSMILUJ NAM SE! 2X\n\nJAGANJČE BOŽJI KOJI\nODUZIMAŠ GRIJEHE SVIJETA\nDARUJ NAM MIR!"
+    ]
+  },
+  {
+    "id": "jaganjce-bozji-misa-fra-ivan-matic",
+    "title": "Jaganjče Božji (Misa fra Ivan Matić)",
+    "slug": "jaganjce-bozji-misa-fra-ivan-matic",
+    "fileName": "Jaganjče Božji (Misa fra Ivan Matić).json",
+    "stanzaCount": 1,
+    "preview": "JAGANJČE BOŽJI, KOJI ODUZIMAŠ / GRIJEHE SVIJETA, SMILUJ NAM SE,",
+    "categories": [
+      "Misa fra Ivan Matić"
+    ],
+    "massSections": [
+      "Jaganjče Božji"
+    ],
+    "stanzas": [
+      "JAGANJČE BOŽJI, KOJI ODUZIMAŠ\nGRIJEHE SVIJETA, SMILUJ NAM SE,\nGOSPODINE. 2X\n\nJAGANJČE BOŽJI, KOJI ODUZIMAŠ\nGRIJEHE SVIJETA, DARUJ NAM,\nDARUJ NAM, DARUJ NAM MIR.\nDARUJ NAM, DARUJ NAM,\nDARUJ NAM MIR."
+    ]
+  },
+  {
+    "id": "jaganjce-bozji-misa-sv-andrije",
+    "title": "Jaganjče Božji (Misa sv. Andrije)",
+    "slug": "jaganjce-bozji-misa-sv-andrije",
+    "fileName": "Jaganjče Božji (Misa sv. Andrije).json",
+    "stanzaCount": 1,
+    "preview": "JAGANJČE BOŽJI KOJI / ODUZIMAŠ GRIJEHE SVIJETA,",
+    "categories": [
+      "Misa sv. Andrije"
+    ],
+    "massSections": [
+      "Jaganjče Božji"
+    ],
+    "stanzas": [
+      "JAGANJČE BOŽJI KOJI\nODUZIMAŠ GRIJEHE SVIJETA,\nSMILUJ NAM SE! 2X\n\nJAGANJČE BOŽJI KOJI\nODUZIMAŠ GRIJEHE SVIJETA\nDARUJ NAM MIR!"
+    ]
+  },
+  {
+    "id": "jedina",
+    "title": "Jedina",
+    "slug": "jedina",
+    "fileName": "Jedina.json",
+    "stanzaCount": 4,
+    "preview": "S NAMA SI KAD SMO SAMI, / NEMOĆNI, U NAMA, KADA",
+    "categories": [
+      "Marijanske"
+    ],
+    "massSections": [
+      "Završna"
+    ],
+    "stanzas": [
+      "S NAMA SI KAD SMO SAMI,\nNEMOĆNI, U NAMA, KADA\nNAS VUKU DJELA ZLA.\nHVALA TI ŽENO ŠTO SI S\nNAMA TI, U MOLITVI,\nVJEČNOG ŽIVOTA ISTINI.",
+      "POD SVOJIM SRCEM TI SI\nNOSILA, JEDINA, ČOVJEKA\nNAD SVIM LJUDIMA.\nLIJEPO JE ZNATI DA SI SA\nNAMA, U DJELIMA, ŠTO ZA NAS\nTI SI ČINILA.\n\nŽENA SI NAD SVIM ŽENAMA,\nMAJKA SI NAD SVIM MAJKAMA.",
+      "DUŠOM, TIJELOM, PUNA\nLJUBAVI, TI SI ŽITO ŠTO\nDAJEŠ KRUH NAM ŽIVOTA,\nSVJETLA PUNA, TI SI\nJEDINA, JEDINA OD SVIH\nŽENA MAJKA SI KRISTA.",
+      "DUŠOM, TIJELOM, PUNA\nLJUBAVI, TI SI ŽITO ŠTO\nDAJEŠ KRUH NAM ŽIVOTA,\nSVJETLA PUNA,\nTI SI JEDINA, JEDINA OD\nSVIH ŽENA MAJKA SI BOGA\nŽIVOGA."
+    ]
+  },
+  {
+    "id": "jerihonske-zidine",
+    "title": "Jerihonske zidine",
+    "slug": "jerihonske-zidine",
+    "fileName": "Jerihonske zidine.json",
+    "stanzaCount": 8,
+    "preview": "SLAVIT ĆU TE DAN I NOĆ! / IDEM PRED ZIDINE,",
+    "categories": [
+      "Slavljenje"
+    ],
+    "massSections": [],
+    "stanzas": [
+      "SLAVIT ĆU TE DAN I NOĆ!\nIDEM PRED ZIDINE,\nKAD ČUJU IME KRISTOVO,\nNEKA PADNU!\nSLAVIT ĆU TE DAN I NOĆ!\nIDEM PRED ZIDINE,\nKAD ČUJU IME KRISTOVO…",
+      "JERIHONSKE ZIDINE\nNEKA PADNU\nKAD ČUJU IME KRISTOVO,\nNEKA PADNU, OOO!",
+      "SLAVIT ĆU TE DAN I NOĆ!\nIDEM PRED ZIDINE,\nKAD ČUJU IME KRISTOVO,\nNEKA PADNU!\nSLAVIT ĆU TE DAN I NOĆ!\nIDEM PRED ZIDINE,\nKAD ČUJU IME KRISTOVO…",
+      "JERIHONSKE ZIDINE\nNEKA PADNU\nKAD ČUJU IME KRISTOVO,\nNEKA PADNU KAD ČUJU PJESMU SLAVLJENJA,\nNEKA PADNU, OOO!",
+      "SLAVIT ĆU TE DAN I NOĆ!\nIDEM PRED ZIDINE,\nKAD ČUJU IME KRISTOVO,\nNEKA PADNU!\nSLAVIT ĆU TE DAN I NOĆ!\nIDEM PRED ZIDINE,\nKAD ČUJU IME KRISTOVO…",
+      "JERIHONSKE ZIDINE\nNEKA PADNU\nKAD ČUJU IME KRISTOVO,\nNEKA PADNU KAD ČUJU PJESMU SLAVLJENJA, NEKA PADNU KAD ČUJU BOŽJU POBJEDU, NEKA PADNU, OOO!",
+      "NA ČELU VOJSKE GOSPODNJE\nSTOJI POBJEDNIK,\nA KAD GA VIDE BEDEMI\nNEKA PADNU!\nNA ČELU VOJSKE GOSPODNJE\nSTOJI POBJEDNIK,\nA KAD GA VIDE BEDEMI…",
+      "JERIHONSKE ZIDINE\nNEKA PADNU\nKAD ČUJU IME KRISTOVO,\nNEKA PADNU KAD ČUJU PJESMU SLAVLJENJA, NEKA PADNU KAD ČUJU BOŽJU POBJEDU, NEKA PADNU, OOO!"
+    ]
+  },
+  {
+    "id": "jeshua",
+    "title": "Jeshua",
+    "slug": "jeshua",
+    "fileName": "Jeshua.json",
+    "stanzaCount": 3,
+    "preview": "JESHUA, JESHUA 2X / EVO GA PRELIJEĆE",
+    "categories": [
+      "Meditativne"
+    ],
+    "massSections": [
+      "Klanjanje"
+    ],
+    "stanzas": [
+      "JESHUA, JESHUA 2X\n\nEVO GA PRELIJEĆE\nBRDA JERUZALEMA,\nSVOJU ZARUČNICU TRAŽI,\nPOZIVA NA PLES VJERNOSTI.",
+      "JESHUA, JESHUA 2X\n\nEVO GA PRELIJEĆE BRDA\nMOGA NARODA,\nSVOJU ZARUČNICU TRAŽI,\nPOZIVA NA PLES VJERNOSTI.",
+      "JESHUA, JESHUA 2X\n\nEVO GA PRELIJEĆE BRDA\nSRCA MOJEGA,\nSVOJU ZARUČNICU TRAŽI,\nPOZIVA NA PLES VJERNOSTI. 2X\n\nJESHUA, JESHUA"
+    ]
+  },
+  {
+    "id": "jeshua-moj-je-ljubljeni",
+    "title": "Jeshua (Moj je Ljubljeni)",
+    "slug": "jeshua-moj-je-ljubljeni",
+    "fileName": "Jeshua (Moj je Ljubljeni).json",
+    "stanzaCount": 2,
+    "preview": "MOJ JE LJUBLJENI OD SVIH / NAJLJEPŠI,",
+    "categories": [
+      "Meditativne"
+    ],
+    "massSections": [
+      "Klanjanje"
+    ],
+    "stanzas": [
+      "MOJ JE LJUBLJENI OD SVIH\nNAJLJEPŠI,\nPORED TISUĆA I TISUĆA.\n\nJESHUA, A, A.",
+      "TVOJE JE KRALJEVSTVO I SLAVA\nI MOĆ U VIJEKOVE.\nAMEN.\n\nJESHUA, A, A."
+    ]
+  },
+  {
+    "id": "kad-sve-utihne",
+    "title": "Kad sve utihne",
+    "slug": "kad-sve-utihne",
+    "fileName": "Kad sve utihne.json",
+    "stanzaCount": 6,
+    "preview": "KAD SVE UTIHNE I GLAZBA / PRESTANE, TEBI DOLAZIM.",
+    "categories": [],
+    "massSections": [
+      "Pričesna"
+    ],
+    "stanzas": [
+      "KAD SVE UTIHNE I GLAZBA\nPRESTANE, TEBI DOLAZIM.\nŽELIM DONIJETI NEŠTO\nPOSEBNO, ŠTO TE RADUJE.",
+      "VIŠE OD SAME PJESME, NEŠTO\nMNOGO DUBLJE, DONOSIM TEBI\nNA DAR.\nPRONIČEŠ DUŠU MOJU, VIDIŠ\nSRCE MOJE, KUCA LI ONO ZA\nTEBE?",
+      "DOLAZIM PONOVNO BLIŽE TEBI\nJER VAŽAN SI TI, VAŽAN SI TI,\nISUSE.\nOPROSTI, GOSPODE, ZA SVE\nDRUGO, KAD VAŽAN SI TI,\nVAŽAN SI TI, ISUSE.",
+      "VJEČNI KRALJU MOJ,\nNEIZRECIVO SI VRIJEDAN TI.\nSLAB I BEZVRIJEDAN SEBE\nPREDAJEM DA TE PROSLAVIM.",
+      "VIŠE OD SAME PJESME, NEŠTO\nMNOGO DUBLJE, DONOSIM TEBI\nNA DAR.\nPRONIČEŠ DUŠU MOJU, VIDIŠ\nSRCE MOJE, KUCA LI ONO ZA\nTEBE?",
+      "DOLAZIM PONOVNO BLIŽE TEBI\nJER VAŽAN SI TI, VAŽAN SI TI,\nISUSE.\nOPROSTI, GOSPODE, ZA SVE\nDRUGO, KAD VAŽAN SI TI,\nVAŽAN SI TI, ISUSE."
+    ]
+  },
+  {
+    "id": "kako-su-slatke-nepcu-mom",
+    "title": "Kako su slatke nepcu mom",
+    "slug": "kako-su-slatke-nepcu-mom",
+    "fileName": "Kako su slatke nepcu mom.json",
+    "stanzaCount": 1,
+    "preview": "KAKO SU SLATKE NEPCU MOM / RIJEČI TVOJE!",
+    "categories": [],
+    "massSections": [
+      "Otpjevni psalam"
+    ],
+    "stanzas": [
+      "KAKO SU SLATKE NEPCU MOM\nRIJEČI TVOJE!"
+    ]
+  },
+  {
+    "id": "kamen-koji-odbacise-graditelji",
+    "title": "Kamen koji odbaciše graditelji",
+    "slug": "kamen-koji-odbacise-graditelji",
+    "fileName": "Kamen koji odbaciše graditelji.json",
+    "stanzaCount": 1,
+    "preview": "Kamen koji odbaciše / graditelji postade kamen",
+    "categories": [],
+    "massSections": [
+      "Otpjevni psalam"
+    ],
+    "stanzas": [
+      "Kamen koji odbaciše\ngraditelji postade kamen\nzaglavni."
+    ]
+  },
+  {
+    "id": "kao-kosuta",
+    "title": "Kao košuta",
+    "slug": "kao-kosuta",
+    "fileName": "Kao košuta.json",
+    "stanzaCount": 3,
+    "preview": "KAO KOŠUTA ŠTO ZA VODOM ŽUDI, / ŽUDIM ZA TOBOM JA.",
+    "categories": [],
+    "massSections": [
+      "Pričesna"
+    ],
+    "stanzas": [
+      "KAO KOŠUTA ŠTO ZA VODOM ŽUDI,\nŽUDIM ZA TOBOM JA.\nSAMO TI ČEŽNJA SRCA SI MOGA,\nTEBE SLAVIM JA!\n\nSNAGO MOJA I ZAŠTITO, U TEBI DUH\nMOJ SE ODMARA! SAMO TI ČEŽNJA\nSRCA SI MOGA, TEBE SLAVIM JA!",
+      "TVOJA LJUBAV I BRIGA PRUŽA MENI\nVIŠE OD BLAGA SVEG.\nSAMO TI MENI PRAVU RADOST DAJEŠ,\nTEBE SLAVIM JA!\n\nSNAGO MOJA I ZAŠTITO, U TEBI DUH\nMOJ SE ODMARA! SAMO TI ČEŽNJA\nSRCA SI MOGA, TEBE SLAVIM JA!",
+      "NUDIŠ MI PRIJATELJSTVO PREMDA TI\nSI KRALJ SVIH KRALJEVA.\nNAJBLIŽI SI MI, BOŽE, TI U SVEMU,\nTEBE SLAVIM JA!\n\nSNAGO MOJA I ZAŠTITO, U TEBI DUH\nMOJ SE ODMARA! SAMO TI ČEŽNJA\nSRCA SI MOGA, TEBE SLAVIM JA!"
+    ]
+  },
+  {
+    "id": "kao-marija",
+    "title": "Kao Marija",
+    "slug": "kao-marija",
+    "fileName": "Kao Marija.json",
+    "stanzaCount": 6,
+    "preview": "KAO MARIJA DA TE LJUBIM, / TVOJU RIJEČ DA ČUVAM JA,",
+    "categories": [
+      "Marijanske"
+    ],
+    "massSections": [
+      "Završna"
+    ],
+    "stanzas": [
+      "KAO MARIJA DA TE LJUBIM,\nTVOJU RIJEČ DA ČUVAM JA,\nKAO MARIJA DA JE NOSIM\nSRED SRCA SVOJEGA.",
+      "SAMO TEBI DA SE KLANJAM,\nSAMO TEBI PREDAM SVE, DA TE\nLJUBIM SRCEM CIJELIM KAO\nMARIJA, ISUSE.",
+      "KAO MARIJA DA TE LJUBIM,\nTVOJU BOL DA DIJELIM JA,\nKAO MARIJA DA TE PRATIM SVE\nDO KRIŽA TVOJEGA.",
+      "SAMO TEBI DA SE KLANJAM,\nSAMO TEBI PREDAM SVE, DA TE\nLJUBIM SRCEM CIJELIM KAO\nMARIJA, ISUSE.",
+      "KAO MARIJA DA TE LJUBIM,\nTVOJ PUT DA SLIJEDIM JA,\nKAO MARIJA DA TI SLUŽIM, DA\nTI PREDAM ŽIVOT SAV.",
+      "SAMO TEBI DA SE KLANJAM,\nSAMO TEBI PREDAM SVE, DA TE\nLJUBIM SRCEM CIJELIM KAO\nMARIJA, ISUSE."
+    ]
+  },
+  {
+    "id": "kao-ruza",
+    "title": "Kao ruža",
+    "slug": "kao-ruza",
+    "fileName": "Kao ruža.json",
+    "stanzaCount": 5,
+    "preview": "IZNAD SVIH SILA I KRALJEVA, IZNAD SVE PRIRODE I / SVEGA STVORENOG,",
+    "categories": [
+      "Korizmene"
+    ],
+    "massSections": [],
+    "stanzas": [
+      "IZNAD SVIH SILA I KRALJEVA, IZNAD SVE PRIRODE I\nSVEGA STVORENOG,\nIZNAD SVE MUDROSTI I\nLJUDSKIH PUTOVA\nTI SI BIO PRIJE STVARANJA.",
+      "IZNAD SVIH KRALJEVSTVA I\nPRIJESTOLJA, IZNAD SVIH ČUDA\nŠTO SVIJET IH POZNAJE,\nIZNAD SVEG OBILJA,\nBOGATSTVA ZEMALJSKOG\nVRIJEDNOST TVOJA\nNEIZMJERNA JE.",
+      "RAZAPET, U GROB POLOŽEN,\nŽIVIO DA UMREŠ ODBAČEN\nKAO RUŽA ZGAŽENA NA TLU,\nGRIJEH UZEO MISLEĆI NA MENE.",
+      "IZNAD SVIH KRALJEVSTVA I\nPRIJESTOLJA, IZNAD SVIH ČUDA\nŠTO SVIJET IH POZNAJE,\nIZNAD SVEG OBILJA,\nBOGATSTVA ZEMALJSKOG\nVRIJEDNOST TVOJA\nNEIZMJERNA JE.",
+      "RAZAPET, U GROB POLOŽEN,\nŽIVIO DA UMREŠ ODBAČEN\nKAO RUŽA ZGAŽENA NA TLU,\nGRIJEH UZEO MISLEĆI NA MENE."
+    ]
+  },
+  {
+    "id": "krovovi",
+    "title": "Krovovi",
+    "slug": "krovovi",
+    "fileName": "Krovovi.json",
+    "stanzaCount": 5,
+    "preview": "SLAVU TVOG IMENA / VIKAT ĆU SA KROVOVA",
+    "categories": [
+      "Slavljenje"
+    ],
+    "massSections": [],
+    "stanzas": [
+      "SLAVU TVOG IMENA\nVIKAT ĆU SA KROVOVA\nJER JA SAM TVOJ,\nJA SAM TVOJ!\nSVE ŠTO JE U MENI\nDAJEM TVOJOJ LJUBAVI\nJER JA SAM TVOJ,\nJA SAM TVOJ!",
+      "EVO ME,\nJA TEBI PRUŽAM RUKE,\nTI SI BOG I SIN\nI VLADAR VJEKOVA,\nVLADAR VJEKOVA! 2X",
+      "SLAVU TVOG IMENA\nVIKAT ĆU SA KROVOVA\nJER JA SAM TVOJ,\nJA SAM TVOJ!\nSVE ŠTO JE U MENI\nDAJEM TVOJOJ LJUBAVI\nJER JA SAM TVOJ,\nJA SAM TVOJ!",
+      "EVO ME,\nJA TEBI PRUŽAM RUKE,\nTI SI BOG I SIN\nI VLADAR VJEKOVA,\nVLADAR VJEKOVA! 2X",
+      "SLAVU TVOG IMENA\nVIKAT ĆU SA KROVOVA\nJER JA SAM TVOJ,\nJA SAM TVOJ!\nSVE ŠTO JE U MENI\nDAJEM TVOJOJ LJUBAVI\nJER JA SAM TVOJ,\nJA SAM TVOJ!"
+    ]
+  },
+  {
+    "id": "kyrie-eleison-me-ugorska-misa",
+    "title": "Kyrie eleison (Međugorska misa)",
+    "slug": "kyrie-eleison-me-ugorska-misa",
+    "fileName": "Kyrie eleison (Međugorska misa).json",
+    "stanzaCount": 1,
+    "preview": "KYRIE ELEISON! / KYRIE ELEISON!",
+    "categories": [
+      "Međugorska misa"
+    ],
+    "massSections": [
+      "Gospodine smiluj se"
+    ],
+    "stanzas": [
+      "KYRIE ELEISON!\nKYRIE ELEISON!\n\nCHRISTE ELEISON!\nCHRISTE ELEISON!\n\nKYRIE ELEISON!\nKYRIE ELEISON!"
+    ]
+  },
+  {
+    "id": "ljubav-kao-ocean",
+    "title": "Ljubav kao ocean",
+    "slug": "ljubav-kao-ocean",
+    "fileName": "Ljubav kao ocean.json",
+    "stanzaCount": 6,
+    "preview": "STOJIM TU PORED TEBE GDJE / JE MILOST TAKO NEODOLJIVA,",
+    "categories": [],
+    "massSections": [
+      "Pričesna"
+    ],
+    "stanzas": [
+      "STOJIM TU PORED TEBE GDJE\nJE MILOST TAKO NEODOLJIVA,\nPREDIVNA.\nDOK ME GRLE RUKE NEBA\nOSJEĆAM TAJ MIR ŠTO TRAJE\nZAUVIJEK, ZAUVIJEK.",
+      "BUDIŠ ME, SEBI BLIŽE ZOVEŠ\nME I TEBI DAJEM SVE.\nSVAKI STRAH NESTAJE\nU TVOJOJ LJUBAVI, TVOJOJ LJUBAVI.",
+      "KAD NE VIDIM KAMO IDEM TI\nMI UVIJEK GLAVU DIŽEŠ,\nVJEČNI KRALJU, DIVAN SI.\nU TVOM SRCU IMAM ZAKLON,\nTVOJ ME POGLED PRONIČE I\nPODIŽE JER LJUBIŠ ME.",
+      "BUDIŠ ME, SEBI BLIŽE ZOVEŠ\nME I TEBI DAJEM SVE.\nSVAKI STRAH NESTAJE U\nTVOJOJ LJUBAVI, TVOJOJ LJUBAVI.",
+      "TVOJA LJUBAV KAO OCEAN\nNIKAD NE PRESTAJE, S TOBOM\nJA IMAM SVE.\nISUSE, ČUJ VAPAJ SRCA MOG,\nSAD DAJEM ŽIVOT SVOJ ZA\nSVJETLO LICA TVOG. 2X",
+      "BUDIŠ ME, SEBI BLIŽE ZOVEŠ\nME I TEBI DAJEM SVE.\nSVAKI STRAH NESTAJE U\nTVOJOJ LJUBAVI, TVOJOJ LJUBAVI."
+    ]
+  },
+  {
+    "id": "ljubav-nije-ljubljena",
+    "title": "Ljubav nije ljubljena",
+    "slug": "ljubav-nije-ljubljena",
+    "fileName": "Ljubav nije ljubljena.json",
+    "stanzaCount": 3,
+    "preview": "KOLIKO SI NAS SILNO LJUBIO, ISUSE MOJ! / SEBE SI SAMA PREDAO,",
+    "categories": [
+      "Korizmene"
+    ],
+    "massSections": [],
+    "stanzas": [
+      "KOLIKO SI NAS SILNO LJUBIO, ISUSE MOJ!\nSEBE SI SAMA PREDAO,\nISUSE MOJ!\nNA KRIŽU SI ZAVRŠIO,\nU RANAMA, KRVLJU OBLIVEN,\nOSTAVLJEN OD SVIH,\nZABORAVLJEN, ISUSE MOJ!",
+      "SEBE NISI ČUVAO, ISUSE MOJ! GRIJEHE SI NAŠE PONIO,\nISUSE MOJ!\nSVU BIJEDU NAŠU UZEO,\nDO DNA SE PONIZIO\nJER SI NAS SILNO LJUBIO,\nISUSE MOJ!",
+      "OU O, OU O, KAKO DA NE\nPLAČEM, OU O, OU O,\nDA ŽALOSTAN NE BUDEM,\nKADA NIKOG NEMA DA LJUBAV\nNJEMU UZVRATI, KADA NIKOG\nNEMA DA SA MNOM ZAPLAČE ŠTO\nLJUBAV NIJE LJUBLJENA."
+    ]
+  },
+  {
+    "id": "ljubav-s-neba-zapali-vatru",
+    "title": "Ljubav s neba / Zapali vatru",
+    "slug": "ljubav-s-neba-zapali-vatru",
+    "fileName": "Ljubav s neba - Zapali vatru.json",
+    "stanzaCount": 6,
+    "preview": "LJUBAV S NEBA SIŠLA JE / DA OD SMRTI SPASI ME,",
+    "categories": [
+      "Meditativne"
+    ],
+    "massSections": [
+      "Klanjanje"
+    ],
+    "stanzas": [
+      "LJUBAV S NEBA SIŠLA JE\nDA OD SMRTI SPASI ME,\nTEBI JA ZAUVIJEK PRIPADAM.\nGDJE GOD ŽIVOT VODI ME,\nDUŠA MOJA TRAŽI TE,\nTEBI JA, GOSPODE, PRIPADAM. X",
+      "SEBE PODSJEĆAM\nDA VJERAN SI BOG\nI DA JE SIN TVOJ DAO\nŽIVOT ZA MOJ.",
+      "LJUBAV S NEBA SIŠLA JE\nDA OD SMRTI SPASI ME,\nTEBI JA ZAUVIJEK PRIPADAM.\nGDJE GOD ŽIVOT VODI ME,\nDUŠA MOJA TRAŽI TE,\nTEBI JA, GOSPODE, PRIPADAM.",
+      "ZAPALI VATRU U MENI,\nNEKA SRCE GORI OD LJUBAVI!\nŽELIM VIŠE TEBE,\nJA ŽELIM VIŠE TEBE! X",
+      "NIGDJE JA NE ŽELIM BITI,\nNIGDJE JA NE ŽELIM BITI,\nNIGDJE JA NE ŽELIM BITI,\nSAMO S TOBOM\nU TVOJOJ LJUBAVI! X",
+      "ZAPALI VATRU U MENI,\nNEKA SRCE GORI OD LJUBAVI!\nŽELIM VIŠE TEBE,\nJA ŽELIM VIŠE TEBE! X"
+    ]
+  },
+  {
+    "id": "ljubav-sto-uvijek-postoji",
+    "title": "Ljubav što uvijek postoji",
+    "slug": "ljubav-sto-uvijek-postoji",
+    "fileName": "Ljubav što uvijek postoji.json",
+    "stanzaCount": 4,
+    "preview": "LJUBAV, ŠTO UVIJEK POSTOJI U KOMADIĆU KRUHA, KAPLJICI VINA. / LJUBAV, ŠTO NE POZNAJE GRANICE U SUSRETU ISPUNJENJA, U SVAKOJ ŽRTVI.",
+    "categories": [],
+    "massSections": [
+      "Prinosna"
+    ],
+    "stanzas": [
+      "LJUBAV, ŠTO UVIJEK POSTOJI U KOMADIĆU KRUHA, KAPLJICI VINA.\nLJUBAV, ŠTO NE POZNAJE GRANICE U SUSRETU ISPUNJENJA, U SVAKOJ ŽRTVI.",
+      "IMA LI LJUBAVI VEĆE OD TVOJE DOK SE ŽELIŠ NASTANITI, NAHRANITI GLADNU DUŠU, NAPOJITI ŽEDNO SRCE?\nPOSTOJI LI LJUBAV, ISUSE, VEĆA OD TVOJE?",
+      "LJUBAV KOJA PREDAJE TIJELO, LJUBAV KOJA PROLIJEVA KRV.\nI DOK ME GRIJESI GUŠE I SLAMAJU, TI PODIŽEŠ, ISUSE, I NOSIŠ U NEBO.",
+      "IMA LI LJUBAVI VEĆE OD TVOJE DOK SE ŽELIŠ NASTANITI, NAHRANITI GLADNU DUŠU, NAPOJITI ŽEDNO SRCE?\nPOSTOJI LI LJUBAV, ISUSE, VEĆA OD TVOJE?"
+    ]
+  },
+  {
+    "id": "maranatha",
+    "title": "Maranatha",
+    "slug": "maranatha",
+    "fileName": "Maranatha.json",
+    "stanzaCount": 5,
+    "preview": "TJEŠITE, TJEŠITE MOJ NAROD, / DA MU SE ROPSTVO SVRŠI, DA",
+    "categories": [
+      "Došašće"
+    ],
+    "massSections": [],
+    "stanzas": [
+      "TJEŠITE, TJEŠITE MOJ NAROD,\nDA MU SE ROPSTVO SVRŠI, DA\nMU JE KRIVNJA SKINUTA.\n\nMARANATHA, MARANATHA, DOĐI\nGOSPODINE! MARANATHA,\nMARANATHA, GOSPODINE\nISUSE!",
+      "PORAVNAJTE SVE STAZE, MARANATHA!\nSVE GORE NEK’ SE SPUSTE, MARANATHA!\nNEK’ PUSTINJA PROCVJETA, MARANATHA!\nNEK’ PUT JE BOGU PRIPRAVAN!",
+      "MARANATHA, MARANATHA,\nDOĐI GOSPODINE!\nMARANATHA, MARANATHA,\nGOSPODINE ISUSE!",
+      "BOG DOLAZI U MOĆI, MARANATHA!\nMIŠICOM SVOJOM VLADA, MARANATHA!\nK’O PASTIR STADO SVOJE, MARANATHA!\nK’O PASTIR ON GA ČUVA!",
+      "MARANATHA, MARANATHA,\nDOĐI GOSPODINE!\nMARANATHA, MARANATHA,\nGOSPODINE ISUSE!"
+    ]
+  },
+  {
+    "id": "mi-zelimo-uzdic-isusa",
+    "title": "Mi želimo uzdić' Isusa",
+    "slug": "mi-zelimo-uzdic-isusa",
+    "fileName": "Mi želimo uzdić' Isusa.json",
+    "stanzaCount": 5,
+    "preview": "MI ŽELIMO UZDIĆ’ ISUSA / VISOKO DA CIJELI SVIJET",
+    "categories": [
+      "Slavljenje"
+    ],
+    "massSections": [],
+    "stanzas": [
+      "MI ŽELIMO UZDIĆ’ ISUSA\nVISOKO DA CIJELI SVIJET\nVIDI GA.\nSNAGA JE IME NJEGOVO,\nJEDINI PUT DO NEBA.",
+      "MI ŽELIMO,\nMI ŽELIMO,\nMI ŽELIMO UZDIĆ’ ISUSA! 2x",
+      "KORAK PO KORAK\nMI IDEMO NAPRIJED,\nMALO PO MALO POBJEĐUJEMO.\nSVAKA MOLITVA SNAGU IMA,\nBOG MI OKOVE BACA I…!",
+      "MI ŽELIMO UZDIĆ’ ISUSA\nVISOKO DA CIJELI SVIJET\nVIDI GA.\nSNAGA JE IME NJEGOVO,\nJEDINI PUT DO NEBA.",
+      "MI ŽELIMO,\nMI ŽELIMO,\nMI ŽELIMO UZDIĆ’ ISUSA! 2x"
+    ]
+  },
+  {
+    "id": "milosti-je-cas",
+    "title": "Milosti je čas",
+    "slug": "milosti-je-cas",
+    "fileName": "Milosti je čas.json",
+    "stanzaCount": 8,
+    "preview": "KRUH SVOJ S GLADNIM DIJELI, / TUŽNA RAZVESELI,",
+    "categories": [
+      "Korizmene"
+    ],
+    "massSections": [],
+    "stanzas": [
+      "KRUH SVOJ S GLADNIM DIJELI,\nTUŽNA RAZVESELI,\nBOLESNA POHODI,\nSLIJEPCA K CILJU VODI!",
+      "MILOSTI JE ČAS,\nISUS ZOVE NAS!\nMILOSTI JE ČAS,\nISUS ZOVE NAS!",
+      "ŽEDNA VODOM POJI,\nTJESKOBNA SPOKOJI,\nSAMOTNOM PRISTUPI,\nSRCA NE OTUPI.",
+      "MILOSTI JE ČAS,\nISUS ZOVE NAS!\nMILOSTI JE ČAS,\nISUS ZOVE NAS!",
+      "MIRA TVORAC BUDI,\nNIKOGA NE SUDI,\nPOTLAČENA BRANI,\nBLAGI SAD SU DANI.",
+      "MILOSTI JE ČAS,\nISUS ZOVE NAS!\nMILOSTI JE ČAS,\nISUS ZOVE NAS!",
+      "PROTIVNIKA LJUBI,\nNADANJA NE GUBI,\nKRISTU BUDI VJERAN\nDUHOM NAPRIJED TJERAN.",
+      "MILOSTI JE ČAS,\nISUS ZOVE NAS!\nMILOSTI JE ČAS,\nISUS ZOVE NAS!"
+    ]
+  },
+  {
+    "id": "moj-isus",
+    "title": "Moj Isus",
+    "slug": "moj-isus",
+    "fileName": "Moj Isus.json",
+    "stanzaCount": 4,
+    "preview": "MOJ ISUS, MOJ GOSPOD, NE / POSTOJI NITKO K’O TI.",
+    "categories": [],
+    "massSections": [
+      "Pričesna"
+    ],
+    "stanzas": [
+      "MOJ ISUS, MOJ GOSPOD, NE\nPOSTOJI NITKO K’O TI.\nTI SI MOJ BOG, SLAVIM TE SAD\nZBOG SVEG UČINIO TI.",
+      "MOJ ZAKLON I SNAGA,\nK TEBI SE UTJEČEM.\nNEK’ SVAKI DAN I SVAKI SAT\nBUDE PJESMA SLAVLJENJA!",
+      "PODIGNI GLAS SVOJ I SLAVI GA\nSAD, ZEMLJA NEK’ CIJELA SLAVU\nMU DA.\nMORA NEK’ HUČE, SVI POKLONE\nSE NA ZVUK IMENA TVOG.",
+      "SVIM SVOJIM SRCEM SLAVIM TE\nJA, RADOST SVA MOJA SI\nZAUVIJEK TI.\nNIŠTA ME NEĆE OD TEBE\nODVOJITI."
+    ]
+  },
+  {
+    "id": "moli-za-nas",
+    "title": "Moli za nas",
+    "slug": "moli-za-nas",
+    "fileName": "Moli za nas.json",
+    "stanzaCount": 5,
+    "preview": "MARIJO, ZLATNA ŠUTNJA JE NA / TVOJIM USNAMA,",
+    "categories": [
+      "Marijanske"
+    ],
+    "massSections": [
+      "Završna"
+    ],
+    "stanzas": [
+      "MARIJO, ZLATNA ŠUTNJA JE NA\nTVOJIM USNAMA,\nMARIJO, TVOJE SRCE MILOST\nNOSI DOVIJEKA.",
+      "MOLI ZA NAS, MOLI ZA NAS,\nJER POTREBNI SMO BOŽJE\nMILOSTI.\nMOLI ZA NAS, MOLI ZA NAS,\nODJENI NAS U SVJETLO SVOJE\nLJUBAVI.",
+      "MARIJO, DUBINA TI SI MORA\nNAJDUBLJEG,\nMARIJO, OSTVARENJE DUHA\nSVETOG NAJVEĆE.",
+      "MOLI ZA NAS, MOLI ZA NAS,\nJER POTREBNI SMO BOŽJE\nMILOSTI.\nMOLI ZA NAS, MOLI ZA NAS,\nODJENI NAS U SVJETLO SVOJE\nLJUBAVI.",
+      "KADA SKLOPIM OČI, KADA\nZASPEM JA, BLIZU MENE BUDI\nU PRATNJI ISUSOVIH ANĐELA.\nMARIJO, MARIJO!"
+    ]
+  },
+  {
+    "id": "na-tvojoj-strani",
+    "title": "Na tvojoj strani",
+    "slug": "na-tvojoj-strani",
+    "fileName": "Na tvojoj strani.json",
+    "stanzaCount": 8,
+    "preview": "ZBOG ČEGA JOŠ TRAŽIŠ DRUGU / LJUBAV, ZBOG ČEGA JOŠ",
+    "categories": [
+      "Meditativne"
+    ],
+    "massSections": [
+      "Klanjanje"
+    ],
+    "stanzas": [
+      "ZBOG ČEGA JOŠ TRAŽIŠ DRUGU\nLJUBAV, ZBOG ČEGA JOŠ\nČEZNEŠ ZAR TI NISAM\nDOVOLJAN?\nKUDA ĆEŠ DIJETE, RECI MI KUD\nBJEŽIŠ TI, KUD BJEŽIŠ TI?",
+      "ZBOG ČEGA JOŠ ŽUDIŠ OVIH\nDANA, ZBOG ČEGA JOŠ MILOST\nTRUDIŠ SE ZASLUŽITI?\nZBOG ČEGA SAD PLAČEŠ,\nDAJ DA PODIGNEM TE,\nNE OKREĆI SE.",
+      "JER UVIJEK BIT ĆU TU\nKAD BUDEŠ PAO, DAN I NOĆ\nKAD GOD BUDEŠ ZVAO.\nMOLIM TE, NE OPIRI SE, MOJE\nRUKE DRŽE TE.\nJA BIT ĆU TU KAD BUDEŠ PAO,\nDAN I NOĆ KAD GOD BUDEŠ ZVAO.\nMOLIM TE, NE OPIRI SE, MOJE\nRUKE DRŽE TE.",
+      "ZBOG ČEGA JOŠ TRAŽIŠ DRUGU\nLJUBAV, ZBOG ČEGA JOŠ\nČEZNEŠ ZAR TI NISAM\nDOVOLJAN?\nKUDA ĆEŠ DIJETE, RECI MI KUD\nBJEŽIŠ TI, KUD BJEŽIŠ TI?",
+      "JER UVIJEK BIT ĆU TU\nKAD BUDEŠ PAO, DAN I NOĆ\nKAD GOD BUDEŠ ZVAO.\nMOLIM TE, NE OPIRI SE, MOJE\nRUKE DRŽE TE.\nJA BIT ĆU TU KAD BUDEŠ PAO,\nDAN I NOĆ KAD GOD BUDEŠ ZVAO.\nMOLIM TE, NE OPIRI SE, MOJE\nRUKE DRŽE TE.",
+      "JER JA, JA TE VOLIM\nI ŽELIM TO DA ZNAŠ.\nJER JA, JA TE LJUBIM,\nNE ŽELIM DA BUDEŠ SAM. 2X",
+      "JER UVIJEK BIT ĆU TU\nKAD BUDEŠ PAO, DAN I NOĆ\nKAD GOD BUDEŠ ZVAO.\nMOLIM TE, NE OPIRI SE, MOJE\nRUKE DRŽE TE.\nJA BIT ĆU TU KAD BUDEŠ PAO,\nDAN I NOĆ KAD GOD BUDEŠ ZVAO.\nMOLIM TE, NE OPIRI SE, MOJE\nRUKE DRŽE TE.",
+      "OOO, MOJE RUKE DRŽE TE,\nOOO, MOJE RUKE DRŽE TE,\nMOJE RUKE DRŽE TE,\nJER MOJE RUKE DRŽE TE."
+    ]
+  },
+  {
+    "id": "narode-moj-ljubljeni",
+    "title": "Narode moj ljubljeni",
+    "slug": "narode-moj-ljubljeni",
+    "fileName": "Narode moj ljubljeni.json",
+    "stanzaCount": 4,
+    "preview": "NARODE MOJ LJUBLJENI, MEĐU / SVIM OD’BRANI I OD OCA",
+    "categories": [
+      "Korizmene"
+    ],
+    "massSections": [],
+    "stanzas": [
+      "NARODE MOJ LJUBLJENI, MEĐU\nSVIM OD’BRANI I OD OCA\nMOJEGA NA SLUŽBU IZ’BRANI!\n\nNARODE MOJ, RECI MI, A NA\nČUDO SEBI: KAKVU LI SAM\nNEPRAVDU UČINIO TEBI?",
+      "KROZ TO MORE CRVENO VOĐAH\nTE PO SUHOM, FARAON UTOPIH\nU VALOVLJU MORSKOM.\n\nA TI MENE KROZ MORE\nSMRTNIH GONIŠ JADA,\nU KRVI ME VLASTITOJ UTOPIT’\nSI RADA.",
+      "ČETRDESET PUNIH LJET’ U\nPUSTINJI HRANU DAV’O SAM TI\nOBILNU ANĐEOSKU MANU.\n\nI ČUDESA STVAR’O SAM MEĐ’\nTOBOM ŽIVUĆI, BOLESNE\nOZDRAVLJAJUĆ’, MRTVE PODIŽUĆI.",
+      "A ZA SVE TO, PUČE MOJ, TAKO\nME OBRUŽI: K DRVU KRIŽA\nPRIBI ME, ŽEDNOM OCTA\nPRUŽI."
+    ]
+  },
+  {
+    "id": "nas-bog-je-velik",
+    "title": "Naš Bog je velik",
+    "slug": "nas-bog-je-velik",
+    "fileName": "Naš Bog je velik.json",
+    "stanzaCount": 6,
+    "preview": "LJEPOTA KRALJA MOG, / VELIČANSTVENOG,",
+    "categories": [
+      "Slavljenje"
+    ],
+    "massSections": [],
+    "stanzas": [
+      "LJEPOTA KRALJA MOG,\nVELIČANSTVENOG,\nZEMLJU RADUJE, ZEMLJU RADUJE.\nU SJAJ ZAODJEVEN, TAMA UZMIČE,\nOD GLASA NJEGOVA,\nDRHTI SVAKO ZLO!",
+      "NAŠ BOG JE VELIK,\nPJEVAJ S NAMA,\nBOG JE VELIK!\nI SVI ĆE VIDJETI,\nNAŠ BOG JE VELIK!",
+      "VJEČNO VLADA ON,\nU RUCI DRŽI SVE,\nPOČETAK JE I KRAJ,\nPOČETAK JE I KRAJ.\nTROJEDINI BOG, OTAC,\nSIN I DUH, JANJE JE I LAV,\nNAŠ OTKUPITELJ.",
+      "NAŠ BOG JE VELIK,\nPJEVAJ S NAMA,\nBOG JE VELIK!\nI SVI ĆE VIDJETI,\nNAŠ BOG JE VELIK! 2X",
+      "IME NAJVEĆE,\nVRIJEDNO SLAVLJENJA,\nSVIM SRCEM PJEVAM,\nBOG JE VELIK! 2X",
+      "NAŠ BOG JE VELIK,\nPJEVAJ S NAMA,\nBOG JE VELIK!\nI SVI ĆE VIDJETI,\nNAŠ BOG JE VELIK! 2X"
+    ]
+  },
+  {
+    "id": "nek-uni-e-gospodin-on-je-kralj-slave",
+    "title": "Nek uniđe Gospodin, On je Kralj slave",
+    "slug": "nek-uni-e-gospodin-on-je-kralj-slave",
+    "fileName": "Nek uniđe Gospodin, On je Kralj slave.json",
+    "stanzaCount": 1,
+    "preview": "NEK’ UNIĐE GOSPODIN, / ON JE KRALJ SLAVE!",
+    "categories": [],
+    "massSections": [
+      "Otpjevni psalam"
+    ],
+    "stanzas": [
+      "NEK’ UNIĐE GOSPODIN,\nON JE KRALJ SLAVE!"
+    ]
+  },
+  {
+    "id": "nek-pada",
+    "title": "Nek' pada",
+    "slug": "nek-pada",
+    "fileName": "Nek' pada.json",
+    "stanzaCount": 1,
+    "preview": "NAŠ BOG DOLAZI DA OBEĆANJE ISPUNI I SPUSTI NA NAS KIŠU MILOSTI. X / NEK’ PADA, NEK’ PADA,",
+    "categories": [
+      "Meditativne"
+    ],
+    "massSections": [
+      "Klanjanje"
+    ],
+    "stanzas": [
+      "NAŠ BOG DOLAZI DA OBEĆANJE ISPUNI I SPUSTI NA NAS KIŠU MILOSTI. X\n\nNEK’ PADA, NEK’ PADA,\nOTVORI NEBESKE BRANE. X"
+    ]
+  },
+  {
+    "id": "neka-mi-bude",
+    "title": "Neka mi bude",
+    "slug": "neka-mi-bude",
+    "fileName": "Neka mi bude.json",
+    "stanzaCount": 5,
+    "preview": "MARIJO, NAZARETSKA DJEVICE, / U MOLITVI SABRANA BOGU PREDANA.",
+    "categories": [],
+    "massSections": [
+      "Završna"
+    ],
+    "stanzas": [
+      "MARIJO, NAZARETSKA DJEVICE,\nU MOLITVI SABRANA BOGU PREDANA.\nMIRISU LJILJANA U ŠUTNJI\nSVJETLOŠĆU OBASJANA, KAD\nMARIJO SI REKLA SVOJ DA.",
+      "SA SMJEŠKOM BLAŽENIM\nUŽIVAŠ MILINU SVU KOJU\nDIJELIT ĆEŠ OD TADA\nDUŠAMA SVIM.\nPO TOME ĆE TE PREPOZNATI DA\nMAJKA SI PUNA MILOSTI I TVOJE\nRIJEČI PONAVLJAT ĆE SVI.",
+      "NEKA MI BUDE PO RIJEČI\nTVOJOJ, NEKA MI BUDE,\nEVO ME.\nNEKA MI BUDE PO\nTVOJOJ RIJEČI, NEKA MI BUDE,\nEVO ME.",
+      "SA SMJEŠKOM BLAŽENIM UŽIVAŠ\nMILINU SVU KOJU DIJELIT ĆEŠ OD\nTADA DUŠAMA SVIM.\nPO TOME ĆE TE PREPOZNATI DA\nMAJKA SI PUNA MILOSTI I TVOJE\nRIJEČI PONAVLJAT ĆE SVI.\nDUBOKO SE KLANJAŠ BOG SVOM DOK\nOTVARAŠ MU PRIJESTOLJE SRCA\nSVOG.",
+      "NEKA MI BUDE PO RIJEČI\nTVOJOJ, NEKA MI BUDE,\nEVO ME.\nNEKA MI BUDE PO\nTVOJOJ RIJEČI, NEKA MI BUDE,\nEVO ME. 2X"
+    ]
+  },
+  {
+    "id": "nista-osim-krvi",
+    "title": "Ništa osim krvi",
+    "slug": "nista-osim-krvi",
+    "fileName": "Ništa osim krvi.json",
+    "stanzaCount": 4,
+    "preview": "TVOJA KRV VIŠE GOVORI / OD SVIH VAPAJA",
+    "categories": [
+      "Meditativne"
+    ],
+    "massSections": [
+      "Klanjanje"
+    ],
+    "stanzas": [
+      "TVOJA KRV VIŠE GOVORI\nOD SVIH VAPAJA\nPRAZNIH ZEMALJSKIH,\nOPRAVDAVA ME I OD SVEG\nBRANI ME, KRISTE, TVOJA KRV.",
+      "ŠTO ĆE GRIJEHE OPRATI,\nOPET NAS ISPUNITI,\nNIŠTA OSIM KRVI,\nNIŠTA OSIM KRVI KRISTOVE.\nŠTO ME ČINI POTPUNIM\nPRIJATELJEM GOSPODNJIM,\nNIŠTA OSIM KRVI, TVOJE KRVI,\nKRALJU ISUSE.",
+      "TVOJ KRIŽ MILOST SVJEDOČI\nO SRCU OČEVU,\nŠTO PUT NAM PRIPRAVI.\nHRABRO KROČIM SAD\nU SIGURNOSTI ZBOG\nKRVI KRISTOVE.",
+      "ŠTO ĆE GRIJEHE OPRATI,\nOPET NAS ISPUNITI,\nNIŠTA OSIM KRVI,\nNIŠTA OSIM KRVI KRISTOVE.\nŠTO ME ČINI POTPUNIM\nPRIJATELJEM GOSPODNJIM,\nNIŠTA OSIM KRVI, TVOJE KRVI,\nKRALJU ISUSE. 2X"
+    ]
+  },
+  {
+    "id": "nitko-kao-ti",
+    "title": "Nitko kao Ti",
+    "slug": "nitko-kao-ti",
+    "fileName": "Nitko kao Ti.json",
+    "stanzaCount": 3,
+    "preview": "NITKO KAO TI NE MOŽE SRCE / MOJE DOTAKNUTI,",
+    "categories": [],
+    "massSections": [
+      "Pričesna"
+    ],
+    "stanzas": [
+      "NITKO KAO TI NE MOŽE SRCE\nMOJE DOTAKNUTI,\nDA CIJELU VJEČNOST TRAŽIM\nNEĆU NAĆI NIKOG\nKAO ŠTO SI TI. 2X",
+      "TA PREDIVNA TVOJA MILOST\nDOTIČE NAS,\nTVOJA RUKA ISCJELJUJE.\nDVORI SU TVOJI MOJE\nSKLONIŠTE, NITKO KAO TI NIJE.",
+      "NITKO KAO TI NE MOŽE SRCE MOJE DOTAKNUTI,\n\nDA CIJELU VJEČNOST TRAŽIM NEĆU NAĆI NIKOG\nKAO ŠTO SI TI. 2X"
+    ]
+  },
+  {
+    "id": "o-isuse-izranjeni",
+    "title": "O Isuse izranjeni",
+    "slug": "o-isuse-izranjeni",
+    "fileName": "O Isuse izranjeni.json",
+    "stanzaCount": 4,
+    "preview": "O ISUSE IZRANJENI, / DRVU KRIŽA PRIBIJENI, DUŠU SI ISPUSTIO,",
+    "categories": [
+      "Korizmene"
+    ],
+    "massSections": [],
+    "stanzas": [
+      "O ISUSE IZRANJENI,\nDRVU KRIŽA PRIBIJENI, DUŠU SI ISPUSTIO,\nDUŠU SI ISPUSTIO.",
+      "OD LJUBAVI PREVELIKE\nZA SVE LJUDE, NAS GREŠNIKE AH, DA TE NE LJUBIM JA,\nAH, DA TE NE LJUBIM JA.",
+      "PUSTIT’ NIGDA TEBE NEĆU, NIT’ SVOG SRCA\nVRIJEĐAT SREĆU,\nNIKAD VIŠE GRIJESIMA,\nNIKAD VIŠE GRIJESIMA!",
+      "LJUBAVLJU ĆU LJUBAV VRAĆAT’,\nZA SVE BOLI ‘VIJEK ĆU PLAĆAT’\nSLATKOM TEBI UTJEHOM,\nSLATKOM TEBI UTJEHOM!"
+    ]
+  },
+  {
+    "id": "o-do-ite-s-hvalama",
+    "title": "O, dođite s hvalama",
+    "slug": "o-do-ite-s-hvalama",
+    "fileName": "O, dođite s hvalama.json",
+    "stanzaCount": 1,
+    "preview": "O DOĐITE S HVALAMA PRED GOSPODA I U DVORE MU SA PJESAMAMA. / JER ON VELIKA DJELA ZA NAS UČINI I OD SMRTI NAS OSLOBODI.",
+    "categories": [
+      "Slavljenje"
+    ],
+    "massSections": [
+      "Ulazna"
+    ],
+    "stanzas": [
+      "O DOĐITE S HVALAMA PRED GOSPODA I U DVORE MU SA PJESAMAMA.\nJER ON VELIKA DJELA ZA NAS UČINI I OD SMRTI NAS OSLOBODI.\n\nNAŠ JE BOG KRALJ NAD ZEMLJOM I NAD ČITAVIM SVEMIROM SJA. 2X"
+    ]
+  },
+  {
+    "id": "od-svih-zena",
+    "title": "Od svih žena",
+    "slug": "od-svih-zena",
+    "fileName": "Od svih žena.json",
+    "stanzaCount": 4,
+    "preview": "OD SVIH ŽENA TI SI TA KOJA / S NEBA JE ODABRANA.",
+    "categories": [
+      "Marijanske"
+    ],
+    "massSections": [
+      "Završna"
+    ],
+    "stanzas": [
+      "OD SVIH ŽENA TI SI TA KOJA\nS NEBA JE ODABRANA.\nMARIJO, PUNA MILOSTI.\nOD SVIH ŽENA TI SI TA KOJA\nHRAM JE SPASA POSTALA.\nMARIJO, PUNA MILOSTI.",
+      "PRED TOBOM STREPI TAMA,\nMORA SE DIŽU VISOKO,\nSVA STVORENJA KLIČU.\nPOSVUDA KAD ODZVANJA TO\nTVOJE IME VELIKO RADOSNO.\nMARIJO, MARIJO!\nMARIJO, TVOJE IME DOZIVAMO.",
+      "REKLA SI: „DA!” NEBESIMA,\nPRESVETA MAJKO KRISTA,\nSINA BOŽJEGA.\nREKLA SI: „DA!” NEBESIMA,\nPONIZNOST TVOJU CIJELI\nSVIJET SAD PROSLAVLJA. 2X",
+      "MARIJO, MARIJO!\nMARIJO, TVOJE IME DOZIVAMO. 2X"
+    ]
+  },
+  {
+    "id": "on-dolazi-da-spasi-vas",
+    "title": "On dolazi da spasi vas",
+    "slug": "on-dolazi-da-spasi-vas",
+    "fileName": "On dolazi da spasi vas.json",
+    "stanzaCount": 4,
+    "preview": "PREPLAŠENIM SRCIMA RECITE: / NE BOJTE SE!",
+    "categories": [
+      "Slavljenje"
+    ],
+    "massSections": [
+      "Ulazna"
+    ],
+    "stanzas": [
+      "PREPLAŠENIM SRCIMA RECITE:\nNE BOJTE SE!\nVAŠ JE BOG SNAŽAN, SVOJOM\nMOĆNOM RUKOM,\nKAD ZAZOVETE GA,\nDONIJET ĆE SVOJ SPAS.",
+      "ON DOLAZI DA SPASI VAS,\nDOLAZI DA SPASI VAS!\nRECITE SLABIMA: BOG VAŠ SIGURNO\nDOLAZI DA SPASI VAS!\nON DOLAZI DA SPASI VAS,\nDOLAZI DA SPASI VAS!\nPOGLED SVOJ DIGNITE, OPET VAS\nPODIŽE, ON DOLAZI DA SPASI VAS!",
+      "RECITE SVIM SLOMLJENIM SRCIMA:\nVJERU NE GUBITE!\nVAŠ JE BOG SNAŽAN U SVOJOJ\nLJUBAVI, KAD ZAZOVETE GA,\nDONIJET ĆE SVOJ SPAS.",
+      "ON DOLAZI DA SPASI VAS,\nDOLAZI DA SPASI VAS!\nRECITE SLABIMA: BOG VAŠ\nSIGURNO DOLAZI DA SPASI VAS!\nON DOLAZI DA SPASI VAS,\nDOLAZI DA SPASI VAS!\nPOGLED SVOJ DIGNITE, OPET VAS\nPODIŽE, ON DOLAZI DA SPASI VAS!"
+    ]
+  },
+  {
+    "id": "oprosti-majko",
+    "title": "Oprosti, Majko",
+    "slug": "oprosti-majko",
+    "fileName": "Oprosti, Majko.json",
+    "stanzaCount": 6,
+    "preview": "POD KRIŽEM KLEČI MAJKA I / GLEDA SINA SVOG,",
+    "categories": [
+      "Korizmene"
+    ],
+    "massSections": [],
+    "stanzas": [
+      "POD KRIŽEM KLEČI MAJKA I\nGLEDA SINA SVOG,\nPOD KRIŽEM KLEČI, MOLI BOGA\nRASPETOG.\nPOD KRIŽEM PLAČE NIJEMA,\nBOL JE SLOMILA, SUZA VIŠE\nNEMA, TUGA IH ISPILA.",
+      "OPROSTI, MAJKO, OPROSTI I JA\nSAM BIO TU.\nOPROSTI, MAJKO, OPROSTI\nS JUDOM GA LJUBIO.\n\nLJUBIO, BOGA SAM IZDAO,\nIZDAO, NISAM NI ZNAO! 2X",
+      "S KRIŽA PRIMA TIJELO SINA\nRASPETOG, U KRILU GRLI\nDIJETE, SINA OČEVOG!\nRANE SVETE LJUBI SINU\nVOLJENOM, RANJENO JE SRCE\nU SRCU PROBODENOM.",
+      "OPROSTI, MAJKO, OPROSTI I JA\nSAM BIO TU.\nOPROSTI, MAJKO, OPROSTI\nS PETROM ZATAJIO.\n\nZATAJIO, LEĐA MU OKRENUO,\nIZDAO, NISAM NI ZNAO! 2X",
+      "RUKE SVOJE PRUŽA, SINA BI\nGRLILA, SNAGE VIŠE NEMA,\nTUGA JE SKRŠILA.\nGRLI, MAJKO, GRLI, EVO\nTI RUKE MOJE.\nGRLI, MAJKO, GRLI, LJUBI\nDIJETE SVOJE!",
+      "DOPUSTI, MAJKO, MOLIM I JA\nBIH BIO TU.\nDOPUSTI, MAJKO, MOLIM I JA\nGA LJUBIO.\n\nLJUBIO, S TOBOM GA GRLIO,\nGRLIO, U RANE SE SAKRIO. 2X"
+    ]
+  },
+  {
+    "id": "otvori-oci-mog-srca",
+    "title": "Otvori oči mog srca",
+    "slug": "otvori-oci-mog-srca",
+    "fileName": "Otvori oči mog srca.json",
+    "stanzaCount": 3,
+    "preview": "OTVORI OČI MOG SRCA, / OTVORI GOSPODE TI.",
+    "categories": [
+      "Slavljenje"
+    ],
+    "massSections": [
+      "Ulazna"
+    ],
+    "stanzas": [
+      "OTVORI OČI MOG SRCA,\nOTVORI GOSPODE TI.\nŽELIM TE VIDJETI,\nŽELIM TE VIDJETI! 2X",
+      "DA VIDIM TEBE IZNAD SVIH\nOBASJANOG SVJETLOŠĆU SLAVE.\nTI IZLIJ LJUBAV NA NAS,\nDOK PJEVAMO:\nSVETI, SVETI, SVETI! 2X",
+      "SVETI, SVETI, SVETI! 4X\n\nŽELIM TE VIDJETI!"
+    ]
+  },
+  {
+    "id": "ovo-je-dan",
+    "title": "Ovo je dan",
+    "slug": "ovo-je-dan",
+    "fileName": "Ovo je dan.json",
+    "stanzaCount": 6,
+    "preview": "OVO JE DAN, OVO JE DAN / ŠTO GA STVORI BOG,",
+    "categories": [
+      "Slavljenje"
+    ],
+    "massSections": [
+      "Ulazna"
+    ],
+    "stanzas": [
+      "OVO JE DAN, OVO JE DAN\nŠTO GA STVORI BOG,\nŠTO GA STVORI BOG!\nRADUJMO SE, RADUJMO SE, BOGU KLIČIMO,\nBOGU KLIČIMO!",
+      "OVO JE DAN\nŠTO GA STVORI BOG,\nRADUJMO SE, BOGU KLIČIMO!\nOVO JE DAN, OVO JE DAN\nŠTO GA STVORI BOG!",
+      "OVO JE DAN, OVO JE DAN\nBOŽJE POBJEDE, BOŽJE POBJEDE!\nRADUJMO SE, RADUJMO SE, BOGU KLIČIMO,\nBOGU KLIČIMO!",
+      "OVO JE DAN\nBOŽJE POBJEDE,\nRADUJMO SE, BOGU KLIČIMO!\nOVO JE DAN, OVO JE DAN\nBOŽJE POBJEDE!",
+      "OVO JE DAN, OVO JE DAN\nBLAGOSLIVLJANJA, BLAGOSLIVLJANJA!\nRADUJMO SE, RADUJMO SE, BOGU KLIČIMO,\nBOGU KLIČIMO!",
+      "OVO JE DAN\nBLAGOSLIVLJANJA!\nRADUJMO SE, BOGU KLIČIMO,\nOVO JE DAN, OVO JE DAN\nBLAGOSLIVLJANJA!"
+    ]
+  },
+  {
+    "id": "padaj-s-neba",
+    "title": "Padaj s neba",
+    "slug": "padaj-s-neba",
+    "fileName": "Padaj s neba.json",
+    "stanzaCount": 4,
+    "preview": "PADAJ S NEBA, ROSO SVETA, / PADAJ S",
+    "categories": [
+      "Došašće"
+    ],
+    "massSections": [],
+    "stanzas": [
+      "PADAJ S NEBA, ROSO SVETA,\nPADAJ S\nRAJSKE VISINE!\nVAPIJAHU STAROG SVIJETA\nDUŠE ČISTE PRAVEDNE.",
+      "OTVORI SE, ZEMLJO MILA, DA IZ\nPLODNOG TVOGA KRILA\n\nU TAJ SRETAN, BLAŽEN ČAS\nSVEMU SVIJETU NIKNE SPAS. 2X",
+      "VEĆ SE BLIŽI VRIJEME BLAGO,\nVEĆ SE BLIŽI ONAJ ČAS KAD ĆE\nIZIĆ’ SUNCE DRAGO, SVANUT\nSVEMU SVIJETU SPAS.",
+      "SVANI, DANE, I NOĆ SKRATI,\nSINI SUNCE I POVRATI\n\nBOGU ČAST NA VISINI, SVIJETU\nMIR NA NIZINI. 2X"
+    ]
+  },
+  {
+    "id": "padaj-s-neba-4ta-kitica",
+    "title": "Padaj s neba 4ta kitica",
+    "slug": "padaj-s-neba-4ta-kitica",
+    "fileName": "Padaj s neba 4ta kitica.json",
+    "stanzaCount": 1,
+    "preview": "SVE NA SVIJETU, BOŽE BLAGI, / DARE TI PRIKAZUJE.",
+    "categories": [
+      "Došašće"
+    ],
+    "massSections": [],
+    "stanzas": [
+      "SVE NA SVIJETU, BOŽE BLAGI,\nDARE TI PRIKAZUJE.\nPRIMI I TAJ DAR PREDRAGI KOJI\nPUK TVOJ ŽRTVUJE: POD\nPRILIKOM KRUHA, VINA KRV I\nTIJELO TVOGA SINA,\n\nNEIZMJERNE CIJENE DAR,\nSTAVLJA TEBI NA OLTAR. 2X"
+    ]
+  },
+  {
+    "id": "po-ite-po-svem-svijetu",
+    "title": "Pođite po svem svijetu",
+    "slug": "po-ite-po-svem-svijetu",
+    "fileName": "Pođite po svem svijetu.json",
+    "stanzaCount": 1,
+    "preview": "Pođite po svem svijetu, / propovijedajte evanđelje!",
+    "categories": [],
+    "massSections": [
+      "Otpjevni psalam"
+    ],
+    "stanzas": [
+      "Pođite po svem svijetu,\npropovijedajte evanđelje!"
+    ]
+  },
+  {
+    "id": "poslan-bi-an-el-gabrijel",
+    "title": "Poslan bi Anđel Gabrijel",
+    "slug": "poslan-bi-an-el-gabrijel",
+    "fileName": "Poslan bi Anđel Gabrijel.json",
+    "stanzaCount": 4,
+    "preview": "POSLAN BI ANĐEL GABRIJEL OD / BOGA U GRAD NAZARET",
+    "categories": [
+      "Došašće"
+    ],
+    "massSections": [],
+    "stanzas": [
+      "POSLAN BI ANĐEL GABRIJEL OD\nBOGA U GRAD NAZARET\n\nK JEDNOJ PONIZNOJ DJEVICI I\nPRAVOJ BOŽJOJ SLUŽBENICI. 2X",
+      "KAD MARIJI ON DOTEČE, PONIZNO\nJOJ OVO REČE:\n\nOJ ZDRAVO PUNA MILOSTI,\nDJEVICE, KRUNO SVETOSTI. 2X",
+      "VESELJE SAD ĆE POČETI,\nSINA ĆEŠ BOŽJEG ZAČETI,\n\nBOG DUH ĆE SVETI S TOBOM BIT’\nI OVE RIJEČI ISPUNIT. 2X",
+      "SINA ĆEŠ TI PORODITI,\nISUS ĆE SE NAZIVATI,\n\nA PLOD TVOJ BIT ĆE BOŽJI SIN\nI PRAVI BOG GOSPODIN. 2X"
+    ]
+  },
+  {
+    "id": "primi-ove-darove-nas-oce",
+    "title": "Primi ove darove, naš Oče",
+    "slug": "primi-ove-darove-nas-oce",
+    "fileName": "Primi ove darove, naš Oče.json",
+    "stanzaCount": 2,
+    "preview": "PRIMI OVE DAROVE, NAŠ OČE. / KRUH I VINO BLAGOSLOVI TI.",
+    "categories": [],
+    "massSections": [
+      "Prinosna"
+    ],
+    "stanzas": [
+      "PRIMI OVE DAROVE, NAŠ OČE.\nKRUH I VINO BLAGOSLOVI TI.\n\nSVAKA NAŠA MOLITVA I PJESMA\nNEKA BUDE DAR TVOJOJ\nVJEČNOJ LJUBAVI. 2X",
+      "PRIMI OVE DAROVE, NAŠ OČE.\nKRUH I VINO BLAGOSLOVI TI.\n\nSVAKA NAŠA MOLITVA I PJESMA\nNEKA BUDE DAR TVOJOJ\nVJEČNOJ LJUBAVI. 2X"
+    ]
+  },
+  {
+    "id": "prinosimo-kruh",
+    "title": "Prinosimo kruh",
+    "slug": "prinosimo-kruh",
+    "fileName": "Prinosimo kruh.json",
+    "stanzaCount": 2,
+    "preview": "PRINOSIMO KRUH, / JEDEMO TIJELO KRISTOVO. 2X",
+    "categories": [],
+    "massSections": [
+      "Prinosna"
+    ],
+    "stanzas": [
+      "PRINOSIMO KRUH,\nJEDEMO TIJELO KRISTOVO. 2X\n\nIAKO MNOGI, JEDNO SMO\nTIJELO, ZAJEDNO BLAGUJEMO\nSAMO JEDAN KRUH. 2X",
+      "PRINOSIMO VINO,\nPIJEMO KRISTOVU KRV. 2X\n\nIAKO MNOGI, JEDNO SMO\nTIJELO, ZAJEDNO BLAGUJEMO\nSAMO JEDAN KRUH. 2X"
+    ]
+  },
+  {
+    "id": "prozmi-me-ti-si-slave-dostojan",
+    "title": "Prožmi me / Ti si slave dostojan",
+    "slug": "prozmi-me-ti-si-slave-dostojan",
+    "fileName": "Prožmi me - Ti si slave dostojan.json",
+    "stanzaCount": 3,
+    "preview": "PROŽMI ME VATROM SVOGA / DUHA I UČINI ME SEBI SLIČNIJIM.",
+    "categories": [
+      "Meditativne"
+    ],
+    "massSections": [
+      "Klanjanje"
+    ],
+    "stanzas": [
+      "PROŽMI ME VATROM SVOGA\nDUHA I UČINI ME SEBI SLIČNIJIM.\nSLOMI ME I UZMI SVAKI\nDIO MOG ŽIVOTA,\nTI ME, GOSPODINE,\nUPOTRIJEBI! 2X",
+      "TI SI SLAVE DOSTOJAN, BOŽE,\nTI SI SLAVE DOSTOJAN.\nPRED TOBOM PADAM I TEBE\nOBOŽAVAM, SAMO TI SI\nDOSTOJAN, TI SI DOSTOJAN,\nTI SI SLAVE DOSTOJAN. 2X",
+      "PRED TOBOM PADAM I TEBE\nOBOŽAVAM, SAMO TI SI\nDOSTOJAN, TI SI DOSTOJAN,\nTI SI SLAVE DOSTOJAN."
+    ]
+  },
+  {
+    "id": "prva-ljubav",
+    "title": "Prva ljubav",
+    "slug": "prva-ljubav",
+    "fileName": "Prva ljubav.json",
+    "stanzaCount": 4,
+    "preview": "NOVA ZORA DOLAZI, ZOVU / ŽETVE VELIKE.",
+    "categories": [],
+    "massSections": [
+      "Pričesna"
+    ],
+    "stanzas": [
+      "NOVA ZORA DOLAZI, ZOVU\nŽETVE VELIKE.\nTKO JE TAJ KOJI DAT ĆE TI\nSNAGE DA MU NOSIŠ\nPLODOVE? 2X",
+      "PRVA LJUBAV OPET TE ZOVE\nDA TI KRILA PODIGNE,\nPRVA LJUBAV OPET TE ZOVE\nDA JOJ PIJEŠ IZVORE. 2X",
+      "UZMI MIR AKO TREBAŠ, DOĐI,\nUMORAN, ŽEDAN, DOĐI,\nNE MORAŠ NIŠTA ČINITI.",
+      "PRVA LJUBAV OPET TE ZOVE\nDA TI KRILA PODIGNE,\nPRVA LJUBAV OPET TE ZOVE\nDA JOJ PIJEŠ IZVORE. 2X"
+    ]
+  },
+  {
+    "id": "put-i-istina",
+    "title": "Put i Istina",
+    "slug": "put-i-istina",
+    "fileName": "Put i Istina.json",
+    "stanzaCount": 1,
+    "preview": "KAO DA ČUJEM TVOJ GLAS, TAKO / NJEŽAN, MILOSRDAN.",
+    "categories": [],
+    "massSections": [
+      "Pričesna"
+    ],
+    "stanzas": [
+      "KAO DA ČUJEM TVOJ GLAS, TAKO\nNJEŽAN, MILOSRDAN.\nMOJE IME DOZIVA I TIHO\nPROGOVARA:\n\nJA SAM PUT I ISTINA, SLIJEDI ME,\nJA ŽIVOT DARUJEM I ČUVAM TE,\nKADA SLOME TE, SAMO ZOVI ME.\nJA UZ TEBE OSTAJEM!"
+    ]
+  },
+  {
+    "id": "put-stvara",
+    "title": "Put stvara",
+    "slug": "put-stvara",
+    "fileName": "Put stvara.json",
+    "stanzaCount": 6,
+    "preview": "TI SI TU, MEĐU NAMA SAD / JA SLAVIM TE,",
+    "categories": [
+      "Meditativne"
+    ],
+    "massSections": [
+      "Klanjanje"
+    ],
+    "stanzas": [
+      "TI SI TU, MEĐU NAMA SAD\nJA SLAVIM TE,\nJA SLAVIM TE.\nTI SI TU, OVDJE DJELUJEŠ,\nJA SLAVIM TE,\nJA SLAVIM TE.",
+      "PUT STVARA I ČUDA ČINI,\nRIJEČ SVOJU DRŽI,\nU TAMI SVIJETLI,\nMOJ BOG,\nTAKAV JE MOJ BOG!",
+      "TI SI TU, SRCA DOTIČEŠ,\nJA SLAVIM TE,\nJA SLAVIM TE.\nTI SI TU, SRCA LIJEČIŠ SVA,\nJA SLAVIM TE,\nJA SLAVIM TE.",
+      "PUT STVARA I ČUDA ČINI,\nRIJEČ SVOJU DRŽI,\nU TAMI SVIJETLI,\nMOJ BOG,\nTAKAV JE MOJ BOG!",
+      "I KAD NE VIDIM I TADA RADIŠ.\nKAD NE OSJEĆAM I TADA RADIŠ.\nTI DJELUJEŠ,\nNE PRESTAJEŠ NIKAD!\nTI DJELUJEŠ,\nNE PRESTAJEŠ NIKAD! X",
+      "PUT STVARA I ČUDA ČINI,\nRIJEČ SVOJU DRŽI,\nU TAMI SVIJETLI,\nMOJ BOG,\nTAKAV JE MOJ BOG!"
+    ]
+  },
+  {
+    "id": "raduj-se-raduj",
+    "title": "Raduj se, raduj",
+    "slug": "raduj-se-raduj",
+    "fileName": "Raduj se, raduj.json",
+    "stanzaCount": 2,
+    "preview": "RADUJ SE, RADUJ, KRALJICE / NEBA, ALE, ALELUJA!",
+    "categories": [
+      "Uskrsne"
+    ],
+    "massSections": [],
+    "stanzas": [
+      "RADUJ SE, RADUJ, KRALJICE\nNEBA, ALE, ALELUJA!\n\nJER KOG’ SI BILA DOSTOJNA\nNOSIT, ALE, ALELUJA!",
+      "ON USKRSNU KAKO REČE,\nALE, ALELUJA!\n\nMOLI SE, MOLI TI ZA NAS\nBOGU, ALE, ALELUJA!"
+    ]
+  },
+  {
+    "id": "rijeke-zive-vode",
+    "title": "Rijeke žive vode",
+    "slug": "rijeke-zive-vode",
+    "fileName": "Rijeke žive vode.json",
+    "stanzaCount": 7,
+    "preview": "RIJEKE ŽIVE VODE, POTECITE, / NEKA DUH SE RAZLIJE, SVAKOM",
+    "categories": [],
+    "massSections": [
+      "Pričesna"
+    ],
+    "stanzas": [
+      "RIJEKE ŽIVE VODE, POTECITE,\nNEKA DUH SE RAZLIJE, SVAKOM\nŽEDNOM SRCU DONESITE\nBOŽJU LJUBAV ZAUVIJEK.",
+      "KRISTE, JA U TVOJE OČI\nGLEDAM, SAMO TVOJOJ RIJEČI\nVJERUJEM, TI OBEĆAO SI AKO\nBUDEM VJERAN DA ĆEŠ IZLIT\nSVOGA DUHA NA MENE.",
+      "RIJEKE ŽIVE VODE, POTECITE,\nNEKA DUH SE RAZLIJE, SVAKOM\nŽEDNOM SRCU DONESITE\nBOŽJU LJUBAV ZAUVIJEK.",
+      "TI ZAPUŠI SA SVE ČETRI\nSTRANE SVIJETA, NEKA SUHE\nKOSTI OŽIVE, CIJELA ZEMLJA\nNEK ZBOG TEBE BUDE SVETA,\nTVOJA VATRA NEK ZAPALI SVE.",
+      "RIJEKE ŽIVE VODE, POTECITE,\nNEKA DUH SE RAZLIJE, SVAKOM\nŽEDNOM SRCU DONESITE\nBOŽJU LJUBAV ZAUVIJEK.",
+      "TI IZLIJEČI NAŠU DUŠU, DUH I\nTIJELO, ZBOG TEBE SE SRCE\nRADUJE, NAŠE BIĆE BIT ĆE\nSRETNO, BIT ĆE CIJELO,\nDUŠE SVETI, ISPUNI NAS SVE.",
+      "RIJEKE ŽIVE VODE, POTECITE,\nNEKA DUH SE RAZLIJE, SVAKOM\nŽEDNOM SRCU DONESITE\nBOŽJU LJUBAV ZAUVIJEK."
+    ]
+  },
+  {
+    "id": "sanctus-me-ugorska-misa",
+    "title": "Sanctus (Međugorska misa)",
+    "slug": "sanctus-me-ugorska-misa",
+    "fileName": "Sanctus (Međugorska misa).json",
+    "stanzaCount": 2,
+    "preview": "SANCTUS, SANCTUS, SANCTUS, / DOMINUS DEUS SABAOTH!",
+    "categories": [
+      "Međugorska misa"
+    ],
+    "massSections": [
+      "Svet"
+    ],
+    "stanzas": [
+      "SANCTUS, SANCTUS, SANCTUS,\nDOMINUS DEUS SABAOTH!\n\nPLENI SUNT CAELI ET TERRA\nGLORIA TUA. 2X\n\nHOSANNA, HOSANNA,\nHOSANNA, IN EXCELSIS! 2X",
+      "BENEDICTUS QUI VENIT, IN\nNOMINE DOMINI! 2X\n\nHOSANNA, HOSANNA,\nHOSANNA, IN EXCELSIS! 2X"
+    ]
+  },
+  {
+    "id": "sila-odozgor",
+    "title": "Sila odozgor",
+    "slug": "sila-odozgor",
+    "fileName": "Sila odozgor.json",
+    "stanzaCount": 2,
+    "preview": "OČE, RECI RIJEČ, SPUSTI DUHA / SVOG, NEK NAS LJUBAV",
+    "categories": [
+      "Meditativne"
+    ],
+    "massSections": [
+      "Klanjanje"
+    ],
+    "stanzas": [
+      "OČE, RECI RIJEČ, SPUSTI DUHA\nSVOG, NEK NAS LJUBAV\nISPUNI, MI MOLIMO:\n\nSILA ODOZGOR, NEK SIĐE SILA\nODOZGOR, SLOMI SVE OKOVE,\nPODIGNI MALENE NEK TE SLAVE\nSNAGOM DUHA TVOG. 2X",
+      "OČE, DAJ NAM MIR, DUHA\nPRESVETOG, MUDROST, JAKOST\nDARUJ NAM, MI MOLIMO:\n\nSILA ODOZGOR, NEK SIĐE SILA\nODOZGOR, SLOMI SVE OKOVE,\nPODIGNI MALENE NEK TE SLAVE\nSNAGOM DUHA TVOG. 2X"
+    ]
+  },
+  {
+    "id": "sjetite-se-cudesa",
+    "title": "Sjetite se čudesa",
+    "slug": "sjetite-se-cudesa",
+    "fileName": "Sjetite se čudesa.json",
+    "stanzaCount": 1,
+    "preview": "Sjetite se čudesa / koja Gospodin učini!",
+    "categories": [],
+    "massSections": [
+      "Otpjevni psalam"
+    ],
+    "stanzas": [
+      "Sjetite se čudesa\nkoja Gospodin učini!"
+    ]
+  },
+  {
+    "id": "slava-bogu-na-visini-marijina-misa",
+    "title": "Slava Bogu na visini (Marijina misa)",
+    "slug": "slava-bogu-na-visini-marijina-misa",
+    "fileName": "Slava Bogu na visini (Marijina misa).json",
+    "stanzaCount": 6,
+    "preview": "SLAVA BOGU NA VISINI, SLAVA / SVEMOGUĆEM OCU I SINU I",
+    "categories": [
+      "Marijina misa"
+    ],
+    "massSections": [
+      "Slava"
+    ],
+    "stanzas": [
+      "SLAVA BOGU NA VISINI, SLAVA\nSVEMOGUĆEM OCU I SINU I\nDUHU SVETOMU!",
+      "SLAVA BOGU NA VISINI I NA\nZEMLJI MIR LJUDIMA DOBRE\nVOLJE. HVALIMO TE,\nBLAGOSLIVLJAMO TE,\nKLANJAMO TI SE, SLAVIMO TE,\nZAHVALJUJEMO TI RADI VELIKE\nSLAVE TVOJE. GOSPODINE\nBOŽE, KRALJU NEBESKI!",
+      "SLAVA BOGU NA VISINI, SLAVA\nSVEMOGUĆEM OCU I SINU I\nDUHU SVETOMU!",
+      "BOŽE OČE, SVEMOGUĆI,\nGOSPODINE SINE\nJEDINOROĐENI ISUSE KRISTE,\nGOSPODINE BOŽE, JAGANJČE\nBOŽJI, SINE OČEV KOJI\nODUZIMAŠ GRIJEHE SVIJETA\nSMILUJ NAM SE, KOJI\nODUZIMAŠ GRIJEHE SVIJETA\nPRIMI NAŠU MOLITVU.",
+      "SLAVA BOGU NA VISINI, SLAVA\nSVEMOGUĆEM OCU I SINU I\nDUHU SVETOMU!",
+      "KOJI SJEDIŠ S DESNE OCU\nSMILUJ NAM SE JER TI SI JEDINI\nSVET, TI SI JEDINI GOSPODIN,\nTI SI JEDINI SVEVIŠNJI ISUSE\nKRISTE SA SVETIM DUHOM U\nSLAVI BOGA OCA!\nAMEN!"
+    ]
+  },
+  {
+    "id": "slava-tebi-kriste-boze",
+    "title": "Slava Tebi, Kriste Bože",
+    "slug": "slava-tebi-kriste-boze",
+    "fileName": "Slava Tebi, Kriste Bože.json",
+    "stanzaCount": 1,
+    "preview": "Slava Tebi, Kriste Bože, / Kralju slave vječite!",
+    "categories": [
+      "Korizmene"
+    ],
+    "massSections": [],
+    "stanzas": [
+      "Slava Tebi, Kriste Bože,\nKralju slave vječite!"
+    ]
+  },
+  {
+    "id": "slavim-te",
+    "title": "Slavim Te",
+    "slug": "slavim-te",
+    "fileName": "Slavim Te.json",
+    "stanzaCount": 9,
+    "preview": "SLAVIM U DOLINI / I NA PLANINI,",
+    "categories": [
+      "Slavljenje"
+    ],
+    "massSections": [],
+    "stanzas": [
+      "SLAVIM U DOLINI\nI NA PLANINI,\nSLAVIM KAD ZNAM\nI KADA SUMNJAM.\nSLAVIM I KAD SAM\nOPKOLJEN SA SVIH STRANA\nJER PROTIVNIK MOJ SE\nTAKO PORAŽAVA!",
+      "SVE DOKLE DIŠEM\nPOSTOJI RAZLOG DA\nSLAVIM TE, GOSPODE!\nSLAVIM TE, GOSPODE!",
+      "SLAVIM SA VOLJOM\nI KAD SAM BEZ NJE.\nSLAVIM JER ZNAM –\nIMAŠ VLAST IZNAD SVEG!\nMOJE JE SLAVLJENJE\nMOĆNO ORUŽJE.\nOD POKLIKA TOG\nPAO JERIHON JE!",
+      "SVE DOKLE DIŠEM\nPOSTOJI RAZLOG DA\nSLAVIM TE, GOSPODE!\nSLAVIM TE, GOSPODE!",
+      "NE MOGU ŠUTJETI\nMOJ BOG JE ŽIV,\nNEKA SAD ZNAJU TO SVI!\nSLAVIM TE, GOSPODE!\nSLAVIM TE!",
+      "SLAVIM JER VLADAŠ\nI KRALJUJEŠ TI,\nPOBIJEDIO GROB\nI USKRSNUO SI!\nSLAVIM JER VJERAN\nI ISTINIT SI,\nSLAVIM JER NEMA\nNIKOG K’O TI! 2X",
+      "SLAVIM TE, GOSPODE!\nSLAVIM TE, GOSPODE!\nSLAVIM TE, GOSPODE!\nSLAVIM TE, GOSPODE!",
+      "NE MOGU ŠUTJETI\nMOJ BOG JE ŽIV,\nNEKA SAD ZNAJU TO SVI! 2x\n\nSLAVIM TE, GOSPODE!",
+      "NEKA SVE\nŠTO IMA DAH\nSLAVI TE\nGOSPODE!"
+    ]
+  },
+  {
+    "id": "slavu-mu-dajmo",
+    "title": "Slavu mu dajmo",
+    "slug": "slavu-mu-dajmo",
+    "fileName": "Slavu mu dajmo.json",
+    "stanzaCount": 3,
+    "preview": "NEBESKI GLAS PROSLAVLJA GA I / ČITAV SVIJET ĆE SLAVITI! BOG",
+    "categories": [
+      "Slavljenje"
+    ],
+    "massSections": [
+      "Ulazna"
+    ],
+    "stanzas": [
+      "NEBESKI GLAS PROSLAVLJA GA I\nČITAV SVIJET ĆE SLAVITI! BOG\nČUDESAN JE!\nI SVE STVORENO UZDIŽE GLAS I\nPJEVA MU: BLAGOSLOVLJEN\nKRALJ NAD KRALJEVIMA!",
+      "NEBESKI GLAS PROSLAVLJA GA I\nČITAV SVIJET ĆE SLAVITI! BOG\nČUDESAN JE!\nI SVE STVORENO UZDIŽE GLAS I\nPJEVA MU: BLAGOSLOVLJEN\nKRALJ NAD KRALJEVIMA!",
+      "NEBESKI GLAS PROSLAVLJA GA I\nČITAV SVIJET ĆE SLAVITI! BOG\nČUDESAN JE!\nI SVE STVORENO UZDIŽE GLAS I\nPJEVA MU: BLAGOSLOVLJEN\nKRALJ NAD KRALJEVIMA!"
+    ]
+  },
+  {
+    "id": "snagom-tvog-imena",
+    "title": "Snagom Tvog Imena",
+    "slug": "snagom-tvog-imena",
+    "fileName": "Snagom Tvog Imena.json",
+    "stanzaCount": 6,
+    "preview": "IZBAVLJEN, SPAŠEN SAM SNAGOM TVOG IMENA. / OSUDA JE SRUŠENA",
+    "categories": [
+      "Meditativne"
+    ],
+    "massSections": [
+      "Klanjanje"
+    ],
+    "stanzas": [
+      "IZBAVLJEN, SPAŠEN SAM SNAGOM TVOG IMENA.\nOSUDA JE SRUŠENA\nSNAGOM TVOG IMENA.\nSVAKI STRAH PROGNAN JE\nSNAGOM TVOG IMENA.\nDUŠMANI BJEŽE PRED\nSNAGOM TVOG IMENA.",
+      "ISUS, JANJE DOSTOJNO\nZA NAS PREDANO,\nČOVJEK JE I BOG!\nIZNAD SVEGA UZVIŠEN,\nSVA SLAVA NEK’ JE TVOM\nIMENU!",
+      "SLABI NEK’ OJAČAJU\nSNAGOM TVOG IMENA\nI GLADNI NEK’ TE PRIMAJU\nSNAGOM TVOG IMENA.\nI NAJMANJI TE NALAZE\nSNAGOM TVOG IMENA.\nIZ GROBOVA NEK IZLAZE\nSNAGOM TVOG IMENA!",
+      "ISUS, JANJE DOSTOJNO\nZA NAS PREDANO,\nČOVJEK JE I BOG!\nIZNAD SVEGA UZVIŠEN,\nSVA SLAVA NEK’ JE TVOM\nIMENU, IMENU!",
+      "OTKUPI, ISCIJELI ME\nI SPASI.\nGOSPODE, OBRANI ME\nMOJ KRALJ SI! X",
+      "ISUS, JANJE DOSTOJNO\nZA NAS PREDANO,\nČOVJEK JE I BOG!\nIZNAD SVEGA UZVIŠEN,\nSVA SLAVA NEK’ JE TVOM\nIMENU! 2X"
+    ]
+  },
+  {
+    "id": "srce-predajem-ti",
+    "title": "Srce predajem ti",
+    "slug": "srce-predajem-ti",
+    "fileName": "Srce predajem ti.json",
+    "stanzaCount": 4,
+    "preview": "U MENI JE ČEŽNJA DA ŠTUJEM TE. / GOSPODE, SVIM SRCEM TE",
+    "categories": [],
+    "massSections": [
+      "Pričesna"
+    ],
+    "stanzas": [
+      "U MENI JE ČEŽNJA DA ŠTUJEM TE.\nGOSPODE, SVIM SRCEM TE\nPROSLAVLJAM.\nSVIM ŠTO JE U MENI ČAST DAJEM\nTI, SVE ŠTO OBOŽAVAM U TEBI JE.",
+      "SRCE PREDAJEM TI I DUŠU SVOJU,\nŽIVIM ZA TEBE.\nNEKA SVAKI MOJ DAH, SVAKI TREN\nŽIVOTA MOG BUDE ZA TEBE.",
+      "U MENI JE ČEŽNJA DA ŠTUJEM TE.\nGOSPODE, SVIM SRCEM TE\nPROSLAVLJAM.\nSVIM ŠTO JE U MENI ČAST DAJEM\nTI, SVE ŠTO OBOŽAVAM U TEBI JE.",
+      "SRCE PREDAJEM TI I DUŠU SVOJU,\nŽIVIM ZA TEBE.\nNEKA SVAKI MOJ DAH, SVAKI TREN\nŽIVOTA MOG BUDE ZA TEBE. 2X"
+    ]
+  },
+  {
+    "id": "srce-raskajano-ponizno",
+    "title": "Srce raskajano, ponizno",
+    "slug": "srce-raskajano-ponizno",
+    "fileName": "Srce raskajano, ponizno.json",
+    "stanzaCount": 1,
+    "preview": "Srce raskajno, ponizno, / Bože, nećeš prezreti.",
+    "categories": [],
+    "massSections": [
+      "Otpjevni psalam"
+    ],
+    "stanzas": [
+      "Srce raskajno, ponizno,\nBože, nećeš prezreti."
+    ]
+  },
+  {
+    "id": "sva-je-snaga-u-imenu-isus",
+    "title": "Sva je snaga u imenu Isus",
+    "slug": "sva-je-snaga-u-imenu-isus",
+    "fileName": "Sva je snaga u imenu Isus.json",
+    "stanzaCount": 4,
+    "preview": "SVA JE SNAGA U IMENU ISUS, / SVA JE SNAGA U IMENU ISUS,",
+    "categories": [
+      "Meditativne"
+    ],
+    "massSections": [
+      "Klanjanje"
+    ],
+    "stanzas": [
+      "SVA JE SNAGA U IMENU ISUS,\nSVA JE SNAGA U IMENU ISUS,\nSVA JE SNAGA U IMENU ISUS\nDA SLOMI OKOVE, SVE OKOVE,\nSVE OKOVE,\nDA SLOMI OKOVE, SVE OKOVE,\nSVE OKOVE. 2X",
+      "EVO VOJSKA USTAJE, EVO\nVOJSKA USTAJE, EVO VOJSKA\nUSTAJE DA SLOMI OKOVE,\nSVE OKOVE, SVE OKOVE;\nDA SLOMI OKOVE, SVE OKOVE,\nSVE OKOVE, SLOMI OKOVE…",
+      "IME ISUS SILNO JE, IME ISUS\nLIJEČI ME!\nIME ISUS SILNO JE, IME ISUS!\n\nIME NAD SVAKIM IMENOM, ON\nLOMI OKOVE, OSLOBAĐA\nZAROBLJENE!",
+      "SVA JE SNAGA U IMENU ISUS,\nSVA JE SNAGA U IMENU ISUS,\nSVA JE SNAGA U IMENU ISUS\nDA SLOMI OKOVE, SVE OKOVE,\nSVE OKOVE,\nDA SLOMI OKOVE, SVE OKOVE,\nSVE OKOVE."
+    ]
+  },
+  {
+    "id": "svake-slave-dostojan",
+    "title": "Svake slave dostojan",
+    "slug": "svake-slave-dostojan",
+    "fileName": "Svake slave dostojan.json",
+    "stanzaCount": 4,
+    "preview": "BRANE OTVARAŠ, / BLAGO PROSIPAŠ",
+    "categories": [
+      "Meditativne"
+    ],
+    "massSections": [
+      "Klanjanje"
+    ],
+    "stanzas": [
+      "BRANE OTVARAŠ,\nBLAGO PROSIPAŠ\nNA MOJE SRCE TEBE ŽEDNO.\nOVA LJUBAV JE NEPROCJENJIVA.\nTEBI PRIPADAM,\nKRALJU KRALJEVA,\nNEK’ TAMA ČUJE, NEKA DRHTI.\nOVA LJUBAV JE NEPOBJEDIVA.",
+      "SVE DOK DIŠEM\nPJEVAT ĆU TI:\nSLAVLJEN,\nSVAKE SLAVE DOSTOJAN,\nSVAKE SLAVE DOSTOJAN,\nGOSPODE! 2X",
+      "TEBI PRIPADAM,\nKRALJU KRALJEVA,\nNEK’ TAMA ČUJE, NEKA DRHTI.\nOVA LJUBAV JE NEPOBJEDIVA.\nI PRED STRAHOM I PRED SMRTI,\nSVE DOK DIŠEM PJEVAT ĆU TI:",
+      "SLAVLJEN,\nSVAKE SLAVE DOSTOJAN,\nSVAKE SLAVE DOSTOJAN,\nGOSPODE! 2X\nPJEVAT ĆU TI: SLAVLJEN,\nSVAKE SLAVE DOSTOJAN,\nSVAKE SLAVE DOSTOJAN,\nGOSPODE!"
+    ]
+  },
+  {
+    "id": "sve-u-meni-gospode",
+    "title": "Sve u meni Gospode",
+    "slug": "sve-u-meni-gospode",
+    "fileName": "Sve u meni Gospode.json",
+    "stanzaCount": 5,
+    "preview": "SVE U MENI, GOSPODE, PJEVA / TEBI SAD, PRED TOBOM JE",
+    "categories": [
+      "Meditativne"
+    ],
+    "massSections": [
+      "Klanjanje"
+    ],
+    "stanzas": [
+      "SVE U MENI, GOSPODE, PJEVA\nTEBI SAD, PRED TOBOM JE\nČITAV ŽIVOT MOJ.\nTI MI DADE ŽIVOT NOV, IZ TAME\nSPASI ME, TVOJOJ LJUBAVI ĆU\nUVIJEK PJEVATI, TVOJOJ\nLJUBAVI ĆU UVIJEK PJEVATI!",
+      "SVET JE, SVET JE, SVET JE\nGOSPOD BOG!\nSVET JE, SVET JE, SVET JE\nGOSPOD BOG!",
+      "SVE U MENI, GOSPODE, PJEVA\nTEBI SAD, PRED TOBOM JE\nČITAV ŽIVOT MOJ.\nTI MI DADE ŽIVOT NOV, IZ TAME\nSPASI ME, TVOJOJ LJUBAVI ĆU\nUVIJEK PJEVATI, TVOJOJ\nLJUBAVI ĆU UVIJEK PJEVATI!",
+      "SVET JE, SVET JE, SVET JE\nGOSPOD BOG!\nSVET JE, SVET JE, SVET JE\nGOSPOD BOG!",
+      "HOSANA, HOSANA, HOSANA U\nVISINI!\nHOSANA, HOSANA, HOSANA U\nVISINI!"
+    ]
+  },
+  {
+    "id": "svet-fides",
+    "title": "Svet (Fides)",
+    "slug": "svet-fides",
+    "fileName": "Svet (Fides).json",
+    "stanzaCount": 1,
+    "preview": "SVET, SVET, SVET JE GOSPOD / BOG. 2X",
+    "categories": [
+      "Fides"
+    ],
+    "massSections": [
+      "Svet"
+    ],
+    "stanzas": [
+      "SVET, SVET, SVET JE GOSPOD\nBOG. 2X\nHOSANA, HOSANA U VISINI! 2X\n\nBLAGOSLOVLJEN KOJI DOLAZI. 2X\nHOSANA, HOSANA U VISINI! 2X"
+    ]
+  },
+  {
+    "id": "svet-marijina-misa",
+    "title": "Svet (Marijina misa)",
+    "slug": "svet-marijina-misa",
+    "fileName": "Svet (Marijina misa).json",
+    "stanzaCount": 2,
+    "preview": "SVET, SVET, SVET, GOSPODIN / BOG SABAOT!",
+    "categories": [
+      "Marijina misa"
+    ],
+    "massSections": [
+      "Svet"
+    ],
+    "stanzas": [
+      "SVET, SVET, SVET, GOSPODIN\nBOG SABAOT!\nPUNA SU NEBESA I ZEMLJA\nTVOJE SLAVE!\nHOSANA U VISINI, HOSANA U\nVISINI, HOSANA U VISINI!",
+      "BLAGOSLOVLJEN KOJI DOLAZI U\nIME GOSPODNJE!\nHOSANA U VISINI, HOSANA U\nVISINI, HOSANA U VISINI!"
+    ]
+  },
+  {
+    "id": "svet-svet-gospodin",
+    "title": "Svet, svet Gospodin",
+    "slug": "svet-svet-gospodin",
+    "fileName": "Svet, svet Gospodin.json",
+    "stanzaCount": 2,
+    "preview": "SVET, SVET GOSPODIN, / SVET, SVET GOSPODIN, GOSPODIN BOG SABAOT, GOSPODIN BOG SABAOT.",
+    "categories": [],
+    "massSections": [
+      "Svet"
+    ],
+    "stanzas": [
+      "SVET, SVET GOSPODIN,\nSVET, SVET GOSPODIN, GOSPODIN BOG SABAOT, GOSPODIN BOG SABAOT.\n\nPUNA SU NEBESA I ZEMLJA TVOJE SLAVE.\nHOSANA, HOSANA, HOSANA U VISINI!",
+      "BLAGOSLOVLJEN KOJI, BLAGOSLOVLJEN KOJI DOLAZI U IME, U IME GOSPODNJE.\n\nHOSANA, HOSANA, HOSANA, HOSANA, HOSANA U VISINI!"
+    ]
+  },
+  {
+    "id": "sveti-plam",
+    "title": "Sveti plam",
+    "slug": "sveti-plam",
+    "fileName": "Sveti plam.json",
+    "stanzaCount": 3,
+    "preview": "ISUSE, KAD TI IME / SPOMENEM MOJE SRCE",
+    "categories": [
+      "Korizmene"
+    ],
+    "massSections": [],
+    "stanzas": [
+      "ISUSE, KAD TI IME\nSPOMENEM MOJE SRCE\nTIHO PALI SVETI PLAM.\nI DOK GORI ON, JA POLAKO\nNESTAJEM I VIŠE NIJE VAŽNA\nBUDUĆNOST NI SUDBINA.",
+      "VIDIM SAD U TVOJOJ RUCI\nŽIVOT MOJ, SVAKI NOVI DAN U\nSVJETLU TVOM I ZNAM:\nNI JEDNO BLAGO NITI VLAST,\nNI JEDNA SUZA NITI ČAST\nNE MOGU PLATIT’ CIJENU\nKAPLJE KRVI TVOJE.",
+      "NI TVOJE OČI UMORNE,\nNI MOKRO ČELO, ISUSE,\nNI KUCAJ SRCA ŠTO JE S KRIŽA\nREKLO SVOJE, DA NAS\nLJUBIŠ TI VJEČNOM LJUBAVLJU,\nDA S NAMA ŽIVIŠ TU\nU SVETOM PLAMENU!"
+    ]
+  },
+  {
+    "id": "sveto-tijelo",
+    "title": "Sveto Tijelo",
+    "slug": "sveto-tijelo",
+    "fileName": "Sveto Tijelo.json",
+    "stanzaCount": 3,
+    "preview": "SVETO TIJELO I SVETA KRV / ZA NAS SE PREDAJE.",
+    "categories": [],
+    "massSections": [
+      "Pričesna"
+    ],
+    "stanzas": [
+      "SVETO TIJELO I SVETA KRV\nZA NAS SE PREDAJE.\nSNAGOM LJUBAVI NAŠ GRIJEH\nNA KRIŽU OTKUPLJEN JE. 2X",
+      "SRCE NA OLTAR,\nPREDAJ SRCE NA OLTAR!\nSRCE NA OLTAR,\nPREDAJ SRCE ONOM KOJI\nLJUBI SAVRŠENO!",
+      "SVETO TIJELO I SVETA KRV\nZA NAS SE PREDAJE.\nSNAGOM LJUBAVI NAŠ GRIJEH\nNA KRIŽU OTKUPLJEN JE. 2X"
+    ]
+  },
+  {
+    "id": "svi-moji-izvori-prva-ljubav",
+    "title": "Svi moji izvori / Prva ljubav",
+    "slug": "svi-moji-izvori-prva-ljubav",
+    "fileName": "Svi moji izvori - Prva ljubav.json",
+    "stanzaCount": 3,
+    "preview": "SVI MOJI IZVORI SU U TEBI, / ŽIVE VODE DAJ MI! X",
+    "categories": [
+      "Meditativne"
+    ],
+    "massSections": [
+      "Klanjanje"
+    ],
+    "stanzas": [
+      "SVI MOJI IZVORI SU U TEBI,\nŽIVE VODE DAJ MI! X",
+      "UZMI MIR AKO TREBAŠ DOĐI.\nUMORAN, ŽEDAN, DOĐI.\nNE MORAŠ NIŠTA ČINITI. 4X",
+      "PRVA LJUBAV OPET TE ZOVE,\nDA TI KRILA PODIGNE.\nPRVA LJUBAV OPET TE ZOVE\nDA JOJ PIJEŠ IZVORE. 2X\nDA JOJ PIJEŠ IZVORE."
+    ]
+  },
+  {
+    "id": "takav-je-narastaj-onih",
+    "title": "Takav je naraštaj onih",
+    "slug": "takav-je-narastaj-onih",
+    "fileName": "Takav je naraštaj onih.json",
+    "stanzaCount": 1,
+    "preview": "Takav je naraštaj onih / koji traže lice tvoje,",
+    "categories": [],
+    "massSections": [
+      "Otpjevni psalam"
+    ],
+    "stanzas": [
+      "Takav je naraštaj onih\nkoji traže lice tvoje,\nGospodine!"
+    ]
+  },
+  {
+    "id": "ti-kazes",
+    "title": "Ti kažeš",
+    "slug": "ti-kazes",
+    "fileName": "Ti kažeš.json",
+    "stanzaCount": 8,
+    "preview": "BORIM SE SA MISLIMA DA NISAM TEBE DOSTOJNA, / LAŽIMA ŠTO KAŽU NIKAD NEĆU BITI DOVOLJNA.",
+    "categories": [],
+    "massSections": [
+      "Pričesna"
+    ],
+    "stanzas": [
+      "BORIM SE SA MISLIMA DA NISAM TEBE DOSTOJNA,\nLAŽIMA ŠTO KAŽU NIKAD NEĆU BITI DOVOLJNA.\nJESAM LI JA VIŠE OD TEK POBJEDA I PORAZA?\nTI MI RECI TKO SAM, TREBAM ČUTI ŠTO JE ISTINA.",
+      "TI KAŽEŠ: „LJUBIM TE!”\nI KAD NE OSJEĆAM,\nKAŽEŠ: „SNAŽNA SI!”\nKAD MISLIM SLABA SAM.\nKAŽEŠ: „DRŽIM TE!”\nDOK PADAM NAJDUBLJE I\nKAD NE PRIPADAM\nTI KAŽEŠ TVOJA SAM.",
+      "VAŽNO MI JE SAMO ONO ŠTO O MENI MISLIŠ TI, U TEBI JE SVE ŠTO TRAŽIM, SVOJU VRIJEDNOST NALAZIM. OO!",
+      "TI KAŽEŠ: „LJUBIM TE!”\nI KAD NE OSJEĆAM,\nKAŽEŠ: „SNAŽNA SI!”\nKAD MISLIM SLABA SAM.",
+      "KAŽEŠ: „DRŽIM TE!”\nDOK PADAM NAJDUBLJE I\nKAD NE PRIPADAM\nTI KAŽEŠ TVOJA SAM.\nI VJERUJEM, O, VJERUJEM ŠTO MI GOVORIŠ. JA VJERUJEM!",
+      "UZIMAM ŠTO IMAM I PRED NOGE TVOJE STAVLJAM SVE, TI ZNAŠ SVAKI NEUSPJEH I SVE MOJE POBJEDE. OO!",
+      "TI KAŽEŠ: „LJUBIM TE!”\nI KAD NE OSJEĆAM,\nKAŽEŠ: „SNAŽNA SI!”\nKAD MISLIM SLABA SAM.",
+      "KAŽEŠ: „DRŽIM TE!”\nDOK PADAM NAJDUBLJE I\nKAD NE PRIPADAM\nTI KAŽEŠ TVOJA SAM.\n\nI VJERUJEM, O, VJERUJEM ŠTO MI GOVORIŠ. JA VJERUJEM! 2X"
+    ]
+  },
+  {
+    "id": "ti-si",
+    "title": "Ti si",
+    "slug": "ti-si",
+    "fileName": "Ti si.json",
+    "stanzaCount": 7,
+    "preview": "MISLIM PONEKAD / DA SAM POSVE SAMA",
+    "categories": [],
+    "massSections": [
+      "Pričesna"
+    ],
+    "stanzas": [
+      "MISLIM PONEKAD\nDA SAM POSVE SAMA\nI TEŠKO MI TE NAĆI\nDOK JE KIŠNI DAN.\nOLUJA MI RAZARA SRCE,\nZNAM DA ĆU TE NAĆI\nDOK MI IME SPOMINJEŠ.\nKAŽEŠ: „SLIJEDI ME!”",
+      "A TI, TI SI K’O VATRA,\nGORIŠ U MENI, SRCE ISPUNJAŠ.\nA JA, JA ĆU ZA TOBOM,\nSLIJEDITI POZIV TVOJ DO KRAJA.\nTI SI RADOST SVAKOJ TUZI,\nONAJ KOJI NAS LJUBI,\nTI SI.",
+      "DANI PROLAZE I JA OPET PADAM,\nNOVI DOLAZE TI ME PODIŽEŠ.\nOČI TVOJE MENI SMISAO DAJU,\nTO JE PRIMITI I DATI,\nZNATI VOLJETI.\nKAŽEŠ: „SLIJEDI ME!”",
+      "A TI, TI SI K’O VATRA,\nGORIŠ U MENI, SRCE ISPUNJAŠ.\nA JA, JA ĆU ZA TOBOM,\nSLIJEDITI POZIV TVOJ DO KRAJA.",
+      "TI SI RADOST SVAKOJ TUZI,\nONAJ KOJI NAS LJUBI.\nTI SI JEDAN PRAVI PUT KROZ ŽIVOT VODIŠ ME.\nKAD ME POSVE STRAH,\nKAD SAM POSVE SLABA\nZNAM DA TI SI SA MNOM,\nMOJ BOG, MOJ PUT, MOJ ZAKLON.",
+      "A TI, TI SI K’O VATRA,\nGORIŠ U MENI, SRCE ISPUNJAŠ.\nA JA, JA ĆU ZA TOBOM,\nSLIJEDITI POZIV TVOJ DO KRAJA.\n2X",
+      "TI SI RADOST SVAKOJ TUZI,\nONAJ KOJI NAS LJUBI, TI SI.\nTI SI RADOST SVAKOJ TUZI,\nONAJ KOJI NAS LJUBI, TI SI,\nTI SI, ISUSE."
+    ]
+  },
+  {
+    "id": "ti-si-dostojan",
+    "title": "Ti si dostojan",
+    "slug": "ti-si-dostojan",
+    "fileName": "Ti si dostojan.json",
+    "stanzaCount": 6,
+    "preview": "SVI ANĐELI I SVETI / KLANJAJU TI SE.",
+    "categories": [
+      "Slavljenje"
+    ],
+    "massSections": [],
+    "stanzas": [
+      "SVI ANĐELI I SVETI\nKLANJAJU TI SE.\nSVE STARJEŠINE SVOJE KRUNE\nPOLAŽU PRED JAGANJCA. 2X",
+      "JER TI SI DOSTOJAN,\nSAMO TI SI DOSTOJAN JER OD\nTEBE JE SVE I ZA TEBE JE SVE.\nTEBI SLAVA PRIPADA.",
+      "SVI ANĐELI I SVETI\nKLANJAJU TI SE.\nSVE STARJEŠINE SVOJE KRUNE\nPOLAŽU PRED JAGANJCA.",
+      "JER TI SI DOSTOJAN,\nSAMO TI SI DOSTOJAN JER OD\nTEBE JE SVE I ZA TEBE JE SVE.\nTEBI SLAVA PRIPADA. 2X",
+      "DAN I NOĆ, NOĆ I DAN NEK’\nDIŽE SE KAD. X\u000b\u000bDAN I NOĆ.",
+      "JER TI SI DOSTOJAN,\nSAMO TI SI DOSTOJAN JER OD\nTEBE JE SVE I ZA TEBE JE SVE.\nTEBI SLAVA PRIPADA. 2X"
+    ]
+  },
+  {
+    "id": "ti-si-sin-moj-danas-te-rodih",
+    "title": "Ti si Sin moj, danas Te rodih",
+    "slug": "ti-si-sin-moj-danas-te-rodih",
+    "fileName": "Ti si Sin moj, danas Te rodih.json",
+    "stanzaCount": 1,
+    "preview": "Ti si Sin moj, / danas Te rodih.",
+    "categories": [],
+    "massSections": [
+      "Otpjevni psalam"
+    ],
+    "stanzas": [
+      "Ti si Sin moj,\ndanas Te rodih."
+    ]
+  },
+  {
+    "id": "tko-ide-za-tobom-gospodine",
+    "title": "Tko ide za tobom, Gospodine",
+    "slug": "tko-ide-za-tobom-gospodine",
+    "fileName": "Tko ide za tobom, Gospodine.json",
+    "stanzaCount": 1,
+    "preview": "TKO IDE ZA TOBOM, / GOSPODINE, IMAT ĆE",
+    "categories": [],
+    "massSections": [
+      "Otpjevni psalam"
+    ],
+    "stanzas": [
+      "TKO IDE ZA TOBOM,\nGOSPODINE, IMAT ĆE\nSVJETLO ŽIVOTA."
+    ]
+  },
+  {
+    "id": "tko-je-kao-ti-svet-je-gospod-slave",
+    "title": "Tko je kao Ti (Svet je Gospod slave)",
+    "slug": "tko-je-kao-ti-svet-je-gospod-slave",
+    "fileName": "Tko je kao Ti (Svet je Gospod slave).json",
+    "stanzaCount": 8,
+    "preview": "GOSPODE, PRED TOBOM / KLANJAM SE.",
+    "categories": [
+      "Meditativne"
+    ],
+    "massSections": [
+      "Klanjanje"
+    ],
+    "stanzas": [
+      "GOSPODE, PRED TOBOM\nKLANJAM SE.\nTEBI SE POTPUNO PREDAJEM.\nDUŠA MI ČEZNE DA SPOZNA TE,\nOTKRIJ SE!",
+      "SVET JE, SVET JE GOSPOD\nSLAVE, DIŽEMO GLAS,\nNAŠ KRALJ NEK’ ČUJE NAS!\nVRIJEDAN, DOSTOJAN I\nVRIJEDAN, DIŽEMO GLAS,\nNAŠ KRALJ NEK’ ČUJE NAS!",
+      "GOSPODE, PRED TOBOM\nKLANJAM SE.\nTEBI SE POTPUNO PREDAJEM.\nDUŠA MI ČEZNE DA SPOZNA TE,\nOTKRIJ SE!",
+      "SVET JE, SVET JE GOSPOD\nSLAVE, DIŽEMO GLAS,\nNAŠ KRALJ NEK’ ČUJE NAS!\nVRIJEDAN, DOSTOJAN I\nVRIJEDAN, DIŽEMO GLAS,\nNAŠ KRALJ NEK’ ČUJE NAS! 2X",
+      "IZ SVEGA GLASA TEBI DOŠLI\nSMO PJEVATI JER TKO JE KAO TI,\nJER TKO JE KAO TI? X",
+      "SVET JE, SVET JE GOSPOD\nSLAVE, DIŽEMO GLAS,\nNAŠ KRALJ NEK’ ČUJE NAS!\nVRIJEDAN, DOSTOJAN I\nVRIJEDAN, DIŽEMO GLAS,\nNAŠ KRALJ NEK’ ČUJE NAS! 2X",
+      "NEK’ SE SLAVA GOSPODNJA NA\nNAS IZLIJEVA!\nNEK’ SE SLAVA GOSPODNJA\nNA NAS IZLIJEVA! X",
+      "SVET JE, SVET JE GOSPOD\nSLAVE, DIŽEMO GLAS,\nNAŠ KRALJ NEK’ ČUJE NAS!\nVRIJEDAN, DOSTOJAN I\nVRIJEDAN, DIŽEMO GLAS,\nNAŠ KRALJ NEK’ ČUJE NAS!"
+    ]
+  },
+  {
+    "id": "tko-je-taj-sto-dolazi-iz-edoma",
+    "title": "Tko je taj što dolazi iz Edoma",
+    "slug": "tko-je-taj-sto-dolazi-iz-edoma",
+    "fileName": "Tko je taj što dolazi iz Edoma.json",
+    "stanzaCount": 5,
+    "preview": "TKO JE TAJ, TKO JE TAJ ŠTO / DOLAZI IZ EDOMA?",
+    "categories": [
+      "Korizmene"
+    ],
+    "massSections": [],
+    "stanzas": [
+      "TKO JE TAJ, TKO JE TAJ ŠTO\nDOLAZI IZ EDOMA?\nU HALJAMA CRVENIM\nNATOPLJENIM KRVLJU\nPRESVETOM. 2X",
+      "GOSPODIN SILAN\nU SNAZI I MOĆI.\nSLUGA PATNIK U CRVENIM\nHALJAMA, HALJAMA OD KRVI.\nČOVJEK BOLI VIČAN PATNJAMA.\nON JE TAJ ŠTO DOLAZI IZ EDOMA,\nU HALJAMA, HALJAMA CRVENIM.",
+      "TKO JE TAJ, TKO JE TAJ ŠTO\nDOLAZI IZ EDOMA?\nU HALJAMA CRVENIM\nNATOPLJENIM KRVLJU\nPRESVETOM.",
+      "GOSPODIN SILAN\nU SNAZI I MOĆI.\nSLUGA PATNIK U CRVENIM\nHALJAMA, HALJAMA OD KRVI.\nČOVJEK BOLI VIČAN PATNJAMA.\nON JE TAJ ŠTO DOLAZI IZ EDOMA,\nU HALJAMA, HALJAMA CRVENIM.\n2X",
+      "ON JE TAJ, ON JE TAJ ŠTO DOLAZI\nIZ EDOMA.\nU HALJAMA CRVENIM\nNATOPLJENIM KRVLJU\nPRESVETOM.\nON JE TAJ, ON JE TAJ ŠTO DOLAZI\nIZ EDOMA."
+    ]
+  },
+  {
+    "id": "to-mi-gospod-ucini",
+    "title": "To mi Gospod učini",
+    "slug": "to-mi-gospod-ucini",
+    "fileName": "To mi Gospod učini.json",
+    "stanzaCount": 5,
+    "preview": "NEKA SLAB KLIČE: / „JA SAM JAK!”,",
+    "categories": [],
+    "massSections": [
+      "Pričesna"
+    ],
+    "stanzas": [
+      "NEKA SLAB KLIČE:\n„JA SAM JAK!”,\nA SIROMAH: „BOGAT SAM!”\nNEKA SLIJEP KLIČE:\n„VIDIM! TO MI GOSPOD UČINI.” 2X",
+      "HOSANA, HOSANA,\nSINU DAVIDOVU!\nHOSANA, HOSANA\nU VISINI! 2X",
+      "SA NEBESA SIŠAO DA\nBI SVIJET OTKUPIO.\nISUS UMRIJE ZA MENE,\nGRIJEHA OSLOBODI ME. 2X",
+      "HOSANA, HOSANA,\nSINU DAVIDOVU!\nHOSANA, HOSANA\nU VISINI! 2X",
+      "NEKA SLAB KLIČE:\n„JA SAM JAK!”,\nA SIROMAH: „BOGAT SAM!”\nNEKA SLIJEP KLIČE:\n„VIDIM! TO MI GOSPOD UČINI. TO MI GOSPOD UČINI.”"
+    ]
+  },
+  {
+    "id": "tvoja-krv",
+    "title": "Tvoja Krv",
+    "slug": "tvoja-krv",
+    "fileName": "Tvoja Krv.json",
+    "stanzaCount": 2,
+    "preview": "TVOJA KRV ŠTO ČISTI ME, / TVOJA KRV ŠTO ŽIVOT MI DA,",
+    "categories": [],
+    "massSections": [
+      "Pričesna"
+    ],
+    "stanzas": [
+      "TVOJA KRV ŠTO ČISTI ME,\nTVOJA KRV ŠTO ŽIVOT MI DA,\nTVOJA KRV UMJESTO MENE KAO\nŽRTVA POMIRNA ČINI MENE\nBJELJIM NEGO SNIJEG,\nNEGO SNIJEG.\nMOJ ISUS, MOJA LJUBAV,\nMOJE SVE.",
+      "TVOJA KRV ŠTO ČISTI NAS,\nTVOJA KRV ŠTO ŽIVOT NAM DA,\nTVOJA KRV UMJESTO NAS KAO\nŽRTVA POMIRNA ČINI NAS BJELJIM\nNEGO SNIJEG,\nNEGO SNIJEG.\nNAŠ ISUS, NAŠA LJUBAV,\nNAŠE SVE."
+    ]
+  },
+  {
+    "id": "tvoja-ljubav",
+    "title": "Tvoja ljubav",
+    "slug": "tvoja-ljubav",
+    "fileName": "Tvoja ljubav.json",
+    "stanzaCount": 6,
+    "preview": "TI SI PLATIO CIJENU NA KRIŽU, SAV TERET I GRIJEH ZA / MENE PONIO.",
+    "categories": [
+      "Slavljenje"
+    ],
+    "massSections": [],
+    "stanzas": [
+      "TI SI PLATIO CIJENU NA KRIŽU, SAV TERET I GRIJEH ZA\nMENE PONIO.\nIZ LJUBAVI UČINIO SI SVE DA\nOVIM SVIJETOM KROČIM OSLOBOĐEN.",
+      "O, KAKO JE TVOJA LJUBAV\nVELIKA, TI SI DAO SVE,\nDAO ZA MENE,\nSAMO JEDNA KAP TVOJE KRVI,\nISUSE, SADA ČISTI ME,\nČINI NOVO SVE.",
+      "ZATO LJUBIT ĆU VJEČNO SVOG\nKRALJA, SVA HVALA I SLAVA\nTEBI PRIPADA.\nIZ LJUBAVI UČINIO SI SVE,\nDA MOJE ŽIVI, TVOJE SRCE\nPROBODENO JE.",
+      "O, KAKO JE TVOJA LJUBAV\nVELIKA, TI SI DAO SVE,\nDAO ZA MENE,\nSAMO JEDNA KAP TVOJE KRVI,\nISUSE, SADA ČISTI ME,\nČINI NOVO SVE.",
+      "NI SMRT, NI ŽIVOT, NI SILE\nNITI SVIJET, NEĆE ME\nRASTAVITI OD TEBE!\nNI SMRT, NI ŽIVOT, NI SILE\nNITI SVIJET, NEĆE ME\nRASTAVITI OD TEBE! 2X\nO, NEĆE ME RASTAVITI OD\nTEBE!",
+      "O, KAKO JE TVOJA LJUBAV\nVELIKA, TI SI DAO SVE,\nDAO ZA MENE,\nSAMO JEDNA KAP TVOJE KRVI,\nISUSE, SADA ČISTI ME,\nČINI NOVO SVE. 2X"
+    ]
+  },
+  {
+    "id": "u-nevolji-gospodina-zazvah",
+    "title": "U nevolji Gospodina zazvah",
+    "slug": "u-nevolji-gospodina-zazvah",
+    "fileName": "U nevolji Gospodina zazvah.json",
+    "stanzaCount": 1,
+    "preview": "U NEVOLJI GOSPODINA ZAZVAH / I USLIŠA ME!",
+    "categories": [],
+    "massSections": [
+      "Otpjevni psalam"
+    ],
+    "stanzas": [
+      "U NEVOLJI GOSPODINA ZAZVAH\nI USLIŠA ME!"
+    ]
+  },
+  {
+    "id": "u-ite-s-hvalama",
+    "title": "Uđite s hvalama",
+    "slug": "u-ite-s-hvalama",
+    "fileName": "Uđite s hvalama.json",
+    "stanzaCount": 7,
+    "preview": "UĐITE S HVALAMA NA / VRATA NJEGOVA,",
+    "categories": [
+      "Slavljenje"
+    ],
+    "massSections": [
+      "Ulazna"
+    ],
+    "stanzas": [
+      "UĐITE S HVALAMA NA\nVRATA NJEGOVA,\nU DVORE NJEGOVE\nS PJESMAMA.",
+      "KLIČI BOGU ZEMLJO SVA,\nSLUŽITE MU U VESELJU,\nPRED LICE NJEMU DOĐITE\nS RADOSNIM KLICANJEM!",
+      "UĐITE S HVALAMA NA\nVRATA NJEGOVA,\nU DVORE NJEGOVE\nS PJESMAMA.",
+      "ZNAJTE DA JE GOSPOD BOG,\nON NAS STVORI,\nMI SMO NJEGOVI.\nDA, MI SMO NJEGOV NAROD,\nOVCE PAŠE NJEGOVE.",
+      "UĐITE S HVALAMA NA\nVRATA NJEGOVA,\nU DVORE NJEGOVE\nS PJESMAMA.",
+      "JER JE DOBAR GOSPOD BOG,\nDOVIJEKA JE LJUBAV NJEGOVA.\nOD KOLJENA DO KOLJENA\nVJERNOST JE NJEGOVA.",
+      "UĐITE S HVALAMA NA\nVRATA NJEGOVA,\nU DVORE NJEGOVE\nS PJESMAMA."
+    ]
+  },
+  {
+    "id": "uputi-me-gospodine",
+    "title": "Uputi me, Gospodine",
+    "slug": "uputi-me-gospodine",
+    "fileName": "Uputi me, Gospodine.json",
+    "stanzaCount": 1,
+    "preview": "Uputi me, Gospodine, / stazom svojih",
+    "categories": [],
+    "massSections": [
+      "Otpjevni psalam"
+    ],
+    "stanzas": [
+      "Uputi me, Gospodine,\nstazom svojih\nzapovijedi!"
+    ]
+  },
+  {
+    "id": "velik-si",
+    "title": "Velik si",
+    "slug": "velik-si",
+    "fileName": "Velik si.json",
+    "stanzaCount": 4,
+    "preview": "DAJEMO TI SLAVU, / ČAST I HVALU,",
+    "categories": [
+      "Slavljenje"
+    ],
+    "massSections": [],
+    "stanzas": [
+      "DAJEMO TI SLAVU,\nČAST I HVALU,\nTEBI PODIŽEMO RUKE,\nTVOJE IME SLAVIMO. 2X",
+      "JER VELIK SI,\nČINIŠ DJELA VELIKA,\nNITKO NIJE KAO TI, ISUSE,\nNITKO NIJE KAO TI! 2X",
+      "DAJEMO TI SLAVU,\nČAST I HVALU,\nTEBI PODIŽEMO RUKE,\nTVOJE IME SLAVIMO. 2X",
+      "JER VELIK SI,\nČINIŠ DJELA VELIKA,\nNITKO NIJE KAO TI, ISUSE,\nNITKO NIJE KAO TI! X"
+    ]
+  },
+  {
+    "id": "volim-te",
+    "title": "Volim Te",
+    "slug": "volim-te",
+    "fileName": "Volim Te.json",
+    "stanzaCount": 6,
+    "preview": "SLAVA, SLAVA TEBI, OČE, / STVORITELJU SVEMIRA I ZEMLJE",
+    "categories": [
+      "Meditativne"
+    ],
+    "massSections": [
+      "Klanjanje"
+    ],
+    "stanzas": [
+      "SLAVA, SLAVA TEBI, OČE,\nSTVORITELJU SVEMIRA I ZEMLJE\nSVE, ZEMLJE SVE.\nSLAVA, SLAVA TEBI, OČE, ŠTO\nTOLIKO LJUBIO SI CIJELI SVIJET,\nCIJELI SVIJET.",
+      "PJEVAM, U VISINE PRUŽAM\nRUKE, PODIŽEM SVOJ GLAS DA\nČUJU SVI DA SI NAJVEĆI.\nPLEŠEM JER ME RADOST\nISPUNJAVA, SRCE VJERUJE I\nJEZIK PRIZNAJE, VOLIM TE!",
+      "SLAVA, SLAVA TEBI, KRISTE,\nZA SVE ŠTO UČINIO SI ZA\nMENE, ZA MENE.\nSLAVA, SLAVA TEBI, KRISTE,\nŠTO U TEBI IMAM ŽIVOT,\nIMAM SVE, IMAM SVE.",
+      "PJEVAM, U VISINE PRUŽAM\nRUKE, PODIŽEM SVOJ GLAS DA\nČUJU SVI DA SI NAJVEĆI.\nPLEŠEM JER ME RADOST\nISPUNJAVA, SRCE VJERUJE I\nJEZIK PRIZNAJE, VOLIM TE!",
+      "VOLIM TE, VOLIM TE, VOLIM TE,\nVOLIM TE! 3X",
+      "PJEVAM, U VISINE PRUŽAM\nRUKE, PODIŽEM SVOJ GLAS DA\nČUJU SVI DA SI NAJVEĆI.\nPLEŠEM JER ME RADOST\nISPUNJAVA, SRCE VJERUJE I\nJEZIK PRIZNAJE, VOLIM TE!"
+    ]
+  },
+  {
+    "id": "za-jedno-molim-gospodina",
+    "title": "Za jedno molim Gospodina",
+    "slug": "za-jedno-molim-gospodina",
+    "fileName": "Za jedno molim Gospodina.json",
+    "stanzaCount": 1,
+    "preview": "ZA JEDNO MOLIM GOSPODINA: / DA ŽIVIM U DOMU GOSPODNJEM!",
+    "categories": [],
+    "massSections": [
+      "Otpjevni psalam"
+    ],
+    "stanzas": [
+      "ZA JEDNO MOLIM GOSPODINA:\nDA ŽIVIM U DOMU GOSPODNJEM!"
+    ]
+  },
+  {
+    "id": "zahvali",
+    "title": "Zahvali",
+    "slug": "zahvali",
+    "fileName": "Zahvali.json",
+    "stanzaCount": 1,
+    "preview": "ZAHVALI SRCEM PREPUNIM, ZAHVALI / OCU SVETOMU, ZAHVALI JER TI JE DAO",
+    "categories": [],
+    "massSections": [
+      "Pričesna"
+    ],
+    "stanzas": [
+      "ZAHVALI SRCEM PREPUNIM, ZAHVALI\nOCU SVETOMU, ZAHVALI JER TI JE DAO\nISUSA, SINA SVOG. 2X\n\nI SAD NEKA SLAB KLIČE: „JA SAM JAK!”\nA SIROMAH: „JA SAM BOGAT!”\nZBOG ONOG ŠTO MI BOG UČINI. 2X\nZAHVALI!"
+    ]
+  },
+  {
+    "id": "zastiti-me-majko",
+    "title": "Zaštiti me majko",
+    "slug": "zastiti-me-majko",
+    "fileName": "Zaštiti me majko.json",
+    "stanzaCount": 3,
+    "preview": "MARIJO, MAJKO, ZAR JOŠ SUZE / PROLIJEVAŠ?",
+    "categories": [
+      "Marijanske"
+    ],
+    "massSections": [
+      "Završna"
+    ],
+    "stanzas": [
+      "MARIJO, MAJKO, ZAR JOŠ SUZE\nPROLIJEVAŠ?\nRADI MOJIH GORKIH GRIJEHA,\nSVOGA SINA DARIVAŠ.\nMARIJO, MAJKO, IZVOR LJUBAVI\nPOKAŽI MI,\nDA U NJEMU PRONAĐEM ISKRU\nPRAVE LJUBAVI.",
+      "MOLITVOM SVOJOM U RANE\nKRISTA SAKRIJ ME,\nDA SE SJETIM ŽRTVE KRIŽA,\nTEBI CIJELA PREDAM SE.\nZAŠTITI ME, MAJKO!\nZAŠTITI ME!",
+      "ZAŠTITI ME, MAJKO, SVOJOM\nLJUBAVLJU POVEDI ME! MILOSTI\nPUNA, SVOME SINU PREDAJ ME!\nVODI ME, MAJKO, DA SVE MU\nRANE POLJUBIM, DA MI\nOPROSTI GRIJEHE, PRIMI ŽRTVU\nLJUBAVI. VODI ME, MAJKO!\nZAŠTITI ME! 2X"
+    ]
+  },
+  {
+    "id": "zauvijek",
+    "title": "Zauvijek",
+    "slug": "zauvijek",
+    "fileName": "Zauvijek.json",
+    "stanzaCount": 8,
+    "preview": "NA NEBU SUZA TRAG / I SUNCE UGASLO",
+    "categories": [
+      "Slavljenje"
+    ],
+    "massSections": [],
+    "stanzas": [
+      "NA NEBU SUZA TRAG\nI SUNCE UGASLO\nKAD SPASITELJ JE SVIJETA PAO.\nNA KRIŽU VISI ON,\nZA NAS KRV PROLIJEVA,\nTEŽINA SVAKOG GRIJEHA\nNAD NJIM JE.",
+      "ISPUŠTA ZADNJI DAH\nKAD NEBO UTIHNE,\nSIN BOŽJI POLOŽEN\nU TAMU JE.\nU GROBU PODIŽE\nPROTIV SMRTI RAT\nI SNAGA PAKLA\nSLOMLJENA JE.",
+      "SVA ZEMLJA UZDRHTA\nI GROB SE OTVORI,\nTA LJUBAV NE DA SE\nNADVLADATI.\nO, SMRTI GDJE SI SAD?\nNAŠ USKRSNULI KRALJ\nSAD POBJEDU ODNOSI!",
+      "ON ZAUVIJEK JE PROSLAVLJEN,\nON ZAUVIJEK JE UZVIŠEN,\nON ZAUVIJEK JE S NAMA,\nON JE ŽIV,\nON JE ŽIV!",
+      "SVA ZEMLJA UZDRHTA\nI GROB SE OTVORI,\nTA LJUBAV NE DA SE\nNADVLADATI.\nO, SMRTI GDJE SI SAD?\nNAŠ USKRSNULI KRALJ\nSAD POBJEDU ODNOSI!",
+      "ON ZAUVIJEK JE PROSLAVLJEN,\nON ZAUVIJEK JE UZVIŠEN,\nON ZAUVIJEK JE S NAMA,\nON JE ŽIV,\nON JE ŽIV 2X!",
+      "PJEVAJ ALELUJA,\nPJEVAJ ALELUJA,\nPJEVAJ ALELUJA\nJER JANJE USKRSNU! X",
+      "ON ZAUVIJEK JE PROSLAVLJEN,\nON ZAUVIJEK JE UZVIŠEN,\nON ZAUVIJEK JE S NAMA,\nON JE ŽIV,\nON JE ŽIV 2X!"
+    ]
+  },
+  {
+    "id": "zdravo-djevo",
+    "title": "Zdravo Djevo",
+    "slug": "zdravo-djevo",
+    "fileName": "Zdravo Djevo.json",
+    "stanzaCount": 4,
+    "preview": "ZDRAVO, DJEVO, / SVIH MILOSTI PUNA,",
+    "categories": [
+      "Marijanske"
+    ],
+    "massSections": [
+      "Završna"
+    ],
+    "stanzas": [
+      "ZDRAVO, DJEVO,\nSVIH MILOSTI PUNA,\nVJEČNOG SUNCA OGRNU TE SJAJ.\nOKO ČELA\nZVJEZDANA TI KRUNA,\nISPOD NOGU\nSTENJE PAKLA ZMAJ.",
+      "RAJSKA DJEVO, KRALJICE HRVATA,\nNAŠA MAJKO, NAŠA ZORO ZLATA,\nODANIH TI SRCA PRIMI DAR,\nPRIMI ČISTE LJUBAVI NAM ŽAR. 2X",
+      "BLAŽENA SI,\nJERBO SVA SI ČISTA,\nZMIJIN DAH NE OKUŽI TI GRUD!\nZVIJEZDA SREĆE\nI NAMA DA BLISTA,\nNOĆI GRIJEHA MRAK\nRASPRŠI HUD!",
+      "RAJSKA DJEVO, KRALJICE HRVATA,\nNAŠA MAJKO, NAŠA ZORO ZLATA,\nODANIH TI SRCA PRIMI DAR,\nPRIMI ČISTE LJUBAVI NAM ŽAR. 2X"
+    ]
+  },
+  {
+    "id": "zdravo-marijo-sjajna-zornice",
+    "title": "Zdravo Marijo, sjajna zornice",
+    "slug": "zdravo-marijo-sjajna-zornice",
+    "fileName": "Zdravo Marijo, sjajna zornice.json",
+    "stanzaCount": 5,
+    "preview": "ZDRAVO MARIJO, SJAJNA / ZORNICE ŠTO MI JUTROM",
+    "categories": [
+      "Marijanske"
+    ],
+    "massSections": [
+      "Završna"
+    ],
+    "stanzas": [
+      "ZDRAVO MARIJO, SJAJNA\nZORNICE ŠTO MI JUTROM\nLJUBAV BUDIŠ, ŠTO MI SRCE\nRADUJEŠ.\nZDRAVO PREDIVNA, ZVIJEZDO\nJUTARNJA, TI MI NUDIŠ DIO\nNEBA, RADOST TVOGA\nOSMIJEHA.",
+      "U TIŠINU MOGA SRCA UĐI, KAD\nZAZOVEM, MARIJO, TI IME.\nI KAD TVOJA NJEŽNOST SKINE\nVEO ZIME, NOVU RADOST OPET\nTI PROBUDI.",
+      "ZDRAVO MARIJO, SJAJNA\nZORNICE ŠTO MI JUTROM\nLJUBAV BUDIŠ, ŠTO MI SRCE\nRADUJEŠ.\nZDRAVO PREDIVNA, ZVIJEZDO\nJUTARNJA, TI MI NUDIŠ DIO\nNEBA, RADOST TVOGA\nOSMIJEHA.",
+      "VODI ME U PREČISTE DUBINE,\nGDJE SE IZVOR ŽIVE VODE\nKRIJE. TAMO GDJE MI SRCE\nNIKAD BILO NIJE PA DA BUDEM\nDIO TE BLIZINE.",
+      "ZDRAVO MARIJO, SJAJNA\nZORNICE ŠTO MI JUTROM\nLJUBAV BUDIŠ, ŠTO MI SRCE\nRADUJEŠ.\nZDRAVO PREDIVNA, ZVIJEZDO\nJUTARNJA, TI MI NUDIŠ DIO\nNEBA, RADOST TVOGA\nOSMIJEHA."
     ]
   }
 ]
