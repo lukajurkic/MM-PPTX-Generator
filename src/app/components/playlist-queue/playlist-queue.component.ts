@@ -215,10 +215,9 @@ import { Song } from '../../models/song.model';
     :host {
       display: flex;
       flex-direction: column;
-      flex: 1;
       width: 100%;
       min-width: 0;
-      height: 100%;
+      height: auto;
     }
 
     .queue-card {
@@ -227,8 +226,9 @@ import { Song } from '../../models/song.model';
       border-radius: var(--radius-lg);
       display: flex;
       flex-direction: column;
-      height: 100%;
-      min-height: 520px;
+      height: auto;
+      min-height: auto;
+      max-height: calc(100vh - 110px);
       overflow: hidden;
       box-shadow: var(--shadow-md);
       width: 100%;
@@ -326,7 +326,8 @@ import { Song } from '../../models/song.model';
     }
 
     .queue-body {
-      flex: 1;
+      flex: 1 1 auto;
+      min-height: 0;
       overflow-y: auto;
       padding: 14px 16px;
       display: flex;
@@ -334,20 +335,19 @@ import { Song } from '../../models/song.model';
     }
 
     .empty-queue-state {
-      flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 40px 20px;
+      padding: 24px 16px;
       text-align: center;
-      gap: 12px;
+      gap: 10px;
       color: var(--text-muted);
     }
 
     .empty-icon-wrap {
-      width: 56px;
-      height: 56px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       background: var(--bg-surface-elevated);
       border: 1px solid var(--border-default);
@@ -358,12 +358,12 @@ import { Song } from '../../models/song.model';
     }
 
     .empty-icon-wrap svg {
-      width: 28px;
-      height: 28px;
+      width: 24px;
+      height: 24px;
     }
 
     .empty-title {
-      font-size: 1.05rem;
+      font-size: 1rem;
       color: var(--text-secondary);
       font-weight: 600;
     }
@@ -371,7 +371,7 @@ import { Song } from '../../models/song.model';
     .empty-desc {
       font-size: 13px;
       max-width: 320px;
-      line-height: 1.5;
+      line-height: 1.45;
     }
 
     .empty-desc strong {
@@ -677,6 +677,12 @@ import { Song } from '../../models/song.model';
 
     @keyframes spin {
       to { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 900px) {
+      .queue-card {
+        max-height: none;
+      }
     }
   `]
 })
