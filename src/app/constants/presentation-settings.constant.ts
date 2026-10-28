@@ -108,3 +108,60 @@ export const DEFAULT_PRESENTATION_SETTINGS: Readonly<PresentationSettings> = {
   logoScalePercent: 100,
   logoTransparency: 35
 };
+
+/**
+ * Checks whether current presentation settings match repository defaults
+ */
+export function arePresentationSettingsDefault(settings: PresentationSettings): boolean {
+  if (settings.aspectRatio !== DEFAULT_PRESENTATION_SETTINGS.aspectRatio) {
+    return false;
+  }
+  if (settings.blankSlideBetweenSongs !== DEFAULT_PRESENTATION_SETTINGS.blankSlideBetweenSongs) {
+    return false;
+  }
+  if (settings.blankSlideStartEnd !== DEFAULT_PRESENTATION_SETTINGS.blankSlideStartEnd) {
+    return false;
+  }
+  if (settings.fontFamily !== DEFAULT_PRESENTATION_SETTINGS.fontFamily) {
+    return false;
+  }
+  if (settings.autoFontSize !== DEFAULT_PRESENTATION_SETTINGS.autoFontSize) {
+    return false;
+  }
+  if (!settings.autoFontSize && settings.fontSizeOverride !== DEFAULT_PRESENTATION_SETTINGS.fontSizeOverride) {
+    return false;
+  }
+  if (settings.textColor.trim().toLowerCase() !== DEFAULT_PRESENTATION_SETTINGS.textColor.toLowerCase()) {
+    return false;
+  }
+  if (settings.backgroundColor.trim().toLowerCase() !== DEFAULT_PRESENTATION_SETTINGS.backgroundColor.toLowerCase()) {
+    return false;
+  }
+  if (settings.showSideTitle !== DEFAULT_PRESENTATION_SETTINGS.showSideTitle) {
+    return false;
+  }
+  if (settings.showSideTitle) {
+    if (settings.sideTitleFontFamily !== DEFAULT_PRESENTATION_SETTINGS.sideTitleFontFamily) {
+      return false;
+    }
+    if (settings.sideTitleFontSize !== DEFAULT_PRESENTATION_SETTINGS.sideTitleFontSize) {
+      return false;
+    }
+    if (settings.sideTitleHorizontalOffsetCm !== DEFAULT_PRESENTATION_SETTINGS.sideTitleHorizontalOffsetCm) {
+      return false;
+    }
+  }
+  if (settings.showLogo !== DEFAULT_PRESENTATION_SETTINGS.showLogo) {
+    return false;
+  }
+  if (settings.showLogo) {
+    if (settings.logoScalePercent !== DEFAULT_PRESENTATION_SETTINGS.logoScalePercent) {
+      return false;
+    }
+    if (settings.logoTransparency !== DEFAULT_PRESENTATION_SETTINGS.logoTransparency) {
+      return false;
+    }
+  }
+  return true;
+}
+

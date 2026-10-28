@@ -40,7 +40,7 @@ import { APP_VERSION } from '../environments/version';
 
             <!-- Right Panel: Playlist Presentation Queue (Task 4.3) -->
             <section class="panel-section" aria-label="Presentation Playlist Queue">
-              <app-playlist-queue></app-playlist-queue>
+              <app-playlist-queue (openSettings)="onSettingsOpen()"></app-playlist-queue>
             </section>
           </div>
         </div>

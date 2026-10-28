@@ -1,5 +1,6 @@
-import { Injectable, signal } from '@angular/core';
+import { computed, Injectable, signal } from '@angular/core';
 import {
+  arePresentationSettingsDefault,
   DEFAULT_PRESENTATION_SETTINGS,
   PresentationSettings,
   SUPPORTED_FONTS
@@ -15,6 +16,13 @@ export class SettingsService {
    * Reactive signal holding current presentation configuration
    */
   readonly settings = signal<PresentationSettings>(this.loadInitialSettings());
+
+  /**
+   * Computed boolean indicating if all presentation preferences match repository defaults
+   */
+  readonly isDefault = computed<boolean>(() => {
+    return arePresentationSettingsDefault(this.settings());
+  });
 
   /**
    * Updates one or more settings and automatically persists to localStorage
@@ -133,3 +141,4 @@ export class SettingsService {
     }
   }
 }
+

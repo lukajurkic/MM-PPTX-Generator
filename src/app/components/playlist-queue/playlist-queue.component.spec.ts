@@ -141,5 +141,40 @@ describe('PlaylistQueueComponent', () => {
     fixture.detectChanges();
     expect(component.totalEstimatedSlides()).toBe(8);
   });
+
+  it('should display default status indicator when settings are at default values', () => {
+    settingsService.resetToDefaults();
+    fixture.detectChanges();
+
+    const compiled = fixture.nativeElement as HTMLElement;
+    const statusBtn = compiled.querySelector('.settings-status-btn') as HTMLButtonElement;
+    expect(statusBtn).toBeTruthy();
+    expect(statusBtn.classList.contains('custom')).toBeFalse();
+    expect(statusBtn.querySelector('.default-indicator')).toBeTruthy();
+    expect(statusBtn.textContent).toContain('Primijenjene su zadane postavke prezentacije');
+  });
+
+  it('should display custom status indicator when custom settings are active', () => {
+    settingsService.updateSettings({ aspectRatio: '4x3' });
+    fixture.detectChanges();
+
+    const compiled = fixture.nativeElement as HTMLElement;
+    const statusBtn = compiled.querySelector('.settings-status-btn') as HTMLButtonElement;
+    expect(statusBtn).toBeTruthy();
+    expect(statusBtn.classList.contains('custom')).toBeTrue();
+    expect(statusBtn.querySelector('.custom-indicator')).toBeTruthy();
+    expect(statusBtn.textContent).toContain('Aktivne su prilagođene postavke prezentacije');
+  });
+
+  it('should emit openSettings event when status button is clicked', () => {
+    spyOn(component.openSettings, 'emit');
+    const compiled = fixture.nativeElement as HTMLElement;
+    const statusBtn = compiled.querySelector('.settings-status-btn') as HTMLButtonElement;
+    expect(statusBtn).toBeTruthy();
+
+    statusBtn.click();
+    expect(component.openSettings.emit).toHaveBeenCalled();
+  });
 });
+
 

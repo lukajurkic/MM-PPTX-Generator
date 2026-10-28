@@ -44,5 +44,20 @@ describe('AppComponent', () => {
     expect(component.isSettingsDrawerOpen()).toBeFalse();
     expect(fixture.nativeElement.querySelector('app-settings-drawer')).toBeFalsy();
   });
+
+  it('should open settings drawer when playlist queue emits openSettings', () => {
+    expect(component.isSettingsDrawerOpen()).toBeFalse();
+
+    const compiled = fixture.nativeElement as HTMLElement;
+    const playlistQueueStatusBtn = compiled.querySelector('app-playlist-queue .settings-status-btn') as HTMLButtonElement;
+    expect(playlistQueueStatusBtn).toBeTruthy();
+
+    playlistQueueStatusBtn.click();
+    fixture.detectChanges();
+
+    expect(component.isSettingsDrawerOpen()).toBeTrue();
+    expect(compiled.querySelector('app-settings-drawer')).toBeTruthy();
+  });
 });
+
 

@@ -53,7 +53,7 @@ pptx_web_maker/
 │   ├── app/
 │   │   ├── components/
 │   │   │   ├── header/                # Top navigation, brand title, language toggle (HR/EN), settings & request triggers
-│   │   │   ├── playlist-queue/        # Right panel: selected songs, reordering, slide count, PPTX export
+│   │   │   ├── playlist-queue/        # Right panel: selected songs, reordering, slide count, PPTX export, settings status confirmation
 │   │   │   ├── request-song-modal/    # Accessible modal for submitting song requests via email
 │   │   │   ├── settings-drawer/       # Slide-over drawer for presentation aspect ratio, fonts, colors, and logo
 │   │   │   ├── song-catalog/          # Left panel: live search, multi-category & mass section filter chips

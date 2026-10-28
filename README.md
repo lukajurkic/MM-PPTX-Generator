@@ -24,7 +24,7 @@ A modern, responsive web application for choral groups, worship teams, church co
 
 - **🔍 Two-Panel Interactive Workspace:**
   - **Left Panel (Song Catalog):** Real-time text search (by title or lyrics), live song counters, and multi-filter dropdown chips for **Categories** (e.g. *Slavljenje*, *Zahvala*, *Klanjanje*) and **Mass Sections** (*Ulazna*, *Pričesna*, *Završna*, etc.).
-  - **Right Panel (Presentation Queue):** Reorder songs via Move Up / Move Down buttons, remove items, clear playlist, and view live slide metrics (lyric slides vs. total estimated slides).
+  - **Right Panel (Presentation Queue):** Reorder songs via Move Up / Move Down buttons, remove items, clear playlist, view live slide metrics (lyric slides vs. total estimated slides), and check active presentation preferences via a dynamic status indicator (confirming default settings or custom settings with 1-click access to the settings drawer).
 
 - **⚙️ Presentation Preferences / Settings Drawer:**
   - Accessible via the **Settings (Postavke)** button in the header.

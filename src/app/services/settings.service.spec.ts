@@ -70,9 +70,32 @@ describe('SettingsService', () => {
     expect(localStorage.getItem(SETTINGS_STORAGE_KEY)).toBeNull();
   });
 
+  it('should compute isDefault correctly when settings are default or modified', () => {
+    expect(service.isDefault()).toBeTrue();
+
+    service.updateSettings({ aspectRatio: '4x3' });
+    expect(service.isDefault()).toBeFalse();
+
+    service.resetToDefaults();
+    expect(service.isDefault()).toBeTrue();
+
+    service.updateSettings({ backgroundColor: '#111827' });
+    expect(service.isDefault()).toBeFalse();
+
+    service.updateSettings({ backgroundColor: '#000000' });
+    expect(service.isDefault()).toBeTrue();
+
+    service.updateSettings({ showLogo: false });
+    expect(service.isDefault()).toBeFalse();
+
+    service.resetToDefaults();
+    expect(service.isDefault()).toBeTrue();
+  });
+
   it('should fall back gracefully if stored JSON in localStorage is invalid', () => {
     localStorage.setItem(SETTINGS_STORAGE_KEY, 'invalid-json{{{');
     const freshService = new SettingsService();
     expect(freshService.settings()).toEqual(DEFAULT_PRESENTATION_SETTINGS);
   });
 });
+

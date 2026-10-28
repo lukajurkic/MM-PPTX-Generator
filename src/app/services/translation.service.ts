@@ -50,6 +50,8 @@ export interface Translations {
   exportPresentationBtn: string;
   generatingPresentationBtn: string;
   presentationSettingsHint: string;
+  settingsDefaultStatus: string;
+  settingsCustomStatus: string;
   exportSuccessMsg: (filename: string) => string;
   exportErrorEmpty: string;
   exportErrorGeneric: string;
@@ -183,6 +185,8 @@ const TRANSLATIONS_HR: Translations = {
   exportPresentationBtn: 'Generiraj i preuzmi prezentaciju (.pptx)',
   generatingPresentationBtn: 'Generiranje prezentacije u tijeku...',
   presentationSettingsHint: '16:9 Široki zaslon • Crna pozadina • Bijeli podebljani Verdana font',
+  settingsDefaultStatus: 'Primijenjene su zadane postavke prezentacije',
+  settingsCustomStatus: 'Aktivne su prilagođene postavke prezentacije',
   exportSuccessMsg: (filename: string) => `Prezentacija "${filename}" uspješno preuzeta!`,
   exportErrorEmpty: 'Lista je prazna. Odaberite barem jednu pjesmu.',
   exportErrorGeneric: 'Neuspjelo generiranje PowerPoint prezentacije.',
@@ -305,6 +309,8 @@ const TRANSLATIONS_EN: Translations = {
   exportPresentationBtn: 'Generate & Download Presentation (.pptx)',
   generatingPresentationBtn: 'Generating PowerPoint Presentation...',
   presentationSettingsHint: '16:9 Widescreen • Solid Black Background • White Bold Verdana',
+  settingsDefaultStatus: 'Default presentation settings applied',
+  settingsCustomStatus: 'Custom presentation settings active',
   exportSuccessMsg: (filename: string) => `Successfully generated "${filename}"!`,
   exportErrorEmpty: 'Playlist is empty. Please select at least one song.',
   exportErrorGeneric: 'Failed to generate PowerPoint file.',
