@@ -2,41 +2,60 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
-// Preset options from src/app/constants/song-metadata.constants.ts
-const KNOWN_MASS_SECTIONS = [
-  'Ulazna',
-  'Gospodine smiluj se',
-  'Slava',
-  'Otpjevni psalam',
-  'Aleluja',
-  'Prinosna',
-  'Svet',
-  'Jaganjče Božji',
-  'Pričesna',
-  'Zahvalna',
-  'Završna',
-  'Klanjanje'
-];
+/**
+ * Loads known categories and mass sections from static JSON metadata file.
+ * Falls back to default options if static file is not present.
+ */
+function loadKnownMetadata(rootDir = path.join(__dirname, '..')) {
+  const metaPath = path.join(rootDir, 'src', 'assets', 'songs', 'metadata-options.json');
+  if (fs.existsSync(metaPath)) {
+    try {
+      const data = JSON.parse(fs.readFileSync(metaPath, 'utf-8'));
+      return {
+        categories: Array.isArray(data.categories) ? data.categories : [],
+        massSections: Array.isArray(data.massSections) ? data.massSections : []
+      };
+    } catch (e) {
+      // fallback on read error
+    }
+  }
 
-const KNOWN_CATEGORIES = [
-  'Slavljenje',
-  'Zahvala',
-  'Meditativne',
-  'Došašće',
-  'Božićne',
-  'Korizmene',
-  'Uskrsne',
-  'Marijanske',
-  'Duhu Svetom',
-  'Međugorska misa',
-  'Marijina misa',
-  'Fides',
-  'Misa sv. Andrije',
-  'Misa fra Ivan Matić',
-  'Prigodne',
-  'Mladi',
-  'Opće'
-];
+  return {
+    categories: [
+      'Božićne',
+      'Došašće',
+      'Duhu Svetom',
+      'Fides',
+      'Korizmene',
+      'Marijanske',
+      'Marijina misa',
+      'Meditativne',
+      'Međugorska misa',
+      'Misa fra Ivan Matić',
+      'Misa sv. Andrije',
+      'Mladi',
+      'Opće',
+      'Prigodne',
+      'Slavljenje',
+      'Uskrsne',
+      'Zahvala'
+    ],
+    massSections: [
+      'Aleluja',
+      'Gospodine smiluj se',
+      'Jaganjče Božji',
+      'Klanjanje',
+      'Otpjevni psalam',
+      'Pričesna',
+      'Prinosna',
+      'Slava',
+      'Svet',
+      'Ulazna',
+      'Zahvalna',
+      'Završna'
+    ]
+  };
+}
 
 /**
  * Extracts a section value from an issue markdown body by trying multiple possible header patterns.
@@ -130,7 +149,7 @@ function slugify(text) {
 /**
  * Main parser function that transforms issue data into song JSON metadata
  */
-function parseSongRequest(issue) {
+function parseSongRequest(issue, options = {}) {
   const issueTitle = (issue.title || '').trim();
   const issueBody = issue.body || '';
 
@@ -225,9 +244,10 @@ function parseSongRequest(issue) {
     'Napomene'
   ]);
 
-  // Check for unknown/new categories and mass sections
-  const newMassSections = massSections.filter(m => !KNOWN_MASS_SECTIONS.includes(m));
-  const newCategories = categories.filter(c => !KNOWN_CATEGORIES.includes(c));
+  // Check for unknown/new categories and mass sections against static metadata
+  const known = options.knownMetadata || loadKnownMetadata(options.rootDir);
+  const newMassSections = massSections.filter(m => !known.massSections.includes(m));
+  const newCategories = categories.filter(c => !known.categories.includes(c));
 
   return {
     title,
@@ -268,8 +288,8 @@ Closes #${issueNumber}
 
   if (parsed.hasNewMetadata) {
     body += `
-### ⚠️ Nove kategorije / dijelovi mise (Manual Attention Required)
-Detektirane su nove kategorije ili dijelovi mise koji nisu na popisu zadanih opcija:
+### ✨ Automatski dodane nove kategorije i dijelovi mise
+Zahtjev za pjesmu sadrži nove oznake koje su automatski dodane u biblioteku:
 `;
     if (parsed.newCategories.length > 0) {
       body += `- **Nove kategorije:** \`${parsed.newCategories.join('`, `')}\`\n`;
@@ -278,7 +298,7 @@ Detektirane su nove kategorije ili dijelovi mise koji nisu na popisu zadanih opc
       body += `- **Novi dijelovi mise:** \`${parsed.newMassSections.join('`, `')}\`\n`;
     }
     body += `
-> *Napomena: Za sada su ove oznake zabilježene u .json datoteci pjesme, no nisu u unaprijed definiranim konstantama. Potrebno ih je po potrebi ručno dodati u \`src/app/constants/song-metadata.constants.ts\` u zasebnom zadatku.*\n`;
+> *Automatski su ažurirane datoteke \`src/assets/songs/metadata-options.json\`, \`categories.json\` i \`mass-sections.json\`.*\n`;
   }
 
   body += `
@@ -405,6 +425,5 @@ module.exports = {
   processSongRequest,
   sanitizeFileName,
   slugify,
-  KNOWN_CATEGORIES,
-  KNOWN_MASS_SECTIONS
+  loadKnownMetadata
 };

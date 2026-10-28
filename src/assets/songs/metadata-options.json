@@ -1,5 +1,6 @@
 {
   "categories": [
+    "Božićne",
     "Došašće",
     "Duhu Svetom",
     "Fides",
@@ -10,9 +11,12 @@
     "Međugorska misa",
     "Misa fra Ivan Matić",
     "Misa sv. Andrije",
+    "Mladi",
+    "Opće",
     "Prigodne",
     "Slavljenje",
-    "Uskrsne"
+    "Uskrsne",
+    "Zahvala"
   ],
   "massSections": [
     "Aleluja",
@@ -20,11 +24,12 @@
     "Jaganjče Božji",
     "Klanjanje",
     "Otpjevni psalam",
-    "Prinosna",
     "Pričesna",
+    "Prinosna",
     "Slava",
     "Svet",
     "Ulazna",
+    "Zahvalna",
     "Završna"
   ]
 }

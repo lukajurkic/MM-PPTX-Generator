@@ -7,18 +7,25 @@ const {
   processSongRequest,
   sanitizeFileName,
   slugify,
-  KNOWN_CATEGORIES,
-  KNOWN_MASS_SECTIONS
+  loadKnownMetadata
 } = require('./process-song-request');
 
-console.log('🧪 Testing Song Request to Pull Request Workflow...');
+console.log('🧪 Testing Song Request & Automated Metadata Workflow (Feature 24)...');
 
 // Test 1: Sanitize File Name & Slugify
 assert.strictEqual(sanitizeFileName('Milost: (Amazing Grace) / Nova?'), 'Milost (Amazing Grace) Nova');
 assert.strictEqual(slugify('Agnus Dei (Međugorska misa)'), 'agnus-dei-medugorska-misa');
 console.log('  ✓ File name sanitization and slugification passed');
 
-// Test 2: Parse Standard GitHub Issue Form
+// Test 2: Load Known Metadata from Static JSON
+const staticMeta = loadKnownMetadata();
+assert.ok(Array.isArray(staticMeta.categories), 'categories should be an array');
+assert.ok(Array.isArray(staticMeta.massSections), 'massSections should be an array');
+assert.ok(staticMeta.categories.includes('Slavljenje'), 'Should include Slavljenje');
+assert.ok(staticMeta.massSections.includes('Ulazna'), 'Should include Ulazna');
+console.log(`  ✓ Loaded static metadata: ${staticMeta.categories.length} categories, ${staticMeta.massSections.length} mass sections`);
+
+// Test 3: Parse Standard GitHub Issue Form
 const sampleIssueFormBody = `
 ### Naziv pjesme (Song Title)
 
@@ -74,7 +81,7 @@ assert.strictEqual(parsed1.newCategories.length, 0);
 assert.strictEqual(parsed1.newMassSections.length, 0);
 console.log('  ✓ Standard GitHub Issue Form parsing passed');
 
-// Test 3: Detection of New / Unknown Categories and Mass Sections
+// Test 4: Detection of New / Unknown Categories and Mass Sections
 const sampleIssueWithNewMetadata = `
 ### Naziv pjesme (Song Title)
 
@@ -120,14 +127,15 @@ const prBody = buildPullRequestBody(parsed2, {
 });
 
 assert.ok(prBody.includes('Closes #43'), 'PR body should link to and close the issue');
-assert.ok(prBody.includes('### ⚠️ Nove kategorije / dijelovi mise (Manual Attention Required)'));
+assert.ok(prBody.includes('### ✨ Automatski dodane nove kategorije i dijelovi mise'));
 assert.ok(prBody.includes('Uvodni obred'));
 assert.ok(prBody.includes('Taize'));
 assert.ok(prBody.includes('Susret mladih'));
+assert.ok(prBody.includes('metadata-options.json'));
 assert.ok(prBody.includes('Ovaj Pull Request možete pregledati i odobriti jednim dodirom'));
-console.log('  ✓ New metadata detection and PR body formatting passed');
+console.log('  ✓ New metadata detection and automated PR body formatting passed');
 
-// Test 4: Freeform Issue Body fallback
+// Test 5: Freeform Issue Body fallback
 const parsedFreeform = parseSongRequest({
   title: '[Pjesma]: Gospodin je pastir moj',
   body: 'Gospodin je pastir moj:\nni u čem ja ne oskudijevam;\nna poljanama zelenim\non mi daje odmora.\n\nNa vrutke me tihane vodi\ni krijepi dušu moju.',
@@ -139,18 +147,23 @@ assert.strictEqual(parsedFreeform.title, 'Gospodin je pastir moj');
 assert.strictEqual(parsedFreeform.stanzaCount, 2);
 console.log('  ✓ Freeform issue fallback parsing passed');
 
-// Test 5: End-to-end Process in temporary sandbox
-const tempOutputDir = path.join(__dirname, '..', 'songs');
-const testSongTitle = 'Unit Test Song 2026';
+// Test 6: End-to-end Process with Automated Metadata Addition in static JSON
+const songsDir = path.join(__dirname, '..', 'songs');
+const metaDir = path.join(__dirname, '..', 'src', 'assets', 'songs');
+const metaOptionsPath = path.join(metaDir, 'metadata-options.json');
+const categoriesPath = path.join(metaDir, 'categories.json');
+const massSectionsPath = path.join(metaDir, 'mass-sections.json');
+
+const testSongTitle = 'Pjesma s novim kategorijama';
 const testFileName = `${testSongTitle}.json`;
-const testFilePath = path.join(tempOutputDir, testFileName);
+const testFilePath = path.join(songsDir, testFileName);
 
 try {
   const result = processSongRequest({
     issue: {
       number: 999,
       title: testSongTitle,
-      body: sampleIssueFormBody,
+      body: sampleIssueWithNewMetadata,
       user: { login: 'testbot' }
     }
   });
@@ -158,26 +171,52 @@ try {
   assert.strictEqual(result.success, true);
   assert.ok(fs.existsSync(result.filePath), 'Song JSON should be created on disk');
 
+  // Verify created song content
   const createdContent = JSON.parse(fs.readFileSync(result.filePath, 'utf-8'));
-  assert.strictEqual(createdContent.title, 'Kralj kraljeva (King of Kings)');
-  assert.strictEqual(createdContent.stanzas.length, 2);
-  assert.deepStrictEqual(createdContent.categories, ['Slavljenje']);
-  assert.deepStrictEqual(createdContent.massSections, ['Ulazna', 'Zahvalna']);
-  console.log('  ✓ End-to-end processSongRequest execution and file generation passed');
+  assert.strictEqual(createdContent.title, 'Pjesma susreta');
+  assert.ok(createdContent.categories.includes('Taize'));
+  assert.ok(createdContent.massSections.includes('Uvodni obred'));
+
+  // Verify static JSON files were automatically updated with the new metadata
+  const updatedMetaOptions = JSON.parse(fs.readFileSync(metaOptionsPath, 'utf-8'));
+  const updatedCategories = JSON.parse(fs.readFileSync(categoriesPath, 'utf-8'));
+  const updatedMassSections = JSON.parse(fs.readFileSync(massSectionsPath, 'utf-8'));
+
+  assert.ok(updatedMetaOptions.categories.includes('Taize'), 'metadata-options.json must include new category Taize');
+  assert.ok(updatedMetaOptions.categories.includes('Susret mladih'), 'metadata-options.json must include Susret mladih');
+  assert.ok(updatedMetaOptions.massSections.includes('Uvodni obred'), 'metadata-options.json must include Uvodni obred');
+
+  assert.ok(updatedCategories.includes('Taize'), 'categories.json must include new category Taize');
+  assert.ok(updatedMassSections.includes('Uvodni obred'), 'mass-sections.json must include new mass section Uvodni obred');
+
+  console.log('  ✓ Automated categories and mass sections creation in static JSON passed');
 } finally {
-  // Clean up any test song file generated
+  // Clean up test song file
   const testFiles = [
     testFilePath,
-    path.join(tempOutputDir, 'Kralj kraljeva (King of Kings).json')
+    path.join(songsDir, 'Pjesma susreta.json')
   ];
   for (const f of testFiles) {
     if (fs.existsSync(f)) {
       fs.unlinkSync(f);
     }
   }
-  // Re-run index-songs to restore clean index.json
+
+  // Restore clean static metadata files and index
+  const cleanCategories = [
+    'Božićne', 'Došašće', 'Duhu Svetom', 'Fides', 'Korizmene', 'Marijanske',
+    'Marijina misa', 'Meditativne', 'Međugorska misa', 'Misa fra Ivan Matić',
+    'Misa sv. Andrije', 'Mladi', 'Opće', 'Prigodne', 'Slavljenje', 'Uskrsne', 'Zahvala'
+  ];
+  const cleanMassSections = [
+    'Aleluja', 'Gospodine smiluj se', 'Jaganjče Božji', 'Klanjanje', 'Otpjevni psalam',
+    'Pričesna', 'Prinosna', 'Slava', 'Svet', 'Ulazna', 'Zahvalna', 'Završna'
+  ];
+  fs.writeFileSync(metaOptionsPath, JSON.stringify({ categories: cleanCategories, massSections: cleanMassSections }, null, 2) + '\n', 'utf-8');
+  fs.writeFileSync(categoriesPath, JSON.stringify(cleanCategories, null, 2) + '\n', 'utf-8');
+  fs.writeFileSync(massSectionsPath, JSON.stringify(cleanMassSections, null, 2) + '\n', 'utf-8');
+
   require('./index-songs');
 }
 
-console.log('🎉 All Song Request to Pull Request workflow tests passed successfully!');
-
+console.log('🎉 All Automated Categories and MassSections creation tests passed successfully!');
