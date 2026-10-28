@@ -3,6 +3,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { PlaylistQueueComponent } from './playlist-queue.component';
 import { SongService } from '../../services/song.service';
 import { PptxExportService } from '../../services/pptx-export.service';
+import { SettingsService } from '../../services/settings.service';
 import { Song } from '../../models/song.model';
 
 describe('PlaylistQueueComponent', () => {
@@ -10,6 +11,7 @@ describe('PlaylistQueueComponent', () => {
   let fixture: ComponentFixture<PlaylistQueueComponent>;
   let songService: SongService;
   let pptxService: PptxExportService;
+  let settingsService: SettingsService;
 
   const sampleSong1: Song = {
     id: 'amazing-grace',
@@ -38,14 +40,16 @@ describe('PlaylistQueueComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [PlaylistQueueComponent, HttpClientTestingModule],
-      providers: [SongService, PptxExportService]
+      providers: [SongService, PptxExportService, SettingsService]
     }).compileComponents();
 
     fixture = TestBed.createComponent(PlaylistQueueComponent);
     component = fixture.componentInstance;
     songService = TestBed.inject(SongService);
     pptxService = TestBed.inject(PptxExportService);
+    settingsService = TestBed.inject(SettingsService);
     songService.clearPlaylist();
+    settingsService.resetToDefaults();
     fixture.detectChanges();
   });
 
@@ -117,6 +121,25 @@ describe('PlaylistQueueComponent', () => {
 
     itemDetails.click();
     expect(songService.openLyrics).toHaveBeenCalledWith(sampleSong1);
+  });
+
+  it('should adjust totalEstimatedSlides when blank slide settings change', () => {
+    songService.addToPlaylist(sampleSong1);
+    songService.addToPlaylist(sampleSong2);
+    fixture.detectChanges();
+
+    // Default: 8 lyrics + 3 blank slides (intro, between, outro) = 11 slides
+    expect(component.totalEstimatedSlides()).toBe(11);
+
+    // Disable blank slide between songs: 8 lyrics + 2 blank slides (intro, outro) = 10 slides
+    settingsService.updateSettings({ blankSlideBetweenSongs: false });
+    fixture.detectChanges();
+    expect(component.totalEstimatedSlides()).toBe(10);
+
+    // Disable all blank slides: 8 lyrics + 0 blank slides = 8 slides
+    settingsService.updateSettings({ blankSlideStartEnd: false });
+    fixture.detectChanges();
+    expect(component.totalEstimatedSlides()).toBe(8);
   });
 });
 

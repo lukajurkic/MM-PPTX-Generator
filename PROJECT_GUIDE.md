@@ -52,12 +52,14 @@ pptx_web_maker/
 ├── src/
 │   ├── app/
 │   │   ├── components/
-│   │   │   ├── header/                # Top navigation, brand title, language toggle (HR/EN), request modal trigger
+│   │   │   ├── header/                # Top navigation, brand title, language toggle (HR/EN), settings & request triggers
 │   │   │   ├── playlist-queue/        # Right panel: selected songs, reordering, slide count, PPTX export
 │   │   │   ├── request-song-modal/    # Accessible modal for submitting song requests via email
+│   │   │   ├── settings-drawer/       # Slide-over drawer for presentation aspect ratio, fonts, colors, and logo
 │   │   │   ├── song-catalog/          # Left panel: live search, multi-category & mass section filter chips
 │   │   │   └── song-lyrics-modal/     # Modal for previewing full lyrics, stanzas, copy to clipboard, add to queue
 │   │   ├── constants/
+│   │   │   ├── presentation-settings.constant.ts # Types, defaults, presets for presentation settings
 │   │   │   ├── skac-logo.constant.ts  # Base64 pre-encoded SKAC white logo for PPTX slides
 │   │   │   └── song-metadata.constants.ts # Presets for Categories and Mass Sections
 │   │   ├── models/
@@ -66,6 +68,7 @@ pptx_web_maker/
 │   │   ├── services/
 │   │   │   ├── pptx-export.service.ts # PowerPoint presentation builder and exporter
 │   │   │   ├── request-song.service.ts# FormSubmit / Web3Forms email integration
+│   │   │   ├── settings.service.ts    # Presentation preferences & localStorage persistence manager
 │   │   │   ├── song.service.ts        # Primary state manager (songs, search, filters, playlist, lyrics modal)
 │   │   │   └── translation.service.ts # Dual-language manager (Croatian primary, English secondary)
 │   │   ├── app.component.ts           # Root layout: Two-panel grid, modal slots
@@ -151,22 +154,33 @@ Each song in `songs/` must be a valid JSON file with this format:
 
 ---
 
-## 6. PowerPoint Presentation Rules (`PptxExportService`)
+## 6. PowerPoint Presentation Rules & Customization (`PptxExportService` & `SettingsService`)
 
-When building presentations in `PptxExportService.buildPresentation(playlist)`:
+When building presentations in `PptxExportService.buildPresentation(playlist, options)`:
 
-1. **Slide Dimensions:** 16:9 Widescreen (`LAYOUT_16x9`, 10.0 inches wide by 5.625 inches high).
-2. **Background:** Solid black (`#000000`) on all slides.
-3. **Leading Blank Slide:** 1 solid black slide at the very start of the presentation.
-4. **Lyric Slides (per stanza):**
-   - **Lyrics:** Centered, Verdana font, **ALL CAPS**, bold, white (`#FFFFFF`), with auto-fit sizing (32–44pt based on line count and length). Box: `x: 5%`, `y: 5%`, `w: 86%`, `h: 90%`.
-   - **Rotated Song Title:** Placed along the right edge, rotated 270° counter-clockwise, subtle slate gray (`#64748B`), vertically centered (`x: 7.45`, `y: 2.61`, `w: 4.4`, `h: 0.4`, `rotate: 270`).
-   - **SKAC Logo:** Embedded white logo in bottom-right corner (`x: 9.32`, `y: 4.93`, `w: 0.56`, `h: 0.59`), subtle watermark transparency (`transparency: 35`).
-5. **Transition Blank Slides:** 1 solid black slide between distinct songs.
-6. **Trailing Blank Slide:** 1 solid black slide at the very end of the presentation.
+1. **Slide Dimensions & Layout:**
+   - **16:9 Widescreen (Default):** `LAYOUT_16x9`, 10.0" wide by 5.625" high.
+   - **4:3 Standard:** `LAYOUT_4x3`, 10.0" wide by 7.5" high (for older church projectors).
+2. **Background Color:** Solid color (default `#000000`, customizable with color picker and presets like `#074d97`).
+3. **Typography & Styling:**
+   - **Font:** Cross-platform font families (Verdana, Arial, Calibri, Trebuchet MS, Tahoma, Georgia, Times New Roman).
+   - **Font Sizing:** Smart auto-fit sizing (32–44pt) or fixed font size override slider (32–48pt).
+   - **Color:** Solid color (default `#FFFFFF`, customizable with presets).
+   - **Layout Box:** `x: 5%`, `y: 5%`, `w: 86%`, `h: 90%`, centered, bold, ALL CAPS.
+4. **Rotated Side Title:**
+   - Toggle on or off (`showSideTitle`).
+   - Vertically centered on right edge, rotated 270° counter-clockwise.
+   - Configurable font family and font size (8–18pt).
+   - Configurable horizontal offset in centimeters (0.0 cm to 3.0 cm from edge).
+5. **SKAC Logo Watermark:**
+   - Toggle on or off (`showLogo`).
+   - Positioned in bottom-right corner relative to active slide dimensions.
+   - Configurable scaling slider (50% to 180%) and transparency slider (0% to 90%, default 35%).
+6. **Blank Slide Transitions:**
+   - Toggle intro/outro blank slides (`blankSlideStartEnd`).
+   - Toggle blank transition slides between distinct songs (`blankSlideBetweenSongs`).
 7. **Total Slide Count Formula:**
-   $$\text{Total Slides} = \text{Total Stanzas} + (N + 1) \text{ Blank Slides}$$
-   *(where $N$ is the number of distinct songs in the playlist).*
+   $$\text{Total Slides} = \text{Lyric Slides} + \text{Active Blank Slides}$$
 
 ---
 
@@ -186,7 +200,7 @@ When building presentations in `PptxExportService.buildPresentation(playlist)`:
   ```bash
   npm test
   ```
-- **Test coverage:** 57 tests across 8 test suites (`*.spec.ts`).
+- **Test coverage:** 77 tests across 10 test suites (`*.spec.ts`).
 - **PR Check Workflow (`.github/workflows/pr-check.yml`):**
   - Triggered on PRs targeting `main` and `master`.
   - Executes: `npm ci` $\rightarrow$ `npx tsc --noEmit` $\rightarrow$ `npm test` $\rightarrow$ `npm run build`.

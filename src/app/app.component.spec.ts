@@ -30,5 +30,19 @@ describe('AppComponent', () => {
     const versionEl = compiled.querySelector('.footer-version');
     expect(versionEl?.textContent).toMatch(/^v\d+\.\d+\.\d+/);
   });
+
+  it('should open and close the settings drawer when requested', () => {
+    expect(component.isSettingsDrawerOpen()).toBeFalse();
+
+    component.onSettingsOpen();
+    fixture.detectChanges();
+    expect(component.isSettingsDrawerOpen()).toBeTrue();
+    expect(fixture.nativeElement.querySelector('app-settings-drawer')).toBeTruthy();
+
+    component.onSettingsClose();
+    fixture.detectChanges();
+    expect(component.isSettingsDrawerOpen()).toBeFalse();
+    expect(fixture.nativeElement.querySelector('app-settings-drawer')).toBeFalsy();
+  });
 });
 

@@ -124,6 +124,35 @@ describe('PptxExportService', () => {
     expect(slides[2]._slideObjects.length).toBe(3);
   });
 
+  it('should support custom presentation settings (4:3 layout, custom colors, fonts, and toggles)', () => {
+    const pres = service.buildPresentation(mockPlaylist, {
+      settings: {
+        aspectRatio: '4x3',
+        blankSlideBetweenSongs: false,
+        blankSlideStartEnd: false,
+        fontFamily: 'Arial',
+        fontSizeOverride: 42,
+        autoFontSize: false,
+        textColor: '#fcd34d',
+        backgroundColor: '#074d97',
+        showSideTitle: false,
+        sideTitleFontFamily: 'Calibri',
+        sideTitleFontSize: 14,
+        sideTitleHorizontalOffsetCm: 1.5,
+        showLogo: true,
+        logoScalePercent: 120,
+        logoTransparency: 50
+      }
+    });
+
+    expect(pres.layout).toBe('LAYOUT_4x3');
+    const slides = (pres as any).slides;
+    // Without blank slides: 2 stanzas + 1 stanza = 3 slides
+    expect(slides.length).toBe(3);
+    // Each slide has: lyric text + logo (side title is false) = 2 objects
+    expect(slides[0]._slideObjects.length).toBe(2);
+  });
+
   it('should throw an error if attempting to export an empty playlist', async () => {
     await expectAsync(service.downloadPresentation([])).toBeRejectedWithError(
       'Playlist is empty. Please select at least one song.'

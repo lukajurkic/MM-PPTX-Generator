@@ -54,6 +54,14 @@ describe('TranslationService', () => {
     expect(service.currentLang()).toBe('hr');
   });
 
+  it('should have settings translations available in both languages', () => {
+    expect(service.t().settingsBtn).toBe('Postavke prezentacije');
+    expect(service.t().aspectRatio169Label).toBe('16:9 Široki zaslon');
+    service.setLanguage('en');
+    expect(service.t().settingsBtn).toBe('Presentation Settings');
+    expect(service.t().aspectRatio169Label).toBe('16:9 Widescreen');
+  });
+
   it('should persist selected language preference in localStorage', () => {
     service.setLanguage('en');
     expect(localStorage.getItem('pptx_maker_lang')).toBe('en');

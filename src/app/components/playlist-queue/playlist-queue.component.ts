@@ -2,6 +2,7 @@ import { Component, computed, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SongService } from '../../services/song.service';
 import { PptxExportService } from '../../services/pptx-export.service';
+import { SettingsService } from '../../services/settings.service';
 import { TranslationService } from '../../services/translation.service';
 import { Song } from '../../models/song.model';
 
@@ -95,7 +96,7 @@ import { Song } from '../../models/song.model';
                   <h4 class="item-title">{{ item.song.title }}</h4>
                   <div class="item-meta">
                     <span class="meta-tag">{{ t().slidesCount(item.song.stanzaCount) }}</span>
-                    @if (!isLast) {
+                    @if (!isLast && settings().blankSlideBetweenSongs) {
                       <span class="transition-tag">{{ t().blankTransitionTag }}</span>
                     }
                   </div>
@@ -556,10 +557,12 @@ import { Song } from '../../models/song.model';
 export class PlaylistQueueComponent {
   private readonly songService = inject(SongService);
   private readonly pptxService = inject(PptxExportService);
+  private readonly settingsService = inject(SettingsService);
   readonly i18n = inject(TranslationService);
 
   readonly t = this.i18n.t;
   readonly playlist = this.songService.playlist;
+  readonly settings = this.settingsService.settings;
   readonly isGenerating = signal<boolean>(false);
   readonly feedbackMessage = signal<string | null>(null);
   readonly feedbackType = signal<'success' | 'error'>('success');
@@ -569,11 +572,18 @@ export class PlaylistQueueComponent {
     return this.playlist().reduce((sum, item) => sum + item.song.stanzaCount, 0);
   });
 
-  // Computed total slides count: Lyric slides + blank slide before first song, between songs, and after last song
+  // Computed total slides count: Lyric slides + blank slide before first song, between songs, and after last song (respecting settings)
   readonly totalEstimatedSlides = computed(() => {
     const items = this.playlist();
     if (items.length === 0) return 0;
-    const blankSlides = items.length + 1;
+    const s = this.settings();
+    let blankSlides = 0;
+    if (s.blankSlideStartEnd) {
+      blankSlides += 2;
+    }
+    if (s.blankSlideBetweenSongs && items.length > 1) {
+      blankSlides += (items.length - 1);
+    }
     return this.lyricSlidesCount() + blankSlides;
   });
 
@@ -605,7 +615,9 @@ export class PlaylistQueueComponent {
     this.feedbackMessage.set(null);
 
     try {
-      const filename = await this.pptxService.downloadPresentation(items);
+      const filename = await this.pptxService.downloadPresentation(items, {
+        settings: this.settings()
+      });
       this.feedbackType.set('success');
       this.feedbackMessage.set(this.t().exportSuccessMsg(filename));
 

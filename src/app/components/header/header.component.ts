@@ -65,6 +65,21 @@ import { APP_VERSION } from '../../../environments/version';
             <span>{{ t().songsAvailable(songCount()) }}</span>
           </div>
 
+          <!-- Presentation Settings Drawer Button (Task 10) -->
+          <button
+            type="button"
+            class="btn btn-secondary settings-btn"
+            (click)="onOpenSettings()"
+            [attr.aria-label]="t().settingsBtn"
+            [title]="t().settingsBtn"
+          >
+            <svg class="btn-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+            <span class="settings-btn-text">{{ t().settingsBtn }}</span>
+          </button>
+
           <!-- Request New Song Button -->
           <button
             type="button"
@@ -220,6 +235,12 @@ import { APP_VERSION } from '../../../environments/version';
       height: 14px;
     }
 
+    .settings-btn {
+      padding: 8px 14px;
+      font-size: 13px;
+      gap: 7px;
+    }
+
     .request-btn {
       padding: 8px 16px;
       font-size: 13px;
@@ -247,6 +268,11 @@ import { APP_VERSION } from '../../../environments/version';
         display: none;
       }
 
+      .settings-btn-text {
+        display: none;
+      }
+
+      .settings-btn,
       .request-btn {
         padding: 6px 12px;
         font-size: 12px;
@@ -260,6 +286,7 @@ export class HeaderComponent {
   readonly appVersion = APP_VERSION;
 
   @Output() openRequestModal = new EventEmitter<void>();
+  @Output() openSettings = new EventEmitter<void>();
 
   // Translation bundle
   readonly t = this.i18n.t;
@@ -273,5 +300,9 @@ export class HeaderComponent {
 
   onRequestNewSong(): void {
     this.openRequestModal.emit();
+  }
+
+  onOpenSettings(): void {
+    this.openSettings.emit();
   }
 }

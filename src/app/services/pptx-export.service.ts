@@ -2,9 +2,15 @@ import { Injectable } from '@angular/core';
 import pptxgen from 'pptxgenjs';
 import { PlaylistItem } from '../models/song.model';
 import { SKAC_LOGO_BASE64 } from '../constants/skac-logo.constant';
+import {
+  DEFAULT_PRESENTATION_SETTINGS,
+  PresentationSettings
+} from '../constants/presentation-settings.constant';
 
 export interface PptxExportOptions {
   filename?: string;
+  settings?: PresentationSettings;
+  /** Legacy compatibility options */
   includeBlankSlides?: boolean;
   includeBlankSlideBetweenSongs?: boolean;
   includeLogo?: boolean;
@@ -31,64 +37,112 @@ export class PptxExportService {
   }
 
   /**
-   * Builds the configured PptxGenJS instance for the playlist:
-   * - 16:9 widescreen layout with solid black background
-   * - Bold centered white lyrics in Verdana font
-   * - Rotated 90° counter-clockwise (270°) muted song title along the right edge
-   * - SKAC logo in the bottom-right corner of each lyric slide (slightly transparent)
-   * - Clean solid black blank slide before the first song, between songs, and after the last song
+   * Builds the configured PptxGenJS instance for the playlist using presentation settings:
+   * - Configurable aspect ratio (16:9 widescreen or 4:3 standard)
+   * - Configurable solid background color & text typography/color
+   * - Configurable font face and fixed/auto sizing (32–48pt)
+   * - Rotated 90° CCW (270°) side song title with configurable font, size, and horizontal offset
+   * - SKAC logo in bottom-right corner with configurable scale and transparency
+   * - Configurable blank slide transitions (intro/outro and between songs)
    */
   buildPresentation(playlist: PlaylistItem[], options: PptxExportOptions = {}): pptxgen {
     const pres = new pptxgen();
-    pres.layout = 'LAYOUT_16x9';
 
-    const includeBlankSlides = options.includeBlankSlides !== false && options.includeBlankSlideBetweenSongs !== false;
-    const includeLogo = options.includeLogo !== false;
-    const includeSideTitle = options.includeSideTitle !== false;
+    // Resolve active settings with fallback to defaults
+    const settings: PresentationSettings = {
+      ...DEFAULT_PRESENTATION_SETTINGS,
+      ...(options.settings || {})
+    };
 
-    // Insert a leading blank solid black slide before the first song
-    if (includeBlankSlides && playlist.length > 0) {
-      const leadingSlide = pres.addSlide();
-      leadingSlide.background = { color: this.defaultBackgroundColor };
+    // Honor legacy options if explicitly provided
+    if (options.includeBlankSlides !== undefined) {
+      settings.blankSlideStartEnd = options.includeBlankSlides;
+      settings.blankSlideBetweenSongs = options.includeBlankSlides;
+    }
+    if (options.includeBlankSlideBetweenSongs !== undefined) {
+      settings.blankSlideBetweenSongs = options.includeBlankSlideBetweenSongs;
+    }
+    if (options.includeLogo !== undefined) {
+      settings.showLogo = options.includeLogo;
+    }
+    if (options.includeSideTitle !== undefined) {
+      settings.showSideTitle = options.includeSideTitle;
     }
 
+    // Configure Slide Dimensions & Layout based on Aspect Ratio
+    let slideWidth = 10.0;
+    let slideHeight = 5.625;
+
+    if (settings.aspectRatio === '4x3') {
+      pres.layout = 'LAYOUT_4x3';
+      slideWidth = 10.0;
+      slideHeight = 7.5;
+    } else {
+      pres.layout = 'LAYOUT_16x9';
+      slideWidth = 10.0;
+      slideHeight = 5.625;
+    }
+
+    // Clean colors (strip '#' for PptxGenJS)
+    const bgColor = (settings.backgroundColor || '#000000').replace(/^#/, '');
+    const textColor = (settings.textColor || '#ffffff').replace(/^#/, '');
+    const lyricsFontFace = settings.fontFamily || this.defaultFontFace;
+
+    // 1. Insert leading blank slide before the first song if enabled
+    if (settings.blankSlideStartEnd && playlist.length > 0) {
+      const leadingSlide = pres.addSlide();
+      leadingSlide.background = { color: bgColor };
+    }
+
+    // 2. Iterate through playlist and stanzas
     playlist.forEach((item, songIndex) => {
       const song = item.song;
 
       // Add one slide per stanza
       song.stanzas.forEach(stanza => {
         const slide = pres.addSlide();
-        slide.background = { color: this.defaultBackgroundColor };
+        slide.background = { color: bgColor };
 
-        // 1. Main lyric typography: Verdana, ALL CAPS, bold, white, centered
+        // Main lyric typography
         const allCapsText = stanza.toUpperCase();
-        const fontSize = this.calculateOptimalFontSize(stanza);
+        const fontSize = settings.autoFontSize
+          ? this.calculateOptimalFontSize(stanza)
+          : settings.fontSizeOverride;
 
         slide.addText(allCapsText, {
           x: '5%',
           y: '5%',
           w: '86%',
           h: '90%',
-          fontFace: this.defaultFontFace,
+          fontFace: lyricsFontFace,
           fontSize,
-          color: this.defaultTextColor,
+          color: textColor,
           bold: true,
           align: 'center',
           valign: 'middle',
           breakLine: true
         });
 
-        // 2. Rotated song title on the right edge: grayed out, rotated 90° to the left (270°), vertically centered
-        if (includeSideTitle && song.title) {
+        // Rotated side song title on the right edge
+        if (settings.showSideTitle && song.title) {
           const titleText = song.title.toUpperCase();
-          const titleFontSize = titleText.length > 30 ? 10 : 12;
+          const titleFont = settings.sideTitleFontFamily || this.defaultFontFace;
+          const titleFontSize = settings.sideTitleFontSize || (titleText.length > 30 ? 10 : 12);
+
+          // Convert horizontal offset from cm to inches (1 inch = 2.54 cm)
+          // Default baseline X on 10" width slide is 7.45 (with width 4.4, rotated 270)
+          const offsetInches = (settings.sideTitleHorizontalOffsetCm || 0) / 2.54;
+          const titleX = Math.max(0, 7.45 - offsetInches);
+
+          // Center vertically depending on slide height (16:9 = 5.625", 4:3 = 7.5")
+          const titleY = slideHeight / 2 - 0.2;
 
           slide.addText(titleText, {
-            x: 7.45,
-            y: 2.61,
+            x: Number(titleX.toFixed(3)),
+            y: Number(titleY.toFixed(3)),
             w: 4.4,
             h: 0.4,
-            fontFace: this.defaultFontFace,
+            fontFace: titleFont,
             fontSize: titleFontSize,
             color: this.sideTitleTextColor,
             bold: false,
@@ -98,30 +152,42 @@ export class PptxExportService {
           });
         }
 
-        // 3. SKAC logo in bottom-right corner of the slide, moved more to right and down, slightly transparent
-        if (includeLogo) {
+        // Corner SKAC logo watermark
+        if (settings.showLogo) {
+          const scale = (settings.logoScalePercent || 100) / 100;
+          const logoW = Number((0.56 * scale).toFixed(3));
+          const logoH = Number((0.59 * scale).toFixed(3));
+
+          // Position in bottom-right corner relative to slide bounds
+          const marginRight = 0.12;
+          const marginBottom = 0.105;
+          const logoX = Math.max(0, Number((slideWidth - logoW - marginRight).toFixed(3)));
+          const logoY = Math.max(0, Number((slideHeight - logoH - marginBottom).toFixed(3)));
+
+          const transparency = Math.max(0, Math.min(90, settings.logoTransparency ?? 35));
+
           slide.addImage({
             data: SKAC_LOGO_BASE64,
-            x: 9.32,
-            y: 4.93,
-            w: 0.56,
-            h: 0.59,
-            transparency: 35
+            x: logoX,
+            y: logoY,
+            w: logoW,
+            h: logoH,
+            transparency
           });
         }
       });
 
-      // Insert a single blank solid black slide between distinct songs (clean transition without logo/title)
-      if (includeBlankSlides && songIndex < playlist.length - 1) {
+      // Insert blank slide between distinct songs if enabled
+      if (settings.blankSlideBetweenSongs && songIndex < playlist.length - 1) {
         const blankSlide = pres.addSlide();
-        blankSlide.background = { color: this.defaultBackgroundColor };
+        blankSlide.background = { color: bgColor };
       }
     });
 
-    // Insert a trailing blank solid black slide after the last song
-    if (includeBlankSlides && playlist.length > 0) {
+    // 3. Insert trailing blank slide after the last song if enabled
+    if (settings.blankSlideStartEnd && playlist.length > 0) {
       const trailingSlide = pres.addSlide();
-      trailingSlide.background = { color: this.defaultBackgroundColor };
+      trailingSlide.background = { color: bgColor };
     }
 
     return pres;
@@ -146,7 +212,7 @@ export class PptxExportService {
   }
 
   /**
-   * Dynamic font sizing (36–44pt) with auto-fit logic based on line count and line length
+   * Dynamic font sizing (32–44pt) with auto-fit logic based on line count and line length
    */
   calculateOptimalFontSize(stanza: string): number {
     const lines = stanza.split('\n').map(l => l.trim()).filter(Boolean);
