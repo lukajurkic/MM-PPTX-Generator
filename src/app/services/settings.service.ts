@@ -99,7 +99,7 @@ export class SettingsService {
 
     // Text bold & italic
     if (typeof s.bold !== 'boolean') {
-      s.bold = true;
+      s.bold = false;
     }
     if (typeof s.italic !== 'boolean') {
       s.italic = false;
@@ -114,7 +114,7 @@ export class SettingsService {
 
     // Side title font size (8pt to 20pt)
     if (typeof s.sideTitleFontSize !== 'number' || isNaN(s.sideTitleFontSize)) {
-      s.sideTitleFontSize = 11;
+      s.sideTitleFontSize = 10;
     } else {
       s.sideTitleFontSize = Math.max(8, Math.min(20, Math.round(s.sideTitleFontSize)));
     }
@@ -128,14 +128,14 @@ export class SettingsService {
 
     // Logo scale percent (50% to 180%)
     if (typeof s.logoScalePercent !== 'number' || isNaN(s.logoScalePercent)) {
-      s.logoScalePercent = 100;
+      s.logoScalePercent = 135;
     } else {
       s.logoScalePercent = Math.max(50, Math.min(180, Math.round(s.logoScalePercent)));
     }
 
     // Logo transparency (0% to 90%)
     if (typeof s.logoTransparency !== 'number' || isNaN(s.logoTransparency)) {
-      s.logoTransparency = 35;
+      s.logoTransparency = 25;
     } else {
       s.logoTransparency = Math.max(0, Math.min(90, Math.round(s.logoTransparency)));
     }

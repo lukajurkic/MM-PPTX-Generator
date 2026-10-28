@@ -101,20 +101,20 @@ export const DEFAULT_PRESENTATION_SETTINGS: Readonly<PresentationSettings> = {
   aspectRatio: '16x9',
   blankSlideBetweenSongs: true,
   blankSlideStartEnd: true,
-  fontFamily: 'Verdana',
-  bold: true,
+  fontFamily: 'Times New Roman',
+  bold: false,
   italic: false,
   fontSizeOverride: 40,
   autoFontSize: true,
   textColor: '#ffffff',
   backgroundColor: '#000000',
   showSideTitle: true,
-  sideTitleFontFamily: 'Verdana',
-  sideTitleFontSize: 11,
+  sideTitleFontFamily: 'Times New Roman',
+  sideTitleFontSize: 10,
   sideTitleHorizontalOffsetCm: 0.0,
   showLogo: true,
-  logoScalePercent: 100,
-  logoTransparency: 35
+  logoScalePercent: 135,
+  logoTransparency: 25
 };
 
 /**

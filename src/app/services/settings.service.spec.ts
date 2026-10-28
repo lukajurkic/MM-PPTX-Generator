@@ -26,7 +26,7 @@ describe('SettingsService', () => {
       textColor: '#fcd34d',
       backgroundColor: '#074d97',
       showLogo: false,
-      bold: false,
+      bold: true,
       italic: true
     });
 
@@ -35,7 +35,7 @@ describe('SettingsService', () => {
     expect(current.textColor).toBe('#fcd34d');
     expect(current.backgroundColor).toBe('#074d97');
     expect(current.showLogo).toBe(false);
-    expect(current.bold).toBe(false);
+    expect(current.bold).toBe(true);
     expect(current.italic).toBe(true);
 
     // Verify localStorage persistence
@@ -43,7 +43,7 @@ describe('SettingsService', () => {
     expect(stored.aspectRatio).toBe('4x3');
     expect(stored.textColor).toBe('#fcd34d');
     expect(stored.showLogo).toBe(false);
-    expect(stored.bold).toBe(false);
+    expect(stored.bold).toBe(true);
     expect(stored.italic).toBe(true);
   });
 
@@ -97,7 +97,7 @@ describe('SettingsService', () => {
     service.resetToDefaults();
     expect(service.isDefault()).toBeTrue();
 
-    service.updateSettings({ bold: false });
+    service.updateSettings({ bold: true });
     expect(service.isDefault()).toBeFalse();
 
     service.resetToDefaults();

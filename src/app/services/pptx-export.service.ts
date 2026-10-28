@@ -21,7 +21,7 @@ export interface PptxExportOptions {
   providedIn: 'root'
 })
 export class PptxExportService {
-  readonly defaultFontFace = 'Verdana';
+  readonly defaultFontFace = 'Times New Roman';
   readonly defaultBackgroundColor = '000000';
   readonly defaultTextColor = 'FFFFFF';
   readonly sideTitleTextColor = '64748B'; // Muted subtle slate gray
@@ -88,6 +88,12 @@ export class PptxExportService {
     const textColor = (settings.textColor || '#ffffff').replace(/^#/, '');
     const lyricsFontFace = settings.fontFamily || this.defaultFontFace;
 
+    // Calculate uniform auto-fit font size across all stanzas in the presentation
+    // so that the entire text has a consistent, uniform font size based on the longest stanza
+    const effectiveFontSize = settings.autoFontSize
+      ? this.calculateUniformAutoFontSize(playlist)
+      : settings.fontSizeOverride;
+
     // 1. Insert leading blank slide before the first song if enabled
     if (settings.blankSlideStartEnd && playlist.length > 0) {
       const leadingSlide = pres.addSlide();
@@ -105,9 +111,6 @@ export class PptxExportService {
 
         // Main lyric typography
         const allCapsText = stanza.toUpperCase();
-        const fontSize = settings.autoFontSize
-          ? this.calculateOptimalFontSize(stanza)
-          : settings.fontSizeOverride;
 
         slide.addText(allCapsText, {
           x: '5%',
@@ -115,9 +118,9 @@ export class PptxExportService {
           w: '86%',
           h: '90%',
           fontFace: lyricsFontFace,
-          fontSize,
+          fontSize: effectiveFontSize,
           color: textColor,
-          bold: settings.bold ?? true,
+          bold: settings.bold ?? false,
           italic: settings.italic ?? false,
           align: 'center',
           valign: 'middle',
@@ -210,6 +213,19 @@ export class PptxExportService {
     const pres = this.buildPresentation(playlist, options);
     await pres.writeFile({ fileName: filename });
     return filename;
+  }
+
+  /**
+   * Calculates uniform font size across all stanzas in the entire playlist.
+   * Finds the smallest font size required by any stanza so that the longest stanza
+   * fits cleanly, and applies that uniform font size to the whole presentation.
+   */
+  calculateUniformAutoFontSize(playlist: PlaylistItem[]): number {
+    const allStanzas = playlist.flatMap(item => item.song.stanzas);
+    if (allStanzas.length === 0) {
+      return 40;
+    }
+    return Math.min(...allStanzas.map(s => this.calculateOptimalFontSize(s)));
   }
 
   /**

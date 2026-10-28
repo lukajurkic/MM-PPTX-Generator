@@ -56,11 +56,11 @@ describe('SettingsDrawerComponent', () => {
   });
 
   it('should toggle bold and italic text styles', () => {
-    expect(settingsService.settings().bold).toBeTrue();
+    expect(settingsService.settings().bold).toBeFalse();
     expect(settingsService.settings().italic).toBeFalse();
 
     component.onToggleBold();
-    expect(settingsService.settings().bold).toBeFalse();
+    expect(settingsService.settings().bold).toBeTrue();
 
     component.onToggleItalic();
     expect(settingsService.settings().italic).toBeTrue();
@@ -68,7 +68,7 @@ describe('SettingsDrawerComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     const previewLyrics = compiled.querySelector('.preview-lyrics') as HTMLElement;
-    expect(previewLyrics.style.fontWeight).toBe('normal');
+    expect(previewLyrics.style.fontWeight).toBe('bold');
     expect(previewLyrics.style.fontStyle).toBe('italic');
   });
 
