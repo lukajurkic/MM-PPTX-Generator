@@ -298,6 +298,15 @@ import { Song } from '../../models/song.model';
     </div>
   `,
   styles: [`
+    :host {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      width: 100%;
+      min-width: 0;
+      height: 100%;
+    }
+
     .catalog-card {
       background-color: var(--bg-surface);
       border: 1px solid var(--border-subtle);
@@ -308,6 +317,8 @@ import { Song } from '../../models/song.model';
       min-height: 520px;
       overflow: hidden;
       box-shadow: var(--shadow-md);
+      width: 100%;
+      min-width: 0;
     }
 
     .catalog-header {

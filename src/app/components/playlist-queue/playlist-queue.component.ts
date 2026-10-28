@@ -212,6 +212,15 @@ import { Song } from '../../models/song.model';
     </div>
   `,
   styles: [`
+    :host {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      width: 100%;
+      min-width: 0;
+      height: 100%;
+    }
+
     .queue-card {
       background-color: var(--bg-surface);
       border: 1px solid var(--border-subtle);
@@ -222,6 +231,8 @@ import { Song } from '../../models/song.model';
       min-height: 520px;
       overflow: hidden;
       box-shadow: var(--shadow-md);
+      width: 100%;
+      min-width: 0;
     }
 
     .queue-header {
@@ -544,16 +555,31 @@ import { Song } from '../../models/song.model';
 
     .export-button {
       width: 100%;
-      padding: 13px 20px;
-      font-size: 15px;
+      min-width: 0;
+      max-width: 100%;
+      padding: 13px 16px;
+      font-size: 14.5px;
       font-weight: 700;
       letter-spacing: -0.01em;
       box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      line-height: 1.3;
+    }
+
+    .export-button span {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      min-width: 0;
     }
 
     .btn-svg-icon {
       width: 18px;
       height: 18px;
+      flex-shrink: 0;
     }
 
     .settings-status-btn {
@@ -562,6 +588,8 @@ import { Song } from '../../models/song.model';
       justify-content: center;
       gap: 8px;
       width: 100%;
+      min-width: 0;
+      max-width: 100%;
       padding: 7px 12px;
       border-radius: var(--radius-md);
       font-size: 11.5px;
@@ -572,6 +600,7 @@ import { Song } from '../../models/song.model';
       cursor: pointer;
       transition: all 0.2s ease;
       text-align: center;
+      overflow: hidden;
     }
 
     .settings-status-btn:hover {
@@ -618,6 +647,10 @@ import { Song } from '../../models/song.model';
       text-align: center;
       letter-spacing: 0.01em;
       line-height: 1.3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      min-width: 0;
     }
 
     .status-chevron {

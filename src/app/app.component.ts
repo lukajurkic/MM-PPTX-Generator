@@ -98,10 +98,11 @@ import { APP_VERSION } from '../environments/version';
 
     .two-panel-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       gap: 24px;
       width: 100%;
       flex: 1;
+      min-width: 0;
     }
 
     .panel-section {
@@ -109,6 +110,18 @@ import { APP_VERSION } from '../environments/version';
       min-height: 520px;
       display: flex;
       flex-direction: column;
+      width: 100%;
+      min-width: 0;
+    }
+
+    .panel-section app-song-catalog,
+    .panel-section app-playlist-queue {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      width: 100%;
+      min-width: 0;
+      height: 100%;
     }
 
     @media (max-width: 900px) {

@@ -151,7 +151,7 @@ describe('PlaylistQueueComponent', () => {
     expect(statusBtn).toBeTruthy();
     expect(statusBtn.classList.contains('custom')).toBeFalse();
     expect(statusBtn.querySelector('.default-indicator')).toBeTruthy();
-    expect(statusBtn.textContent).toContain('Primijenjene su zadane postavke prezentacije');
+    expect(statusBtn.textContent).toContain('Zadane postavke aktivne');
   });
 
   it('should display custom status indicator when custom settings are active', () => {
@@ -163,7 +163,7 @@ describe('PlaylistQueueComponent', () => {
     expect(statusBtn).toBeTruthy();
     expect(statusBtn.classList.contains('custom')).toBeTrue();
     expect(statusBtn.querySelector('.custom-indicator')).toBeTruthy();
-    expect(statusBtn.textContent).toContain('Aktivne su prilagođene postavke prezentacije');
+    expect(statusBtn.textContent).toContain('Prilagođene postavke aktivne');
   });
 
   it('should emit openSettings event when status button is clicked', () => {
